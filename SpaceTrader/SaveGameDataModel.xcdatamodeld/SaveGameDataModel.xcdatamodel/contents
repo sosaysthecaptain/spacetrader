@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Galaxy" syncable="YES"/>
+    <entity name="HighScores" syncable="YES"/>
+    <entity name="Player" syncable="YES"/>
+    <elements>
+        <element name="Player" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="Galaxy" positionX="-54" positionY="-9" width="128" height="45"/>
+        <element name="HighScores" positionX="-36" positionY="9" width="128" height="45"/>
+    </elements>
+</model>
