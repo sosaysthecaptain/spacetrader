@@ -296,7 +296,7 @@ class Encounter: NSObject, NSCoding {
         } else if type == EncounterType.spaceMonsterAttack {
             button1Text = ""
             button2Text = ""
-            button3Text = ""
+            button3Text = "" 
             button4Text = ""
             
             encounterText1 = ""
