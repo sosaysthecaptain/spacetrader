@@ -574,7 +574,7 @@ enum SpecialCargo: String {
     case sculpture = "A stolen plastic sculpture of a man holding some kind of light sword."
     case reactorBays = "**** bays of enriched fuel."
     case tribblesInfestation = "An infestation of tribbles."
-    case tribblesCute = "cute, furry tribble" 
+    case tribblesCute = "cute, furry tribble"
 }
 
 func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatusType {
