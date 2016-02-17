@@ -1259,7 +1259,7 @@ class Galaxy: NSObject, NSCoding {
         
         if player.credits < interest {
             canWeWarp = false
-            print("WARP CANCELLED ON THE BASIS OF INTEREST PAYMENTS")
+//            print("WARP CANCELLED ON THE BASIS OF INTEREST PAYMENTS")
         } else {
             player.credits -= interest
         }
@@ -1267,7 +1267,7 @@ class Galaxy: NSObject, NSCoding {
         // charge insurance, make sure player can pay
         if player.credits < player.insuranceCost {
             canWeWarp = false
-            print("WARP CANCELLED ON THE BASIS OF INSURANCE PAYMENT")
+//            print("WARP CANCELLED ON THE BASIS OF INSURANCE PAYMENT")
         } else {
             player.credits -= player.insuranceCost
         }
@@ -1281,12 +1281,12 @@ class Galaxy: NSObject, NSCoding {
             //player.specialEvents.setSpecialEvent()
             
             // warp!
-            print("warp function signing off on warp and passing control to journey")
+//            print("warp function signing off on warp and passing control to journey")
             currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
             currentJourney!.beginJourney()
             return true
         }
-        print("warp disallowed. Not enough fuel, or else something something like debt that I haven't implemented yet")
+//        print("warp disallowed. Not enough fuel, or else something something like debt that I haven't implemented yet")
         return false
     }
     

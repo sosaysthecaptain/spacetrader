@@ -43,8 +43,8 @@ class Journey: NSObject, NSCoding {
         // SHORT CIRCUIT, FOR TESTING PURPOSES ONLY
         //completeJourney()
         
-        print("**************************************************************")
-        print("WARP SEQUENCE INITIATED")
+//        print("**************************************************************")
+//        print("WARP SEQUENCE INITIATED")
         
         // go to WarpViewVC, pause momentarily
         
@@ -139,7 +139,7 @@ class Journey: NSObject, NSCoding {
             if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                 // mantis
                 mantis = true
-                print("MANTIS ENCOUNTER AT \(clicks) CLICKS")
+//                print("MANTIS ENCOUNTER AT \(clicks) CLICKS")
             }
         }
         
@@ -147,7 +147,7 @@ class Journey: NSObject, NSCoding {
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
         if pirate {
             encounterType = EncounterType.pirateAttack      // default
-            print("pirate encounter. Default is attack.")
+//            print("pirate encounter. Default is attack.")
             
             // if you're cloaked, they ignore you
             if player.commanderShip.cloaked {
@@ -169,55 +169,55 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if police {
-            print("default police interaction is ignore")
+//            print("default police interaction is ignore")
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
             if player.commanderShip.cloaked {
-                print("police are ignoring you because you're cloaked")
+//                print("police are ignoring you because you're cloaked")
                 encounterType = EncounterType.policeIgnore
             } else if player.policeRecord.rawValue < 4 {
-                print("you are a criminal. Entering that clause...")
+//                print("you are a criminal. Entering that clause...")
                 // if you're a criminal, the police will tend to attack
                 
                 // if you are heavily armed, something
                 
                 // unless you're impressive, they'll attack
                 if player.reputation.rawValue < 3 {
-                    print("you are a criminal, and not impressive enough for the police to be scared")
+//                    print("you are a criminal, and not impressive enough for the police to be scared")
                     encounterType = EncounterType.policeAttack
                 } else if Int(arc4random_uniform(8)) > (player.reputation.rawValue) { // rep / (1 + opponent.type) ?
-                    print("you are moderately scary, but dice roll determined they will attack you anyway")
+//                    print("you are moderately scary, but dice roll determined they will attack you anyway")
                     encounterType = EncounterType.policeAttack
                 } else if player.commanderShip.cloaked {
-                    print("you are a criminal, but cloaked. Police ignoring.")
+//                    print("you are a criminal, but cloaked. Police ignoring.")
                     encounterType = EncounterType.policeIgnore
                 } else {
-                    print("you are a scary criminal. Police fleeing")
+//                    print("you are a scary criminal. Police fleeing")
                     encounterType = EncounterType.policeFlee
                 }
                 // if dubious police will inspect you
             } else if player.policeRecord.rawValue <= 4 {
-                print("your police record is dubious, so you are getting inspected")
+//                print("your police record is dubious, so you are getting inspected")
                 encounterType = EncounterType.policeInspection
                 player.inspected = true
                 // if clean but not as high as lawful, 10% chance of inspection on normal
             } else if player.policeRecord.rawValue == 5 {
                 // clean police record gets 50% chance of inspection
-                print("your police record is clean. 50% chance of inspection.")
+//                print("your police record is clean. 50% chance of inspection.")
                 if (arc4random_uniform(10) < 5) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
             } else if player.policeRecord.rawValue < 5 {
 
-                print("your police record is lawful. 10% chance of inspection")
+//                print("your police record is lawful. 10% chance of inspection")
                 if (Int(arc4random_uniform(UInt32(12 - player.getDifficultyInt()))) < 1) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
             } else {
                 if (arc4random_uniform(40) == 1) && !player.inspected {
-                    print("your police record is great, but you're getting inspected anyway, on a 1 in 40 chance")
+//                    print("your police record is great, but you're getting inspected anyway, on a 1 in 40 chance")
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
@@ -226,13 +226,13 @@ class Journey: NSObject, NSCoding {
             // IMPLEMENT LATER, MUST INSTANTIATE OPPONENT SHIP HERE TO DO THAT
             
             if encounterType == EncounterType.policeIgnore && player.commanderShip.cloaked {
-                print("you are cloaked and the police are ignoring you. Encounter won't happen")
+//                print("you are cloaked and the police are ignoring you. Encounter won't happen")
                 encounterType = EncounterType.nullEncounter
             }
             
             // if the police are after you but your police record is less than criminal, they'll hail you to surrender instead of attacking
             if encounterType == EncounterType.policeAttack && player.policeRecord.rawValue > 2 {
-                print("police not attacking you because you're only a small time crook")
+//                print("police not attacking you because you're only a small time crook")
                 encounterType = EncounterType.policeSurrenderDemand
             }
             
@@ -243,6 +243,10 @@ class Journey: NSObject, NSCoding {
         } else if trader {
             currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
             currentEncounter!.beginEncounter()
+        } else if mantis {
+//            print("MANTIS")
+            currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
         }
         
         // I think this has to terminate here, otherwise it will just keep running
@@ -250,9 +254,9 @@ class Journey: NSObject, NSCoding {
         // very rare event
         if !pirate && !police && !trader && !mantis {
             if (player.days > 10) && (arc4random_uniform(1000) < 5) {
-                print("VERY RARE ENCOUNTER")
+//                print("VERY RARE ENCOUNTER")
             } else if player.commanderShip.justLootedMarieCeleste {
-                print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
+//                print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
                 player.commanderShip.justLootedMarieCeleste = false
             }
         }
@@ -321,7 +325,7 @@ class Journey: NSObject, NSCoding {
 //        print("seeing if system needs to be untracked.")
 //        print("trackedSystem: \(galaxy.trackedSystem)")
         if galaxy.currentSystem == galaxy.trackedSystem {
-            print("arriving at tracked system. Untracking system.")
+//            print("arriving at tracked system. Untracking system.")
             galaxy.trackedSystem = nil
         }
         

@@ -350,9 +350,9 @@ class Encounter: NSObject, NSCoding {
             encounterText1 = ""
             encounterText2 = ""
         } else if type == EncounterType.mantisAttack {
-            button1Text = ""
-            button2Text = ""
-            button3Text = ""
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Surrender"
             button4Text = ""
             
             encounterText1 = ""
@@ -404,7 +404,7 @@ class Encounter: NSObject, NSCoding {
             button3Text = ""
             button4Text = ""
         } else {
-            print("buttonSet not recognized")
+//            print("buttonSet not recognized")
         }
     }
     
@@ -502,10 +502,10 @@ class Encounter: NSObject, NSCoding {
         // if player is destroyed
         if player.commanderShip.hullPercentage <= 0 {
             if player.escapePod {
-                print("selecting escape pod")
+//                print("selecting escape pod")
                 outcome = "playerDestroyedEscapes"
             } else {
-                print("selecting no escape pod")
+//                print("selecting no escape pod")
                 outcome = "playerDestroyedKilled"
             }
         }
@@ -560,16 +560,15 @@ class Encounter: NSObject, NSCoding {
     }
     
     func ignore() {
-        print("IGNORE BUTTON PRESSED")
         concludeEncounter()
     }
     
     func plunder() {
-        print("plunder called")
+//        print("plunder called")
     }
     
     func surrender() {
-        print("surrender called")
+//        print("surrender called")
     }
     
     func submit() {
@@ -579,19 +578,19 @@ class Encounter: NSObject, NSCoding {
     }
     
     func bribe() {
-        print("bribe called")
+//        print("bribe called")
     }
     
     func trade() {
-        print("trade called")
+//        print("trade called")
     }
     
     func board() {
-        print("board called")
+//        print("board called")
     }
     
     func yield() {
-        print("yield called")
+//        print("yield called")
     }
     
     func damagePlayer(amountOfDamage: Int) {
@@ -615,11 +614,11 @@ class Encounter: NSObject, NSCoding {
         
         if player.commanderShip.hull <= 0 {
             if player.escapePod {
-                print("redundant killed function")
+//                print("redundant killed function")
                 //print("ship destroyed. PLAYER HAS ESCAPE POD")
                 //outcomePlayerDestroyedEscapes()
             } else {
-                print("redundant killed function")
+//                print("redundant killed function")
                 //print("ship destroyed. NO ESCAPE POD")
                 //outcomePlayerDestroyedKilled()
             }
@@ -752,7 +751,7 @@ class Encounter: NSObject, NSCoding {
     }
     
     func outcomeOpponentPursues() {
-        print("opponent in pursuit")
+//        print("opponent in pursuit")
         encounterText1 = "The \(opponent.ship.IFFStatus.rawValue) \(opponent.ship.name) is still following you."
         switch opponent.ship.IFFStatus {
             case IFFStatusType.Pirate:

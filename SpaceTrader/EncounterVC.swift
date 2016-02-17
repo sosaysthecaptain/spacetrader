@@ -239,30 +239,30 @@ class EncounterVC: UIViewController, PlunderDelegate {
             // handle outcome
             switch outcome {
             case "opponentFlees":
-                print("opponent flees")
+//                print("opponent flees")
                 outcomeOpponentFlees()
             case "playerDestroyedEscapes":
-                print("TAG")
-                print("player is destroyed but escapes")
+//                print("TAG")
+//                print("player is destroyed but escapes")
                 outcomePlayerDestroyedEscapes()
             case "playerDestroyedKilled":
-                print("TAG")
+//                print("TAG")
                 outcomePlayerDestroyedKilled()
             case "opponentDestroyed":
-                print("opponent is destroyed")
+//                print("opponent is destroyed")
                 outcomeOpponentDestroyed()
             case "opponentGetsAway":
-                print("opponent gets away")
+//                print("opponent gets away")
                 outcomeOpponentGetsAway()
             case "opponentSurrenders":
-                print("opponent surrenders")
+//                print("opponent surrenders")
                 outcomeOpponentSurrenders()
             case "opponentDisabled":
-                print("opponent is disabled")
+//                print("opponent is disabled")
                 outcomeOpponentDisabled()
             default:
                 outcomeFightContinues()
-                print("fight continues")
+//                print("fight continues")
             }
 
         }
@@ -558,7 +558,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END BUTTON ACTIONS*************************************************************************
     // CONSEQUENT ACTIONS*************************************************************************
     func arrest() {
-        print("ARREST!")
+//        print("ARREST!")
         // Figure out punishment
         // close journey
         // mete out punishment
@@ -687,12 +687,12 @@ class EncounterVC: UIViewController, PlunderDelegate {
         alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             if player.commanderShip.baysAvailable == 0 {
-                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
+//                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
                 galaxy.currentJourney!.currentEncounter!.scoopableItem = item
             }
             
             // dismiss and resume, for now
-            print("you picked it up")
+//            print("you picked it up")
             player.commanderShip.cargo.append(item)
             self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
@@ -700,7 +700,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and resume, for now
-            print("you let it go")
+//            print("you let it go")
             self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
@@ -1066,27 +1066,20 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // NEXT, MAKE FIRST ONE D IF BOTH ARE DAMAGED
         
         if disabled {
-            print ("player? \(playerNotOpponent) layer 1: disabled, d")
             state = "d"
         } else if (shieldPercentage == 100) && (hullPercentage == 100) {
-            print ("player? \(playerNotOpponent) layer 1: full shield and hull, s")
             state = "s"
         } else if (shieldPercentage > 0) && (hullPercentage == 100) {
-            print ("player? \(playerNotOpponent) layer 1: full hull, some shield, s -- good")
             state = "s"
         } else if shieldPercentage == 0 {
-            print ("player? \(playerNotOpponent) layer 1: no shield, s")
             state = "h"
         } else if (hullPercentage < 100) && (shieldPercentage < 100) {
-            print ("player? \(playerNotOpponent) layer 1: both shield and hull damaged, s (portion that is fine)")
             state = "s"
         } else if (hullPercentage < 100) && (shieldPercentage > hullPercentage) {
-            //print ("player? \(playerNotOpponent) layer 1: shield in better shape than hull, sd")
             //state = "sd"
             state = "s"
             // THIS IS WRONG AND BACKWARDS. CAN BE REMOVED, BUT JUST IN CASE I DISABLED IT
         } else if shieldPercentage > 0 && (hullPercentage > shieldPercentage) {
-            print ("player? \(playerNotOpponent) layer 1: hull in better shape than shield, s")
             state = "s"
         } else {
             state = "sd"
@@ -1137,39 +1130,25 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         if disabled {
             state = "n"
-            print("player? \(playerNotOpponent)")
-            print("2: nothing, disabled")
         } else if (hullPercentage == 100) && (shieldPercentage == 0) {
             state = "n"
-            print("player? \(playerNotOpponent)")
-            print("2: nothing, full hull no shield")
         } else if (shieldPercentage == 100) && (hullPercentage == 100) {
             state = "n"
-            print("player? \(playerNotOpponent)")
-            print("2: nothing, full shield")
         } else if (shieldPercentage == 0) && (hullPercentage < 100) {
-            print("player? \(playerNotOpponent)")
-            print("2: damage, no shield and damaged hull")
             state = "d"
             readingShield = false
             croppingShield = false
         } else if (hullPercentage == 100) && (shieldPercentage < 100) {
             // full hull, partial shield
-            print("player? \(playerNotOpponent)")
-            print("2: 'h', full hull and damaged shield")
             state = "h"
             readingShield = true
             croppingShield = false
         } else if (shieldPercentage > hullPercentage) && (shieldPercentage < 100) {
             state = "sd"                                        // check this
-            print("player? \(playerNotOpponent)")
-            print("2: sd, shield stronger than hull. SD cuz shield is less than 100, s portion done in layer one")
             readingShield = false
             croppingShield = false
         } else if (shieldPercentage > hullPercentage) && (shieldPercentage == 100){
             state = "sd"                                        // check this
-            print("player? \(playerNotOpponent)")
-            print("2: shield, shield stronger than hull. S, cuz s is 100 and sd is done")
             readingShield = false       // THIS IS TROUBLE. SAYS IT'S DOING THIS, BUT JUST SHOWS SD
             croppingShield = true
         }
@@ -1177,16 +1156,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "h"
             croppingShield = false
             readingShield = true
-            print("player? \(playerNotOpponent)")
-            print("2: hull, hull stronger than shield")
         } else {
-            print("player? \(playerNotOpponent)")
-            print("2: faulure mode")
-            print("hull: \(hullPercentage), shield: \(shieldPercentage)")
             state = "n"
         }
-        
-        print("SECOND LAYER DONE. STATE CHOSEN IS \(state). readingShield = \(readingShield), croppingShield = \(croppingShield)")
         
         if state != "n" {
             var image = getImageForShipAndState(ship, state: state)
@@ -1201,8 +1173,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func getLayer3(playerNotOpponent: Bool) -> UIImage? {
-        
-        print("layer 3 function firing")
         
         var ship: ShipType
         var hullPercentage: Int
@@ -1227,17 +1197,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
         var readingShield = false
         
         if (shieldPercentage < 100) && (hullPercentage < 100) && (shieldPercentage > 0) && (shieldPercentage > hullPercentage) {
-            print("third layer in use. More shields, cropping to shields")
             state = "d"
             readingShield = true
             croppingShield = false
         } else if (shieldPercentage < 100) && (hullPercentage < 100) && (shieldPercentage > 0) && (hullPercentage > shieldPercentage) {
-            print("more hull, cropping to hull")
             state = "d"
             readingShield = false
             croppingShield = false
         } else {
-            print("third layer unnecessary")
             state = "n"
             croppingShield = false
             readingShield = true

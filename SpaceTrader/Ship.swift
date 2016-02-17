@@ -308,10 +308,10 @@ class SpaceShip: NSObject, NSCoding {
             self.cargo.append(newItem)
         }
 
-        print("NEW CARGO INIT**********************************************************************")
-        for item in cargo {
-            print("item: \(item.name), quantity: \(item.quantity)")
-        }
+//        print("NEW CARGO INIT**********************************************************************")
+//        for item in cargo {
+//            print("item: \(item.name), quantity: \(item.quantity)")
+//        }
         
         switch type {
             case ShipType.Flea:
