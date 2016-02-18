@@ -54,10 +54,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
         displayImages()
         
         setBadgeImage()
-        
-        print("ENCOUNTERVC INSTANTIATED*********")
-        print("opposing ship: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)")
-        print("opposing ship--shipType: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.type)")
     }
     
     
@@ -458,7 +454,22 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
             
         } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Mantis {
-            print("you have surrendered to a mantis")
+            // remove artifact
+            player.specialEvents.artifactOnBoard = false            // this seems to be the wrong one. Should be taken out.
+            player.commanderShip.artifactSpecialCargo = false
+            
+            // generate alert
+            let title = "Artifact Relinquished"
+            let message = "The aliens take the artifact from you."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
