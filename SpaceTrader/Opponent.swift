@@ -62,6 +62,11 @@ class Opponent: NSObject, NSCoding {
         let shipType = pickShipRandomlyBasedOnOccurance(tries)
         ship = SpaceShip(type: shipType, IFFStatus: type)
         
+        // if this is mantis/dragonfly/spaceMonster, etc:
+        if type == IFFStatusType.Mantis {
+            ship.type = ShipType.Mantis
+        }
+        
         
         // determine gadgets
         let gadgetSlots = ship.gadgetSlots

@@ -52,6 +52,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
         displayImages()
         
         setBadgeImage()
+        
+        print("ENCOUNTERVC INSTANTIATED*********")
+        print("opposing ship: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)")
     }
     
     
@@ -947,25 +950,25 @@ class EncounterVC: UIViewController, PlunderDelegate {
             } else if ship == ShipType.Custom {
                 healthy = 10
                 empty = 190
-            } else if ship == ShipType.SpaceMonster {
+            } else if ship == ShipType.SpaceMonster {               // EVERYTHING BELOW NOT VETTED
                 healthy = 0
-                empty = 0
+                empty = 200
             } else if ship == ShipType.Dragonfly {
-                healthy = 0
-                empty = 0
+                healthy = 55
+                empty = 145
             } else if ship == ShipType.Mantis {
-                healthy = 0
-                empty = 0
+                healthy = 190
+                empty = 10
             } else if ship == ShipType.Scarab {
                 healthy = 0
-                empty = 0
+                empty = 200
             } else if ship == ShipType.Scorpion {
-                healthy = 0
-                empty = 0
+                healthy = 35
+                empty = 170
             } else {
                 // ship == ShipType.Bottle
                 healthy = 0
-                empty = 0
+                empty = 200
             }
 
         } else {
@@ -1004,24 +1007,24 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 healthy = 10
                 empty = 190
             } else if ship == ShipType.SpaceMonster {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Dragonfly {
-                healthy = 0
-                empty = 0
+                healthy = 60
+                empty = 140
             } else if ship == ShipType.Mantis {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Scarab {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Scorpion {
-                healthy = 0
-                empty = 0
+                healthy = 40
+                empty = 155
             } else {
                 // ship == ShipType.Bottle
                 healthy = 0
-                empty = 0
+                empty = 200
             }
         }
         
@@ -1118,6 +1121,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
         }
         
+        // DEBUG
+        print("getLayer2--drawing \(ship)")
+        print("hull %: \(hullPercentage), shield %: \(shieldPercentage)")
+        
         // cases:
         // if disabled, nothing
         // if fully healthy, no sheilds, or fully shielded, no damage, nothing
@@ -1161,10 +1168,15 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         if state != "n" {
+            print("about to get image")                                 // DEBUG
             var image = getImageForShipAndState(ship, state: state)
+            print("got image")                                          // DEBUG
+            print("image size: \(image.size)")
             // set width
             let width = getOverlayWidthForDamage(playerNotOpponent, croppingShield: croppingShield, readingShield: readingShield)
-            image = cropToWidth(image, width: width)       // should be width: width. FIX
+            print("width gotten")                                       // DEBUG
+            image = cropToWidth(image, width: width)       // should be width: width. FIX  FAILS HERE
+            print("image set")                                          // DEBUG
             
             return image
         } else {
