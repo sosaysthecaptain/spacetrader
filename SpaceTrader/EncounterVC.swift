@@ -12,6 +12,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("DEBUG: encounterVC viewDidLoad. opponent.ship.name: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)")
+        
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         playerShields.text = player.getShieldStrengthString(player.commanderShip)
@@ -55,6 +57,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         print("ENCOUNTERVC INSTANTIATED*********")
         print("opposing ship: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)")
+        print("opposing ship--shipType: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.type)")
     }
     
     
@@ -454,6 +457,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 
             }
             
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Mantis {
+            print("you have surrendered to a mantis")
         }
     }
     
@@ -690,7 +695,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             if player.commanderShip.baysAvailable == 0 {
-//                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
+                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
                 galaxy.currentJourney!.currentEncounter!.scoopableItem = item
             }
             
@@ -780,7 +785,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         print("running new player destroyed killed function")
         
-        let title = "You Lose [new function]"
+        let title = "You Lose"
         let message = "Your ship has been destroyed by your opponent."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -1121,10 +1126,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
         }
         
-        // DEBUG
-        print("getLayer2--drawing \(ship)")
-        print("hull %: \(hullPercentage), shield %: \(shieldPercentage)")
-        
         // cases:
         // if disabled, nothing
         // if fully healthy, no sheilds, or fully shielded, no damage, nothing
@@ -1168,15 +1169,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         if state != "n" {
-            print("about to get image")                                 // DEBUG
             var image = getImageForShipAndState(ship, state: state)
-            print("got image")                                          // DEBUG
-            print("image size: \(image.size)")
             // set width
             let width = getOverlayWidthForDamage(playerNotOpponent, croppingShield: croppingShield, readingShield: readingShield)
-            print("width gotten")                                       // DEBUG
-            image = cropToWidth(image, width: width)       // should be width: width. FIX  FAILS HERE
-            print("image set")                                          // DEBUG
+            image = cropToWidth(image, width: width)
             
             return image
         } else {

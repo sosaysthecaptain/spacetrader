@@ -65,6 +65,7 @@ class Opponent: NSObject, NSCoding {
         // if this is mantis/dragonfly/spaceMonster, etc:
         if type == IFFStatusType.Mantis {
             ship.type = ShipType.Mantis
+            ship.name = "Mantis"                // this seems necessary, though a kludge
         }
         
         
@@ -123,7 +124,7 @@ class Opponent: NSObject, NSCoding {
         }
         
         // populate commodities
-        if ship.IFFStatus != IFFStatusType.Police {
+        if ship.IFFStatus != IFFStatusType.Police && ship.IFFStatus != IFFStatusType.Mantis {
             fillCargoBays()
         }
         
@@ -219,6 +220,8 @@ class Opponent: NSObject, NSCoding {
         
         
         //displayResults()
+        print("end generate opponent. Opponent shipType: \(ship.type)")
+        print("opponent ship name: \(ship.name)")
     }
     
 
