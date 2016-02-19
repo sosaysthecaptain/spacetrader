@@ -140,11 +140,11 @@ class SpaceShip: NSObject, NSCoding {
             if jarekHagglingComputerSpecialCargo {
                 returnArray.append("A handheld haggling computer.")
                 
-                print("haggling computer appended.")
-                print("array now reads:")
-                for item in returnArray {
-                    print("\(item)")
-                }
+//                print("haggling computer appended.")
+//                print("array now reads:")
+//                for item in returnArray {
+//                    print("\(item)")
+//                }
             }
             if reactorSpecialCargo {
                 returnArray.append("An unstable reactor taking up 5 bays.")
@@ -268,7 +268,7 @@ class SpaceShip: NSObject, NSCoding {
     
     var baysAvailable: Int {
         get {
-            print("cargo bays: \(cargoBays), totalCargo: \(totalCargo), special: \(baysTakenUpBySpecialCargo)")
+//            print("cargo bays: \(cargoBays), totalCargo: \(totalCargo), special: \(baysTakenUpBySpecialCargo)")
             return cargoBays - totalCargo - baysTakenUpBySpecialCargo
         }
     }
@@ -667,7 +667,7 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
             default:
-                print("SCORPION AND CUSTOM NOT IMPLEMENTED YET. FIX IN SHIP.")
+                print("error")
         }
         
         self.IFFStatus = IFFStatus
@@ -699,9 +699,6 @@ class SpaceShip: NSObject, NSCoding {
                 } else {
                     newAverage = pricePaid
                 }
-                
-                print("added \(quantity) new \(commodity.rawValue)")
-                print("new average price paid: \(newAverage)")
                 
                 item.quantity += quantity
                 item.pricePaid = newAverage

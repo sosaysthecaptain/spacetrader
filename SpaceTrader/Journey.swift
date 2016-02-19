@@ -18,6 +18,10 @@ class Journey: NSObject, NSCoding {
     var trader = false
     
     var mantis = false
+    var dragonfly = false
+    var scorpion = false
+    var scarab = false
+    var spaceMonster = false
     
     var currentEncounter: Encounter?
     
@@ -40,6 +44,7 @@ class Journey: NSObject, NSCoding {
     }
     
     func beginJourney() {
+        
         // SHORT CIRCUIT, FOR TESTING PURPOSES ONLY
         //completeJourney()
         
@@ -121,25 +126,35 @@ class Journey: NSObject, NSCoding {
         // Special, specific encounter?
         // encounter with space monster at acamar?
         // encounter with stolen scarab?
+        
         // encounter with stolen dragonfly?
+        if galaxy.targetSystem!.dragonflyIsHere {
+            if clicks == 2 {
+                print("DRAGONFLY IS HERE. Time for encounter, at 2 clicks")
+                dragonfly = true
+//                currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: 2)
+//                currentEncounter!.beginEncounter()
+            }
+        }
+        
         // encounter with alien mantis at Gemulon if invasion happened?
         
         // ELSE, check if it is time for an encounter
-        
-        // determine if there will be an encounter, and with whom
-        if (encounterTest < strengthPirates) && !player.commanderShip.raided {
-            pirate = true
-        } else if encounterTest < (strengthPirates + strengthPolice) {
-            police = true
-        } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
-            trader = true
-        } // else if Wild status/Kravat...
-        
-        if !pirate && !police && !trader {
-            if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
-                // mantis
-                mantis = true
-//                print("MANTIS ENCOUNTER AT \(clicks) CLICKS")
+        if !dragonfly && !scorpion && !scarab && !spaceMonster {
+            // determine if there will be an encounter, and with whom
+            if (encounterTest < strengthPirates) && !player.commanderShip.raided {
+                pirate = true
+            } else if encounterTest < (strengthPirates + strengthPolice) {
+                police = true
+            } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
+                trader = true
+            } // else if Wild status/Kravat...
+            
+            if !pirate && !police && !trader {
+                if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
+                    // mantis
+                    mantis = true
+                }
             }
         }
         
@@ -244,9 +259,20 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if mantis {
-//            print("MANTIS")
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
+        } else if dragonfly {
+            print("DRAGONFLY. At \(clicks) clicks.")
+            print("DEBUG: target system is \(galaxy.targetSystem!.name)")
+            currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
+            print("DEBUG 2: target system is \(galaxy.targetSystem!.name)")
+        } else if scorpion {
+            print("SCORPION")
+        } else if spaceMonster {
+            print("SPACE MONSTER")
+        } else if scarab {
+            print("SCARAB")
         }
         
         // I think this has to terminate here, otherwise it will just keep running
@@ -261,7 +287,7 @@ class Journey: NSObject, NSCoding {
             }
         }
         
-        if pirate || police || trader || mantis {
+        if pirate || police || trader || mantis  {
             uneventfulTrip = false
             encounterThisClick = true
         }

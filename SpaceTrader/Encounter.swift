@@ -94,6 +94,8 @@ class Encounter: NSObject, NSCoding {
     }
     
     func beginEncounter() {
+        print("DEBUG. beginEncounter, targetSystem is \(galaxy.targetSystem!.name)")
+        
         // if this is null, skip right to the end
         if type == EncounterType.nullEncounter {
             concludeEncounter()
@@ -105,6 +107,7 @@ class Encounter: NSObject, NSCoding {
     
     
     func concludeEncounter() {
+        print("DEBUG3 - concludeEncounter - target system: \(galaxy.targetSystem!.name)")
         galaxy.currentJourney!.resumeJourney()
     }
     
@@ -302,12 +305,12 @@ class Encounter: NSObject, NSCoding {
             encounterText1 = ""
             encounterText2 = "Your opponent attacks."
         } else if type == EncounterType.dragonflyAttack {
-            button1Text = ""
-            button2Text = ""
+            button1Text = "Attack"
+            button2Text = "Flee"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the Dragonfly."
             encounterText2 = "Your opponent attacks."
         } else if type == EncounterType.spaceMonsterIgnore {
             button1Text = ""

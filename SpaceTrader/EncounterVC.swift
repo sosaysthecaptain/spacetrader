@@ -970,8 +970,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 healthy = 0
                 empty = 200
             } else if ship == ShipType.Dragonfly {
-                healthy = 55
-                empty = 145
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Mantis {
                 healthy = 190
                 empty = 10

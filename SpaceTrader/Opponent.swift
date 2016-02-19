@@ -14,8 +14,6 @@ class Opponent: NSObject, NSCoding {
     var type: IFFStatusType
     
     init(type: IFFStatusType) {
-        print("initializing opponent...")
-
         self.type = type
         
         // these are placeholders only, because I want to be able to do the instantiating function in multiple pieces
@@ -65,7 +63,16 @@ class Opponent: NSObject, NSCoding {
         // if this is mantis/dragonfly/spaceMonster, etc:
         if type == IFFStatusType.Mantis {
             ship.type = ShipType.Mantis
-            ship.name = "Mantis"                // this seems necessary, though a kludge
+            ship.name = "Mantis"                        // this seems necessary, though a kludge
+        } else if type == IFFStatusType.Dragonfly {
+            ship.type = ShipType.Dragonfly
+            ship.name = "Dragonfly"
+        } else if type == IFFStatusType.Scarab {
+            ship.type = ShipType.Scarab
+            ship.name = "Scarab"
+        } else if type == IFFStatusType.SpaceMonster {
+            ship.type = ShipType.SpaceMonster
+            ship.name = "Space Monster"
         }
         
         
@@ -220,8 +227,6 @@ class Opponent: NSObject, NSCoding {
         
         
         //displayResults()
-        print("end generate opponent. Opponent shipType: \(ship.type)")
-        print("opponent ship name: \(ship.name)")
     }
     
 
@@ -249,7 +254,6 @@ class Opponent: NSObject, NSCoding {
                 let result = Int(arc4random_uniform(UInt32(number)))
                 resultRandom.append(result)
             }
-            print(resultRandom)
             
             //var max: Int = 0
 
@@ -267,8 +271,6 @@ class Opponent: NSObject, NSCoding {
                 runningBestShipIndex = maxIndex
             }
         }
-        //print("executed \(tries) tries")
-        print("overall winner is \(ships[runningBestShipIndex])")
         return ships[runningBestShipIndex]
     }
     
@@ -295,7 +297,6 @@ class Opponent: NSObject, NSCoding {
                 runningBestGadgetIndex = maxIndex
             }
         }
-        print("result: \(gadgets[runningBestGadgetIndex])")
         let newGadget = Gadget(type: gadgets[runningBestGadgetIndex])
         ship.gadget.append(newGadget)
     }
@@ -383,8 +384,6 @@ class Opponent: NSObject, NSCoding {
             baysToBeFilled = 0
         }
         
-        print("bays filled: \(baysToBeFilled)/\(totalBays)")
-        
         // *POPULATE*
         // decide how many different items to have
         var uniques = 0
@@ -413,7 +412,6 @@ class Opponent: NSObject, NSCoding {
             uniques = min(uniques, 8)
             uniques = max(uniques, 2)
         }
-        print("uniques: \(uniques)")
         
         // randomly choose that many commodities
         var commoditiesInUse: [TradeItemType] = []
@@ -422,19 +420,12 @@ class Opponent: NSObject, NSCoding {
             let commodity = commodities[i]
             commoditiesInUse.append(commodity)
         }
-        print("commodities: \(commoditiesInUse)")
         
         // for each item, randomly assign it to one of these categories, add it
         for _ in 0 ..< baysToBeFilled {
             let index = rand(uniques)
             let item = commoditiesInUse[index]
             ship.addCargo(item, quantity: 1, pricePaid: 0)
-        }
-        
-        // print results
-        print("**********************************************************************")
-        for commodity in commodities {
-            print("\(commodity.rawValue): \(ship.getQuantity(commodity))")
         }
     
         
