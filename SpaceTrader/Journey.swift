@@ -263,10 +263,8 @@ class Journey: NSObject, NSCoding {
             currentEncounter!.beginEncounter()
         } else if dragonfly {
             print("DRAGONFLY. At \(clicks) clicks.")
-            print("DEBUG: target system is \(galaxy.targetSystem!.name)")
             currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-            print("DEBUG 2: target system is \(galaxy.targetSystem!.name)")
         } else if scorpion {
             print("SCORPION")
         } else if spaceMonster {
@@ -287,7 +285,7 @@ class Journey: NSObject, NSCoding {
             }
         }
         
-        if pirate || police || trader || mantis  {
+        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab {
             uneventfulTrip = false
             encounterThisClick = true
         }
@@ -296,6 +294,9 @@ class Journey: NSObject, NSCoding {
         police = false
         trader = false
         mantis = false
+        dragonfly = false
+        spaceMonster = false
+        scarab = false
         clicks -= 1
         
         if !encounterThisClick {

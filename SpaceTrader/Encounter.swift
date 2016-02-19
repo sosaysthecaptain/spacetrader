@@ -94,7 +94,6 @@ class Encounter: NSObject, NSCoding {
     }
     
     func beginEncounter() {
-        print("DEBUG. beginEncounter, targetSystem is \(galaxy.targetSystem!.name)")
         
         // if this is null, skip right to the end
         if type == EncounterType.nullEncounter {

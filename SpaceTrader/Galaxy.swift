@@ -22,9 +22,14 @@ class Galaxy: NSObject, NSCoding {
     
     var planets: [StarSystem] = []
     var systemsInRange: [StarSystem] = []
-    var currentSystem: StarSystem?
+    var currentSystem: StarSystem? {
+        didSet {
+            print("**********CURRENT SYSTEM SET TO \(currentSystem!.name)***************")
+        }
+    }
     var targetSystem: StarSystem? {
         didSet {
+            print("********TARGET SYSTEM SET TO \(targetSystem!.name)***************")
             let distance = getDistance(currentSystem!, system2: targetSystem!)
             if distance > player.commanderShip.fuel {
                 targetSystemInRange = false
