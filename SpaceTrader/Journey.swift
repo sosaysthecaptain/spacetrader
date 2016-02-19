@@ -138,9 +138,15 @@ class Journey: NSObject, NSCoding {
         }
         
         // encounter with alien mantis at Gemulon if invasion happened?
+        if galaxy.targetSystem!.swarmingWithAliens {
+            let random = rand(10)
+            if random > 3 {
+                mantis = true
+            }
+        }
         
         // ELSE, check if it is time for an encounter
-        if !dragonfly && !scorpion && !scarab && !spaceMonster {
+        if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis {
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true

@@ -131,7 +131,7 @@ class Opponent: NSObject, NSCoding {
         }
         
         // populate commodities
-        if ship.IFFStatus != IFFStatusType.Police && ship.IFFStatus != IFFStatusType.Mantis {
+        if ship.IFFStatus != IFFStatusType.Police && ship.IFFStatus != IFFStatusType.Mantis && ship.IFFStatus != IFFStatusType.Dragonfly && ship.IFFStatus != IFFStatusType.SpaceMonster && ship.IFFStatus != IFFStatusType.Scarab {
             fillCargoBays()
         }
         
@@ -201,6 +201,16 @@ class Opponent: NSObject, NSCoding {
             if rand(10) < 7 {
                 shield.currentStrength = rand(shield.power)
             }
+        }
+        
+        // special ships get full shields and hull
+        if type == IFFStatusType.FamousCaptain || type == IFFStatusType.Dragonfly || type == IFFStatusType.Mantis || type == IFFStatusType.Scarab || type == IFFStatusType.SpaceMonster || type == IFFStatusType.Bottle {
+            
+            ship.hullPercentage = 100
+            for shield in ship.shield {
+                shield.currentStrength = shield.power
+            }
+            
         }
 
         

@@ -643,6 +643,18 @@ class EncounterVC: UIViewController, PlunderDelegate {
             type = "other"
         }
         
+        // special situations
+        if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Dragonfly {
+            player.specialEvents.dragonflyDestroyed()
+            // modal?
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Mantis {
+            // call special function
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scorpion {
+            // YOU KILLED THE PRINCESS, YOU BASTARD!
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
+            // call special function
+        }
+        
         var title = ""
         var message = ""
         if type == "pirate" && (player.policeRecordInt > 2) {
@@ -786,6 +798,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent has been disabled."
         
         galaxy.currentJourney!.currentEncounter!.setButtons("Surrender")
+        
+        // special situations. We don't plunder special ships
+        if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Dragonfly {
+            galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Mantis {
+            galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scorpion {
+            // done right here, call the function
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
+            galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
+        }
         
         redrawViewController()
     }

@@ -947,10 +947,11 @@ class SpecialEvents: NSObject, NSCoding {
             if gemulonInvasionCountdown == 0 {
                 gemulonInvasionCountdown == -1              // inactivate countdown
                 addQuestString("", ID: QuestID.gemulon)     // inactivate quest
-                galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvasion)
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvaded)
                 for planet in galaxy.planets {
                     if planet.name == "Gemulon" {
                         planet.swarmingWithAliens = true
+                        planet.techLevel = TechLevelType.techLevel0     // invasion sets them back to primitive levels
                     }
                 }
             }

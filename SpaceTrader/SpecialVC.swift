@@ -325,6 +325,7 @@ class SpecialVC: UIViewController {
                     // add shield
                     player.commanderShip.shield.append(Shield(type: ShieldType.lightningShield))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
+                    generateAlert(Alert(ID: AlertID.EquipmentLightningShield, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
                     dontDeleteLocalSpecialEvent = true

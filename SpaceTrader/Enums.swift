@@ -453,6 +453,7 @@ enum IFFStatusType: String {
     case Dragonfly = "dragonfly"
     case SpaceMonster = "space monster"
     case Scarab = "scarab"
+    case Scorpion = "scorpion"
     case MarieCeleste = "Marie Celeste"
     case FamousCaptain = "famous captain"
     case Bottle = "bottle"

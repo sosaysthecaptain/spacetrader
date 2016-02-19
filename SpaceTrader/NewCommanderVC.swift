@@ -156,7 +156,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS PURELY FOR TESTING SPECIAL EVENTS
         if player.difficulty == DifficultyType.normal {
-            galaxy.currentSystem!.specialEvent = SpecialEventID.dragonflyRegulas
+            galaxy.currentSystem!.specialEvent = SpecialEventID.gemulonInvasion
             player.specialEvents.setSpecialEvent()
         }
         
@@ -178,9 +178,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.commanderShip.hull = 50
         
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        let morgansLaser = Weapon(type: WeaponType.morgansLaser)
+        let beamLaser = Weapon(type: WeaponType.beamLaser)
         player.commanderShip.weapon.append(photonDisruptor)
-        player.commanderShip.weapon.append(morgansLaser)
+        player.commanderShip.weapon.append(beamLaser)
 //
 //        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
 //        reflectiveShield.currentStrength = reflectiveShield.power
