@@ -125,7 +125,19 @@ class Journey: NSObject, NSCoding {
         
         // Special, specific encounter?
         // encounter with space monster at acamar?
+        if galaxy.targetSystem!.spaceMonsterIsHere {
+            if clicks == 2 {
+                spaceMonster = true
+            }
+        }
+        
         // encounter with stolen scarab?
+        if galaxy.targetSystem!.scarabIsHere {
+            if clicks == 2 {
+                print("SCARAB IS HERE. Time for encounter, at 2 clicks")
+                scarab = true
+            }
+        }
         
         // encounter with scorpion at qonos?
         if galaxy.targetSystem!.scorpionIsHere {
@@ -274,16 +286,17 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if dragonfly {
-            print("DRAGONFLY. At \(clicks) clicks.")
             currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if scorpion {
             currentEncounter = Encounter(type: EncounterType.scorpionAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if spaceMonster {
-            print("SPACE MONSTER")
+            currentEncounter = Encounter(type: EncounterType.spaceMonsterAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
         } else if scarab {
-            print("SCARAB")
+            currentEncounter = Encounter(type: EncounterType.scarabAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
         }
         
         // I think this has to terminate here, otherwise it will just keep running

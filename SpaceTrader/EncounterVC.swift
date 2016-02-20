@@ -678,6 +678,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
             player.specialEvents.addQuestString("", ID: QuestID.princess)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
             // call special function
+            player.specialEvents.scarabDestroyed()
         }
         
         var title = ""

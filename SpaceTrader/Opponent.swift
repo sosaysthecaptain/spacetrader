@@ -182,6 +182,10 @@ class Opponent: NSObject, NSCoding {
             addRandomlyChosenShield(tries)
         }
         
+        // shield override for special
+        
+        
+        
         // set shield & hull strength
         if ship.shield.count != 0 {
             // if there are shields, hull will likely be in better shape

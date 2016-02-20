@@ -284,7 +284,7 @@ class Encounter: NSObject, NSCoding {
         } else if type == EncounterType.scarabAttack {
             button1Text = "Attack"
             button2Text = "Flee"
-            button3Text = "Surrender"
+            button3Text = ""
             button4Text = ""
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the Scarab."
@@ -298,12 +298,12 @@ class Encounter: NSObject, NSCoding {
             encounterText1 = ""
             encounterText2 = "Your opponent attacks."
         } else if type == EncounterType.spaceMonsterAttack {
-            button1Text = ""
-            button2Text = ""
+            button1Text = "Attack"
+            button2Text = "Flee"
             button3Text = "" 
             button4Text = ""
             
-            encounterText1 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the Space Monster."
             encounterText2 = "Your opponent attacks."
         } else if type == EncounterType.dragonflyAttack {
             button1Text = "Attack"

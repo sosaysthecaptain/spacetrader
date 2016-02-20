@@ -872,7 +872,7 @@ class SpecialEvents: NSObject, NSCoding {
         // update quest string
         player.specialEvents.addQuestString("Notify the authorities at \(galaxy.currentSystem!.name) that the Scarab has been destroyed.", ID: QuestID.scarab)
         // set special on local system
-        galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.scarabDestroyed)
+        galaxy.setSpecial(galaxy.targetSystem!.name, id: SpecialEventID.scarabDestroyed)
         
     }
     
