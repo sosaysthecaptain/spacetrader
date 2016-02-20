@@ -23,6 +23,9 @@ class Journey: NSObject, NSCoding {
     var scarab = false
     var spaceMonster = false
     
+    var famousCaptain = false
+    var marieCeleste = false
+    
     var currentEncounter: Encounter?
     
     var localPolitics = Politics(type: galaxy.targetSystem!.politics)
@@ -324,6 +327,9 @@ class Journey: NSObject, NSCoding {
         spaceMonster = false
         scarab = false
         scorpion = false
+        famousCaptain = false
+        marieCeleste = false
+        
         clicks -= 1
         
         if !encounterThisClick {

@@ -232,21 +232,31 @@ class Opponent: NSObject, NSCoding {
         if type == IFFStatusType.Mantis {
             ship.type = ShipType.Mantis
             ship.name = "Mantis"                        // this seems necessary, though a kludge
+            // mantises not that strong. No special stuff for them.
         } else if type == IFFStatusType.Dragonfly {
             ship.type = ShipType.Dragonfly
             ship.name = "Dragonfly"
+            loadGoodShields(false)
+            loadGoodWeapons(false, number: 1)
+            loadGoodCrew(false)
         } else if type == IFFStatusType.Scarab {
             ship.type = ShipType.Scarab
             ship.name = "Scarab"
             loadGoodShields(false)
-            loadGoodWeapons(false)
-            loadGoodCrew(true)
+            loadGoodWeapons(false, number: 1)
+            loadGoodCrew(false)
         } else if type == IFFStatusType.SpaceMonster {
             ship.type = ShipType.SpaceMonster
             ship.name = "Space Monster"
+            ship.shield = []                            // space monster doesn't have shields
+            loadGoodWeapons(false, number: 1)
+            loadGoodCrew(false)
         } else if type == IFFStatusType.Scorpion {
             ship.type = ShipType.Scorpion
             ship.name = "Scorpion"
+            loadGoodShields(false)
+            loadGoodWeapons(false, number: 1)
+            loadGoodCrew(false)
         }
         
         //displayResults()
@@ -266,13 +276,14 @@ class Opponent: NSObject, NSCoding {
         }
     }
     
-    func loadGoodWeapons(morgan: Bool) {
+    func loadGoodWeapons(morgan: Bool, number: Int) {
         var weapon = Weapon(type: WeaponType.militaryLaser)
         if morgan {
             weapon = Weapon(type: WeaponType.morgansLaser)
         }
         
-        for _ in 0...ship.weaponSlots {
+        let totalWeapons = min(number, ship.weaponSlots)
+        for _ in 0...totalWeapons {
             ship.weapon.append(weapon)
         }
     }

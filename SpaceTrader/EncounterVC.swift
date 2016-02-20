@@ -679,6 +679,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
             // call special function
             player.specialEvents.scarabDestroyed()
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.SpaceMonster {
+            player.specialEvents.spaceMonsterKilled()
         }
         
         var title = ""
