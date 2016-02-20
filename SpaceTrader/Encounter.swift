@@ -652,6 +652,23 @@ class Encounter: NSObject, NSCoding {
         } else {
             remainingDamage = amountOfDamage
         }
+        
+        // scarab's hull is only damaged by pulse laser. Adjust remainingDamage accordingly.
+        if opponent.type == IFFStatusType.Scarab {
+            // if player has pulse laser
+            var pulseLaserCount = 0
+            for weapon in player.commanderShip.weapon {
+                if weapon.type == WeaponType.pulseLaser {
+                    pulseLaserCount += 1
+                }
+            }
+            
+            // do max 12 damage
+            remainingDamage = (12 * pulseLaserCount)
+            
+        }
+        
+        // damage opponent's hull
         opponent.ship.hull -= remainingDamage
     }
     

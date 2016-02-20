@@ -58,28 +58,6 @@ class Opponent: NSObject, NSCoding {
             tries = 1 + (player.netWorth / 100000)
         }
         
-        // set shiptype
-        let shipType = pickShipRandomlyBasedOnOccurance(tries)
-        ship = SpaceShip(type: shipType, IFFStatus: type)
-        
-        // if this is mantis/dragonfly/spaceMonster, etc:
-        if type == IFFStatusType.Mantis {
-            ship.type = ShipType.Mantis
-            ship.name = "Mantis"                        // this seems necessary, though a kludge
-        } else if type == IFFStatusType.Dragonfly {
-            ship.type = ShipType.Dragonfly
-            ship.name = "Dragonfly"
-        } else if type == IFFStatusType.Scarab {
-            ship.type = ShipType.Scarab
-            ship.name = "Scarab"
-        } else if type == IFFStatusType.SpaceMonster {
-            ship.type = ShipType.SpaceMonster
-            ship.name = "Space Monster"
-        } else if type == IFFStatusType.Scorpion {
-            ship.type = ShipType.Scorpion
-            ship.name = "Scorpion"
-        }
-        
         
         // determine gadgets
         let gadgetSlots = ship.gadgetSlots
@@ -182,8 +160,6 @@ class Opponent: NSObject, NSCoding {
             addRandomlyChosenShield(tries)
         }
         
-        // shield override for special
-        
         
         
         // set shield & hull strength
@@ -245,13 +221,69 @@ class Opponent: NSObject, NSCoding {
         
         // NOTE THAT THIS IS NOT QUITE WHAT THE ORIGINAL WAS
         
+        // SPECIAL OVERRIDE
+        // special ships come loaded, no randomly assigned
+        // in every case: shields (set to full), weapons, crew
+        
+        let shipType = pickShipRandomlyBasedOnOccurance(tries)
+        ship = SpaceShip(type: shipType, IFFStatus: type)
+        
+        // if this is mantis/dragonfly/spaceMonster, etc:
+        if type == IFFStatusType.Mantis {
+            ship.type = ShipType.Mantis
+            ship.name = "Mantis"                        // this seems necessary, though a kludge
+        } else if type == IFFStatusType.Dragonfly {
+            ship.type = ShipType.Dragonfly
+            ship.name = "Dragonfly"
+        } else if type == IFFStatusType.Scarab {
+            ship.type = ShipType.Scarab
+            ship.name = "Scarab"
+            loadGoodShields(false)
+            loadGoodWeapons(false)
+            loadGoodCrew(true)
+        } else if type == IFFStatusType.SpaceMonster {
+            ship.type = ShipType.SpaceMonster
+            ship.name = "Space Monster"
+        } else if type == IFFStatusType.Scorpion {
+            ship.type = ShipType.Scorpion
+            ship.name = "Scorpion"
+        }
         
         //displayResults()
     }
     
 
     
+    func loadGoodShields(lightning: Bool) {
+        var shield = Shield(type: ShieldType.reflectiveShield)
+        if lightning {
+            shield = Shield(type: ShieldType.lightningShield)
+        }
+        shield.currentStrength = shield.power
+        
+        for _ in 0...ship.shieldSlots {
+            ship.shield.append(shield)
+        }
+    }
     
+    func loadGoodWeapons(morgan: Bool) {
+        var weapon = Weapon(type: WeaponType.militaryLaser)
+        if morgan {
+            weapon = Weapon(type: WeaponType.morgansLaser)
+        }
+        
+        for _ in 0...ship.weaponSlots {
+            ship.weapon.append(weapon)
+        }
+    }
+    
+    func loadGoodCrew(excellentNotGood: Bool) {
+        var newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 8, fighter: 8, trader: 8, engineer: 8)
+        if excellentNotGood {
+            newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 10, fighter: 10, trader: 10, engineer: 10)
+        }
+        ship.crew.append(newCrewMember)
+    }
     
     
     
