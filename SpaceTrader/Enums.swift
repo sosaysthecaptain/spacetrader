@@ -553,6 +553,7 @@ enum EncounterType: Int {           // needs a raw value for NSCoding
     case traderSell
     case traderBuy
     case mantisAttack
+    case scorpionAttack
     case nullEncounter
 }
 
@@ -601,6 +602,8 @@ func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatus
         return IFFStatusType.FamousCaptain
     } else if (encounterType == EncounterType.bottleGoodEncounter) || (encounterType == EncounterType.bottleOldEncounter) {
         return IFFStatusType.Bottle
+    } else if encounterType == EncounterType.scorpionAttack {
+        return IFFStatusType.Scorpion
     } else {
         return IFFStatusType.Null
     }

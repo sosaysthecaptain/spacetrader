@@ -14,6 +14,8 @@ class Opponent: NSObject, NSCoding {
     var type: IFFStatusType
     
     init(type: IFFStatusType) {
+        print("DEBUG-opponent. Instantiating opponent of type \(type)")
+        
         self.type = type
         
         // these are placeholders only, because I want to be able to do the instantiating function in multiple pieces
@@ -73,6 +75,9 @@ class Opponent: NSObject, NSCoding {
         } else if type == IFFStatusType.SpaceMonster {
             ship.type = ShipType.SpaceMonster
             ship.name = "Space Monster"
+        } else if type == IFFStatusType.Scorpion {
+            ship.type = ShipType.Scorpion
+            ship.name = "Scorpion"
         }
         
         
@@ -204,7 +209,8 @@ class Opponent: NSObject, NSCoding {
         }
         
         // special ships get full shields and hull
-        if type == IFFStatusType.FamousCaptain || type == IFFStatusType.Dragonfly || type == IFFStatusType.Mantis || type == IFFStatusType.Scarab || type == IFFStatusType.SpaceMonster || type == IFFStatusType.Bottle {
+        // MUST ALSO MAKE SURE THESE SHIPS DO GET SHIELDS. CONFIGURATION MUST BE CUSTOM.
+        if type == IFFStatusType.FamousCaptain || type == IFFStatusType.Dragonfly || type == IFFStatusType.Mantis || type == IFFStatusType.Scarab || type == IFFStatusType.SpaceMonster || type == IFFStatusType.Bottle || type == IFFStatusType.Scorpion {
             
             ship.hullPercentage = 100
             for shield in ship.shield {

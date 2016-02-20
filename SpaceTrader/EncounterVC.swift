@@ -12,8 +12,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("DEBUG: encounterVC viewDidLoad. opponent.ship.name: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)")
-        
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         playerShields.text = player.getShieldStrengthString(player.commanderShip)
@@ -196,7 +194,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END UTILITIES******************************************************************************
     // BUTTON ACTIONS*****************************************************************************
     func attack() {
-        var actuallyAttack = true
+        // this function makes sure player wants to attack, warns if necessary. If so, actuallyAttack() is called
         // warn if attacking police
         if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) && (player.policeRecordInt > 2) {
             
@@ -208,7 +206,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 (alert: UIAlertAction!) -> Void in
                 // go ahead with it
                 player.policeRecord = PoliceRecordType.criminalScore
-                actuallyAttack = true
+                self.actuallyAttack()
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
             // do nothing, dismiss modal
@@ -225,49 +223,75 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 (alert: UIAlertAction!) -> Void in
                 // go ahead with it
                 player.policeRecord = PoliceRecordType.dubiousScore
-                actuallyAttack = true
+                self.actuallyAttack()
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
             // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else {
-            actuallyAttack = true
-        }
-        
-        if actuallyAttack {
-            // perform attack, using outsourced function
-            let outcome = galaxy.currentJourney!.currentEncounter!.attack()
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Scorpion {
             
-            // handle outcome
-            switch outcome {
-            case "opponentFlees":
-//                print("opponent flees")
-                outcomeOpponentFlees()
-            case "playerDestroyedEscapes":
-//                print("TAG")
-//                print("player is destroyed but escapes")
-                outcomePlayerDestroyedEscapes()
-            case "playerDestroyedKilled":
-//                print("TAG")
-                outcomePlayerDestroyedKilled()
-            case "opponentDestroyed":
-//                print("opponent is destroyed")
-                outcomeOpponentDestroyed()
-            case "opponentGetsAway":
-//                print("opponent gets away")
-                outcomeOpponentGetsAway()
-            case "opponentSurrenders":
-//                print("opponent surrenders")
-                outcomeOpponentSurrenders()
-            case "opponentDisabled":
-//                print("opponent is disabled")
-                outcomeOpponentDisabled()
-            default:
-                outcomeFightContinues()
-//                print("fight continues")
+            // make sure player is using disabling weapons
+            var disruptorFlag = false
+            for weapon in player.commanderShip.weapon {
+                if weapon.type == WeaponType.quantumDisruptor || weapon.type == WeaponType.photonDisruptor {
+                    disruptorFlag = true
+                }
             }
-
+            if !disruptorFlag {
+                // ALERT, if user presses no, I guess do nothing?
+                let title: String = "No Disabling Weapons"
+                let message: String = "You have no disabling weapons! You would only be able to destroy your opponent, which would defeat the purpose of your quest."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // flag to false, can't attack
+                    self.actuallyAttack()
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // if you do have a disruptor, fire away
+                self.actuallyAttack()
+            }
+        } else {
+            self.actuallyAttack()
         }
+    }
+    
+    // needed to break this function out. attack() will now make sure user really wants to, this will be called when they do
+    func actuallyAttack() {
+        // perform attack, using outsourced function
+        let outcome = galaxy.currentJourney!.currentEncounter!.attack()
+        
+        // handle outcome
+        switch outcome {
+        case "opponentFlees":
+            //                print("opponent flees")
+            outcomeOpponentFlees()
+        case "playerDestroyedEscapes":
+            //                print("TAG")
+            //                print("player is destroyed but escapes")
+            outcomePlayerDestroyedEscapes()
+        case "playerDestroyedKilled":
+            //                print("TAG")
+            outcomePlayerDestroyedKilled()
+        case "opponentDestroyed":
+            //                print("opponent is destroyed")
+            outcomeOpponentDestroyed()
+        case "opponentGetsAway":
+            //                print("opponent gets away")
+            outcomeOpponentGetsAway()
+        case "opponentSurrenders":
+            //                print("opponent surrenders")
+            outcomeOpponentSurrenders()
+        case "opponentDisabled":
+            //                print("opponent is disabled")
+            outcomeOpponentDisabled()
+        default:
+            outcomeFightContinues()
+            //                print("fight continues")
+        }
+
     }
     
     func board() {
@@ -650,7 +674,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Mantis {
             // call special function
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scorpion {
-            // YOU KILLED THE PRINCESS, YOU BASTARD!
+            // YOU KILLED THE PRINCESS, YOU BASTARD!    --alert here, telling player he is a bastard?
+            player.specialEvents.addQuestString("", ID: QuestID.princess)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
             // call special function
         }
@@ -805,7 +830,19 @@ class EncounterVC: UIViewController, PlunderDelegate {
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Mantis {
             galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scorpion {
-            // done right here, call the function
+            // if scorpion is disabled, alert. On closing, call function and terminate the encounter.
+            let title = "Scorpion Disabled"
+            let message = "You have disabled the Scorpion. Without life support they'll have to hibernate. You notify Space Corps, and they come and tow the Scorpion to the planet, where the crew is revived and then arrested."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                player.specialEvents.scorpionDisabled()
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
             galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
         }

@@ -53,7 +53,9 @@ class Encounter: NSObject, NSCoding {
                 case IFFStatusType.Scarab:
                     return "Scarab"
                 case IFFStatusType.SpaceMonster:
-                    return "space monster"
+                    return "Space Monster"
+                case IFFStatusType.Scorpion:
+                    return "Scorpion"
                 default:
                     return ""
             }
@@ -69,6 +71,7 @@ class Encounter: NSObject, NSCoding {
         let IFF = getIFFStatusTypeforEncounterType(type)
         
         // generate opponent
+        print("DEBUG. About to instantiate opponent. IFF: \(type)")
         opponent = Opponent(type: IFF)
         opponent.generateOpponent()
         
@@ -106,7 +109,6 @@ class Encounter: NSObject, NSCoding {
     
     
     func concludeEncounter() {
-        print("DEBUG3 - concludeEncounter - target system: \(galaxy.targetSystem!.name)")
         galaxy.currentJourney!.resumeJourney()
     }
     
@@ -358,6 +360,14 @@ class Encounter: NSObject, NSCoding {
             button4Text = ""
             
             encounterText1 = ""
+            encounterText2 = "Your opponent attacks."
+        } else if type == EncounterType.scorpionAttack {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the Scorpion."
             encounterText2 = "Your opponent attacks."
         }
     }

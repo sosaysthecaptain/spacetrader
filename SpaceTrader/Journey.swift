@@ -127,13 +127,19 @@ class Journey: NSObject, NSCoding {
         // encounter with space monster at acamar?
         // encounter with stolen scarab?
         
+        // encounter with scorpion at qonos?
+        if galaxy.targetSystem!.scorpionIsHere {
+            if clicks == 2 {
+                print("SCORPION IS HERE. Time for encounter, at 2 clicks")
+                scorpion = true
+            }
+        }
+        
         // encounter with stolen dragonfly?
         if galaxy.targetSystem!.dragonflyIsHere {
             if clicks == 2 {
                 print("DRAGONFLY IS HERE. Time for encounter, at 2 clicks")
                 dragonfly = true
-//                currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: 2)
-//                currentEncounter!.beginEncounter()
             }
         }
         
@@ -272,7 +278,8 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if scorpion {
-            print("SCORPION")
+            currentEncounter = Encounter(type: EncounterType.scorpionAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
         } else if spaceMonster {
             print("SPACE MONSTER")
         } else if scarab {
@@ -291,7 +298,7 @@ class Journey: NSObject, NSCoding {
             }
         }
         
-        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab {
+        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion {
             uneventfulTrip = false
             encounterThisClick = true
         }
@@ -303,6 +310,7 @@ class Journey: NSObject, NSCoding {
         dragonfly = false
         spaceMonster = false
         scarab = false
+        scorpion = false
         clicks -= 1
         
         if !encounterThisClick {
