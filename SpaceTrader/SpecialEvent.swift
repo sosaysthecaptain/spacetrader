@@ -29,6 +29,7 @@ class SpecialEvents: NSObject, NSCoding {
     var wildOnBoard = false
     var reactorOnBoard = false
     var tribblesOnBoard = false
+    var marieCelesteStatus = 0      // 0 = not happened yet, 1 = not yet apprehended, 2 = over
     
     var experimentCountdown = -1
     var jarekElapsedTime = -1
@@ -1100,6 +1101,7 @@ class SpecialEvents: NSObject, NSCoding {
         self.reactorElapsedTime = decoder.decodeObjectForKey("reactorElapsedTime") as! Int
         self.wildElapsedTime = decoder.decodeObjectForKey("wildElapsedTime") as! Int
         self.princessElapsedTime = decoder.decodeObjectForKey("princessElapsedTime") as! Int
+        self.marieCelesteStatus = decoder.decodeObjectForKey("marieCelesteStatus") as! Int
         
         if let currentSpecialEventIDRaw = decoder.decodeObjectForKey("currentSpecialEventID") as! Int! {
             self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw)
@@ -1130,6 +1132,7 @@ class SpecialEvents: NSObject, NSCoding {
         encoder.encodeObject(reactorElapsedTime, forKey: "reactorElapsedTime")
         encoder.encodeObject(wildElapsedTime, forKey: "wildElapsedTime")
         encoder.encodeObject(princessElapsedTime, forKey: "princessElapsedTime")
+        encoder.encodeObject(marieCelesteStatus, forKey: "marieCelesteStatus")
         
         encoder.encodeObject(currentSpecialEventID?.rawValue, forKey: "currentSpecialEventID")
     }

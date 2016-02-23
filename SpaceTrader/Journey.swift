@@ -23,8 +23,12 @@ class Journey: NSObject, NSCoding {
     var scarab = false
     var spaceMonster = false
     
-    var famousCaptain = false
-    var marieCeleste = false
+//    var famousCaptain = false
+//    var marieCeleste = false
+//    var bottle = false
+    
+    // DEBUG -- force very rare encounters
+    var veryRareEventOverride = true                     // set to true to test very rare encounters
     
     var currentEncounter: Encounter?
     
@@ -304,10 +308,28 @@ class Journey: NSObject, NSCoding {
         
         // I think this has to terminate here, otherwise it will just keep running
         
-        // very rare event
+        // very rare event. veryRareOverride used to make this happen more often for testing
         if !pirate && !police && !trader && !mantis {
-            if (player.days > 10) && (arc4random_uniform(1000) < 5) {
-//                print("VERY RARE ENCOUNTER")
+            if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
+                print("VERY RARE ENCOUNTER")
+                let random = rand(6)
+                if random < 2 {
+                    currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
+                    currentEncounter!.beginEncounter()
+                } else if random == 2 {
+                    print("famous captain @ \(clicks) clicks")
+//                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
+//                    currentEncounter!.beginEncounter()
+                } else if random == 3 {
+                    print("bottleOld @ \(clicks) clicks")
+//                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
+//                    currentEncounter!.beginEncounter()
+                } else {
+                    print("bottleGood @ \(clicks) clicks")
+//                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
+//                    currentEncounter!.beginEncounter()
+                }
+                
             } else if player.commanderShip.justLootedMarieCeleste {
 //                print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
                 player.commanderShip.justLootedMarieCeleste = false
@@ -327,8 +349,9 @@ class Journey: NSObject, NSCoding {
         spaceMonster = false
         scarab = false
         scorpion = false
-        famousCaptain = false
-        marieCeleste = false
+//        famousCaptain = false
+//        marieCeleste = false
+//        bottle = false
         
         clicks -= 1
         

@@ -259,6 +259,11 @@ class Opponent: NSObject, NSCoding {
             loadGoodCrew(false)
         }
         
+        if type == IFFStatusType.MarieCeleste {
+            // marie celeste gets 5 bays of narcotics
+            ship.addCargo(TradeItemType.Narcotics, quantity: 5, pricePaid: 0)
+        }
+        
         //displayResults()
     }
     

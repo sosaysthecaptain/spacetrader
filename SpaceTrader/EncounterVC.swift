@@ -536,7 +536,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func yield() {
-        // ARREST?
+        // alert, offload cargo
+        let title = "Contraband Removed"
+        let message = "The Customs Police confiscated all of your illegal cargo, but since you were cooperative, you avoided stronger fines or penalties."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss alert
+            self.removeIllegal()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func trade() {
@@ -897,6 +907,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) ship attacks."
         
         redrawViewController()
+    }
+    
+    
+    // utility function, used to remove all illegal things from ship without compensation
+    func removeIllegal() {
+        if player.commanderShip.firearmsOnBoard > 0 {
+            player.commanderShip.removeCargo(TradeItemType.Firearms, quantity: player.commanderShip.firearmsOnBoard)
+        }
+        if player.commanderShip.narcoticsOnBoard > 0 {
+            player.commanderShip.removeCargo(TradeItemType.Narcotics, quantity: player.commanderShip.narcoticsOnBoard)
+        }
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************
