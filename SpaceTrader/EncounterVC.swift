@@ -319,7 +319,29 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         // see if unnecessarily running from the police
         let contraband = getContrabandStatus()
-        if !contraband && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
+        
+        // only marie warning once
+        
+        if galaxy.currentJourney!.currentEncounter!.type == EncounterType.postMariePoliceEncounter && (player.policeRecordInt > 4) {
+            let title: String = "Criminal Act!"
+            let message: String = "Are you sure you want to do that? The Customs Police know you have engaged in criminal activity, and will report it!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, I still want to", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // set police record to dubious if better, flee
+                if player.policeRecordInt > 4 {
+                    player.policeRecord = PoliceRecordType.crookScore
+                }
+                actuallyFlee = true
+            }))
+            alertController.addAction(UIAlertAction(title: "OK, I won't", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // nothing, just close the modal
+                actuallyFlee = false
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else if !contraband && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
             
             let title: String = "You Have Nothing Illegal"
             let message: String = "Are you sure you want to do that? You are not carrying illegal goods, so you have nothing to fear!"
@@ -537,6 +559,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func yield() {
+        // end marie celeste business
+        player.specialEvents.marieCelesteStatus = 2
+        
         // alert, offload cargo
         let title = "Contraband Removed"
         let message = "The Customs Police confiscated all of your illegal cargo, but since you were cooperative, you avoided stronger fines or penalties."
@@ -544,8 +569,15 @@ class EncounterVC: UIViewController, PlunderDelegate {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            // dismiss alert
+            // remove illegal and dismiss
             self.removeIllegal()
+            
+            // if you ran before, you get another chance
+            player.policeRecord = PoliceRecordType.cleanScore
+            
+            // dismess, ONLY THEN concludeEncounter()
+            self.dismissViewController()
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -557,7 +589,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
     func bribe() {
         // if system's bribe level is 0, display can't be bribed dialog
         let politics = Politics(type: galaxy.targetSystem!.politics)
-        if politics.bribeLevel <= 0 {                                       // || Marie Celeste?
+        if galaxy.currentJourney!.currentEncounter!.type == EncounterType.postMariePoliceEncounter {
+            let title = "No Bribe"
+            let message = "We'd love to take your money, but Space Command already knows you've got illegal goods onboard."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss alert
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else if politics.bribeLevel <= 0 {
             let title = "No Bribe"
             let message = "These police officers can't be bribed."
             
@@ -913,11 +955,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     // utility function, used to remove all illegal things from ship without compensation
     func removeIllegal() {
-        if player.commanderShip.firearmsOnBoard > 0 {
-            player.commanderShip.removeCargo(TradeItemType.Firearms, quantity: player.commanderShip.firearmsOnBoard)
+        let firearmsOnBoard = player.commanderShip.getQuantity(TradeItemType.Firearms)
+        let narcoticsOnBoard = player.commanderShip.getQuantity(TradeItemType.Narcotics)
+        
+        if firearmsOnBoard > 0 {
+            player.commanderShip.removeCargo(TradeItemType.Firearms, quantity: firearmsOnBoard)
         }
-        if player.commanderShip.narcoticsOnBoard > 0 {
-            player.commanderShip.removeCargo(TradeItemType.Narcotics, quantity: player.commanderShip.narcoticsOnBoard)
+        if narcoticsOnBoard > 0 {
+            player.commanderShip.removeCargo(TradeItemType.Narcotics, quantity: narcoticsOnBoard)
         }
     }
     

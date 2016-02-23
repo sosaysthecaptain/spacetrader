@@ -28,8 +28,8 @@ class Journey: NSObject, NSCoding {
 //    var bottle = false
     
     // DEBUG -- force very rare encounters
-    var veryRareEventOverride = true                     // set to true to test very rare encounters
-    var veryRareEncounter = false
+    var veryRareEventOverride = true                 // set to true to test very rare encounters
+    var veryRareEncounter = false                    // NOTE: I think this is obsolete and can be removed
     var marieCelesteLootedThisTurn = false
     
     var currentEncounter: Encounter?
@@ -181,25 +181,19 @@ class Journey: NSObject, NSCoding {
         }
         
         // post marie celeste encounter--must go here, to preempt other things
-        // can and probably should make this chance-based
-        
-        // what does this line do and why are we even clearing it?
         if !encounterThisClick || player.specialEvents.marieCelesteStatus == 1 {
-            print("possibility of postMarieCelesteEncounter--marieCelesteStatus = \(player.specialEvents.marieCelesteStatus)")
-            
-            let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
-            if narcoticsQuantity != 0 {
-                print("POSTMARIECELESTEENCOUNTER")
-                print("player has narcotics on board. Quantity: \(narcoticsQuantity)")
-                veryRareEncounter = true
-                encounterThisClick = true
-                player.specialEvents.marieCelesteStatus = 2         // won't happen again
-                currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
-                currentEncounter!.beginEncounter()
+            let random = rand(100)
+            if random > 70 {
+                let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
+                if narcoticsQuantity != 0 {
+                    veryRareEncounter = true
+                    encounterThisClick = true
+                    player.specialEvents.marieCelesteStatus = 2         // won't happen again
+                    currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
+                    currentEncounter!.beginEncounter()
+                }
             }
         }
-        
-
         
         // ELSE, check if it is time for an encounter
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
