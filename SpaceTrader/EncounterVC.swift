@@ -100,13 +100,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBAction func button2(sender: AnyObject) {
         let button2Text = galaxy.currentJourney!.currentEncounter!.button2Text
         if button2Text == "Flee" {
-            print("flee pressed")
             flee()
         } else if button2Text == "Plunder" {
-            print("plunder pressed")
             plunder()
         } else if button2Text == "Ignore" {
-            print("ignore pressed")
+            // handle marie celeste ignore situation--if player ignores it, it's over
+            if player.specialEvents.marieCelesteStatus == 1 {
+                player.specialEvents.marieCelesteStatus = 2
+            }
             ignore()
         }
     }

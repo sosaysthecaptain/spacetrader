@@ -598,7 +598,9 @@ func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatus
         return IFFStatusType.Scarab
     } else if (encounterType == EncounterType.marieCelesteEncounter) {
         return IFFStatusType.MarieCeleste
-    } else if (encounterType == EncounterType.famousCapAttack) { // really all?
+    } else if (encounterType == EncounterType.postMariePoliceEncounter) {
+        return IFFStatusType.Police
+    }else if (encounterType == EncounterType.famousCapAttack) { // really all?
         return IFFStatusType.FamousCaptain
     } else if (encounterType == EncounterType.bottleGoodEncounter) || (encounterType == EncounterType.bottleOldEncounter) {
         return IFFStatusType.Bottle

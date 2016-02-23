@@ -99,7 +99,7 @@ class SpaceShip: NSObject, NSCoding {
     }
     
     var raided = false
-    var justLootedMarieCeleste = false
+    //var justLootedMarieCeleste = false
     var cloaked = false
     var disabled = false
     
@@ -217,7 +217,7 @@ class SpaceShip: NSObject, NSCoding {
     // image shielded
     // image damaged
     
-    
+    // is this way of doing cargo even still in use? Remove if not...
     var cargo: [TradeItem] = []     // initializing everything empty. Override this if needed.
     var weapon: [Weapon] = []
     var shield: [Shield] = []
@@ -279,6 +279,7 @@ class SpaceShip: NSObject, NSCoding {
         }
     }
     
+    // is this even used
     var waterOnBoard: Int = 0
     var fursOnBoard: Int = 0
     var foodOnBoard: Int = 0
@@ -869,7 +870,7 @@ class SpaceShip: NSObject, NSCoding {
             self.probabilityOfHit = decoder.decodeObjectForKey("probabilityOfHit") as! Int
             
             self.raided = decoder.decodeObjectForKey("raided") as! Bool
-            self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
+            //self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
             self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
             self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
             self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObjectForKey("IFFStatus") as! String!)!
@@ -930,7 +931,7 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(probabilityOfHit, forKey: "probabilityOfHit")
             
             encoder.encodeObject(raided, forKey: "raided")
-            encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
+            //encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
             encoder.encodeObject(cloaked, forKey: "cloaked")
             encoder.encodeObject(disabled, forKey: "disabled")
             encoder.encodeObject(IFFStatus.rawValue, forKey: "IFFStatus")

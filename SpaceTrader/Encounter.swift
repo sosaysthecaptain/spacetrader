@@ -103,6 +103,11 @@ class Encounter: NSObject, NSCoding {
             concludeEncounter()
         }
         
+        // debug
+        if type == EncounterType.postMariePoliceEncounter {
+            print("Encounter: trying to instantiate postMariePoliceEncounter")
+        }
+        
         setEncounterTextAndButtons()
         fireModal()
     }
@@ -421,6 +426,8 @@ class Encounter: NSObject, NSCoding {
     }
     
     func fireModal() {          // LAUNCHES AN ENCOUNTER VIEW
+        print("encounter.fireModal is attempting to launch an encounter, type \(type)")
+        
         var passedText = NSString(string: "")
         if modalToCall == "main" {
             passedText = NSString(string: "main")

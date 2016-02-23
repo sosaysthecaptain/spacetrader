@@ -29,7 +29,11 @@ class SpecialEvents: NSObject, NSCoding {
     var wildOnBoard = false
     var reactorOnBoard = false
     var tribblesOnBoard = false
-    var marieCelesteStatus = 0      // 0 = not happened yet, 1 = not yet apprehended, 2 = over
+    var marieCelesteStatus = 0 {     // 0 = not happened yet, 1 = not yet apprehended, 2 = over
+        didSet {
+            print("marieCelesteStatus changed. Now \(marieCelesteStatus)")
+        }
+    }
     
     var experimentCountdown = -1
     var jarekElapsedTime = -1

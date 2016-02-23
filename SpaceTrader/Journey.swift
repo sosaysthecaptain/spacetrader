@@ -29,6 +29,8 @@ class Journey: NSObject, NSCoding {
     
     // DEBUG -- force very rare encounters
     var veryRareEventOverride = true                     // set to true to test very rare encounters
+    var veryRareEncounter = false
+    var marieCelesteLootedThisTurn = false
     
     var currentEncounter: Encounter?
     
@@ -74,6 +76,7 @@ class Journey: NSObject, NSCoding {
     }
     
     func resumeJourney() {
+        print("resumeJourney called")
         // this fires when an encounter is done. No need to check if open encounter.
         if clicks > 0 {
             executeClick()
@@ -83,6 +86,8 @@ class Journey: NSObject, NSCoding {
     }
     
     func executeClick() {
+        print("DEBUG: beginning executeClick()")                    // DEBUG, REMOVE
+        
         var encounterThisClick = false
         
         var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
@@ -135,6 +140,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.spaceMonsterIsHere {
             if clicks == 2 {
                 spaceMonster = true
+                encounterThisClick = true
             }
         }
         
@@ -142,6 +148,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.scarabIsHere {
             if clicks == 2 {
                 print("SCARAB IS HERE. Time for encounter, at 2 clicks")
+                encounterThisClick = true
                 scarab = true
             }
         }
@@ -150,6 +157,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.scorpionIsHere {
             if clicks == 2 {
                 print("SCORPION IS HERE. Time for encounter, at 2 clicks")
+                encounterThisClick = true
                 scorpion = true
             }
         }
@@ -158,6 +166,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.dragonflyIsHere {
             if clicks == 2 {
                 print("DRAGONFLY IS HERE. Time for encounter, at 2 clicks")
+                encounterThisClick = true
                 dragonfly = true
             }
         }
@@ -167,24 +176,50 @@ class Journey: NSObject, NSCoding {
             let random = rand(10)
             if random > 3 {
                 mantis = true
+                encounterThisClick = true
             }
         }
         
+        // post marie celeste encounter--must go here, to preempt other things
+        // can and probably should make this chance-based
+        
+        // what does this line do and why are we even clearing it?
+        if !encounterThisClick || player.specialEvents.marieCelesteStatus == 1 {
+            print("possibility of postMarieCelesteEncounter--marieCelesteStatus = \(player.specialEvents.marieCelesteStatus)")
+            
+            let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
+            if narcoticsQuantity != 0 {
+                print("POSTMARIECELESTEENCOUNTER")
+                print("player has narcotics on board. Quantity: \(narcoticsQuantity)")
+                veryRareEncounter = true
+                encounterThisClick = true
+                player.specialEvents.marieCelesteStatus = 2         // won't happen again
+                currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
+                currentEncounter!.beginEncounter()
+            }
+        }
+        
+
+        
         // ELSE, check if it is time for an encounter
-        if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis {
+        if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true
+                encounterThisClick = true
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
+                encounterThisClick = true
             } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
                 trader = true
+                encounterThisClick = true
             } // else if Wild status/Kravat...
             
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                     // mantis
                     mantis = true
+                    encounterThisClick = true
                 }
             }
         }
@@ -284,59 +319,85 @@ class Journey: NSObject, NSCoding {
             
             // honor autoIgnore and autoFlee, both of which have yet to be implemented
             
+            // instantiate the encounter we've set up, with encounterType.
+            encounterThisClick = true
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if trader {
+        } else if trader && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if mantis {
+        } else if mantis && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if dragonfly {
+        } else if dragonfly && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if scorpion {
+        } else if scorpion && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.scorpionAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if spaceMonster {
+        } else if spaceMonster && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.spaceMonsterAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if scarab {
+        } else if scarab && !encounterThisClick {
+            encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.scarabAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         }
         
-        // I think this has to terminate here, otherwise it will just keep running
-        
         // very rare event. veryRareOverride used to make this happen more often for testing
-        if !pirate && !police && !trader && !mantis {
+        // (it asks if !veryRareEncounter to handle postMarieCelesteEncounter scenario)
+        if !pirate && !police && !trader && !mantis && !veryRareEncounter {
             if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
                 print("VERY RARE ENCOUNTER")
+                // not setting veryRareEncounter flag to true, since marie celeste can still opt out
                 let random = rand(6)
                 if random < 2 {
-                    currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
-                    currentEncounter!.beginEncounter()
+                    // marie celeste, if it hasn't already happened
+                    print("MARIE CELESTE TIME")
+                    print("marieCelesteStatus: \(player.specialEvents.marieCelesteStatus)")
+                    if player.specialEvents.marieCelesteStatus == 0 {
+                        veryRareEncounter = true
+                        encounterThisClick = true
+                        print("marie celeste: inside if condition, event should fire now")
+                        player.specialEvents.marieCelesteStatus = 1     // set status to 1, to prompt police inspection
+                        currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
+                        currentEncounter!.beginEncounter()
+                    }
                 } else if random == 2 {
+                    veryRareEncounter = true
+                    encounterThisClick = true
                     print("famous captain @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
+                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
                 } else if random == 3 {
+                    veryRareEncounter = true
+                    encounterThisClick = true
                     print("bottleOld @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
+                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
                 } else {
+                    veryRareEncounter = true
+                    encounterThisClick = true
                     print("bottleGood @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
+                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
                 }
                 
-            } else if player.commanderShip.justLootedMarieCeleste {
-//                print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
-                player.commanderShip.justLootedMarieCeleste = false
             }
         }
         
-        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion {
+        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter {
             uneventfulTrip = false
             encounterThisClick = true
         }
@@ -349,6 +410,7 @@ class Journey: NSObject, NSCoding {
         spaceMonster = false
         scarab = false
         scorpion = false
+        veryRareEncounter = false
 //        famousCaptain = false
 //        marieCeleste = false
 //        bottle = false
@@ -369,6 +431,12 @@ class Journey: NSObject, NSCoding {
     func completeJourney() {            // accomplishes warp, decrements fuel, updates galaxy
         let journeyDistance = galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!)
         let oldSystem = galaxy.currentSystem
+        
+        // marie celeste: if player has gotten away with it, he's in the clear
+        if player.specialEvents.marieCelesteStatus == 1 {
+            player.specialEvents.marieCelesteStatus = 2
+        }
+        
         if !galaxy.spaceTimeMessedUp {
             galaxy.currentSystem = galaxy.targetSystem
         } else {
