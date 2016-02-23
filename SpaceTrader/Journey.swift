@@ -23,14 +23,15 @@ class Journey: NSObject, NSCoding {
     var scarab = false
     var spaceMonster = false
     
-//    var famousCaptain = false
-//    var marieCeleste = false
-//    var bottle = false
-    
-    // DEBUG -- force very rare encounters
-    var veryRareEventOverride = true                 // set to true to test very rare encounters
+
     var veryRareEncounter = false                    // NOTE: I think this is obsolete and can be removed
     var marieCelesteLootedThisTurn = false
+    
+    // TESTING. Use "disable" flags if override is on, else have them off.
+    var veryRareEventOverride = true        // turn on to force very rare events
+    var disableMarieCeleste = false         // these three prevent specific VREs from happening
+    var disableFamousCaptain = true
+    var disableBottle = true
     
     var currentEncounter: Encounter?
     
@@ -200,13 +201,10 @@ class Journey: NSObject, NSCoding {
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true
-                encounterThisClick = true
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
-                encounterThisClick = true
             } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
                 trader = true
-                encounterThisClick = true
             } // else if Wild status/Kravat...
             
             if !pirate && !police && !trader {
@@ -217,6 +215,8 @@ class Journey: NSObject, NSCoding {
                 }
             }
         }
+        
+        print("DEBUG: encounterThisClick yet? \(encounterThisClick)")
         
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
@@ -346,52 +346,43 @@ class Journey: NSObject, NSCoding {
         // very rare event. veryRareOverride used to make this happen more often for testing
         // (it asks if !veryRareEncounter to handle postMarieCelesteEncounter scenario)
         if !pirate && !police && !trader && !mantis && !veryRareEncounter {
-            if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
+            if (player.days > 10) && (arc4random_uniform(1000) < 5) {
                 print("VERY RARE ENCOUNTER")
                 // not setting veryRareEncounter flag to true, since marie celeste can still opt out
                 let random = rand(6)
-                if random < 2 {
+                if (random < 2) || !disableMarieCeleste {
                     // marie celeste, if it hasn't already happened
-                    print("MARIE CELESTE TIME")
-                    print("marieCelesteStatus: \(player.specialEvents.marieCelesteStatus)")
                     if player.specialEvents.marieCelesteStatus == 0 {
                         veryRareEncounter = true
                         encounterThisClick = true
-                        print("marie celeste: inside if condition, event should fire now")
                         player.specialEvents.marieCelesteStatus = 1     // set status to 1, to prompt police inspection
                         currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
                         currentEncounter!.beginEncounter()
                     }
-                } else if random == 2 {
-                    veryRareEncounter = true
+                } else if (random == 2) && !disableFamousCaptain {
                     encounterThisClick = true
                     print("famous captain @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
-                } else if random == 3 {
-                    veryRareEncounter = true
+                } else if (random == 3) && !disableBottle {
                     encounterThisClick = true
                     print("bottleOld @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
-                } else {
-                    veryRareEncounter = true
+                } else if !disableBottle {
                     encounterThisClick = true
                     print("bottleGood @ \(clicks) clicks")
 //                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
 //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
                 }
                 
             }
         }
         
-        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter {
+        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter || !encounterThisClick {
             uneventfulTrip = false
             encounterThisClick = true
         }
