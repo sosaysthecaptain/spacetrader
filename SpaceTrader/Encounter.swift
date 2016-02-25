@@ -104,9 +104,7 @@ class Encounter: NSObject, NSCoding {
         }
         
         // debug
-        if type == EncounterType.postMariePoliceEncounter {
-            print("Encounter: trying to instantiate postMariePoliceEncounter")
-        }
+        print("Encounter: instantiating an encounter of type \(type)")
         
         setEncounterTextAndButtons()
         fireModal()

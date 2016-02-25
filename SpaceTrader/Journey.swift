@@ -183,6 +183,7 @@ class Journey: NSObject, NSCoding {
         
         // post marie celeste encounter--must go here, to preempt other things
         if !encounterThisClick || player.specialEvents.marieCelesteStatus == 1 {
+            print("POST MARIE CELESTE BLOCK RUNNING")
             let random = rand(100)
             if random > 70 {
                 let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
@@ -197,7 +198,10 @@ class Journey: NSObject, NSCoding {
         }
         
         // ELSE, check if it is time for an encounter
+        print("time for an encounter?")
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
+            print("THIS IS RUNNING!")
+            
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true
@@ -207,6 +211,7 @@ class Journey: NSObject, NSCoding {
                 trader = true
             } // else if Wild status/Kravat...
             
+            // possibility of mantis encounter, if player has artifact and random chance
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                     // mantis
@@ -214,9 +219,15 @@ class Journey: NSObject, NSCoding {
                     encounterThisClick = true
                 }
             }
+        } else {
+            // debug
+            print("FAILED TIME FOR AN ENCOUNTER TEST, NO DOING A REGULAR ENCOUNTER")
         }
         
         print("DEBUG: encounterThisClick yet? \(encounterThisClick)")
+        print("pirate? \(pirate), police? \(police), trader? \(trader)")
+        print("dragonfly? \(dragonfly), scorpion? \(scorpion), mantis? \(mantis), spaceMonster? \(spaceMonster), scarab? \(scarab)")
+        print("very rare encounter? \(veryRareEncounter)")
         
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
@@ -382,10 +393,15 @@ class Journey: NSObject, NSCoding {
             }
         }
         
+        print("encounterThisClick? \(encounterThisClick)")
+        print("pirate? \(pirate) police? \(police) trader? \(trader)")
+        
         if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter || !encounterThisClick {
             uneventfulTrip = false
             encounterThisClick = true
         }
+        
+        print("concluding executeClick. encounterThisClick? \(encounterThisClick)")
         
         pirate = false
         police = false
