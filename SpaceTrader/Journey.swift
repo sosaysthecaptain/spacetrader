@@ -23,15 +23,14 @@ class Journey: NSObject, NSCoding {
     var scarab = false
     var spaceMonster = false
     
-
-    var veryRareEncounter = false                    // NOTE: I think this is obsolete and can be removed
-    var marieCelesteLootedThisTurn = false
+    //    var famousCaptain = false
+    //    var marieCeleste = false
+    //    var bottle = false
     
-    // TESTING. Use "disable" flags if override is on, else have them off.
-    var veryRareEventOverride = true        // turn on to force very rare events
-    var disableMarieCeleste = false         // these three prevent specific VREs from happening
-    var disableFamousCaptain = true
-    var disableBottle = true
+    // DEBUG -- force very rare encounters
+    var veryRareEventOverride = true                     // set to true to test very rare encounters
+    var veryRareEncounter = false
+    var marieCelesteLootedThisTurn = false
     
     var currentEncounter: Encounter?
     
@@ -58,8 +57,8 @@ class Journey: NSObject, NSCoding {
         // SHORT CIRCUIT, FOR TESTING PURPOSES ONLY
         //completeJourney()
         
-//        print("**************************************************************")
-//        print("WARP SEQUENCE INITIATED")
+        //        print("**************************************************************")
+        //        print("WARP SEQUENCE INITIATED")
         
         // go to WarpViewVC, pause momentarily
         
@@ -182,36 +181,40 @@ class Journey: NSObject, NSCoding {
         }
         
         // post marie celeste encounter--must go here, to preempt other things
+        // can and probably should make this chance-based
+        
+        // what does this line do and why are we even clearing it?
         if !encounterThisClick || player.specialEvents.marieCelesteStatus == 1 {
-            print("POST MARIE CELESTE BLOCK RUNNING")
-            let random = rand(100)
-            if random > 70 {
-                let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
-                if narcoticsQuantity != 0 {
-                    veryRareEncounter = true
-                    encounterThisClick = true
-                    player.specialEvents.marieCelesteStatus = 2         // won't happen again
-                    currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
-                    currentEncounter!.beginEncounter()
-                }
+            print("possibility of postMarieCelesteEncounter--marieCelesteStatus = \(player.specialEvents.marieCelesteStatus)")
+            
+            let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
+            if narcoticsQuantity != 0 {
+                print("POSTMARIECELESTEENCOUNTER")
+                print("player has narcotics on board. Quantity: \(narcoticsQuantity)")
+                veryRareEncounter = true
+                encounterThisClick = true
+                player.specialEvents.marieCelesteStatus = 2         // won't happen again
+                currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
+                currentEncounter!.beginEncounter()
             }
         }
         
+        
+        
         // ELSE, check if it is time for an encounter
-        print("time for an encounter?")
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
-            print("THIS IS RUNNING!")
-            
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true
+                encounterThisClick = true
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
+                encounterThisClick = true
             } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
                 trader = true
+                encounterThisClick = true
             } // else if Wild status/Kravat...
             
-            // possibility of mantis encounter, if player has artifact and random chance
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                     // mantis
@@ -219,21 +222,13 @@ class Journey: NSObject, NSCoding {
                     encounterThisClick = true
                 }
             }
-        } else {
-            // debug
-            print("FAILED TIME FOR AN ENCOUNTER TEST, NO DOING A REGULAR ENCOUNTER")
         }
-        
-        print("DEBUG: encounterThisClick yet? \(encounterThisClick)")
-        print("pirate? \(pirate), police? \(police), trader? \(trader)")
-        print("dragonfly? \(dragonfly), scorpion? \(scorpion), mantis? \(mantis), spaceMonster? \(spaceMonster), scarab? \(scarab)")
-        print("very rare encounter? \(veryRareEncounter)")
         
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
         if pirate {
             encounterType = EncounterType.pirateAttack      // default
-//            print("pirate encounter. Default is attack.")
+            //            print("pirate encounter. Default is attack.")
             
             // if you're cloaked, they ignore you
             if player.commanderShip.cloaked {
@@ -255,55 +250,55 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if police {
-//            print("default police interaction is ignore")
+            //            print("default police interaction is ignore")
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
             if player.commanderShip.cloaked {
-//                print("police are ignoring you because you're cloaked")
+                //                print("police are ignoring you because you're cloaked")
                 encounterType = EncounterType.policeIgnore
             } else if player.policeRecord.rawValue < 4 {
-//                print("you are a criminal. Entering that clause...")
+                //                print("you are a criminal. Entering that clause...")
                 // if you're a criminal, the police will tend to attack
                 
                 // if you are heavily armed, something
                 
                 // unless you're impressive, they'll attack
                 if player.reputation.rawValue < 3 {
-//                    print("you are a criminal, and not impressive enough for the police to be scared")
+                    //                    print("you are a criminal, and not impressive enough for the police to be scared")
                     encounterType = EncounterType.policeAttack
                 } else if Int(arc4random_uniform(8)) > (player.reputation.rawValue) { // rep / (1 + opponent.type) ?
-//                    print("you are moderately scary, but dice roll determined they will attack you anyway")
+                    //                    print("you are moderately scary, but dice roll determined they will attack you anyway")
                     encounterType = EncounterType.policeAttack
                 } else if player.commanderShip.cloaked {
-//                    print("you are a criminal, but cloaked. Police ignoring.")
+                    //                    print("you are a criminal, but cloaked. Police ignoring.")
                     encounterType = EncounterType.policeIgnore
                 } else {
-//                    print("you are a scary criminal. Police fleeing")
+                    //                    print("you are a scary criminal. Police fleeing")
                     encounterType = EncounterType.policeFlee
                 }
                 // if dubious police will inspect you
             } else if player.policeRecord.rawValue <= 4 {
-//                print("your police record is dubious, so you are getting inspected")
+                //                print("your police record is dubious, so you are getting inspected")
                 encounterType = EncounterType.policeInspection
                 player.inspected = true
                 // if clean but not as high as lawful, 10% chance of inspection on normal
             } else if player.policeRecord.rawValue == 5 {
                 // clean police record gets 50% chance of inspection
-//                print("your police record is clean. 50% chance of inspection.")
+                //                print("your police record is clean. 50% chance of inspection.")
                 if (arc4random_uniform(10) < 5) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
             } else if player.policeRecord.rawValue < 5 {
-
-//                print("your police record is lawful. 10% chance of inspection")
+                
+                //                print("your police record is lawful. 10% chance of inspection")
                 if (Int(arc4random_uniform(UInt32(12 - player.getDifficultyInt()))) < 1) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
             } else {
                 if (arc4random_uniform(40) == 1) && !player.inspected {
-//                    print("your police record is great, but you're getting inspected anyway, on a 1 in 40 chance")
+                    //                    print("your police record is great, but you're getting inspected anyway, on a 1 in 40 chance")
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }
@@ -312,13 +307,13 @@ class Journey: NSObject, NSCoding {
             // IMPLEMENT LATER, MUST INSTANTIATE OPPONENT SHIP HERE TO DO THAT
             
             if encounterType == EncounterType.policeIgnore && player.commanderShip.cloaked {
-//                print("you are cloaked and the police are ignoring you. Encounter won't happen")
+                //                print("you are cloaked and the police are ignoring you. Encounter won't happen")
                 encounterType = EncounterType.nullEncounter
             }
             
             // if the police are after you but your police record is less than criminal, they'll hail you to surrender instead of attacking
             if encounterType == EncounterType.policeAttack && player.policeRecord.rawValue > 2 {
-//                print("police not attacking you because you're only a small time crook")
+                //                print("police not attacking you because you're only a small time crook")
                 encounterType = EncounterType.policeSurrenderDemand
             }
             
@@ -357,51 +352,55 @@ class Journey: NSObject, NSCoding {
         // very rare event. veryRareOverride used to make this happen more often for testing
         // (it asks if !veryRareEncounter to handle postMarieCelesteEncounter scenario)
         if !pirate && !police && !trader && !mantis && !veryRareEncounter {
-            if (player.days > 10) && (arc4random_uniform(1000) < 5) {
+            if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
                 print("VERY RARE ENCOUNTER")
                 // not setting veryRareEncounter flag to true, since marie celeste can still opt out
                 let random = rand(6)
-                if (random < 2) || !disableMarieCeleste {
+                if random < 2 {
                     // marie celeste, if it hasn't already happened
+                    print("MARIE CELESTE TIME")
+                    print("marieCelesteStatus: \(player.specialEvents.marieCelesteStatus)")
                     if player.specialEvents.marieCelesteStatus == 0 {
                         veryRareEncounter = true
                         encounterThisClick = true
+                        print("marie celeste: inside if condition, event should fire now")
                         player.specialEvents.marieCelesteStatus = 1     // set status to 1, to prompt police inspection
                         currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
                         currentEncounter!.beginEncounter()
                     }
-                } else if (random == 2) && !disableFamousCaptain {
+                } else if random == 2 {
+                    veryRareEncounter = true
                     encounterThisClick = true
                     print("famous captain @ \(clicks) clicks")
-//                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
-//                    currentEncounter!.beginEncounter()
+                    //                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
+                    //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
-                } else if (random == 3) && !disableBottle {
+                } else if random == 3 {
+                    veryRareEncounter = true
                     encounterThisClick = true
                     print("bottleOld @ \(clicks) clicks")
-//                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
-//                    currentEncounter!.beginEncounter()
+                    //                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
+                    //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
-                } else if !disableBottle {
+                } else {
+                    veryRareEncounter = true
                     encounterThisClick = true
                     print("bottleGood @ \(clicks) clicks")
-//                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
-//                    currentEncounter!.beginEncounter()
+                    //                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
+                    //                    currentEncounter!.beginEncounter()
+                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
                     encounterThisClick = false                  // DEBUG! REMOVE THIS!
                 }
                 
             }
         }
         
-        print("encounterThisClick? \(encounterThisClick)")
-        print("pirate? \(pirate) police? \(police) trader? \(trader)")
-        
-        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter || !encounterThisClick {
+        if pirate || police || trader || mantis || dragonfly || spaceMonster || scarab || scorpion || veryRareEncounter {
             uneventfulTrip = false
             encounterThisClick = true
         }
-        
-        print("concluding executeClick. encounterThisClick? \(encounterThisClick)")
         
         pirate = false
         police = false
@@ -412,9 +411,9 @@ class Journey: NSObject, NSCoding {
         scarab = false
         scorpion = false
         veryRareEncounter = false
-//        famousCaptain = false
-//        marieCeleste = false
-//        bottle = false
+        //        famousCaptain = false
+        //        marieCeleste = false
+        //        bottle = false
         
         clicks -= 1
         
@@ -427,7 +426,7 @@ class Journey: NSObject, NSCoding {
             
         }
     }
-
+    
     
     func completeJourney() {            // accomplishes warp, decrements fuel, updates galaxy
         let journeyDistance = galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!)
@@ -474,10 +473,10 @@ class Journey: NSObject, NSCoding {
         travelBySingularity = false
         
         // untrack system upon arrival
-//        print("seeing if system needs to be untracked.")
-//        print("trackedSystem: \(galaxy.trackedSystem)")
+        //        print("seeing if system needs to be untracked.")
+        //        print("trackedSystem: \(galaxy.trackedSystem)")
         if galaxy.currentSystem == galaxy.trackedSystem {
-//            print("arriving at tracked system. Untracking system.")
+            //            print("arriving at tracked system. Untracking system.")
             galaxy.trackedSystem = nil
         }
         
@@ -502,80 +501,80 @@ class Journey: NSObject, NSCoding {
         
     }
     
-//    func generateEncounters() {         // OLD, but with useful code
-//        
-//        
-//        // handle possibility of spacetime rip
-//
-//        while clicks > 0 {
-//            
-//        }
-//        
-//        // arrive
-//        if uneventfulTrip {
-//            print("After an uneventful trip, you arrive at your destination")
-//            uneventfulTrip = true
-//        } else {
-//            print("Arrival alert goes here.")
-//        }
-//        
-//        if player.debt > 75000 {
-//            print("LARGE DEBT WARNING")
-//        }
-//        
-//        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
-//            print("LOAN REMINDER")
-//        }
-//        
-//        // reactor warnings?
-//        
-//        // if arrived at tracked system, set tracked system to nil
-//        
-//        // tribbles:
-//        // if present, increase their number
-//        // handle irradiated tribbles
-//        // handle high tribbles
-//        // handle tribbles eating food
-//        // if tribbles increased past certain thresholds, trigger alert
-//        
-//        // autofuel & autorepair
-//        
-//        // Og system lightning shield easter egg?
-//    }
+    //    func generateEncounters() {         // OLD, but with useful code
+    //
+    //
+    //        // handle possibility of spacetime rip
+    //
+    //        while clicks > 0 {
+    //
+    //        }
+    //
+    //        // arrive
+    //        if uneventfulTrip {
+    //            print("After an uneventful trip, you arrive at your destination")
+    //            uneventfulTrip = true
+    //        } else {
+    //            print("Arrival alert goes here.")
+    //        }
+    //
+    //        if player.debt > 75000 {
+    //            print("LARGE DEBT WARNING")
+    //        }
+    //
+    //        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
+    //            print("LOAN REMINDER")
+    //        }
+    //
+    //        // reactor warnings?
+    //
+    //        // if arrived at tracked system, set tracked system to nil
+    //
+    //        // tribbles:
+    //        // if present, increase their number
+    //        // handle irradiated tribbles
+    //        // handle high tribbles
+    //        // handle tribbles eating food
+    //        // if tribbles increased past certain thresholds, trigger alert
+    //
+    //        // autofuel & autorepair
+    //
+    //        // Og system lightning shield easter egg?
+    //    }
     
-// NSCODING METHODS
+    // NSCODING METHODS
     
-        required init(coder decoder: NSCoder) {
-            self.origin = decoder.decodeObjectForKey("origin") as! StarSystem
-            self.destination = decoder.decodeObjectForKey("destination") as! StarSystem
-            self.clicks = decoder.decodeObjectForKey("clicks") as! Int
-            self.pirate = decoder.decodeObjectForKey("pirate") as! Bool
-            self.police = decoder.decodeObjectForKey("police") as! Bool
-            self.trader = decoder.decodeObjectForKey("trader") as! Bool
-            self.mantis = decoder.decodeObjectForKey("mantis") as! Bool
-            self.currentEncounter = decoder.decodeObjectForKey("currentEncounter") as! Encounter?
-            self.localPolitics = decoder.decodeObjectForKey("localPolitics") as! Politics
-            self.strengthPirates = decoder.decodeObjectForKey("strengthPirates") as! Int
-            self.strengthPolice = decoder.decodeObjectForKey("strengthPolice") as! Int
-            self.strengthTraders = decoder.decodeObjectForKey("strengthTraders") as! Int
-            self.uneventfulTrip = decoder.decodeObjectForKey("uneventfulTrip") as! Bool
+    required init(coder decoder: NSCoder) {
+        self.origin = decoder.decodeObjectForKey("origin") as! StarSystem
+        self.destination = decoder.decodeObjectForKey("destination") as! StarSystem
+        self.clicks = decoder.decodeObjectForKey("clicks") as! Int
+        self.pirate = decoder.decodeObjectForKey("pirate") as! Bool
+        self.police = decoder.decodeObjectForKey("police") as! Bool
+        self.trader = decoder.decodeObjectForKey("trader") as! Bool
+        self.mantis = decoder.decodeObjectForKey("mantis") as! Bool
+        self.currentEncounter = decoder.decodeObjectForKey("currentEncounter") as! Encounter?
+        self.localPolitics = decoder.decodeObjectForKey("localPolitics") as! Politics
+        self.strengthPirates = decoder.decodeObjectForKey("strengthPirates") as! Int
+        self.strengthPolice = decoder.decodeObjectForKey("strengthPolice") as! Int
+        self.strengthTraders = decoder.decodeObjectForKey("strengthTraders") as! Int
+        self.uneventfulTrip = decoder.decodeObjectForKey("uneventfulTrip") as! Bool
+        
+        super.init()
+    }
     
-            super.init()
-        }
-    
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(origin, forKey: "origin")
-            encoder.encodeObject(destination, forKey: "destination")
-            encoder.encodeObject(clicks, forKey: "clicks")
-            encoder.encodeObject(pirate, forKey: "pirate")
-            encoder.encodeObject(police, forKey: "police")
-            encoder.encodeObject(trader, forKey: "trader")
-            encoder.encodeObject(mantis, forKey: "mantis")
-            encoder.encodeObject(currentEncounter, forKey: "currentEncounter")
-            encoder.encodeObject(localPolitics, forKey: "localPolitics")
-            encoder.encodeObject(strengthPirates, forKey: "strengthPirates")
-            encoder.encodeObject(strengthPolice, forKey: "strengthPolice")
-            encoder.encodeObject(strengthTraders, forKey: "strengthTraders")
-            encoder.encodeObject(uneventfulTrip, forKey: "uneventfulTrip")
-        }
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(origin, forKey: "origin")
+        encoder.encodeObject(destination, forKey: "destination")
+        encoder.encodeObject(clicks, forKey: "clicks")
+        encoder.encodeObject(pirate, forKey: "pirate")
+        encoder.encodeObject(police, forKey: "police")
+        encoder.encodeObject(trader, forKey: "trader")
+        encoder.encodeObject(mantis, forKey: "mantis")
+        encoder.encodeObject(currentEncounter, forKey: "currentEncounter")
+        encoder.encodeObject(localPolitics, forKey: "localPolitics")
+        encoder.encodeObject(strengthPirates, forKey: "strengthPirates")
+        encoder.encodeObject(strengthPolice, forKey: "strengthPolice")
+        encoder.encodeObject(strengthTraders, forKey: "strengthTraders")
+        encoder.encodeObject(uneventfulTrip, forKey: "uneventfulTrip")
+    }
 }
