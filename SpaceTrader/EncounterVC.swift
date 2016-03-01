@@ -1172,12 +1172,24 @@ class EncounterVC: UIViewController, PlunderDelegate {
         switch random2 {
         case 0:
             player.initialPilotSkill -= 2
+            if player.initialPilotSkill < 1 {
+                player.initialPilotSkill = 1
+            }
         case 1:
             player.initialFighterSkill -= 2
+            if player.initialFighterSkill < 1 {
+                player.initialFighterSkill = 1
+            }
         case 2:
             player.initialTraderSkill -= 2
+            if player.initialTraderSkill < 1 {
+                player.initialTraderSkill = 1
+            }
         case 3:
             player.initialEngineerSkill -= 2
+            if player.initialEngineerSkill < 1 {
+                player.initialEngineerSkill = 1
+            }
         default:
             print("error")
         }
