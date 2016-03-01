@@ -355,7 +355,7 @@ class Journey: NSObject, NSCoding {
             if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
                 print("VERY RARE ENCOUNTER")
                 // not setting veryRareEncounter flag to true, since marie celeste can still opt out
-                let random = rand(6)
+                let random = rand(5)
                 if random < 2 {
                     // marie celeste, if it hasn't already happened
                     print("MARIE CELESTE TIME")
@@ -409,18 +409,14 @@ class Journey: NSObject, NSCoding {
                     veryRareEncounter = true
                     encounterThisClick = true
                     print("bottleOld @ \(clicks) clicks")
-                    //                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
-                    //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
-                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
-                } else {
+                    currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
+                    currentEncounter!.beginEncounter()
+                } else if random == 4 {
                     veryRareEncounter = true
                     encounterThisClick = true
                     print("bottleGood @ \(clicks) clicks")
-                    //                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
-                    //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
-                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
+                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
+                    currentEncounter!.beginEncounter()
                 }
                 
             }

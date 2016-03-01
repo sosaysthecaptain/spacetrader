@@ -263,6 +263,10 @@ class Opponent: NSObject, NSCoding {
             loadGoodShields(true)
             loadGoodWeapons(true, number: 2)
             loadGoodCrew(true)
+        } else if type == IFFStatusType.Bottle {
+            ship.type = ShipType.Bottle
+            ship.name = "Bottle"
+            
         }
         
         if type == IFFStatusType.MarieCeleste {

@@ -94,6 +94,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         } else if button1Text == "Board" {
             print("board pressed")
             board()
+        } else if button1Text == "Pick It Up" {
+            pickUp()
         }
     }
     
@@ -391,6 +393,26 @@ class EncounterVC: UIViewController, PlunderDelegate {
             self.presentViewController(alertController, animated: true, completion: nil)
             
         }
+    }
+    
+    func pickUp() {
+        let title = "Drink Contents?"
+        let message = "You have come across an extremely rare bottle of Captain Marmoset's Amazing Skill Tonic! The \"use-by\" date is illegible, but might still be good.  Would you like to drink it?"
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Yes, Drink It", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // DRINK IT
+            self.drinkTonic()
+            
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and conclude encounter
+            self.dismissViewController()
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func board() {
@@ -1076,6 +1098,89 @@ class EncounterVC: UIViewController, PlunderDelegate {
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func drinkTonic() {
+        if galaxy.currentJourney!.currentEncounter!.type == EncounterType.bottleGoodEncounter {
+            print("drinking good tonic. Display alert, increase random skill")
+            self.increaseRandomSkill()
+            
+            let title = "Tonic Consumed"
+            let message = "Mmmmm. Captain Marmoset's Amazing Skill Tonic not only fills you with energy, but tastes like a fine single-malt."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else {
+            print("drinking old tonic. Display alert, mess up skills")
+            self.messUpSkills()
+            
+            let title = "Tonic Consumed"
+            let message = "While you don't know what it was supposed to taste like, you get the feeling that this dose of tonic was a bit off."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func increaseRandomSkill() {
+        let random = rand(4)
+        switch random {
+            case 0:
+                player.initialPilotSkill += 3
+            case 1:
+                player.initialFighterSkill += 3
+            case 2:
+                player.initialTraderSkill += 3
+            case 3:
+                player.initialEngineerSkill += 3
+            default:
+                print("error")
+        }
+    }
+    
+    func messUpSkills() {
+        // increase one skill somewhat
+        let random1 = rand(4)
+        switch random1 {
+        case 0:
+            player.initialPilotSkill += 1
+        case 1:
+            player.initialFighterSkill += 1
+        case 2:
+            player.initialTraderSkill += 1
+        case 3:
+            player.initialEngineerSkill += 1
+        default:
+            print("error")
+        }
+        
+        // diminish another a bit more
+        let random2 = rand(4)
+        switch random2 {
+        case 0:
+            player.initialPilotSkill -= 2
+        case 1:
+            player.initialFighterSkill -= 2
+        case 2:
+            player.initialTraderSkill -= 2
+        case 3:
+            player.initialEngineerSkill -= 2
+        default:
+            print("error")
+        }
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************

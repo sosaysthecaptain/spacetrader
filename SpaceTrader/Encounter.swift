@@ -345,21 +345,21 @@ class Encounter: NSObject, NSCoding {
             encounterText1 = ""
             encounterText2 = "It ignores you."
         } else if type == EncounterType.bottleGoodEncounter {
-            button1Text = ""
-            button2Text = ""
+            button1Text = "Pick It Up"
+            button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = ""
-            encounterText2 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a drifting bottle."
+            encounterText2 = "It appears to be a rare bottle of Captain Marmoset's Skill Tonic!"
         } else if type == EncounterType.bottleOldEncounter {
-            button1Text = ""
-            button2Text = ""
+            button1Text = "Pick It Up"
+            button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = ""
-            encounterText2 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a drifting bottle."
+            encounterText2 = "It appears to be a rare bottle of Captain Marmoset's Skill Tonic!"
         } else if type == EncounterType.mantisAttack {
             button1Text = "Attack"
             button2Text = "Flee"
