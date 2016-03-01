@@ -35,6 +35,8 @@ class Encounter: NSObject, NSCoding {
     
     var scoopableItem: TradeItem?
     
+    var warnedYet = false
+    
     // thing to call opposing vessel, settable by IFF
     // options:
     var opposingVessel: String {
@@ -56,6 +58,8 @@ class Encounter: NSObject, NSCoding {
                     return "Space Monster"
                 case IFFStatusType.Scorpion:
                     return "Scorpion"
+                case IFFStatusType.FamousCaptain:
+                    return "Wasp"
                 default:
                     return ""
             }
@@ -298,7 +302,7 @@ class Encounter: NSObject, NSCoding {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = ""
+            encounterText1 = "THIS IS ATTACK. REPLACE THIS."
             encounterText2 = "Your opponent attacks."
         } else if type == EncounterType.spaceMonsterAttack {
             button1Text = "Attack"
@@ -372,6 +376,30 @@ class Encounter: NSObject, NSCoding {
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the Scorpion."
             encounterText2 = "Your opponent attacks."
+        } else if type == EncounterType.famousCaptainAhab {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Accept"
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the famous captain Ahab."
+            encounterText2 = "The captain requests a brief meeting with you."
+        } else if type == EncounterType.famousCaptainConrad {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Accept"
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the famous captain Conrad."
+            encounterText2 = "The captain requests a brief meeting with you."
+        } else if type == EncounterType.famousCaptainHuie {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Accept"
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the famous captain Huie."
+            encounterText2 = "The captain requests a brief meeting with you."
         }
     }
     

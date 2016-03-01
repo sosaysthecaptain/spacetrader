@@ -35,6 +35,10 @@ class SpecialEvents: NSObject, NSCoding {
         }
     }
     
+    var captainAhabHappened = false
+    var captainConradHappened = false
+    var captainHuieHappened = false
+    
     var experimentCountdown = -1
     var jarekElapsedTime = -1
     var gemulonInvasionCountdown = -1
@@ -1110,6 +1114,10 @@ class SpecialEvents: NSObject, NSCoding {
         if let currentSpecialEventIDRaw = decoder.decodeObjectForKey("currentSpecialEventID") as! Int! {
             self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw)
         }
+        
+        self.captainAhabHappened = decoder.decodeObjectForKey("captainAhabHappened") as! Bool
+        self.captainConradHappened = decoder.decodeObjectForKey("captainConradHappened") as! Bool
+        self.captainHuieHappened = decoder.decodeObjectForKey("captainHuieHappened") as! Bool
 
         super.init()
     }
@@ -1139,6 +1147,10 @@ class SpecialEvents: NSObject, NSCoding {
         encoder.encodeObject(marieCelesteStatus, forKey: "marieCelesteStatus")
         
         encoder.encodeObject(currentSpecialEventID?.rawValue, forKey: "currentSpecialEventID")
+        
+        encoder.encodeObject(captainAhabHappened, forKey: "captainAhabHappened")
+        encoder.encodeObject(captainConradHappened, forKey: "captainConradHappened")
+        encoder.encodeObject(captainHuieHappened, forKey: "captainHuieHappened")
     }
     
 }

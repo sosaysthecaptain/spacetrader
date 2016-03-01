@@ -846,6 +846,32 @@ class SpaceShip: NSObject, NSCoding {
         }
     }
     
+    func removeWeapon(type: WeaponType) -> Bool {
+        // removes one of the weapons of specified type
+        var index = 0
+        for item in weapon {
+            if item.type == type {
+                weapon.removeAtIndex(index)
+                return true
+            }
+            index += 1
+        }
+        return false
+    }
+    
+    func removeShield(type: ShieldType) -> Bool {
+        // removes shield of specified type
+        var index = 0
+        for item in shield {
+            if item.type == type {
+                shield.removeAtIndex(index)
+                return true
+            }
+            index += 1
+        }
+        return false
+    }
+    
      // NSCODING METHODS
         required init(coder decoder: NSCoder) {
             self.type = ShipType(rawValue: decoder.decodeObjectForKey("type") as! Int!)!

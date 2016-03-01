@@ -369,13 +369,39 @@ class Journey: NSObject, NSCoding {
                         currentEncounter!.beginEncounter()
                     }
                 } else if random == 2 {
-                    veryRareEncounter = true
-                    encounterThisClick = true
                     print("famous captain @ \(clicks) clicks")
-                    //                    currentEncounter = Encounter(type: EncounterType.famousCapAttack, clicks: clicks)
-                    //                    currentEncounter!.beginEncounter()
-                    veryRareEncounter = false                   // DEBUG! REMOVE THIS!
-                    encounterThisClick = false                  // DEBUG! REMOVE THIS!
+                    
+                    // three possible famous captain encounters. Choose one
+                    let random = rand(3)
+                    switch random {
+                        case 0:
+                            if !player.specialEvents.captainAhabHappened {
+                                player.specialEvents.captainAhabHappened = true
+                                veryRareEncounter = true
+                                encounterThisClick = true
+                                currentEncounter = Encounter(type: EncounterType.famousCaptainAhab, clicks: clicks)
+                                currentEncounter!.beginEncounter()
+                            }
+                        case 1:
+                            if !player.specialEvents.captainConradHappened {
+                                player.specialEvents.captainConradHappened = true
+                                veryRareEncounter = true
+                                encounterThisClick = true
+                                currentEncounter = Encounter(type: EncounterType.famousCaptainConrad, clicks: clicks)
+                                currentEncounter!.beginEncounter()
+                            }
+                        case 2:
+                            if !player.specialEvents.captainHuieHappened {
+                                player.specialEvents.captainHuieHappened = true
+                                veryRareEncounter = true
+                                encounterThisClick = true
+                                currentEncounter = Encounter(type: EncounterType.famousCaptainHuie, clicks: clicks)
+                                currentEncounter!.beginEncounter()
+                            }
+                        default:
+                            print("error")
+                    }
+                    
                 } else if random == 3 {
                     veryRareEncounter = true
                     encounterThisClick = true
@@ -526,16 +552,7 @@ class Journey: NSObject, NSCoding {
     //            print("LOAN REMINDER")
     //        }
     //
-    //        // reactor warnings?
-    //
     //        // if arrived at tracked system, set tracked system to nil
-    //
-    //        // tribbles:
-    //        // if present, increase their number
-    //        // handle irradiated tribbles
-    //        // handle high tribbles
-    //        // handle tribbles eating food
-    //        // if tribbles increased past certain thresholds, trigger alert
     //
     //        // autofuel & autorepair
     //

@@ -126,6 +126,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         } else if button3Text == "Trade" {
             print("trade pressed")
             trade()
+        } else if button3Text == "Accept" {
+                accept()
         } else if button3Text == "" {
             // Not a button. Do nothing.
         }
@@ -254,6 +256,23 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 // if you do have a disruptor, fire away
                 self.actuallyAttack()
             }
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.FamousCaptain && (!galaxy.currentJourney!.currentEncounter!.warnedYet) {
+            
+            // warn about attacking famous captain
+            let title: String = "Really Attack?"
+            let message: String = "Famous Captains get famous by, among other things, destroying everyone who attacks them. Do you really want to attack?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Really Attack", style: UIAlertActionStyle.Destructive,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // go ahead with it
+                galaxy.currentJourney!.currentEncounter!.warnedYet = true
+                self.actuallyAttack()
+            }))
+            alertController.addAction(UIAlertAction(title: "OK, I Won't", style: UIAlertActionStyle.Cancel,handler: nil))
+            // do nothing, dismiss modal
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
         } else {
             self.actuallyAttack()
         }
@@ -293,6 +312,71 @@ class EncounterVC: UIViewController, PlunderDelegate {
             //                print("fight continues")
         }
 
+    }
+    
+    func accept() {
+        // message based on which famous captain you are dealing with
+        if galaxy.currentJourney!.currentEncounter!.type == EncounterType.famousCaptainAhab {
+            let title = "Meet Captain Ahab"
+            let message = "Captain Ahab is in need of a spare shield for an upcoming mission. He offers to trade you some piloting lessons for your reflective shield. Do you wish to trade?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, Trade Shield", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // give up shield
+                sdasddsc
+                
+                // gain 3 points piloting skill
+                player.initialPilotSkill += 3
+                
+                // fire second alert and close
+                self.famousCaptainTraining()
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else if galaxy.currentJourney!.currentEncounter!.type == EncounterType.famousCaptainConrad {
+            let title = "Meet Captain Conrad"
+            let message = "Captain Conrad is in need of a military laser. She offers to trade you some engineering training for your military laser. Do you wish to trade?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, Trade Laser", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // TRADE LASER
+                self.famousCaptainTraining()
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else if galaxy.currentJourney!.currentEncounter!.type == EncounterType.famousCaptainHuie {
+            let title = "Meet Captain Huie"
+            let message = "Captain Huie is in need of a military laser. She offers to exchange some bargaining training for your military laser. Do you wish to trade?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, Trade Laser", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // TRADE LASER
+                self.famousCaptainTraining()
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
     }
     
     func board() {
@@ -964,6 +1048,20 @@ class EncounterVC: UIViewController, PlunderDelegate {
         if narcoticsOnBoard > 0 {
             player.commanderShip.removeCargo(TradeItemType.Narcotics, quantity: narcoticsOnBoard)
         }
+    }
+    
+    func famousCaptainTraining() {
+        let title = "Training"
+        let message = "Under the watchful eye of the Captain, you demonstrate your abilities. The Captain provides some helpful pointers and tips, and teaches you a few new techniques. The few hours pass quickly, but you feel you've gained a lot from the experience."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and conclude encounter
+            self.dismissViewController()
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************
