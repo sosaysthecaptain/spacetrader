@@ -812,6 +812,24 @@ class SpaceShip: NSObject, NSCoding {
         return status
     }
     
+    func getWeaponStatus(type: WeaponType) -> Bool {
+        for item in weapon {
+            if item.type == type {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getShieldStatus(type: ShieldType) -> Bool {
+        for item in shield {
+            if item.type == type {
+                return true
+            }
+        }
+        return false
+    }
+    
     func resetSpecialEquipment(morgansLaser: Bool, fuelCompactor: Bool, lightningShield: Bool) {
         // HANDLE POSSIBILITY OF NOT ALL STUFF BEING TRANSFERRABLE?
 

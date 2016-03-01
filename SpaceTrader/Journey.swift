@@ -375,7 +375,8 @@ class Journey: NSObject, NSCoding {
                     let random = rand(3)
                     switch random {
                         case 0:
-                            if !player.specialEvents.captainAhabHappened {
+                            // player needs a reflective shield for this to happen
+                            if !player.specialEvents.captainAhabHappened && (player.commanderShip.getShieldStatus(ShieldType.reflectiveShield) == true) {
                                 player.specialEvents.captainAhabHappened = true
                                 veryRareEncounter = true
                                 encounterThisClick = true
@@ -383,7 +384,8 @@ class Journey: NSObject, NSCoding {
                                 currentEncounter!.beginEncounter()
                             }
                         case 1:
-                            if !player.specialEvents.captainConradHappened {
+                            // player needs a military laser for this to happen
+                            if !player.specialEvents.captainConradHappened && (player.commanderShip.getWeaponStatus(WeaponType.militaryLaser)) {
                                 player.specialEvents.captainConradHappened = true
                                 veryRareEncounter = true
                                 encounterThisClick = true
@@ -391,7 +393,8 @@ class Journey: NSObject, NSCoding {
                                 currentEncounter!.beginEncounter()
                             }
                         case 2:
-                            if !player.specialEvents.captainHuieHappened {
+                            // player needs a military laser for this to happen
+                            if !player.specialEvents.captainHuieHappened && (player.commanderShip.getWeaponStatus(WeaponType.militaryLaser)) {
                                 player.specialEvents.captainHuieHappened = true
                                 veryRareEncounter = true
                                 encounterThisClick = true
