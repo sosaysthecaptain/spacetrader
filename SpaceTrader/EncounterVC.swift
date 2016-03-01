@@ -324,7 +324,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
             alertController.addAction(UIAlertAction(title: "Yes, Trade Shield", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // give up shield
-                sdasddsc
+                player.commanderShip.removeShield(ShieldType.reflectiveShield)
                 
                 // gain 3 points piloting skill
                 player.initialPilotSkill += 3
@@ -348,6 +348,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
             alertController.addAction(UIAlertAction(title: "Yes, Trade Laser", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // TRADE LASER
+                // give up laser
+                player.commanderShip.removeWeapon(WeaponType.militaryLaser)
+                
+                // gain 3 points engineering skill
+                player.initialEngineerSkill += 3
+                
+                // fire second alert and close
                 self.famousCaptainTraining()
             }))
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
@@ -366,6 +373,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
             alertController.addAction(UIAlertAction(title: "Yes, Trade Laser", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // TRADE LASER
+                // give up laser
+                player.commanderShip.removeWeapon(WeaponType.militaryLaser)
+                
+                // gain 3 points engineering skill
+                player.initialTraderSkill += 3
+                
+                // fire second alert and close
                 self.famousCaptainTraining()
             }))
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
