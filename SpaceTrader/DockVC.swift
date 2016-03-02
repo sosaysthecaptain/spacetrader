@@ -21,6 +21,7 @@ class DockVC: UIViewController {
     @IBOutlet weak var shipButton: CustomButton!
     @IBOutlet weak var equipmentButton: CustomButton!
     @IBOutlet weak var podButton: CustomButton!
+    @IBOutlet weak var designShipButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -55,6 +56,13 @@ class DockVC: UIViewController {
             podMessage1.text = "You can buy an escape pod for 2,000 cr."
             podMessage2.text = ""
             podButton.enabled = true
+        }
+        
+        // display "Design Your Own Ship" button only if a shipyard is present
+        if galaxy.currentSystem!.shipyard != ShipyardID.NA {
+            designShipButton.enabled = true
+        } else {
+            designShipButton.enabled = false
         }
     }
     

@@ -53,6 +53,7 @@
 		5ABB697D1C0E86C000ABEB9E /* EquipmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */; };
 		5ABF236B1C49E8AF004AE196 /* SaveGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF236A1C49E8AF004AE196 /* SaveGameVC.swift */; };
 		5ACE0CB81C697A5F00DB0F4A /* MeltdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */; };
+		5AD3A10B1C86846E004388D4 /* DesignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3A10A1C86846E004388D4 /* DesignVC.swift */; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
@@ -142,6 +143,7 @@
 		5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentDetailVC.swift; sourceTree = "<group>"; };
 		5ABF236A1C49E8AF004AE196 /* SaveGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGameVC.swift; sourceTree = "<group>"; };
 		5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeltdownVC.swift; sourceTree = "<group>"; };
+		5AD3A10A1C86846E004388D4 /* DesignVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignVC.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
 				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
 				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
+				5AD3A10A1C86846E004388D4 /* DesignVC.swift */,
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
@@ -476,6 +479,7 @@
 				5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */,
 				5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */,
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
+				5AD3A10B1C86846E004388D4 /* DesignVC.swift in Sources */,
 				5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */,
 				5AFEB63D1C497056000F51BE /* Extensions.swift in Sources */,
 				5A76AD601C63B54000EF1809 /* Alerts.swift in Sources */,

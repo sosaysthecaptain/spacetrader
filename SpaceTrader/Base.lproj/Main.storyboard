@@ -1011,6 +1011,24 @@
             </objects>
             <point key="canvasLocation" x="7050" y="-319"/>
         </scene>
+        <!--Design Your Own Ship-->
+        <scene sceneID="58w-40-cJB">
+            <objects>
+                <viewController title="Design Your Own Ship" id="lgM-Qm-TxB" customClass="DesignVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aTN-xV-By4"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdn-YA-av1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="noG-jv-NCF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jm8-Qd-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7835" y="-345"/>
+        </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
             <objects>
@@ -1746,6 +1764,14 @@
                                     <action selector="buyPod:" destination="iag-H1-Vfg" eventType="touchUpInside" id="AP6-av-GqV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoz-lp-VZc" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="20" y="510" width="183" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Design Your Own Ship"/>
+                                <connections>
+                                    <segue destination="lgM-Qm-TxB" kind="show" id="QYt-vW-SEO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1756,6 +1782,8 @@
                             <constraint firstItem="i87-3L-ZYH" firstAttribute="top" secondItem="geC-fs-cOP" secondAttribute="bottom" constant="60" id="KyL-gK-ajk"/>
                             <constraint firstItem="geC-fs-cOP" firstAttribute="top" secondItem="GzS-zm-LgP" secondAttribute="bottom" constant="8" id="OtN-ru-YkU"/>
                             <constraint firstItem="GzS-zm-LgP" firstAttribute="leading" secondItem="T8Z-lD-QRt" secondAttribute="leading" id="U8A-qz-jbN"/>
+                            <constraint firstItem="xoz-lp-VZc" firstAttribute="leading" secondItem="ljN-uN-Pyc" secondAttribute="leading" id="VXB-TZ-1Ei"/>
+                            <constraint firstItem="xoz-lp-VZc" firstAttribute="top" secondItem="ljN-uN-Pyc" secondAttribute="bottom" constant="60" id="XE8-8Y-rc4"/>
                             <constraint firstItem="f1V-1K-aRr" firstAttribute="top" secondItem="YcH-6Y-fMA" secondAttribute="bottom" constant="60" id="alc-sU-Awd"/>
                             <constraint firstItem="T8Z-lD-QRt" firstAttribute="top" secondItem="lc9-2Z-tYw" secondAttribute="bottom" constant="8" id="bQ4-hw-SO3"/>
                             <constraint firstItem="GzS-zm-LgP" firstAttribute="top" secondItem="T8Z-lD-QRt" secondAttribute="bottom" constant="8" id="dvn-md-1P7"/>
@@ -1772,6 +1800,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shipyard" id="6Bd-Ka-PzO"/>
                     <connections>
+                        <outlet property="designShipButton" destination="xoz-lp-VZc" id="mEn-D6-U9a"/>
                         <outlet property="equipmentButton" destination="YcH-6Y-fMA" id="MVK-ow-gZM"/>
                         <outlet property="equipmentMessage1" destination="i87-3L-ZYH" id="oSA-c3-ZE6"/>
                         <outlet property="equipmentMessage2" destination="gCQ-id-E6Y" id="6TX-er-kwO"/>

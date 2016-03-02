@@ -692,10 +692,10 @@ class Galaxy: NSObject, NSCoding {
             index += 1
         }
         
-//        print("SHIPYARD DEBUG: systems and designated shipyards")
-//        for system in chosenSystems {
-//            print("system: \(system.name), shipyardID: \(system.shipyard)")
-//        }
+        print("SHIPYARD DEBUG: systems and designated shipyards")
+        for system in chosenSystems {
+            print("system: \(system.name), shipyardID: \(system.shipyard)")
+        }
     }
     
     func determinePrices(system: StarSystem) {
