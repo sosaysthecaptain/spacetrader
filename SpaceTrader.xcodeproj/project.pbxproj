@@ -28,6 +28,7 @@
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; };
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; };
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; };
+		5A5C10871C86786E006E7CEA /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C10861C86786E006E7CEA /* AboutVC.swift */; };
 		5A7172581C1639150082BF0C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7172571C1639150082BF0C /* SearchVC.swift */; };
 		5A71725A1C1651820082BF0C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7172591C1651820082BF0C /* MenuVC.swift */; };
 		5A71725C1C1793D40082BF0C /* CommanderStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */; };
@@ -116,6 +117,7 @@
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
+		5A5C10861C86786E006E7CEA /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		5A7172571C1639150082BF0C /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		5A7172591C1651820082BF0C /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderStatusVC.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		5AB36E8D1BF18B3600941CF6 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				5A5C10861C86786E006E7CEA /* AboutVC.swift */,
 				5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */,
 				5AAD55261C234F72001FC8AD /* BankVC.swift */,
 				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
@@ -517,6 +520,7 @@
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,
 				5A0265B61B9FC8FC0079F6DE /* Gadget.swift in Sources */,
 				5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */,
+				5A5C10871C86786E006E7CEA /* AboutVC.swift in Sources */,
 				5AF0AAF71BD193B900BBE7CA /* Opponent.swift in Sources */,
 				5ABB697D1C0E86C000ABEB9E /* EquipmentDetailVC.swift in Sources */,
 				5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */,

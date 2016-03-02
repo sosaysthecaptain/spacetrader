@@ -1167,7 +1167,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
             print("error")
         }
         
-        // diminish another a bit more
+        // diminish another a bit more, make sure it doesn't go below 1
         let random2 = rand(4)
         switch random2 {
         case 0:

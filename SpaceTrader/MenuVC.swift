@@ -13,7 +13,7 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let section0 = ["New Game", "Load Game", "Save Game"]
     let section1 = ["Commander Status", "Ship", "Personnel", "Quests", "Bank"]
     let section2 = ["High Scores"]
-    let section3 = ["Options"]
+    let section3 = ["Options", "About Space Trader"]
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -91,7 +91,14 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } else if indexPath.section == 2 {
             performSegueWithIdentifier("highScoresFromMenu", sender: nil)
         } else if indexPath.section == 3 {
-            performSegueWithIdentifier("optionsSegue", sender: nil)
+            switch indexPath.row {
+            case 0:
+                performSegueWithIdentifier("optionsSegue", sender: nil)
+            case 1:
+                performSegueWithIdentifier("aboutSpaceTraderSegue", sender: nil)
+            default: print("error")
+            }
+            
         }
     }
     
