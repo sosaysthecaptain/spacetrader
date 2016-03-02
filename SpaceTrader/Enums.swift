@@ -569,6 +569,30 @@ enum ShipyardID: String {
     case sorosuub = "Sorosuub Engineering"
 }
 
+enum ShipyardEngineers: String {
+    case wedge = "Wedge"
+    case luke = "Luke"
+    case lando = "Lando"
+    case mara = "Mara"
+    case obiwan = "Obi-Wan"
+}
+
+enum ShipyardSkills: String {
+    case crew = "Crew Quartering"
+    case fuel = "Fuel Efficienty"
+    case hull = "Hull Strength"
+    case shielding = "Shielding"
+    case weaponry = "Weaponry"
+}
+
+enum ShipyardSkillDescriptions: String {
+    case crew = "All ships constructed at this shipyard use 2 fewer units per crew quarter."
+    case fuel = "All ships constructed at this shipyard have 2 extra base fuel tanks."
+    case hull = "All ships constructed at this shipyard have the hull points increment by 5 more than usual."
+    case shielding = "All ships constructed at this shipyard get shield slots for 2 fewer units."
+    case weaponry = "All ships constructed at this shipyard get weapon slots for 2 fewer units."
+}
+
 enum SpecialCargo: String {
     case artifact = "An alien artifact."
     case experiment = "A portable singularity."
