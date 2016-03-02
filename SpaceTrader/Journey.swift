@@ -28,7 +28,7 @@ class Journey: NSObject, NSCoding {
     //    var bottle = false
     
     // DEBUG -- force very rare encounters
-    var veryRareEventOverride = true                     // set to true to test very rare encounters
+    var veryRareEventOverride = false                     // set to true to test very rare encounters
     var veryRareEncounter = false
     var marieCelesteLootedThisTurn = false
     

@@ -403,6 +403,9 @@ class Galaxy: NSObject, NSCoding {
             }
         }
         
+        // assign shipyardID
+        initializeShipyard()
+        
         
         
 //        var indicesOfPlanetsWithWormholes: [Int] = [0, 1, 2, 3, 4, 5]
@@ -662,6 +665,37 @@ class Galaxy: NSObject, NSCoding {
                     print("?")
             }
         }
+    }
+    
+    func initializeShipyard() {
+        // assemble a list of high tech systems
+        var highTechSystems: [StarSystem] = []
+        for system in planets {
+            if system.techLevel == TechLevelType.techLevel7 {
+                highTechSystems.append(system)
+            }
+        }
+        
+        // randomly choose five of them
+        var chosenSystems: [StarSystem] = []
+        while chosenSystems.count < 5 {
+            let randomIndex = rand(highTechSystems.count)
+            chosenSystems.append(highTechSystems[randomIndex])
+            highTechSystems.removeAtIndex(randomIndex)
+        }
+        
+        // assign shipyards to those five
+        var shipyardsPossible = [ShipyardID.corellian, ShipyardID.incom, ShipyardID.kuat, ShipyardID.sienar, ShipyardID.sorosuub]
+        var index = 0
+        for system in chosenSystems {
+            system.shipyard = shipyardsPossible[index]
+            index += 1
+        }
+        
+//        print("SHIPYARD DEBUG: systems and designated shipyards")
+//        for system in chosenSystems {
+//            print("system: \(system.name), shipyardID: \(system.shipyard)")
+//        }
     }
     
     func determinePrices(system: StarSystem) {

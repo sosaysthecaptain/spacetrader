@@ -29,6 +29,7 @@ class StarSystem: NSObject, NSCoding {
     var mercenaries: [CrewMember] = []
     var newspaper: Newspaper = Newspaper()
     var newsItemDropBox: NewsItemID?
+    var shipyard: ShipyardID = ShipyardID.NA
     var specialEvent: SpecialEventID? {
         didSet {
             print("\(name)'s specialEvent set to \(specialEvent)")
@@ -395,6 +396,9 @@ class StarSystem: NSObject, NSCoding {
             if let specialEventRaw = decoder.decodeObjectForKey("specialEvent") as! Int! {
                 self.specialEvent = SpecialEventID(rawValue: specialEventRaw)
             }
+            if let shipyardRaw = decoder.decodeObjectForKey("shipyard") as! String! {
+                self.shipyard = ShipyardID(rawValue: shipyardRaw)!
+            }
             
             self.scarabIsHere = decoder.decodeObjectForKey("scarabIsHere") as! Bool
             self.dragonflyIsHere = decoder.decodeObjectForKey("dragonflyIsHere") as! Bool
@@ -455,6 +459,7 @@ class StarSystem: NSObject, NSCoding {
             encoder.encodeObject(newspaper, forKey: "newspaper")
             encoder.encodeObject(newsItemDropBox?.rawValue, forKey: "newsItemDropBox")
             encoder.encodeObject(specialEvent?.rawValue, forKey: "specialEvent")
+            encoder.encodeObject(shipyard.rawValue, forKey: "shipyard")
             
             encoder.encodeObject(scarabIsHere, forKey: "scarabIsHere")
             encoder.encodeObject(dragonflyIsHere, forKey: "dragonflyIsHere")
