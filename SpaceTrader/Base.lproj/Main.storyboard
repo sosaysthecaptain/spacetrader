@@ -1249,9 +1249,15 @@
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xp0-LD-6Km">
                                 <rect key="frame" x="252" y="97" width="94" height="29"/>
+                                <connections>
+                                    <action selector="cargoBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="vWQ-AH-YOV"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hjX-wC-OdK">
                                 <rect key="frame" x="252" y="126" width="94" height="29"/>
+                                <connections>
+                                    <action selector="rangeBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="UCA-fs-cer"/>
+                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-74-n9t" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="427" y="492" width="133" height="34"/>
@@ -1271,18 +1277,33 @@
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="egr-2f-uPm">
                                 <rect key="frame" x="252" y="155" width="94" height="29"/>
+                                <connections>
+                                    <action selector="hullStrengthStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="53O-bA-NGP"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="AVO-QW-rb1">
                                 <rect key="frame" x="252" y="184" width="94" height="29"/>
+                                <connections>
+                                    <action selector="weaponSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zKG-LA-vgX"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8fa-Dm-eQ8">
                                 <rect key="frame" x="252" y="213" width="94" height="29"/>
+                                <connections>
+                                    <action selector="shieldSlotsStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="N4L-v0-uwc"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-9R-Lm9">
                                 <rect key="frame" x="252" y="242" width="94" height="29"/>
+                                <connections>
+                                    <action selector="gadgetsSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zHo-bG-lTn"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-xM-Yvv">
                                 <rect key="frame" x="252" y="271" width="94" height="29"/>
+                                <connections>
+                                    <action selector="crewQuartersStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="pcd-C3-2m1"/>
+                                </connections>
                             </stepper>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-z1-ef7">
                                 <rect key="frame" x="172" y="97" width="50" height="30"/>
