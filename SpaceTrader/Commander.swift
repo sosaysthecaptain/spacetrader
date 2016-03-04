@@ -131,7 +131,7 @@ class Commander: NSObject, NSCoding {
         get { return policeRecord.rawValue }
     }
     
-    var selectedConstructShipSize: SizeType = SizeType.Small        // orphan, here for lack of a better place
+    var selectedConstructShipSize = SizeType.Small    // orphan, here for lack of a better place
     
     
     

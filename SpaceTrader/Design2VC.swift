@@ -37,6 +37,21 @@ class Design2VC: UIViewController {
     @IBOutlet weak var cancelDesignOutlet: CustomButton!
     @IBOutlet weak var constructShipOutlet: CustomButton!
     
+    var cargoBays = 0
+    var range = 0
+    var hullStrength = 0
+    var weaponSlots = 0
+    var shieldSlots = 0
+    var gadgetSlots = 0
+    var crewQuarters = 0
+    
+    // next, max and min variables
+    // then function to display relevant variables to screen
+    // then function to set initial values based on chosen ship size
+    // then plug steppers into variables, within max/min limits
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

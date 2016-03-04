@@ -209,6 +209,7 @@
 				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
 				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
 				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
+				5AD3A10C1C87A38A004388D4 /* Design2VC.swift */,
 				5AD3A10A1C86846E004388D4 /* DesignVC.swift */,
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
@@ -231,7 +232,6 @@
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
-				5AD3A10C1C87A38A004388D4 /* Design2VC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
