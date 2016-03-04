@@ -10,6 +10,14 @@ import UIKit
 
 class DesignVC: UIViewController {
 
+    @IBOutlet weak var textView1: UITextView!
+    @IBOutlet weak var sizeSpecialtyLabel: UILabel!
+    @IBOutlet weak var skillSpecialtyLabel: UILabel!
+    @IBOutlet weak var textView2: UITextView!
+    @IBOutlet weak var textView3: UITextView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

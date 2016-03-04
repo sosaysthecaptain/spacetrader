@@ -131,6 +131,8 @@ class Commander: NSObject, NSCoding {
         get { return policeRecord.rawValue }
     }
     
+    var selectedConstructShipSize: SizeType = SizeType.Small        // orphan, here for lack of a better place
+    
     
     
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {

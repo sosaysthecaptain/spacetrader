@@ -369,8 +369,6 @@ class Journey: NSObject, NSCoding {
                         currentEncounter!.beginEncounter()
                     }
                 } else if random == 2 {
-                    print("famous captain @ \(clicks) clicks")
-                    
                     // three possible famous captain encounters. Choose one
                     let random = rand(3)
                     switch random {
