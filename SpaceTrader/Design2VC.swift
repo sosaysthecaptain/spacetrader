@@ -266,6 +266,11 @@ class Design2VC: UIViewController {
             default:
                 print("error")
         }
+        
+        // handle size specialty. If selected size is specialty, player gets 20 more units to work with
+        if player.selectedConstructShipSize == galaxy.currentSystem!.shipyardSizeSpecialty {
+            maxUnits += 20
+        }
     }
     
     func computePrices() {
