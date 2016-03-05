@@ -1085,7 +1085,6 @@
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <action selector="continueButton:" destination="lgM-Qm-TxB" eventType="touchUpInside" id="cRh-S5-f05"/>
-                                    <segue destination="pAI-51-RBD" kind="show" id="FiQ-5n-uQC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hX-zE-Vmy">
@@ -1106,7 +1105,10 @@
                                     <constraint firstAttribute="width" constant="150" id="iAw-q0-rL5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lgM-Qm-TxB" id="sw9-Wi-bK0"/>
+                                </connections>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="IXp-am-xnt">
                                 <rect key="frame" x="187" y="395" width="94" height="29"/>
@@ -1170,6 +1172,7 @@
                         <outlet property="textView1" destination="zfv-cH-gEF" id="Tsd-aT-6gJ"/>
                         <outlet property="textView2" destination="dhO-D4-Zrb" id="cvf-OZ-19C"/>
                         <outlet property="textView3" destination="uTW-LD-5rj" id="q5n-3f-Fk9"/>
+                        <segue destination="pAI-51-RBD" kind="show" identifier="BYOSsecondPageSegue" id="1Eh-mE-ldv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jm8-Qd-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
