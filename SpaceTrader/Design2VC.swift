@@ -304,7 +304,7 @@ class Design2VC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // verifies player wants to proceed. Either tells him he can't afford it, or calls constructShip()
+    // verifies player wants to proceed. Either tells him he can't afford it, he has too many crew, or calls constructShip()
     func constructShipAreYouSure(escapePod: Bool) {
         if player.credits < totalCost {
             // tell player he doesn't have enough money
@@ -317,8 +317,19 @@ class Design2VC: UIViewController {
                 // do nothing
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
+        } else if player.commanderShip.crew.count < (Int(crewQuartersStepper.value) + 1) {
+            // if not enough crew slots, refuse transaction
+            let title = "Too Many Crewmembers"
+            let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // do nothing
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         } else {
-            // ask if he's sure
+            // ask if he's sure and proceed
             let title = "Buy New Ship"
             let message = "Are you sure you want to trade in your \(player.commanderShip.name) for a new \(player.selectedConstructShipName), and transfer your unique equipment to the new ship?"
             
@@ -368,13 +379,20 @@ class Design2VC: UIViewController {
         if player.commanderShip.getLightningShieldStatus() {
             newShip.shield.append(Shield(type: ShieldType.lightningShield))
         }
-        // I THINK OTHER THINGS LIKE HAGGLING COMPUTER ARE KEPT IN PLAYER, NOT SHIP
         
-        // transfer crew, if room. FAILS SILENTLY IF NOT
+        // transfer crew. Have already checked that there's room.
         for crewMember in player.commanderShip.crew {
             if newShip.crewQuarters >= player.commanderShip.crew.count {
                 newShip.crew.append(crewMember)
             }
+        }
+        
+        // handle escape pod situation
+        if transferEscapePod {
+            player.credits -= 200
+            player.escapePod = true
+        } else {
+            player.escapePod = false
         }
         
         // replace player ship with new one

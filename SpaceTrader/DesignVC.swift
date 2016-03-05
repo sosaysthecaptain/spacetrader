@@ -61,6 +61,27 @@ class DesignVC: UIViewController, UITextFieldDelegate {
                 print("error")
         }
         
+        // set size & skill labels
+        sizeSpecialtyLabel.text = galaxy.currentSystem!.shipyardSizeSpecialty.rawValue
+        skillSpecialtyLabel.text = galaxy.currentSystem!.shipyardSkill.rawValue
+        
+        // set explanation line
+        //textView2.text = "THIS NOT IMPLEMENTED EITHER"
+        switch galaxy.currentSystem!.shipyardSkill {
+            case ShipyardSkills.crew:
+                textView2.text = "\(ShipyardSkillDescriptions.crew.rawValue)"
+            case ShipyardSkills.fuel:
+                textView2.text = "\(ShipyardSkillDescriptions.fuel.rawValue)"
+            case ShipyardSkills.hull:
+                textView2.text = "\(ShipyardSkillDescriptions.hull.rawValue)"
+            case ShipyardSkills.shielding:
+                textView2.text = "\(ShipyardSkillDescriptions.shielding.rawValue)"
+            case ShipyardSkills.weaponry:
+                textView2.text = "\(ShipyardSkillDescriptions.weaponry.rawValue)"
+            default:
+                print("error")
+        }
+        
         // set shipSizeLabel based on stepper value
         switch sizeStepper.value {
             case 0:

@@ -46,7 +46,7 @@ class ShipDetailVC: UIViewController {
     @IBAction func buy(sender: AnyObject) {
         // HANDLE TRIBBLES
         
-        // check if enough money
+        // check if enough money & crew slots
         if player.credits < price {
             let title = "Not Enough Money"
             let message = "You do not have enough money to buy this ship."
@@ -57,9 +57,18 @@ class ShipDetailVC: UIViewController {
                 // do nothing
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
+        } else if player.commanderShip.crew.count < prototypeShip.crewQuarters + 1 {
+            let title = "Too Many Crewmembers"
+            let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // do nothing
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         } else {
-            // player can afford ship
-            // escape pod?
+            // else, proceed, ask about escape pod
             if player.escapePod && (player.credits >= (price + 200)) {
                 let title = "Transfer Escape Pod"
                 let message = "I'll transfer your escape pod to your new ship for 200 credits."

@@ -684,16 +684,20 @@ class Galaxy: NSObject, NSCoding {
             highTechSystems.removeAtIndex(randomIndex)
         }
         
-        // assign shipyards to those five, as well as engineer, specialty
+        // assign shipyards to those five, as well as engineer, skill & size specialties
         var shipyardsPossible = [ShipyardID.corellian, ShipyardID.incom, ShipyardID.kuat, ShipyardID.sienar, ShipyardID.sorosuub]
         var engineersPossible = [ShipyardEngineers.lando, ShipyardEngineers.luke, ShipyardEngineers.mara, ShipyardEngineers.obiwan, ShipyardEngineers.wedge]
         var specialtiesPossible = [ShipyardSkills.crew, ShipyardSkills.fuel, ShipyardSkills.hull, ShipyardSkills.shielding, ShipyardSkills.weaponry]
+        var sizeSpecialtiesPossible = [SizeType.Tiny, SizeType.Small, SizeType.Medium, SizeType.Large, SizeType.Huge]
+        
+        // TODO: these things should all be assigned randomly
         
         var index = 0
         for system in chosenSystems {
             system.shipyard = shipyardsPossible[index]
             system.shipyardEngineer = engineersPossible[index]
             system.shipyardSkill = specialtiesPossible[index]
+            system.shipyardSizeSpecialty = sizeSpecialtiesPossible[index]
             index += 1
         }
         
