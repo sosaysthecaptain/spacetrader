@@ -14,7 +14,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
-        playerShields.text = player.getShieldStrengthString(player.commanderShip)
+        //playerShields.text = player.getShieldStrengthString(player.commanderShip)     // DEBUG FIX THIS
         opponentShipType.text = galaxy.currentJourney!.currentEncounter!.opponent.ship.name
         opponentHull.text = "Hull at \(galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage)%"
         opponentShields.text = player.getShieldStrengthString(galaxy.currentJourney!.currentEncounter!.opponent.ship)
