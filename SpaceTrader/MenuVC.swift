@@ -100,6 +100,9 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
             
         }
+        
+        // handle deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     @IBAction func done(sender: AnyObject) {

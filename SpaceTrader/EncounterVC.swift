@@ -703,7 +703,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func trade() {
-        
+        // TODO
     }
     
     func bribe() {

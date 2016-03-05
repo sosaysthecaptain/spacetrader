@@ -214,23 +214,23 @@ class Design2VC: UIViewController {
         switch galaxy.currentSystem!.shipyardSkill {
             case ShipyardSkills.crew:
                 crewQuartersStepper.minimumValue += 2
-                crewQuartersStepper.maximumValue += 2
+                //crewQuartersStepper.maximumValue += 2
                 crewQuartersStepper.value = crewQuartersStepper.minimumValue
             case ShipyardSkills.fuel:
                 rangeStepper.minimumValue += 2
-                rangeStepper.maximumValue += 2
+                //rangeStepper.maximumValue += 2
                 rangeStepper.value = rangeStepper.minimumValue
             case ShipyardSkills.hull:
                 hullStrengthStepper.minimumValue += 20
-                hullStrengthStepper.maximumValue += 20
+                //hullStrengthStepper.maximumValue += 20
                 hullStrengthStepper.value = hullStrengthStepper.minimumValue
             case ShipyardSkills.shielding:
                 shieldSlotsStepper.minimumValue += 2
-                shieldSlotsStepper.maximumValue += 2
+                //shieldSlotsStepper.maximumValue += 2
                 shieldSlotsStepper.value = shieldSlotsStepper.minimumValue
             case ShipyardSkills.weaponry:
                 weaponSlotsStepper.minimumValue += 2
-                weaponSlotsStepper.maximumValue += 2
+                //weaponSlotsStepper.maximumValue += 2
                 weaponSlotsStepper.value = weaponSlotsStepper.minimumValue
             default:
                 print("error")
