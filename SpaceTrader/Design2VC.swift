@@ -209,6 +209,32 @@ class Design2VC: UIViewController {
                 crewQuartersStepper.value = 3
         }
         
+        // handle specialties--set mins and maxes higher for the specialty
+        // also need to set this to adjust cost (in units) in computeUnitsUsed
+        switch galaxy.currentSystem!.shipyardSkill {
+            case ShipyardSkills.crew:
+                crewQuartersStepper.minimumValue += 2
+                crewQuartersStepper.maximumValue += 2
+                crewQuartersStepper.value = crewQuartersStepper.minimumValue
+            case ShipyardSkills.fuel:
+                rangeStepper.minimumValue += 2
+                rangeStepper.maximumValue += 2
+                rangeStepper.value = rangeStepper.minimumValue
+            case ShipyardSkills.hull:
+                hullStrengthStepper.minimumValue += 20
+                hullStrengthStepper.maximumValue += 20
+                hullStrengthStepper.value = hullStrengthStepper.minimumValue
+            case ShipyardSkills.shielding:
+                shieldSlotsStepper.minimumValue += 2
+                shieldSlotsStepper.maximumValue += 2
+                shieldSlotsStepper.value = shieldSlotsStepper.minimumValue
+            case ShipyardSkills.weaponry:
+                weaponSlotsStepper.minimumValue += 2
+                weaponSlotsStepper.maximumValue += 2
+                weaponSlotsStepper.value = weaponSlotsStepper.minimumValue
+            default:
+                print("error")
+        }
     }
     
     func computeUnitsUsed() {
@@ -224,6 +250,22 @@ class Design2VC: UIViewController {
         unitsInUse += shieldSlotsStepper.value * 10
         unitsInUse += gadgetSlotsStepper.value * 5
         unitsInUse += crewQuartersStepper.value * 20
+        
+        // handle specialty
+        switch galaxy.currentSystem!.shipyardSkill {
+            case ShipyardSkills.crew:
+                unitsInUse -= 2
+            case ShipyardSkills.fuel:
+                unitsInUse -= 2
+            case ShipyardSkills.hull:
+                unitsInUse -= 2
+            case ShipyardSkills.shielding:
+                unitsInUse -= 20
+            case ShipyardSkills.weaponry:
+                unitsInUse -= 40
+            default:
+                print("error")
+        }
     }
     
     func computePrices() {
