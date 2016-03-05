@@ -690,14 +690,26 @@ class Galaxy: NSObject, NSCoding {
         var specialtiesPossible = [ShipyardSkills.crew, ShipyardSkills.fuel, ShipyardSkills.hull, ShipyardSkills.shielding, ShipyardSkills.weaponry]
         var sizeSpecialtiesPossible = [SizeType.Tiny, SizeType.Small, SizeType.Medium, SizeType.Large, SizeType.Huge]
         
-        // TODO: these things should all be assigned randomly
-        
+        // for each system with a shipyard, randomly assign an engineer, a skill, and a size specialty
         var index = 0
         for system in chosenSystems {
             system.shipyard = shipyardsPossible[index]
-            system.shipyardEngineer = engineersPossible[index]
-            system.shipyardSkill = specialtiesPossible[index]
-            system.shipyardSizeSpecialty = sizeSpecialtiesPossible[index]
+            
+            // randomly assign engineer
+            let randomEngIndex = rand(engineersPossible.count)
+            system.shipyardEngineer = engineersPossible[randomEngIndex]
+            engineersPossible.removeAtIndex(randomEngIndex)
+            
+            // randomly assign skill
+            let randomSkillIndex = rand(specialtiesPossible.count)
+            system.shipyardSkill = specialtiesPossible[randomSkillIndex]
+            specialtiesPossible.removeAtIndex(randomSkillIndex)
+            
+            // randomly assign shipyardSizeSpecialty
+            let randomSizeSpecialtyIndex = rand(sizeSpecialtiesPossible.count)
+            system.shipyardSizeSpecialty = sizeSpecialtiesPossible[randomSizeSpecialtyIndex]
+            sizeSpecialtiesPossible.removeAtIndex(randomSizeSpecialtyIndex)
+            
             index += 1
         }
         
