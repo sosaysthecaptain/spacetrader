@@ -575,6 +575,7 @@ enum ShipyardEngineers: String {
     case lando = "Lando"
     case mara = "Mara"
     case obiwan = "Obi-Wan"
+    case na = "NA"
 }
 
 enum ShipyardSkills: String {
@@ -583,6 +584,7 @@ enum ShipyardSkills: String {
     case hull = "Hull Strength"
     case shielding = "Shielding"
     case weaponry = "Weaponry"
+    case na = "NA"
 }
 
 enum ShipyardSkillDescriptions: String {
