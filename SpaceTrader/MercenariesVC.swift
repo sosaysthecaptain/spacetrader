@@ -81,6 +81,9 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
             performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
         }
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func initializeArrays() {

@@ -164,5 +164,8 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             
         }
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

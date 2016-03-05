@@ -82,6 +82,9 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
