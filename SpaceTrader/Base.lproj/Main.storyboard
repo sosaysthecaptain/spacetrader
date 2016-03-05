@@ -1572,11 +1572,12 @@
                         <outlet property="unitsUsedLabel" destination="Vez-ON-taT" id="yTZ-3s-aeN"/>
                         <outlet property="weaponSlotsField" destination="qVj-Sa-Key" id="lKp-45-QWP"/>
                         <outlet property="weaponSlotsStepper" destination="AVO-QW-rb1" id="zSb-ZR-kVl"/>
+                        <segue destination="iag-H1-Vfg" kind="show" identifier="unwind" id="c5m-hx-g89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-l4-bPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8510" y="-345"/>
+            <point key="canvasLocation" x="8646" y="-401"/>
         </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
@@ -6875,11 +6876,12 @@
         <image name="badge_bang" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ATZ-Oj-oTW"/>
         <segue reference="HOC-30-z82"/>
-        <segue reference="ufr-wM-KNn"/>
         <segue reference="REb-7Y-v0a"/>
+        <segue reference="ufr-wM-KNn"/>
+        <segue reference="ATZ-Oj-oTW"/>
         <segue reference="Cl3-zi-3cm"/>
+        <segue reference="c5m-hx-g89"/>
         <segue reference="g1Q-Jj-Pqv"/>
         <segue reference="NzW-sD-RNT"/>
     </inferredMetricsTieBreakers>

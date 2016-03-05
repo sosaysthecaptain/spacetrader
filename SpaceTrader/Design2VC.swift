@@ -389,8 +389,10 @@ class Design2VC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            // done. Close window, returning to shipyard
-            // TODO
+            // done. Close window, returning to shipyard. Use unwind segue
+            //self.performSegueWithIdentifier("unwind", sender: nil)
+            // TODO: there must be a better way to do this?
+            self.dismissViewControllerAnimated(true, completion: nil)
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }

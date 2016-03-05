@@ -94,4 +94,7 @@ class DockVC: UIViewController {
         
     }
     
+    // this is for unwind segue, called when construction of designed ship is complete
+    @IBAction func myUnwindAction(segue: UIStoryboardSegue) {}
+    
 }
