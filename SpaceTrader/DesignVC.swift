@@ -16,6 +16,8 @@ class DesignVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView2: UITextView!
     @IBOutlet weak var textView3: UITextView!
     
+    @IBOutlet weak var logoView: UIImageView!
+    
     @IBOutlet weak var shipNameTextField: UITextField!
     @IBOutlet weak var shipSizeLabel: UILabel!
     @IBOutlet weak var sizeStepper: UIStepper!
@@ -34,6 +36,32 @@ class DesignVC: UIViewController, UITextFieldDelegate {
     }
 
     func updateUI() {
+        // set intro text
+        textView1.text = "Welcome to \(galaxy.currentSystem!.shipyard.rawValue) Shipyards! Our best engineer, \(galaxy.currentSystem!.shipyardEngineer.rawValue), is at your service."
+        
+        // set image
+        let logoCorellian = UIImage(named: "sy-corellian")!
+        let logoIncom = UIImage(named: "sy-incom")!
+        let logoKuat = UIImage(named: "sy-kuat")!
+        let logoSienar = UIImage(named: "sy-sienar")!
+        let logoSorosuub = UIImage(named: "sy-sorosuub")!
+        
+        switch galaxy.currentSystem!.shipyard {
+            case ShipyardID.corellian:
+                logoView.image = logoCorellian
+            case ShipyardID.incom:
+                logoView.image = logoIncom
+            case ShipyardID.kuat:
+                logoView.image = logoKuat
+            case ShipyardID.sienar:
+                logoView.image = logoSienar
+            case ShipyardID.sorosuub:
+                logoView.image = logoSorosuub
+            default:
+                print("error")
+        }
+        
+        // set shipSizeLabel based on stepper value
         switch sizeStepper.value {
             case 0:
                 shipSizeLabel.text = "Tiny"

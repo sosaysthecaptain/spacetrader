@@ -1164,6 +1164,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoView" destination="vut-Sl-MX7" id="kxq-d4-DKl"/>
                         <outlet property="shipNameTextField" destination="ycH-v0-pWH" id="dri-KI-nxX"/>
                         <outlet property="shipSizeLabel" destination="2yx-FM-6se" id="4eI-mH-bAt"/>
                         <outlet property="sizeSpecialtyLabel" destination="kxZ-lh-moX" id="wDk-Im-vKR"/>
