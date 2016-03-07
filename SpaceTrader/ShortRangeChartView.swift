@@ -33,12 +33,14 @@ class ShortRangeChartView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        // this is the main function. It draws everything.
         
         // draw range circle
         let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         rangeCirclePath.lineWidth = 1
         circleColor.set()
         rangeCirclePath.stroke()
+        
         
         // populate planets
         planetsOnMap = []                       // IMPORTANT: CLEAR PLANETSONMAP AS PART OF REFRESH
@@ -56,11 +58,14 @@ class ShortRangeChartView: UIView {
         // if planet is tracked, drawTrackedArrow
         for mapPlanet in planetsOnMap {
             if galaxy.trackedSystem != nil {
+                // draw crosshairs on tracked planet
                 if mapPlanet.system.name == galaxy.trackedSystem!.name {
-                    //drawTrackedArrow(mapPlanet)
-                    drawTrackedArrow2(mapPlanet.system)
                     drawTrackedCrosshairs(mapPlanet)
                 }
+                
+                // draw pointer pointing to it
+               drawPointerToTrackedSystem()
+                
             }
         }
         
@@ -241,63 +246,64 @@ class ShortRangeChartView: UIView {
         UIColor.blackColor().setStroke()
         leftTick.stroke()
     }
+
+    // BOTH THESE ARE OBSOLETE
+//    func drawTrackedArrow(trackedSystem: mapPlanet) {
+//        
+//        // this is actually only needed in the short range chart
+//        var currentSystem: mapPlanet?
+//        for planet in planetsOnMap {
+//            if planet.system.name == galaxy.currentSystem!.name {
+//                currentSystem = planet
+//            }
+//        }
+//        
+//        print("current system map coords: \(currentSystem!.mapLocation.x), \(currentSystem!.mapLocation.y)")
+//        
+//        if galaxy.trackedSystem != nil {
+//            let startX: CGFloat = currentSystem!.mapLocation.x
+//            let startY: CGFloat = currentSystem!.mapLocation.y
+//            let endX: CGFloat = trackedSystem.mapLocation.x
+//            let endY: CGFloat = trackedSystem.mapLocation.y
+//            
+//            let deltaX = endX - startX
+//            let deltaY = endY - startY
+//            
+//            let partialDeltaX = deltaX / 5
+//            let partialDeltaY = deltaY / 5
+//            
+//            let newX = startX + partialDeltaX
+//            let newY = startY + partialDeltaY
+//            
+//            let targetX: CGFloat = newX
+//            let targetY: CGFloat = newY
+//            
+//            let redArrow = UIBezierPath()
+//            redArrow.moveToPoint(CGPoint(x: startX, y: startY))
+//            redArrow.addLineToPoint(CGPoint(x: targetX, y: targetY))
+//            redArrow.lineWidth = 1.0
+//            UIColor.redColor().setStroke()
+//            redArrow.stroke()
+//        }
+//    }
     
-    func drawTrackedArrow(trackedSystem: mapPlanet) {
-        
-        // this is actually only needed in the short range chart
-        var currentSystem: mapPlanet?
-        for planet in planetsOnMap {
-            if planet.system.name == galaxy.currentSystem!.name {
-                currentSystem = planet
-            }
-        }
-        
-        print("current system map coords: \(currentSystem!.mapLocation.x), \(currentSystem!.mapLocation.y)")
-        
-        if galaxy.trackedSystem != nil {
-            let startX: CGFloat = currentSystem!.mapLocation.x
-            let startY: CGFloat = currentSystem!.mapLocation.y
-            let endX: CGFloat = trackedSystem.mapLocation.x
-            let endY: CGFloat = trackedSystem.mapLocation.y
-            
-            let deltaX = endX - startX
-            let deltaY = endY - startY
-            
-            let partialDeltaX = deltaX / 5
-            let partialDeltaY = deltaY / 5
-            
-            let newX = startX + partialDeltaX
-            let newY = startY + partialDeltaY
-            
-            let targetX: CGFloat = newX
-            let targetY: CGFloat = newY
-            
-            let redArrow = UIBezierPath()
-            redArrow.moveToPoint(CGPoint(x: startX, y: startY))
-            redArrow.addLineToPoint(CGPoint(x: targetX, y: targetY))
-            redArrow.lineWidth = 1.0
-            UIColor.redColor().setStroke()
-            redArrow.stroke()
-        }
-    }
-    
-    func drawTrackedArrow2(trackedSystem: StarSystem) {
-        // we know that current system is at (hard coded, but still)
-        let mapCenterX: CGFloat = 175
-        let mapCenterY: CGFloat = 100
-        
-        // with that in mind, we need to get angle from real coords
-        let startRealX = CGFloat(galaxy.currentSystem!.xCoord)
-        let startRealY = CGFloat(galaxy.currentSystem!.yCoord)
-        let endRealX = CGFloat(galaxy.trackedSystem!.xCoord)
-        let endRealY = CGFloat(galaxy.trackedSystem!.yCoord)
-        
-        // goal is coordinates of a point a fixed distance away from map center, in the direction of endReal from endStart
-        let opposite = startRealY - endRealY
-        let adjacent = startRealX - endRealX
-        let angle = atan(opposite / adjacent)
-        print(angle)
-    }
+//    func drawTrackedArrow2(trackedSystem: StarSystem) {
+//        // we know that current system is at (hard coded, but still)
+//        let mapCenterX: CGFloat = 175
+//        let mapCenterY: CGFloat = 100
+//        
+//        // with that in mind, we need to get angle from real coords
+//        let startRealX = CGFloat(galaxy.currentSystem!.xCoord)
+//        let startRealY = CGFloat(galaxy.currentSystem!.yCoord)
+//        let endRealX = CGFloat(galaxy.trackedSystem!.xCoord)
+//        let endRealY = CGFloat(galaxy.trackedSystem!.yCoord)
+//        
+//        // goal is coordinates of a point a fixed distance away from map center, in the direction of endReal from endStart
+//        let opposite = startRealY - endRealY
+//        let adjacent = startRealX - endRealX
+//        let angle = atan(opposite / adjacent)
+//        print(angle)
+//    }
     
     func drawTrackedCrosshairs(planetOnMap: mapPlanet) {
         let planetZeroX = planetOnMap.mapLocation.x
@@ -330,6 +336,21 @@ class ShortRangeChartView: UIView {
         upperRTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         upperRTick.stroke()
+    }
+    
+    // IN PROGRESS AND BROKEN
+    func drawPointerToTrackedSystem() {
+        let pointerX = locationOfCurrentPlanet.x - 15
+        let pointerY = locationOfCurrentPlanet.y - 15
+        let trackedSystemPointer = UIImageView(frame: CGRect(x: pointerX, y: pointerY, width: 30, height: 30))
+        trackedSystemPointer.image = UIImage(named: "trackedSystemPointer")
+        self.addSubview(trackedSystemPointer)
+        
+        // set it to the back
+        self.sendSubviewToBack(trackedSystemPointer)
+        // PROBLEM: WON'T GO TO BACK ***************
+        
+        // get relative (global) coordinates of tracked system, compute angle
     }
     
     func redrawSelf() {
