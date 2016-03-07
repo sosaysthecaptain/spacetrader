@@ -56,24 +56,18 @@ class ShortRangeChartView: UIView {
         }
         
         // if planet is tracked, drawTrackedArrow
-        for mapPlanet in planetsOnMap {
-            if galaxy.trackedSystem != nil {
-                // draw crosshairs on tracked planet
+        if galaxy.trackedSystem != nil {
+            
+            // draw pointer to tracked system
+            drawPointerToTrackedSystem()
+            
+            // draw crosshairs on tracked system
+            for mapPlanet in planetsOnMap {
                 if mapPlanet.system.name == galaxy.trackedSystem!.name {
                     drawTrackedCrosshairs(mapPlanet)
                 }
-                
-                // draw pointer pointing to it
-               drawPointerToTrackedSystem()
-                
-            } else {
-                // remove trackedSystemPointer if a system isn't tracked
-//                if let viewWithTag = self.viewWithTag(100) {
-//                    viewWithTag.removeFromSuperview()
-//                }
             }
         }
-        
     }
     
     
@@ -366,7 +360,7 @@ class ShortRangeChartView: UIView {
         let trackedSystemPointer = UIImageView(frame: CGRect(x: pointerX, y: pointerY, width: 30, height: 30))
         let pointerImage = UIImage(named: "pointer")
         trackedSystemPointer.image = pointerImage?.imageRotatedByDegrees(CGFloat(deg), flip: false)
-        //trackedSystemPointer.alpha = 0.05       // this is a kludge, should be behind but that won't work
+        trackedSystemPointer.alpha = 0.3       // this is a kludge, should be behind but that won't work
         
         // add pointer to view
         trackedSystemPointer.tag = 100              // tag necessary for removal
