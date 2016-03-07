@@ -68,9 +68,9 @@ class ShortRangeChartView: UIView {
                 
             } else {
                 // remove trackedSystemPointer if a system isn't tracked
-                if let viewWithTag = self.viewWithTag(100) {
-                    viewWithTag.removeFromSuperview()
-                }
+//                if let viewWithTag = self.viewWithTag(100) {
+//                    viewWithTag.removeFromSuperview()
+//                }
             }
         }
         
@@ -345,6 +345,11 @@ class ShortRangeChartView: UIView {
     
     // IN PROGRESS
     func drawPointerToTrackedSystem() {
+        // if there is already a tracked system arrow drawn, erase it
+        if let viewWithTag = self.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }
+        
         // get relative (global) coordinates of tracked system
         let trackedSystemRelativeX = CGFloat(galaxy.trackedSystem!.xCoord - galaxy.currentSystem!.xCoord)
         let trackedSystemRelativeY = CGFloat(galaxy.currentSystem!.yCoord - galaxy.trackedSystem!.yCoord)
@@ -352,7 +357,6 @@ class ShortRangeChartView: UIView {
         // get angle to tracked system
         let rad = atan2(trackedSystemRelativeX, trackedSystemRelativeY)     // In radians
         let deg = rad * (180 / 3.14159)
-        print("angle: \(deg) degrees")
         
         // establish position of pointer
         let pointerX = locationOfCurrentPlanet.x - 15
@@ -368,12 +372,14 @@ class ShortRangeChartView: UIView {
         trackedSystemPointer.tag = 100              // tag necessary for removal
         self.addSubview(trackedSystemPointer)
         
+        // THIS DOESN'T WORK--puts behind previous versions, but not behind drawn items
+        //self.sendSubviewToBack(trackedSystemPointer)
+        
         
         
         // TODO:                                                                *******************
         // better image
         // solve Z placement issue
-        // need a good way to untrack system
     }
     
     func redrawSelf() {
