@@ -66,6 +66,11 @@ class ShortRangeChartView: UIView {
                 // draw pointer pointing to it
                drawPointerToTrackedSystem()
                 
+            } else {
+                // remove trackedSystemPointer if a system isn't tracked
+                if let viewWithTag = self.viewWithTag(100) {
+                    viewWithTag.removeFromSuperview()
+                }
             }
         }
         
@@ -338,19 +343,37 @@ class ShortRangeChartView: UIView {
         upperRTick.stroke()
     }
     
-    // IN PROGRESS AND BROKEN
+    // IN PROGRESS
     func drawPointerToTrackedSystem() {
+        // get relative (global) coordinates of tracked system
+        let trackedSystemRelativeX = CGFloat(galaxy.trackedSystem!.xCoord - galaxy.currentSystem!.xCoord)
+        let trackedSystemRelativeY = CGFloat(galaxy.currentSystem!.yCoord - galaxy.trackedSystem!.yCoord)
+        
+        // get angle to tracked system
+        let rad = atan2(trackedSystemRelativeX, trackedSystemRelativeY)     // In radians
+        let deg = rad * (180 / 3.14159)
+        print("angle: \(deg) degrees")
+        
+        // establish position of pointer
         let pointerX = locationOfCurrentPlanet.x - 15
         let pointerY = locationOfCurrentPlanet.y - 15
+        
+        // create pointer, set its rotation
         let trackedSystemPointer = UIImageView(frame: CGRect(x: pointerX, y: pointerY, width: 30, height: 30))
-        trackedSystemPointer.image = UIImage(named: "trackedSystemPointer")
+        let pointerImage = UIImage(named: "pointer")
+        trackedSystemPointer.image = pointerImage?.imageRotatedByDegrees(CGFloat(deg), flip: false)
+        //trackedSystemPointer.alpha = 0.05       // this is a kludge, should be behind but that won't work
+        
+        // add pointer to view
+        trackedSystemPointer.tag = 100              // tag necessary for removal
         self.addSubview(trackedSystemPointer)
         
-        // set it to the back
-        self.sendSubviewToBack(trackedSystemPointer)
-        // PROBLEM: WON'T GO TO BACK ***************
         
-        // get relative (global) coordinates of tracked system, compute angle
+        
+        // TODO:                                                                *******************
+        // better image
+        // solve Z placement issue
+        // need a good way to untrack system
     }
     
     func redrawSelf() {
