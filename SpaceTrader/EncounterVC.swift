@@ -774,13 +774,19 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END BUTTON ACTIONS*************************************************************************
     // CONSEQUENT ACTIONS*************************************************************************
     func arrest() {
-//        print("ARREST!")
-        // Figure out punishment
-        // close journey
-        // mete out punishment
-        // display appropriate modal
-        // conclude journey
+        // instantiated when you surrender to police or submit to an inspection having illegal things on board
         
+        // display arrest alert
+        let title = "Arrested"
+        let message = "You are arrested and taken to the space station, where you are brought before a court of law."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // fire trial and punishment method
+            self.trialAndPunishment()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func getContrabandStatus() -> Bool {
@@ -939,6 +945,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    
     func outcomeOpponentFlees() {                   // CHECK IF THIS DOES THE RIGHT THING
         // report who hit whom
         var reportString1 = ""
@@ -1070,6 +1077,276 @@ class EncounterVC: UIViewController, PlunderDelegate {
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) ship attacks."
         
         redrawViewController()
+    }
+    
+    // jail functions. All used, sequentially, each calling the next and firing alert if necessary.
+    
+    // variables scoped here to be accessible by all jail functions
+    var outstandingFine = 0
+    var canPayFine = true
+    
+    func trialAndPunishment() {
+        // calculate policeRecordScore
+        let policeRecordScore = player.policeRecordInt * 10     // makes more sense this way? Test.
+        print("policeRecordScore: \(policeRecordScore)")
+        
+        // calculate daysInPrison and fine
+        var fine = (1 + (((player.netWorth * (min(80, -policeRecordScore)) / 100 / 500)) * 500))
+        
+        // if wild is on board, increase fine by 5%
+        if player.specialEvents.wildOnBoard {
+            fine = Int(Double(fine) * 1.05)
+        }
+        print("fine: \(fine) credits")
+        
+        // calculate jail time
+        let daysInPrison = max(30, -policeRecordScore)
+        
+        // (original code:)
+        //        Fine = ((1 + (((CurrentWorth() * min( 80, -PoliceRecordScore )) / 100) / 500)) * 500);
+        //        if (WildStatus == 1)
+        //        {
+        //            Fine *= 1.05;
+        //        }
+        //        Imprisonment = max( 30, -PoliceRecordScore );
+        
+        // pay fine if possible, if not, set flag
+        if player.credits >= fine {
+            player.credits -= fine
+        } else {
+            // will give player leftover of their net worth later, once illegal things deducted from it
+            outstandingFine = fine
+            canPayFine = false
+        }
+        
+        // launch alert
+        let title = "Convicted"
+        let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fine) credits."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // begins down the chain. Each alert will fire if necessary
+            
+            
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        // if you can't pay, your ship is taken and you are given a gnat
+    }
+    
+    func jail1ReactorConfiscated() {
+        // fires alert if reactor is on board
+        if player.specialEvents.reactorOnBoard {
+            // fix this condition
+            player.specialEvents.reactorOnBoard = false
+            player.specialEvents.reactorElapsedTime = -1
+            
+            let title = "Police Confiscate Reactor"
+            let message = "The Police confiscate the Ion reactor as evidence of your dealings with unsavory characters."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail2WildArrested()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail2WildArrested()
+        }
+    }
+    
+    func jail2WildArrested() {
+        // fires alert if wild is on board
+        if player.specialEvents.wildOnBoard {
+            player.specialEvents.wildOnBoard = false
+            
+            let title = "Wild Arrested"
+            let message = "Jonathan Wild is arrested, and taken away to stand trial."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail3IllegalGoodsImpounded()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail3IllegalGoodsImpounded()
+        }
+    }
+    
+    func jail3IllegalGoodsImpounded() {
+        // fires alert if illegal goods on board
+        let contraband = getContrabandStatus()
+        if contraband {
+            // fix this condition
+            self.removeIllegal()
+            
+            let title = "Illegal Goods Impounded"
+            let message = "The police also impound all of the illegal goods you have on board."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail4HiddenCargoBaysRemoved()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail4HiddenCargoBaysRemoved()
+        }
+    }
+    
+    func jail4HiddenCargoBaysRemoved() {
+        // fires alert if hbays
+        
+        // find out if hbays on board, remove if so
+        var hbaysOnBoard = false
+        var index = 0
+        var hbaysIndex: Int?
+        for gadget in player.commanderShip.gadget {
+            if gadget.type == GadgetType.HBays {
+                hbaysOnBoard = true
+                hbaysIndex = index
+            }
+            index += 1
+        }
+        
+        if hbaysOnBoard {
+            // fix this condition
+            player.commanderShip.gadget.removeAtIndex(hbaysIndex!)
+            
+            let title = "Hidden Compartments Removed"
+            let message = "When your ship is impounded, the police go over it with a fine-toothed comb. You hidden compartments are found and removed."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail5MercenariesLeave()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail5MercenariesLeave()
+        }
+    }
+    
+    func jail5MercenariesLeave() {
+        // fires alert if you had a crew
+        var playerHadCrew = false
+        if player.commanderShip.crew.count != 0 {
+            playerHadCrew = true
+            
+            // mercenaries walk
+            player.commanderShip.crew = []
+        }
+        
+        // alert if player had crew
+        if playerHadCrew {
+            let title = "Mercenaries Leave"
+            let message = "Any mercenaries who were traveling with you have left."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail6InsuranceLost()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail6InsuranceLost()
+        }
+    }
+    
+    func jail6InsuranceLost() {
+        // fires alert if you had insurance
+        var playerHadInsurance = false
+        if player.insurance {
+            playerHadInsurance = true
+            player.insurance = false
+            player.noClaim = 0
+        }
+        
+        if playerHadInsurance {
+            
+            let title = "Insurance Lost"
+            let message = "Since you cannot pay your insurance while you're in prison, it is retracted."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail7ShipSold()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.jail7ShipSold()
+        }
+    }
+    
+    func jail7ShipSold() {
+        // fires alert if you couldn't pay your fine
+        
+        // if player couldn't pay his fine, sell his ship, credit him his net worth, pay his fine out of it
+        if !canPayFine {
+            player.credits += player.netWorth       // credit player his net worth
+            player.credits -= outstandingFine
+            if player.credits < 0 {
+                player.credits = 0
+            }
+            
+            let flea = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
+            player.commanderShip = flea
+            
+            // alert
+            let title = "Ship Sold"
+            let message = "Because you don't have the credits to pay your fine, your ship is sold."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // call next function
+                self.jail8FleaReceived()
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // no need to bother calling jail8FleaReceived, in this case
+            self.concludeArrest()
+        }
+    }
+    
+    func jail8FleaReceived() {
+        // called only if player couldn't pay fine, so this just displays an alert
+        
+        let title = "Flea Received"
+        let message = "When you leave prison, the police have left a second-hand Flea for you so you can continue your travels."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // call next function
+            self.concludeArrest()
+            
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+    }
+    
+    func concludeArrest() {
+        // called from trialAndPunishment() or wildArrested()
+        // administers fine and prison term, either sends player on his way or takes his ship and sends him off in a gnat
+        
+        // fine: player pays, player's ship taken to pay fine, or if not enough
     }
     
     
