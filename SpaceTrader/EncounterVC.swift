@@ -1087,11 +1087,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     func trialAndPunishment() {
         // calculate policeRecordScore
-        let policeRecordScore = player.policeRecordInt * 10     // makes more sense this way? Test.
+        let policeRecordScore = player.policeRecordInt * 5     // makes more sense this way? Test.
         print("policeRecordScore: \(policeRecordScore)")
         
         // calculate daysInPrison and fine
-        var fine = (1 + (((player.netWorth * (min(80, -policeRecordScore)) / 100 / 500)) * 500))
+        var fine = (1 + (((player.netWorth * (min(80, policeRecordScore)) / 100 / 500)) * 500))
         
         // if wild is on board, increase fine by 5%
         if player.specialEvents.wildOnBoard {
@@ -1100,7 +1100,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         print("fine: \(fine) credits")
         
         // calculate jail time
-        let daysInPrison = max(30, -policeRecordScore)
+        let daysInPrison = max(30, policeRecordScore)
         
         // (original code:)
         //        Fine = ((1 + (((CurrentWorth() * min( 80, -PoliceRecordScore )) / 100) / 500)) * 500);
@@ -1130,8 +1130,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // begins down the chain. Each alert will fire if necessary
-            
-            
+            self.jail1ReactorConfiscated()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -1344,7 +1343,12 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func concludeArrest() {
-        // phew, finally done. Send player on his way.
+        // phew, finally done. Reset police record to dubious and send player on his way.
+        player.policeRecord = PoliceRecordType.dubiousScore         // reset police record
+        
+        // dismiss and conclude encounter
+        self.dismissViewController()
+        galaxy.currentJourney!.clicks = 0                           // no more encounters this journey
         galaxy.currentJourney!.currentEncounter!.concludeEncounter()
     }
     

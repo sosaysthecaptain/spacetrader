@@ -86,8 +86,6 @@ class Journey: NSObject, NSCoding {
     }
     
     func executeClick() {
-        print("DEBUG: beginning executeClick()")                    // DEBUG, REMOVE
-        
         var encounterThisClick = false
         
         var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
@@ -181,21 +179,21 @@ class Journey: NSObject, NSCoding {
         }
         
         // post marie celeste encounter--must go here, to preempt other things
-        // can and probably should make this chance-based
-        
-        // what does this line do and why are we even clearing it?
-        if !encounterThisClick || player.specialEvents.marieCelesteStatus == 1 {
-            print("possibility of postMarieCelesteEncounter--marieCelesteStatus = \(player.specialEvents.marieCelesteStatus)")
-            
+        if !encounterThisClick && player.specialEvents.marieCelesteStatus == 1 {
             let narcoticsQuantity = player.commanderShip.getQuantity(TradeItemType.Narcotics)
             if narcoticsQuantity != 0 {
-                print("POSTMARIECELESTEENCOUNTER")
-                print("player has narcotics on board. Quantity: \(narcoticsQuantity)")
-                veryRareEncounter = true
-                encounterThisClick = true
-                player.specialEvents.marieCelesteStatus = 2         // won't happen again
-                currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
-                currentEncounter!.beginEncounter()
+                
+                // this should be chance-based, if still probable
+                let random = rand(6)
+                if random < 2 {
+                    veryRareEncounter = true
+                    encounterThisClick = true
+                    player.specialEvents.marieCelesteStatus = 2         // won't happen again
+                    currentEncounter = Encounter(type: EncounterType.postMariePoliceEncounter, clicks: clicks)
+                    currentEncounter!.beginEncounter()
+                }
+                
+                
             }
         }
         
