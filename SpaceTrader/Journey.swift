@@ -184,7 +184,7 @@ class Journey: NSObject, NSCoding {
             if narcoticsQuantity != 0 {
                 
                 // this should be chance-based, if still probable
-                let random = rand(6)
+                let random = rand(8)
                 if random < 2 {
                     veryRareEncounter = true
                     encounterThisClick = true
@@ -196,8 +196,6 @@ class Journey: NSObject, NSCoding {
                 
             }
         }
-        
-        
         
         // ELSE, check if it is time for an encounter
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {

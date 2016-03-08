@@ -59,7 +59,8 @@ class ShortRangeChartView: UIView {
         if galaxy.trackedSystem != nil {
             
             // draw pointer to tracked system
-            drawPointerToTrackedSystem()
+            //drawPointerToTrackedSystem()
+            drawPointerToTrackedSystemProgrammatically()
             
             // draw crosshairs on tracked system
             for mapPlanet in planetsOnMap {
@@ -337,7 +338,7 @@ class ShortRangeChartView: UIView {
         upperRTick.stroke()
     }
     
-    // IN PROGRESS
+    // abandoned in favor of drawPointerToTrackedSystemProgrammatically()
     func drawPointerToTrackedSystem() {
         // if there is already a tracked system arrow drawn, erase it
         if let viewWithTag = self.viewWithTag(100) {
@@ -374,6 +375,43 @@ class ShortRangeChartView: UIView {
         // TODO:                                                                *******************
         // better image
         // solve Z placement issue
+    }
+    
+    // seems to work better than drawPointerToSystem. Going with it. To switch back, comment out call, comment in previous call
+    func drawPointerToTrackedSystemProgrammatically() {
+        print("DRAWING POINTER TO \(galaxy.trackedSystem!.name)************")
+        
+        // get relative (global) coordinates of tracked system
+        let trackedSystemRelativeX = CGFloat(galaxy.trackedSystem!.xCoord - galaxy.currentSystem!.xCoord)
+        let trackedSystemRelativeY = CGFloat(galaxy.currentSystem!.yCoord - galaxy.trackedSystem!.yCoord)
+        
+        // get angle to tracked system
+        let rad = atan2(trackedSystemRelativeX, trackedSystemRelativeY)     // In radians
+        let deg = rad * (180 / 3.14159)
+        print("angle to planet: \(deg)")
+        
+        // get first end of the line
+        let firstPoint = locationOfCurrentPlanet
+        let firstPointX = firstPoint.x
+        let firstPointY = firstPoint.y
+        print("firstPoint: (\(firstPointX), \(firstPointY))")
+        
+        // get endpoint of line
+        let radius: Double = 20
+        let endpointX = Double(firstPointX) + (radius * sin(Double(rad)))
+        let endpointY = Double(firstPointY) - (radius * cos(Double(rad)))
+        print("endPoint: (\(endpointX), \(endpointY))")
+        
+        // draw line
+        let pointerLine = UIBezierPath()
+        pointerLine.moveToPoint(CGPoint(x: firstPointX, y: firstPointY))
+        pointerLine.addLineToPoint(CGPoint(x: endpointX, y: endpointY))
+        pointerLine.lineWidth = 2.0
+        UIColor.redColor().setStroke()
+        pointerLine.stroke()
+        
+        // draw planet circle on top
+        self.drawPlanetCircle(locationOfCurrentPlanet, visited: true)
     }
     
     func redrawSelf() {
