@@ -1119,6 +1119,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
             canPayFine = false
         }
         
+        // make time pass
+        player.days += daysInPrison
+        
         // launch alert
         let title = "Convicted"
         let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fine) credits."
@@ -1131,8 +1134,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
             
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
-        
-        // if you can't pay, your ship is taken and you are given a gnat
     }
     
     func jail1ReactorConfiscated() {
@@ -1343,10 +1344,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func concludeArrest() {
-        // called from trialAndPunishment() or wildArrested()
-        // administers fine and prison term, either sends player on his way or takes his ship and sends him off in a gnat
-        
-        // fine: player pays, player's ship taken to pay fine, or if not enough
+        // phew, finally done. Send player on his way.
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
     }
     
     
