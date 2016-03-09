@@ -370,9 +370,7 @@ class ShortRangeChartView: UIView {
         // THIS DOESN'T WORK--puts behind previous versions, but not behind drawn items
         //self.sendSubviewToBack(trackedSystemPointer)
         
-        
-        
-        // TODO:                                                                *******************
+        // TODO:
         // better image
         // solve Z placement issue
     }
