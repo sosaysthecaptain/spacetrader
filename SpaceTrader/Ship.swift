@@ -24,6 +24,7 @@ class SpaceShip: NSObject, NSCoding {
     var bounty: Int
     var occurance: Int
     var hullStrength: Int
+    var disruptedness: Int          // added so disruptors aren't immediately effective
     var police: Int                 // encountered as police with at least this strength
     var pirates: Int
     var traders: Int
@@ -674,6 +675,7 @@ class SpaceShip: NSObject, NSCoding {
         self.IFFStatus = IFFStatus
         self.fuel = fuelTanks
         self.hull = hullStrength
+        self.disruptedness = hullStrength
         // must presumably still populate weapons, shields, etc on non-player ships. See global.c for info
     }
     
@@ -907,6 +909,7 @@ class SpaceShip: NSObject, NSCoding {
             self.bounty = decoder.decodeObjectForKey("bounty") as! Int
             self.occurance = decoder.decodeObjectForKey("occurance") as! Int
             self.hullStrength = decoder.decodeObjectForKey("hullStrength") as! Int
+            self.disruptedness = decoder.decodeObjectForKey("disruptedness") as! Int
             self.police = decoder.decodeObjectForKey("police") as! Int
             self.pirates = decoder.decodeObjectForKey("pirates") as! Int
             self.traders = decoder.decodeObjectForKey("traders") as! Int
@@ -968,6 +971,7 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(bounty, forKey: "bounty")
             encoder.encodeObject(occurance, forKey: "occurance")
             encoder.encodeObject(hullStrength, forKey: "hullStrength")
+            encoder.encodeObject(disruptedness, forKey: "disruptedness")
             encoder.encodeObject(police, forKey: "police")
             encoder.encodeObject(pirates, forKey: "pirates")
             encoder.encodeObject(traders, forKey: "traders")
