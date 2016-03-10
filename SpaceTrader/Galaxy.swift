@@ -1009,6 +1009,10 @@ class Galaxy: NSObject, NSCoding {
         player.days += 1
         shuffleStatus()
         
+        // player's police record improves slowly, if he doesn't get into trouble
+        if player.days % 10 == 0 {
+            player.incrementPoliceRecord(true)
+        }
     }
     
     func shuffleStatus() {

@@ -487,6 +487,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
         if actuallyFlee {
             galaxy.currentJourney!.currentEncounter!.playerFleeing = true
             
+            // dock police record
+            if player.policeRecord == PoliceRecordType.cleanScore || player.policeRecord == PoliceRecordType.lawfulScore || player.policeRecord == PoliceRecordType.likedScore || player.policeRecord == PoliceRecordType.trustedScore {
+                player.policeRecord = PoliceRecordType.dubiousScore
+            } else if player.policeRecord == PoliceRecordType.dubiousScore {
+                player.policeRecord = PoliceRecordType.crookScore
+            }
+            
             // determine whether you'll escape
             var escape = false
             if player.difficulty == DifficultyType.beginner {

@@ -503,6 +503,14 @@ class Commander: NSObject, NSCoding {
         
     }
     
+    func incrementPoliceRecord(increaseAsOpposedToDecrease: Bool) {
+        if increaseAsOpposedToDecrease {
+            player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt + 1)!
+        } else {
+            player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt - 1)!
+        }
+    }
+    
     // NEW BUY/SELL FUNCTIONS. ALL BUYING AND SELLING SHOULD USE THESE*********************************
     
     func buy(commodity: TradeItemType, quantity: Int) -> Bool {
