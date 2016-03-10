@@ -276,7 +276,22 @@ class EncounterVC: UIViewController, PlunderDelegate {
             self.presentViewController(alertController, animated: true, completion: nil)
             
         } else {
-            self.actuallyAttack()
+            // make sure player has weapons
+            if player.commanderShip.weapon == [] {
+                // warn can't attack without weapons
+                let title: String = "No Weapons"
+                let message: String = "You can't attack without weapons!"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // flag to false, can't attack
+                    self.actuallyAttack()
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                self.actuallyAttack()
+            }
         }
     }
     
