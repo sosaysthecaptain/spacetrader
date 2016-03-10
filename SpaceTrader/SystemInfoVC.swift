@@ -136,6 +136,11 @@ class SystemInfoVC: UIViewController {
             player.credits -= costOfFuel
             player.commanderShip.fuel = player.commanderShip.fuelTanks
         }
+        
+        // update systemsInRange
+        galaxy.getSystemsInRange()
+        
+        // update UI
         updateUI()
     }
     

@@ -87,6 +87,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
             let controlState = UIControlState()
             warpButtonLabel.setTitle("Track", forState: controlState)
         }
+        
+        // disable "warp" button if targetSystem == currentSystem
+        if galaxy.targetSystem!.name == galaxy.currentSystem!.name {
+            warpButtonLabel.enabled = false
+        } else {
+            warpButtonLabel.enabled = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
