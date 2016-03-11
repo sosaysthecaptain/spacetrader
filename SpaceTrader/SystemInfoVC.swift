@@ -57,6 +57,8 @@ class SystemInfoVC: UIViewController {
     //@IBOutlet weak var cashLabel: UILabel!
     //@IBOutlet weak var baysOutlet: BaysCashBox!
     //@IBOutlet weak var cashOutlet: BaysCashBox!
+    @IBOutlet weak var baysCashView: BaysCashBoxView!
+    
     
     
     func updateUI() {
@@ -70,16 +72,7 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
-        //baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
-        //cashLabel.text = "Cash: \(player.credits) cr."
-        
-//        let numberFormatter = NSNumberFormatter()
-//        numberFormatter.numberStyle = .DecimalStyle
-//        let cashFormatted = numberFormatter.stringFromNumber(player.credits)
-//        let cashLabelText = "\(cashFormatted!) cr."
-//        
-//        baysOutlet.setTitle("Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)", forState: UIControlState.Disabled)
-//        cashOutlet.setTitle(cashLabelText, forState: UIControlState.Disabled)
+        baysCashView.redrawSelf()
         
         
         

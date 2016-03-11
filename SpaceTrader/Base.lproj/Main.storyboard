@@ -5501,6 +5501,21 @@
                                     <action selector="maxRepairs:" destination="I0c-F9-5oA" eventType="touchUpInside" id="t0u-FI-FSP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-vL-Y5N" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="454" width="600" height="38"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PIN-Ws-98V"/>
+                                    <constraint firstAttribute="height" constant="45" id="R4T-Pq-fCe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bkM-OY-gng"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PIN-Ws-98V"/>
+                                        <exclude reference="bkM-OY-gng"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -5528,6 +5543,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="G89-ZH-jAI" secondAttribute="leading" id="Nye-CG-oHM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="2FL-Cy-UEj" secondAttribute="leading" id="PhS-OD-B8N"/>
                             <constraint firstItem="aeL-nk-qOb" firstAttribute="width" secondItem="faS-c6-zP3" secondAttribute="width" id="PuF-VV-H3J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J3W-vL-Y5N" secondAttribute="trailing" constant="-20" id="S8n-iZ-4Sb"/>
                             <constraint firstItem="efH-nl-XBF" firstAttribute="leading" secondItem="FhP-4c-fPl" secondAttribute="leading" id="SB6-qE-6Ek"/>
                             <constraint firstItem="av4-Ze-Idy" firstAttribute="leading" secondItem="JM0-xt-UVi" secondAttribute="trailing" constant="8" symbolic="YES" id="T6d-az-MxO"/>
                             <constraint firstItem="aeL-nk-qOb" firstAttribute="bottom" secondItem="CEE-Kl-32M" secondAttribute="bottom" id="TU7-zQ-Ix3"/>
@@ -5542,6 +5558,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="wXs-lh-2jZ" secondAttribute="leading" id="cLM-Gz-1a0"/>
                             <constraint firstItem="SIX-PF-Put" firstAttribute="baseline" secondItem="efH-nl-XBF" secondAttribute="baseline" id="eSQ-dC-2u8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JM0-xt-UVi" secondAttribute="leading" id="erm-WE-AVw"/>
+                            <constraint firstItem="Gmq-yl-qzZ" firstAttribute="top" secondItem="J3W-vL-Y5N" secondAttribute="bottom" id="ezl-Yj-LF3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="M1Z-G2-ben" secondAttribute="leading" id="f7t-Fw-ym1"/>
                             <constraint firstItem="aeL-nk-qOb" firstAttribute="top" secondItem="CEE-Kl-32M" secondAttribute="top" id="ggN-9o-tyK"/>
                             <constraint firstItem="eXT-5v-FK0" firstAttribute="top" secondItem="RI5-Xs-Xb7" secondAttribute="bottom" id="gzz-sO-3Bg"/>
@@ -5556,6 +5573,7 @@
                             <constraint firstItem="3hH-TH-dVz" firstAttribute="top" secondItem="M1Z-G2-ben" secondAttribute="bottom" constant="8" id="rRS-64-u2E"/>
                             <constraint firstItem="B1a-vR-rY1" firstAttribute="top" secondItem="3hH-TH-dVz" secondAttribute="bottom" constant="8" id="sNL-dJ-YCj"/>
                             <constraint firstItem="2dO-Oc-kEO" firstAttribute="baseline" secondItem="CEE-Kl-32M" secondAttribute="baseline" id="tSX-vp-epg"/>
+                            <constraint firstItem="J3W-vL-Y5N" firstAttribute="leading" secondItem="gJ0-u5-8q6" secondAttribute="leadingMargin" constant="-20" id="tjT-K2-orx"/>
                             <constraint firstItem="M1Z-G2-ben" firstAttribute="top" secondItem="YnQ-6e-uT2" secondAttribute="bottom" constant="8" id="u4w-uF-6tL"/>
                             <constraint firstItem="w9v-Pk-Xci" firstAttribute="leading" secondItem="IuB-MZ-694" secondAttribute="leading" id="uou-as-3C5"/>
                             <constraint firstItem="faS-c6-zP3" firstAttribute="leading" secondItem="mS5-BZ-YEa" secondAttribute="trailing" constant="8" symbolic="YES" id="wVs-yM-i0s"/>
@@ -5576,6 +5594,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="baysCashView" destination="J3W-vL-Y5N" id="HLQ-Eb-SOa"/>
                         <outlet property="fuelButton" destination="Ude-Mb-K2s" id="5Og-4T-ehv"/>
                         <outlet property="fuelText1" destination="RI5-Xs-Xb7" id="JKX-73-hhf"/>
                         <outlet property="fuelText2" destination="eXT-5v-FK0" id="qqP-SW-wkh"/>

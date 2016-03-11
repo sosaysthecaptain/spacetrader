@@ -328,7 +328,6 @@
 				5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */,
 				5AE71F981C06BCB0004378BD /* Utils.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
-				5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -337,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				5AB36E8D1BF18B3600941CF6 /* Menus */,
+				5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */,
 				5A078AC01BB33C100005155D /* BuyModalVC.swift */,
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
