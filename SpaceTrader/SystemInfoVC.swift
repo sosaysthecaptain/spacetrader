@@ -53,8 +53,11 @@ class SystemInfoVC: UIViewController {
     @IBOutlet weak var hullText1: UILabel!
     @IBOutlet weak var hullText2: UILabel!
 
-    @IBOutlet weak var baysLabel: UILabel!
-    @IBOutlet weak var cashLabel: UILabel!
+    //@IBOutlet weak var baysLabel: UILabel!
+    //@IBOutlet weak var cashLabel: UILabel!
+    //@IBOutlet weak var baysOutlet: BaysCashBox!
+    //@IBOutlet weak var cashOutlet: BaysCashBox!
+    
     
     func updateUI() {
         let localPolitics = Politics(type: galaxy.currentSystem!.politics)
@@ -67,8 +70,18 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
-        baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
-        cashLabel.text = "Cash: \(player.credits) cr."
+        //baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
+        //cashLabel.text = "Cash: \(player.credits) cr."
+        
+//        let numberFormatter = NSNumberFormatter()
+//        numberFormatter.numberStyle = .DecimalStyle
+//        let cashFormatted = numberFormatter.stringFromNumber(player.credits)
+//        let cashLabelText = "\(cashFormatted!) cr."
+//        
+//        baysOutlet.setTitle("Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)", forState: UIControlState.Disabled)
+//        cashOutlet.setTitle(cashLabelText, forState: UIControlState.Disabled)
+        
+        
         
 //        fuelButton.backgroundColor = UIColor.clearColor()
 //        fuelButton.layer.cornerRadius = 5

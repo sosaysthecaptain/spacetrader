@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // these things should remain, but should not necessarily be populated, or should be populated with default values, with proper initialization to follow
 
@@ -76,4 +77,8 @@ let SOLSYSTEM = 92
 let UTOPIASYSTEM = 109
 let ZALKONSYSTEM = 118
 
+// colors (note: supposedly UIColorFromRGB("F21B3F") is a thing, can't make it work, used extension)
+let mainPurple = UIColor(netHex:0x2E009F)
+let textGray = UIColor(netHex:0x2E2E2E)
+let inactiveGray = UIColor(netHex:0x848484)
 
