@@ -484,10 +484,13 @@ class Encounter: NSObject, NSCoding {
             let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * engineerSkillOpponent)) / 100)
             damageOpponent(damageToOpponent)
             
-            // PHOTON DISRUPTOR ACTION GOES HERE
+            // PHOTON DISRUPTOR ACTION GOES HERE************************************************
             if opponent.ship.totalShields == 0 && player.commanderShip.photonDisruptor {
                 opponent.ship.disabled = true
+                
+                // quantum disruptor does more?
             }
+            
         } else {
             //print("player misses target")
             youHitThem = false
