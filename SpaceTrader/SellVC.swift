@@ -65,8 +65,10 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     // things at the bottom
     
 
-    @IBOutlet weak var baysAvailableLabel: UILabel!
-    @IBOutlet weak var cashLabel: UILabel!
+    //@IBOutlet weak var baysAvailableLabel: UILabel!
+    //@IBOutlet weak var cashLabel: UILabel!
+    @IBOutlet weak var baysCashBox: BaysCashBoxView!
+    
 
     func sellAll(commodity: TradeItemType) {
         let quantity = player.commanderShip.getQuantity(commodity)
@@ -216,9 +218,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", forState: controlState)
         
-        cashLabel.text = "Cash: \(player.credits) cr."
-        
-        baysAvailableLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.cargoBays)"
+        // redraw baysCashBox
+        baysCashBox.redrawSelf()
     }
     
     func loadPrices() {

@@ -26,8 +26,6 @@ class BaysCashBoxView: UIView {
         let leftEdge: CGFloat = 14
         let rightEdge: CGFloat = self.bounds.width - 14
         
-        print("BaysCashBox bounds: \(bottom), \(top), \(leftEdge), \(rightEdge)")
-        
         let boxHeight: CGFloat = 30
         let boxSpacing: CGFloat = 10
         let boxWidth = (rightEdge - leftEdge - boxSpacing) / 2
@@ -102,13 +100,5 @@ class BaysCashBoxView: UIView {
     func redrawSelf() {
         self.setNeedsDisplay()
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
