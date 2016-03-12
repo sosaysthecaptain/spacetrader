@@ -17,7 +17,6 @@ class RuleView: UIView {
         // calculate endpoints
         let offsetFromLeftEdge: CGFloat = 20
         let rightCoordinate = CGPoint(x: self.bounds.width, y: (self.bounds.height / 2))
-        print("right coordinate: (\(rightCoordinate.x), \(rightCoordinate.y))")
         let leftCoordinate = CGPoint(x: offsetFromLeftEdge, y: self.bounds.height / 2)
         
         

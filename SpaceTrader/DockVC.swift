@@ -23,6 +23,7 @@ class DockVC: UIViewController {
     @IBOutlet weak var podButton: CustomButton!
     @IBOutlet weak var designShipButton: UIButton!
     
+    @IBOutlet weak var baysCashBox: BaysCashBoxView!
     
     override func viewDidLoad() {
         updateUI()
@@ -64,6 +65,9 @@ class DockVC: UIViewController {
         } else {
             designShipButton.enabled = false
         }
+        
+        // redraw baysCashBox
+        baysCashBox.redrawSelf()
     }
     
     override func viewDidAppear(animated: Bool) {

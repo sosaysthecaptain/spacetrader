@@ -20,6 +20,7 @@
 		5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */; };
 		5A1DBBC71C0E3509009E8D0C /* UniversalGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */; };
 		5A24376C1C9329130004D6CE /* BaysCashBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */; };
+		5A24376F1C9388580004D6CE /* TextFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24376E1C9388580004D6CE /* TextFormatting.swift */; };
 		5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */; };
 		5A271B1B1C931C200067078B /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A271B1A1C931C200067078B /* RuleView.swift */; };
 		5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278EAF1BE5632B00679276 /* PlunderVC.swift */; };
@@ -113,6 +114,7 @@
 		5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListDualTableVC.swift; sourceTree = "<group>"; };
 		5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalGadget.swift; sourceTree = "<group>"; };
 		5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaysCashBoxView.swift; sourceTree = "<group>"; };
+		5A24376E1C9388580004D6CE /* TextFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatting.swift; sourceTree = "<group>"; };
 		5A26FC071C3B72E5009F6392 /* SaveGameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SaveGameDataModel.xcdatamodel; sourceTree = "<group>"; };
 		5A271B1A1C931C200067078B /* RuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		5A278EAF1BE5632B00679276 /* PlunderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlunderVC.swift; sourceTree = "<group>"; };
@@ -204,6 +206,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A24376D1C9388290004D6CE /* UI Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */,
+				5A07695C1BEAA0A90007C746 /* Buttons.swift */,
+				5A271B1A1C931C200067078B /* RuleView.swift */,
+				5A24376E1C9388580004D6CE /* TextFormatting.swift */,
+			);
+			name = "UI Classes";
+			sourceTree = "<group>";
+		};
 		5AB36E8D1BF18B3600941CF6 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				5A76AD5F1C63B54000EF1809 /* Alerts.swift */,
-				5A07695C1BEAA0A90007C746 /* Buttons.swift */,
 				5A0265C11BA329670079F6DE /* Commander.swift */,
 				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 				5A723F411BCD5EA5006FFB13 /* Encounter.swift */,
@@ -318,7 +330,6 @@
 				5AE975641C10DE24005D78E1 /* Newspaper.swift */,
 				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
-				5A271B1A1C931C200067078B /* RuleView.swift */,
 				5AFEB63A1C4954E9000F51BE /* SavedGame.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
@@ -335,8 +346,8 @@
 		5AF1CA2B1BA365DC00643C5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A24376D1C9388290004D6CE /* UI Classes */,
 				5AB36E8D1BF18B3600941CF6 /* Menus */,
-				5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */,
 				5A078AC01BB33C100005155D /* BuyModalVC.swift */,
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
@@ -483,6 +494,7 @@
 				5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */,
 				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,
 				5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */,
+				5A24376F1C9388580004D6CE /* TextFormatting.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
 				5A7172581C1639150082BF0C /* SearchVC.swift in Sources */,
 				5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */,

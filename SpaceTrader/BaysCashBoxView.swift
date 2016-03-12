@@ -88,12 +88,14 @@ class BaysCashBoxView: UIView {
         baysLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
         baysLabel.textAlignment = NSTextAlignment.Center
         //cashLabel.backgroundColor = UIColor.greenColor()        // testing only
+        baysLabel.textColor = textGray
         self.addSubview(baysLabel)
         
         let cashLabel = UILabel(frame: CGRect(origin: cashLabelLocation, size: CGSize(width: 100, height: 30)))
         cashLabel.text = cashLabelText
         cashLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
         cashLabel.textAlignment = NSTextAlignment.Center
+        cashLabel.textColor = textGray
         self.addSubview(cashLabel)
     }
     

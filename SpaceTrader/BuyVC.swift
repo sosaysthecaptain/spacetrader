@@ -46,10 +46,12 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var robotsProjectedPL: UILabel!
     
     
-    @IBOutlet weak var targetSystemLabel: UILabel!
-    @IBOutlet weak var targetSystemDescriptionLabel: UILabel!
-    @IBOutlet weak var baysLabel: UILabel!
-    @IBOutlet weak var cashLabel: UILabel!
+    //@IBOutlet weak var targetSystemLabel: UILabel!
+    //@IBOutlet weak var targetSystemDescriptionLabel: UILabel!
+    //@IBOutlet weak var baysLabel: UILabel!
+    //@IBOutlet weak var cashLabel: UILabel!
+    @IBOutlet weak var baysCashBox: BaysCashBoxView!
+    
     
     @IBOutlet weak var waterMaxButton: CustomButton!
     @IBOutlet weak var fursMaxButton: CustomButton!
@@ -127,8 +129,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // fill out info at the bottom
         
-        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
-        cashLabel.text = "Cash: \(player.credits) cr."
+        //targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
+        //cashLabel.text = "Cash: \(player.credits) cr."
         
         
     }
@@ -294,11 +296,11 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     func updateUI2() {   // called initially, also when transaction completed
-        // ISSUE: should display positive P/L numbers in smaller font. Need to learn how to change font size of label programmatically
         
-        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
-        baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.cargoBays)"    // FIX
-        cashLabel.text = "Cash: \(player.credits) cr."
+        // set target system label
+        
+        // redraw baysCashBox
+        baysCashBox.redrawSelf()
         
         let controlState = UIControlState()
         
@@ -321,7 +323,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
       
         
         // set description string
-        targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
+        //targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
         
     }
     
