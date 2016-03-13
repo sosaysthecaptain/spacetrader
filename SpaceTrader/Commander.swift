@@ -425,13 +425,21 @@ class Commander: NSObject, NSCoding {
         if commodityOnBoard {
             let localSellPrice = galaxy.currentSystem!.getSellPrice(commodity)
             let PL = localSellPrice - pricePaid
+            
+            // TODO: format
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            
+            let PLFormatted = numberFormatter.stringFromNumber(PL)
+            
             if PL >= 0 {
-                return "+\(PL)"
+                return "+\(PLFormatted!) cr."
             } else {
-                return "-\(abs(PL))"
+                let absPLFormatted = numberFormatter.stringFromNumber(abs(PL))
+                return "-\(absPLFormatted!) cr."
             }
         } else {
-            return "---"
+            return "--"
         }
     }
     

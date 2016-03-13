@@ -245,6 +245,91 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         narcoticsPL.text = "\(player.getPLString(.Narcotics))"
         robotsPL.text = "\(player.getPLString(.Robots))"
         
+        // if positive, turn PL labels purple (CONSIDER USING LIGHT GRAY FOR LOSS)
+        if (waterPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Water) < galaxy.currentSystem!.waterSell) {
+            waterPL.textColor = mainPurple
+        } else {
+            waterPL.textColor = inactiveGray
+        }
+        if (fursPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Furs) < galaxy.currentSystem!.fursSell) {
+            fursPL.textColor = mainPurple
+        } else {
+            fursPL.textColor = inactiveGray
+        }
+        if (foodPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Food) < galaxy.currentSystem!.foodSell) {
+            foodPL.textColor = mainPurple
+        } else {
+            foodPL.textColor = inactiveGray
+        }
+        if (orePL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Ore) < galaxy.currentSystem!.oreSell) {
+            orePL.textColor = mainPurple
+        } else {
+            orePL.textColor = inactiveGray
+        }
+        if (gamesPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Games) < galaxy.currentSystem!.gamesSell) {
+            gamesPL.textColor = mainPurple
+        } else {
+            gamesPL.textColor = inactiveGray
+        }
+        if (firearmsPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Firearms) < galaxy.currentSystem!.firearmsSell) {
+            firearmsPL.textColor = mainPurple
+        } else {
+            firearmsPL.textColor = inactiveGray
+        }
+        if (medicinePL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Medicine) < galaxy.currentSystem!.medicineSell) {
+            medicinePL.textColor = mainPurple
+        } else {
+            medicinePL.textColor = inactiveGray
+        }
+        if (machinesPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Machines) < galaxy.currentSystem!.machinesSell) {
+            machinesPL.textColor = mainPurple
+        } else {
+            machinesPL.textColor = inactiveGray
+        }
+        if (narcoticsPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Narcotics) < galaxy.currentSystem!.narcoticsSell) {
+            narcoticsPL.textColor = mainPurple
+        } else {
+            narcoticsPL.textColor = inactiveGray
+        }
+        if (robotsPL.text != "--") && (player.commanderShip.getPricePaid(TradeItemType.Robots) < galaxy.currentSystem!.robotsSell) {
+            robotsPL.textColor = mainPurple
+        } else {
+            robotsPL.textColor = inactiveGray
+        }
+        
+        // TODO: MAKE PL LABEL TEXT SMALLER IF STRING TOO LONG. SAME FOR PRICE
+        let maxCharactersBeforeShrinkingText = 8
+        if waterPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            waterPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if fursPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            fursPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if foodPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            foodPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if orePL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            orePL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if gamesPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            gamesPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if firearmsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            firearmsPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if medicinePL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            medicinePL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if machinesPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            machinesPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if narcoticsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            narcoticsPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        if robotsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            robotsPL.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
+        
         // handle dump buttons
         if galaxy.currentSystem!.waterSell == 0 {
             waterAllLabel.setTitle("Dump", forState: controlState)
