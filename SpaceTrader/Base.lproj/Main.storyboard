@@ -402,10 +402,11 @@
                                     <action selector="buyRobotsTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="N6c-12-zHN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vda-w6-uFs" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vda-w6-uFs" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="106" width="39" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="4Ke-Eu-NSa"/>
+                                    <constraint firstAttribute="height" constant="28" id="Xos-jp-fhv"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
@@ -428,7 +429,7 @@
                                 <rect key="frame" x="162" y="105" width="0.0" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="GcK-C6-7p4"/>
+                                    <constraint firstAttribute="height" constant="10" id="GcK-C6-7p4"/>
                                     <constraint firstAttribute="width" constant="39" id="HA5-kO-6L5"/>
                                 </constraints>
                                 <variation key="default">
@@ -456,72 +457,99 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-bV-yOE" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-bV-yOE" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="140" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="TGN-fJ-6Dy"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="fursMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="DYP-iq-ltv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzi-Ba-qAo" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzi-Ba-qAo" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="174" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="0NI-XR-Zne"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="foodMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="lCJ-Pv-az0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-hc-JOW" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-hc-JOW" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="208" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="5GE-zw-hGL"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="oreMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="Htz-5N-LrR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grD-ZK-mOE" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grD-ZK-mOE" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="242" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="9gJ-A9-qoM"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="gamesMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="iND-Xn-iV7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-bI-2gn" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-bI-2gn" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="276" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="dif-L6-lxx"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="firearmsMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="0Ed-LO-dB6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-kq-rcX" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-kq-rcX" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="310" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="imL-kd-v90"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="medicineMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="KHD-vj-uxR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM3-b0-xoF" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM3-b0-xoF" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="344" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="YUx-wE-TXA"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="machinesMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="EA4-5i-Lqk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-LO-Tcn" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-LO-Tcn" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="378" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="7ae-vI-uOO"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
                                     <action selector="narcoticsMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="Kah-PP-s5i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-vu-5Dj" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-vu-5Dj" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="170" y="412" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Hf6-X1-E23"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Max"/>
                                 <connections>
@@ -700,7 +728,7 @@
                             <constraint firstItem="mrY-nv-xti" firstAttribute="baseline" secondItem="0Z6-4G-yfc" secondAttribute="baseline" id="A3z-BC-UB0"/>
                             <constraint firstItem="7Cc-2Q-bZ9" firstAttribute="baseline" secondItem="CYx-V7-SWc" secondAttribute="baseline" id="AVl-Xt-vO3"/>
                             <constraint firstItem="u9M-Sq-Lus" firstAttribute="height" secondItem="hrn-NN-jmF" secondAttribute="height" id="Alf-qD-t07"/>
-                            <constraint firstItem="jLF-YR-bwg" firstAttribute="leading" secondItem="Pn2-Po-UiZ" secondAttribute="trailing" constant="8" symbolic="YES" id="BQE-na-dP4"/>
+                            <constraint firstItem="jLF-YR-bwg" firstAttribute="leading" secondItem="Pn2-Po-UiZ" secondAttribute="trailing" constant="10" id="BQE-na-dP4"/>
                             <constraint firstItem="CYx-V7-SWc" firstAttribute="leading" secondItem="ou6-33-xZA" secondAttribute="leading" id="BvM-6w-dmz"/>
                             <constraint firstItem="sw8-05-XSD" firstAttribute="baseline" secondItem="Anp-fd-6X2" secondAttribute="baseline" id="CQa-7x-0Uu"/>
                             <constraint firstItem="Anp-fd-6X2" firstAttribute="leading" secondItem="4e3-Kp-OtJ" secondAttribute="leading" id="CWT-ey-uL2"/>
@@ -743,7 +771,7 @@
                             <constraint firstItem="yzi-Ba-qAo" firstAttribute="baseline" secondItem="mrY-nv-xti" secondAttribute="baseline" id="Pt2-UA-7ZZ"/>
                             <constraint firstItem="ou6-33-xZA" firstAttribute="top" secondItem="X5P-u0-r2O" secondAttribute="bottom" constant="16" id="QJj-7D-Biw"/>
                             <constraint firstItem="pAF-k7-fmW" firstAttribute="leading" secondItem="okc-Zt-lKh" secondAttribute="leading" id="RkE-yv-ZhL"/>
-                            <constraint firstItem="Vda-w6-uFs" firstAttribute="leading" secondItem="jLF-YR-bwg" secondAttribute="trailing" constant="8" symbolic="YES" id="S4L-Xr-bxM"/>
+                            <constraint firstItem="Vda-w6-uFs" firstAttribute="leading" secondItem="jLF-YR-bwg" secondAttribute="trailing" id="S4L-Xr-bxM"/>
                             <constraint firstItem="DdD-JL-sLL" firstAttribute="leading" secondItem="jl1-ov-Bd9" secondAttribute="leading" id="T3R-ui-Pfv"/>
                             <constraint firstItem="hrn-NN-jmF" firstAttribute="leading" secondItem="0Z6-4G-yfc" secondAttribute="leading" id="TTs-qk-pyt"/>
                             <constraint firstItem="grD-ZK-mOE" firstAttribute="baseline" secondItem="gBQ-T2-6OE" secondAttribute="baseline" id="Tgd-CS-mNb"/>

@@ -53,16 +53,16 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var baysCashBox: BaysCashBoxView!
     
     
-    @IBOutlet weak var waterMaxButton: CustomButton!
-    @IBOutlet weak var fursMaxButton: CustomButton!
-    @IBOutlet weak var foodMaxButton: CustomButton!
-    @IBOutlet weak var oreMaxButton: CustomButton!
-    @IBOutlet weak var gamesMaxButton: CustomButton!
-    @IBOutlet weak var firearmsMaxButton: CustomButton!
-    @IBOutlet weak var medicineMaxButton: CustomButton!
-    @IBOutlet weak var machinesMaxButton: CustomButton!
-    @IBOutlet weak var narcoticsMaxButton: CustomButton!
-    @IBOutlet weak var robotsMaxButton: CustomButton!
+    @IBOutlet weak var waterMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var fursMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var foodMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var oreMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var gamesMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var firearmsMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var medicineMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var machinesMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var narcoticsMaxButton: PurpleButtonVanishes!
+    @IBOutlet weak var robotsMaxButton: PurpleButtonVanishes!
     
     
     
