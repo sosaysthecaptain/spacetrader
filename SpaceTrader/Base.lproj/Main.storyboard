@@ -5743,7 +5743,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="System" id="Osi-Yw-eUB">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="baK-Nb-tt5"/>
+                        <barButtonItem key="leftBarButtonItem" image="menuPurple" style="plain" id="baK-Nb-tt5"/>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="hrk-Sg-Xzw">
                             <connections>
                                 <action selector="menuTapped:" destination="I0c-F9-5oA" id="HX3-C2-yy5"/>
@@ -7038,6 +7038,7 @@
         <image name="badge_bang" width="40" height="40"/>
         <image name="buyGray" width="28" height="25"/>
         <image name="buyPurple" width="25" height="24"/>
+        <image name="menuPurple" width="25" height="20"/>
         <image name="sellGray" width="25" height="24"/>
         <image name="sellPurple" width="25" height="24"/>
         <image name="systemGray" width="25" height="25"/>

@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set tab bar tint color
         UITabBar.appearance().tintColor = mainPurple
         
+        // set button bar tint color
+        UINavigationBar.appearance().tintColor = mainPurple
+        
         return true
     }
 
