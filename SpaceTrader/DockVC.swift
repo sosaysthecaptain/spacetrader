@@ -18,10 +18,10 @@ class DockVC: UIViewController {
     @IBOutlet weak var podMessage1: UILabel!
     @IBOutlet weak var podMessage2: UILabel!
     
-    @IBOutlet weak var shipButton: CustomButton!
-    @IBOutlet weak var equipmentButton: CustomButton!
-    @IBOutlet weak var podButton: CustomButton!
-    @IBOutlet weak var designShipButton: UIButton!
+    @IBOutlet weak var shipButton: PurpleButtonVanishes!
+    @IBOutlet weak var equipmentButton: PurpleButtonVanishes!
+    @IBOutlet weak var podButton: PurpleButtonVanishes!
+    @IBOutlet weak var designShipButton: PurpleButtonVanishes!
     
     @IBOutlet weak var baysCashBox: BaysCashBoxView!
     

@@ -340,38 +340,6 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         narcoticsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.narcoticsSell, currentBuy: galaxy.currentSystem!.narcoticsBuy))"
         robotsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.robotsSell, currentBuy: galaxy.currentSystem!.robotsBuy))"
         
-        // shrink P/L label if too long
-        if waterProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            waterProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if fursProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            fursProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if foodProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            foodProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if oreProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            oreProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if gamesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            gamesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if firearmsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            firearmsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if medicineProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            medicineProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if machinesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            machinesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if narcoticsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            narcoticsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        if robotsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
-            robotsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
-        }
-        
  
         // P/L: handle commodities not traded in target system
         if galaxy.targetSystem!.waterSell == 0 {
@@ -405,6 +373,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         if galaxy.targetSystem!.robotsSell == 0 {
             robotsProjectedPL.text = "--"
         }
+        
+        
 
         // handle things not traded. Do so if buy price is zero.
         if galaxy.currentSystem!.waterBuy == 0 {
@@ -523,6 +493,38 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
         
         highlightProfitOpportunities()
+        
+        // shrink P/L label if too long
+        if waterProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            waterProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if fursProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            fursProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if foodProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            foodProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if oreProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            oreProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if gamesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            gamesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if firearmsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            firearmsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if medicineProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            medicineProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if machinesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            machinesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if narcoticsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            narcoticsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if robotsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            robotsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
     }
     
     
