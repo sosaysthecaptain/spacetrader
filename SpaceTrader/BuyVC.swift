@@ -46,6 +46,9 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var robotsProjectedPL: UILabel!
     
     
+    @IBOutlet weak var targetSystemLabel: StandardLabel!
+    @IBOutlet weak var targetSystemDescriptionLabel: SmallNotBold!
+    
     //@IBOutlet weak var targetSystemLabel: UILabel!
     //@IBOutlet weak var targetSystemDescriptionLabel: UILabel!
     //@IBOutlet weak var baysLabel: UILabel!
@@ -87,7 +90,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // fill out info at the bottom
         
-        //targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
+        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         //cashLabel.text = "Cash: \(player.credits) cr."
         
         
@@ -289,7 +292,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         
         // set description string
-        //targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
+        targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
         
     }
     

@@ -108,7 +108,7 @@ class SmallNotBold: UILabel {
     
     func setup() {
         self.textColor = textGray
-        self.font = UIFont(name: "AvenirNext", size: 13)
+        self.font = UIFont(name: "AvenirNext-DemiBold", size: 13)       // still bold, maybe change
         
     }
 }
