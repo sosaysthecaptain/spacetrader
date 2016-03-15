@@ -223,7 +223,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     func loadPrices() {
-        // TODO: MUST FORMAT
+        // format prices
         
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .DecimalStyle

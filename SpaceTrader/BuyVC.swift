@@ -64,6 +64,9 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var narcoticsMaxButton: PurpleButtonVanishes!
     @IBOutlet weak var robotsMaxButton: PurpleButtonVanishes!
     
+    let maxCharactersBeforeShrinkingText = 7
+    let textSizeToShrinkTo: CGFloat = 13
+    
     
     
     override func viewDidLoad() {
@@ -71,51 +74,6 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         let controlState = UIControlState()
         buyAsOpposedToSell = true
-
-        // DUMMY DATA
-//        currentSystem.water = 20
-//        currentSystem.furs = 1
-//        currentSystem.food = 7
-//        currentSystem.ore = 57
-//        currentSystem.games = 12
-//        currentSystem.firearms = 38
-//        currentSystem.robots = 1            // REMOVE
-//        
-//        currentSystem.waterBuy = 37
-//        currentSystem.fursBuy = 274
-//        currentSystem.foodBuy = 108
-//        currentSystem.oreBuy = 397
-//        currentSystem.gamesBuy = 158
-//        currentSystem.firearmsBuy = 1101
-//        currentSystem.robotsBuy = 50        // REMOVE
-        
-//        targetSystem.waterSell = 45
-//        targetSystem.fursSell = 290
-//        targetSystem.foodSell = 0
-//        targetSystem.oreSell = 441
-//        targetSystem.gamesSell = 178
-//        targetSystem.firearmsSell = 752
-        
-        systemsInRange.append(StarSystem(
-            name: "Tarchannen",
-            techLevel: TechLevelType.techLevel2,
-            politics: PoliticsType.confederacy,
-            status: StatusType.none,
-            xCoord: 5,
-            yCoord: 5,
-            specialResources: SpecialResourcesType.none,
-            size: SizeType.Small))
-        
-        systemsInRange.append(StarSystem(
-            name: "Meridian",
-            techLevel: TechLevelType.techLevel7,
-            politics: PoliticsType.technocracy,
-            status: StatusType.none,
-            xCoord: 6,
-            yCoord: 6,
-            specialResources: SpecialResourcesType.none,
-            size: SizeType.Tiny))
-        // END DUMMY DATA
         
         updateUI()
 
@@ -143,7 +101,15 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         } else {
             sign = ""
         }
-        let string = "\(sign)\(value) cr."
+        
+        // format value
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        
+        let valueFormatted = numberFormatter.stringFromNumber(value)
+        
+        // append sign and return
+        let string = "\(sign)\(valueFormatted!) cr."
         //print(string)
         return string
     }
@@ -320,7 +286,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         narcoticsQty.setTitle("\(galaxy.currentSystem!.narcotics)", forState: controlState)
         robotsQty.setTitle("\(galaxy.currentSystem!.robots)", forState: controlState)
         
-      
+        
         
         // set description string
         //targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
@@ -330,19 +296,36 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     func updateUI() {    // things that don't change with buying and selling; only called once
         updateUI2()
         
-        // set prices
-        waterPrice.text = "\(galaxy.currentSystem!.waterBuy) cr."
-        fursPrice.text = "\(galaxy.currentSystem!.fursBuy) cr."
-        foodPrice.text = "\(galaxy.currentSystem!.foodBuy) cr."
-        orePrice.text = "\(galaxy.currentSystem!.oreBuy) cr."
-        gamesPrice.text = "\(galaxy.currentSystem!.gamesBuy) cr."
-        firearmsPrice.text = "\(galaxy.currentSystem!.firearmsBuy) cr."
-        medicinePrice.text = "\(galaxy.currentSystem!.medicineBuy) cr."
-        machinesPrice.text = "\(galaxy.currentSystem!.machinesBuy) cr."
-        narcoticsPrice.text = "\(galaxy.currentSystem!.narcoticsBuy) cr."
-        robotsPrice.text = "\(galaxy.currentSystem!.robotsBuy) cr."
+        // set formatted prices
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
         
-        // set P/L
+        let waterPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.waterBuy)
+        let fursPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.fursBuy)
+        let foodPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.foodBuy)
+        let orePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.oreBuy)
+        let gamesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.gamesBuy)
+        let firearmsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.firearmsBuy)
+        let medicinePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.medicineBuy)
+        let machinesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.machinesBuy)
+        let narcoticsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.narcoticsBuy)
+        let robotsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.robotsBuy)
+        
+        
+        // set prices
+        waterPrice.text = "\(waterPriceFormatted!) cr."
+        fursPrice.text = "\(fursPriceFormatted!) cr."
+        foodPrice.text = "\(foodPriceFormatted!) cr."
+        orePrice.text = "\(orePriceFormatted!) cr."
+        gamesPrice.text = "\(gamesPriceFormatted!) cr."
+        firearmsPrice.text = "\(firearmsPriceFormatted!) cr."
+        medicinePrice.text = "\(medicinePriceFormatted!) cr."
+        machinesPrice.text = "\(machinesPriceFormatted!) cr."
+        narcoticsPrice.text = "\(narcoticsPriceFormatted!) cr."
+        robotsPrice.text = "\(robotsPriceFormatted!) cr."
+        
+        
+        // set P/L, with formatting info
         waterProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.waterSell, currentBuy: galaxy.currentSystem!.waterBuy))"
         fursProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.fursSell, currentBuy: galaxy.currentSystem!.fursBuy))"
         foodProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.foodSell, currentBuy: galaxy.currentSystem!.foodBuy))"
@@ -353,6 +336,39 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         machinesProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.machinesSell, currentBuy: galaxy.currentSystem!.machinesBuy))"
         narcoticsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.narcoticsSell, currentBuy: galaxy.currentSystem!.narcoticsBuy))"
         robotsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.robotsSell, currentBuy: galaxy.currentSystem!.robotsBuy))"
+        
+        // shrink P/L label if too long
+        if waterProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            waterProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if fursProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            fursProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if foodProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            foodProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if oreProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            oreProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if gamesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            gamesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if firearmsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            firearmsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if medicineProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            medicineProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if machinesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            machinesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if narcoticsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            narcoticsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if robotsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+            robotsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        
  
         // P/L: handle commodities not traded in target system
         if galaxy.targetSystem!.waterSell == 0 {
@@ -394,6 +410,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             waterQty.enabled = false
             waterMaxButton.enabled = false
             waterPrice.text = "not sold"
+            waterPrice.textColor = inactiveGray
             waterProjectedPL.text = "--"
             
         }
@@ -402,6 +419,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             fursQty.enabled = false
             fursMaxButton.enabled = false
             fursPrice.text = "not sold"
+            fursPrice.textColor = inactiveGray
             fursProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.foodBuy == 0 {
@@ -409,6 +427,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             foodQty.enabled = false
             foodMaxButton.enabled = false
             foodPrice.text = "not sold"
+            foodPrice.textColor = inactiveGray
             foodProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.oreBuy == 0 {
@@ -416,6 +435,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             oreQty.enabled = false
             oreMaxButton.enabled = false
             orePrice.text = "not sold"
+            orePrice.textColor = inactiveGray
             oreProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.gamesBuy == 0 {
@@ -423,6 +443,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             gamesQty.enabled = false
             gamesMaxButton.enabled = false
             gamesPrice.text = "not sold"
+            gamesPrice.textColor = inactiveGray
             gamesProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.firearmsBuy == 0 {
@@ -430,6 +451,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             firearmsQty.enabled = false
             firearmsMaxButton.enabled = false
             firearmsPrice.text = "not sold"
+            firearmsPrice.textColor = inactiveGray
             firearmsProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.medicineBuy == 0 {
@@ -437,6 +459,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             medicineQty.enabled = false
             medicineMaxButton.enabled = false
             medicinePrice.text = "not sold"
+            medicinePrice.textColor = inactiveGray
             medicineProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.machinesBuy == 0 {
@@ -444,6 +467,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             machinesQty.enabled = false
             machinesMaxButton.enabled = false
             machinesPrice.text = "not sold"
+            machinesPrice.textColor = inactiveGray
             machinesProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.narcoticsBuy == 0 {
@@ -451,6 +475,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             narcoticsQty.enabled = false
             narcoticsMaxButton.enabled = false
             narcoticsPrice.text = "not sold"
+            narcoticsPrice.textColor = inactiveGray
             narcoticsProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.robotsBuy == 0 {
@@ -458,7 +483,40 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             robotsQty.enabled = false
             robotsMaxButton.enabled = false
             robotsPrice.text = "not sold"
+            robotsPrice.textColor = inactiveGray
             robotsProjectedPL.text = "--"
+        }
+        
+        // shrink price string if too long
+        if waterPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            waterPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if fursPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            fursPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if foodPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            foodPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if orePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            orePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if gamesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            gamesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if firearmsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            firearmsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if medicinePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            medicinePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if machinesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            machinesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if narcoticsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            narcoticsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
+        }
+        if robotsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+            robotsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
         
         highlightProfitOpportunities()
@@ -481,55 +539,58 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
    
     // PROBABLY USE DIFFERENT HIGHLIGHTING SCHEME
     func highlightProfitOpportunities() {
+        let profitColor = mainPurple
+        let lossColor = inactiveGray
+        
         if getPPL(TradeItemType.Water) > 0 {
-            waterProjectedPL.textColor = UIColor.redColor()
+            waterProjectedPL.textColor = profitColor
         } else {
-            waterProjectedPL.textColor = UIColor.blackColor()
+            waterProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Furs) > 0 {
-            fursProjectedPL.textColor = UIColor.redColor()
+            fursProjectedPL.textColor = mainPurple
         } else {
-            fursProjectedPL.textColor = UIColor.blackColor()
+            fursProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Food) > 0 {
-            foodProjectedPL.textColor = UIColor.redColor()
+            foodProjectedPL.textColor = mainPurple
         } else {
-            foodProjectedPL.textColor = UIColor.blackColor()
+            foodProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Ore) > 0 {
-            oreProjectedPL.textColor = UIColor.redColor()
+            oreProjectedPL.textColor = mainPurple
         } else {
-            oreProjectedPL.textColor = UIColor.blackColor()
+            oreProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Games) > 0 {
-            gamesProjectedPL.textColor = UIColor.redColor()
+            gamesProjectedPL.textColor = mainPurple
         } else {
-            gamesProjectedPL.textColor = UIColor.blackColor()
+            gamesProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Firearms) > 0 {
-            firearmsProjectedPL.textColor = UIColor.redColor()
+            firearmsProjectedPL.textColor = mainPurple
         } else {
-            firearmsProjectedPL.textColor = UIColor.blackColor()
+            firearmsProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Medicine) > 0 {
-            medicineProjectedPL.textColor = UIColor.redColor()
+            medicineProjectedPL.textColor = mainPurple
         } else {
-            medicineProjectedPL.textColor = UIColor.blackColor()
+            medicineProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Machines) > 0 {
-            machinesProjectedPL.textColor = UIColor.redColor()
+            machinesProjectedPL.textColor = mainPurple
         } else {
-            machinesProjectedPL.textColor = UIColor.blackColor()
+            machinesProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Narcotics) > 0 {
-            narcoticsProjectedPL.textColor = UIColor.redColor()
+            narcoticsProjectedPL.textColor = mainPurple
         } else {
-            narcoticsProjectedPL.textColor = UIColor.blackColor()
+            narcoticsProjectedPL.textColor = lossColor
         }
         if getPPL(TradeItemType.Robots) > 0 {
-            robotsProjectedPL.textColor = UIColor.redColor()
+            robotsProjectedPL.textColor = mainPurple
         } else {
-            robotsProjectedPL.textColor = UIColor.blackColor()
+            robotsProjectedPL.textColor = lossColor
         }
     }
     
