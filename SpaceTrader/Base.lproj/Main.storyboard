@@ -5743,7 +5743,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="System" id="Osi-Yw-eUB">
-                        <barButtonItem key="leftBarButtonItem" image="menuPurple" style="plain" id="baK-Nb-tt5"/>
+                        <barButtonItem key="leftBarButtonItem" image="menuPurple" style="plain" id="baK-Nb-tt5">
+                            <connections>
+                                <segue destination="HMX-pU-d8v" kind="presentation" id="df9-TI-WZB"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="hrk-Sg-Xzw">
                             <connections>
                                 <action selector="menuTapped:" destination="I0c-F9-5oA" id="HX3-C2-yy5"/>
@@ -7047,13 +7051,14 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Rh0-fp-Z1Y"/>
         <segue reference="HOC-30-z82"/>
         <segue reference="YkA-kv-Gq0"/>
         <segue reference="REb-7Y-v0a"/>
         <segue reference="QJh-Dr-ysc"/>
         <segue reference="ATZ-Oj-oTW"/>
+        <segue reference="Btw-3O-mir"/>
+        <segue reference="Q3s-ve-bLK"/>
         <segue reference="Cl3-zi-3cm"/>
-        <segue reference="g1Q-Jj-Pqv"/>
-        <segue reference="NzW-sD-RNT"/>
     </inferredMetricsTieBreakers>
 </document>
