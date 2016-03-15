@@ -542,7 +542,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         buyAsOpposedToSell = true
     }
    
-    // PROBABLY USE DIFFERENT HIGHLIGHTING SCHEME
+    // turns profit opportunity labels purple, losses gray
     func highlightProfitOpportunities() {
         let profitColor = mainPurple
         let lossColor = inactiveGray

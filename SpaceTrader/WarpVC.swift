@@ -17,7 +17,8 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         }
     }
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var targetSystemLabel: UILabel!
+    //@IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var techLevelLabel: UILabel!
     @IBOutlet weak var governmentLabel: UILabel!
@@ -25,7 +26,9 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var policeLabel: UILabel!
     @IBOutlet weak var piratesLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var warpButtonLabel: CustomButton!
+    
+    @IBOutlet weak var warpButtonLabel: PurpleButtonTurnsGray!
+    @IBOutlet weak var untrackButtonLabel: GrayButtonVanishes!
     
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
@@ -41,11 +44,14 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     
     @IBAction func warpButton() {
         if galaxy.targetSystemInRange {
+            // if button read "Warp"
             galaxy.warp()
             updateView()
             shortRangeChart.redrawSelf()
         } else {
+            // if button read "Track"
             galaxy.setTracked(galaxy.targetSystem!.name)
+            updateView()
             shortRangeChart.redrawSelf()
         }
     }
@@ -70,7 +76,8 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     func updateView() {
         let politics = Politics(type: galaxy.targetSystem!.politics)
         
-        nameLabel.text = galaxy.targetSystem!.name
+        //nameLabel.text = galaxy.targetSystem!.name
+        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         sizeLabel.text = galaxy.targetSystem!.size.rawValue
         techLevelLabel.text = galaxy.targetSystem!.techLevel.rawValue
         governmentLabel.text = galaxy.targetSystem!.politics.rawValue
@@ -94,6 +101,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         } else {
             warpButtonLabel.enabled = true
         }
+        
+        // set "Untracked" to enabled only if a system is tracked
+        if galaxy.trackedSystem != nil {
+            untrackButtonLabel.enabled = true
+        } else {
+            untrackButtonLabel.enabled = false
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -104,5 +118,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     func targetSystemDidChange() {
         updateView()
     }
+    
+    @IBAction func untrackPressed(sender: AnyObject) {
+        // set tracked system to nil, update both view and chart
+        galaxy.trackedSystem = nil
+        updateView()
+        shortRangeChart.redrawSelf()
+    }
+    
     
 }
