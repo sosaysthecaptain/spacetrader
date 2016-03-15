@@ -59,10 +59,18 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if tableView == tableView1 {
             let cell: UITableViewCell = self.tableView1.dequeueReusableCellWithIdentifier("topCell")!
             cell.textLabel?.text = self.currentCrew[indexPath.row]
+            
+            //set font used in table view cell label
+            cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+            
             return cell
         } else {
             let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
             cell.textLabel?.text = self.availableMercenaries[indexPath.row]
+            
+            //set font used in table view cell label
+            cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+            
             return cell
         }
     }

@@ -33,6 +33,8 @@ class QuestsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell: QuestStringCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as! QuestStringCell
 
         cell.setCell(player.specialEvents.quests[indexPath.row].questString)
+        
+        
         return cell
     }
     
@@ -62,6 +64,8 @@ class QuestStringCell: UITableViewCell {
     func setCell(text: String) {
         print("setCell called. Passed text: \(text)")
         textView.text = text
+        textView.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+        
     }
     
 }
