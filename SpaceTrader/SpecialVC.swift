@@ -12,8 +12,8 @@ class SpecialVC: UIViewController {
 
     @IBOutlet weak var specialEventTitle: UILabel!
     @IBOutlet weak var specialEventText: UITextView!
-    @IBOutlet weak var dismissButtonOutlet: CustomButton!
-    @IBOutlet weak var noButtonOutlet: CustomButton!
+    @IBOutlet weak var dismissButtonOutlet: PurpleButtonVanishes!
+    @IBOutlet weak var noButtonOutlet: PurpleButtonVanishes!
     
     override func viewDidLoad() {
         // DEBUG

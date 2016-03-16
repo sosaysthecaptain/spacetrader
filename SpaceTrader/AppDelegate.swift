@@ -24,9 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set button bar tint color
         UINavigationBar.appearance().tintColor = mainPurple
         
+        // set navigation controller font
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!
+        ]
+        
         // THIS WAS OVERRIDING OTHER THINGS
         // set global font, used wherever not set otherwise
         //UILabel.appearance().font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+        
         
         return true
     }
