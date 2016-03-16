@@ -121,11 +121,11 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         // report empty slots
-        let emptyWeaponString = "(\(player.commanderShip.weaponSlots - player.commanderShip.weapon.count) empty weapon slots)"
+        let emptyWeaponString = "<\(player.commanderShip.weaponSlots - player.commanderShip.weapon.count) empty weapon slots>"
         tableView1TextArray.append(emptyWeaponString)
-        let emptyShieldString = "(\(player.commanderShip.shieldSlots - player.commanderShip.shield.count) empty shield slots)"
+        let emptyShieldString = "<\(player.commanderShip.shieldSlots - player.commanderShip.shield.count) empty shield slots>"
         tableView1TextArray.append(emptyShieldString)
-        let emptyGadgetString = "(\(player.commanderShip.gadgetSlots - player.commanderShip.gadget.count) empty gadget slots)"
+        let emptyGadgetString = "<\(player.commanderShip.gadgetSlots - player.commanderShip.gadget.count) empty gadget slots>"
         tableView1TextArray.append(emptyGadgetString)
         
         
@@ -149,10 +149,18 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if tableView == tableView1 {
             let cell: UITableViewCell = self.tableView1.dequeueReusableCellWithIdentifier("topCell")!
             cell.textLabel?.text = self.tableView1TextArray[indexPath.row]
+            
+            //set font used in table view cell label
+            cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+            
             return cell
         } else {
             let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
             cell.textLabel?.text = self.tableView2TextArray[indexPath.row]
+            
+            //set font used in table view cell label
+            cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+            
             return cell
         }
     }

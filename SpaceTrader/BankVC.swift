@@ -16,9 +16,9 @@ class BankVC: UIViewController {
     @IBOutlet weak var noClaimDiscountLabel: UILabel!
     @IBOutlet weak var costsLabel: UILabel!
     
-    @IBOutlet weak var getLoanLabel: CustomButton!
-    @IBOutlet weak var payBackLoanLabel: CustomButton!
-    @IBOutlet weak var buyInsuranceOutlet: CustomButton!
+    @IBOutlet weak var getLoanLabel: PurpleButtonTurnsGray!
+    @IBOutlet weak var payBackLoanLabel: PurpleButtonTurnsGray!
+    @IBOutlet weak var buyInsuranceOutlet: PurpleButtonTurnsGray!
     
     
     var getVsPayBack = true

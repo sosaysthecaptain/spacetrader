@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set button bar tint color
         UINavigationBar.appearance().tintColor = mainPurple
         
+        // THIS WAS OVERRIDING OTHER THINGS
         // set global font, used wherever not set otherwise
-        UILabel.appearance().font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+        //UILabel.appearance().font = UIFont(name: "AvenirNext-DemiBold", size: 16)
         
         return true
     }
