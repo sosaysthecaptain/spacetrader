@@ -5147,15 +5147,22 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="b5q-AS-ozn">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="centerX" secondItem="MPx-w0-eiq" secondAttribute="centerX" id="Dgg-n3-pVi"/>
+                            <constraint firstItem="b5q-AS-ozn" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" id="fgj-qz-9wm"/>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" constant="50" id="gXs-cK-1N9"/>
+                            <constraint firstItem="b5q-AS-ozn" firstAttribute="leading" secondItem="MPx-w0-eiq" secondAttribute="leadingMargin" constant="-20" id="nrw-w3-xuT"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="OKButton" destination="FgZ-oF-t9v" id="obM-e8-R3f"/>
+                        <outlet property="backgroundImage" destination="b5q-AS-ozn" id="DAo-f9-W9F"/>
                         <outlet property="difficultyLevel" destination="dx6-Zb-GVE" id="Du1-C9-LD9"/>
                         <outlet property="engineerPoints" destination="Twf-A0-k66" id="46f-dx-rze"/>
                         <outlet property="fighterPoints" destination="8dD-LI-OzA" id="mX6-lq-OJO"/>
@@ -7178,6 +7185,7 @@
         <image name="sellGray" width="25" height="24"/>
         <image name="sellPurple" width="25" height="24"/>
         <image name="shipyardGray" width="30" height="26"/>
+        <image name="starfieldBackground" width="414" height="736"/>
         <image name="systemGray" width="25" height="25"/>
         <image name="systemPurple" width="25" height="25"/>
         <image name="warpGray" width="25" height="25"/>

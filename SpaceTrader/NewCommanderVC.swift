@@ -19,11 +19,17 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fighterPoints: UILabel!
     @IBOutlet weak var traderPoints: UILabel!
     @IBOutlet weak var engineerPoints: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    // set dark statusBar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     
@@ -93,6 +99,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        
+        // set starfield background z index appropriately
+        self.view.sendSubviewToBack(backgroundImage)
         
         nameField.delegate = self
         
