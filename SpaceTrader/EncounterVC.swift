@@ -12,6 +12,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // send view to background. Not possible to do this in IB
+        self.view.sendSubviewToBack(backgroundView)
+        
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         //playerShields.text = player.getShieldStrengthString(player.commanderShip)     // DEBUG FIX THIS
@@ -54,6 +57,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         setBadgeImage()
     }
     
+    // set dark statusBar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     
     @IBOutlet weak var playerShipType: UILabel!
     @IBOutlet weak var playerHull: UILabel!
@@ -67,10 +75,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBOutlet weak var secondTextBlock: UITextView!
     
     
-    @IBOutlet weak var button1Text: UIButton!
-    @IBOutlet weak var button2Text: UIButton!
-    @IBOutlet weak var button3Text: UIButton!
-    @IBOutlet weak var button4Text: UIButton!
+    @IBOutlet weak var button1Text: GrayButtonVanishes!
+    @IBOutlet weak var button2Text: GrayButtonVanishes!
+    @IBOutlet weak var button3Text: GrayButtonVanishes!
+    @IBOutlet weak var button4Text: GrayButtonVanishes!
     
     var closed = false
 
@@ -84,6 +92,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     @IBOutlet weak var badge: UIImageView!
     
+    // set on top of everything and sent to back programmatically
+    // move to edit things underneath
+    @IBOutlet weak var backgroundView: UIView!
     
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(sender: AnyObject) {
