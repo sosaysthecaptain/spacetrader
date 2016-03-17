@@ -2967,13 +2967,13 @@
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZF-Vf-ALe">
-                                                <rect key="frame" x="0.0" y="0.0" width="8" height="84"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="94"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-S7-MZR">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22" height="43"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-z0-IBj">
-                                                <rect key="frame" x="0.0" y="0.0" width="4" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="17" height="52"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -3030,13 +3030,13 @@
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-Ze-hsR">
-                                                <rect key="frame" x="0.0" y="0.0" width="41" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="54"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-G5-bpo">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="97"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="80"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbe-yd-Rlk">
-                                                <rect key="frame" x="0.0" y="0.0" width="57" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="33" height="38"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -3238,15 +3238,15 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge_bang" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-V9-BUL">
-                                <rect key="frame" x="530" y="50" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge_bang" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-V9-BUL">
+                                <rect key="frame" x="550" y="50" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="960-QW-S18"/>
-                                    <constraint firstAttribute="height" constant="40" id="FCS-9A-oSw"/>
+                                    <constraint firstAttribute="width" constant="20" id="960-QW-S18"/>
+                                    <constraint firstAttribute="height" constant="20" id="FCS-9A-oSw"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197">
-                                <rect key="frame" x="530" y="90" width="30" height="30"/>
+                                <rect key="frame" x="530" y="70" width="30" height="30"/>
                                 <state key="normal" title="x"/>
                                 <connections>
                                     <action selector="closeButton:" destination="Z73-QX-bwt" eventType="touchUpInside" id="tSf-zQ-Dq9"/>
@@ -7190,7 +7190,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="badge_bang" width="40" height="40"/>
+        <image name="badge_bang" width="30" height="30"/>
         <image name="buyPurple" width="25" height="24"/>
         <image name="menuPurpleSmaller" width="30" height="30"/>
         <image name="sellGray" width="25" height="24"/>
