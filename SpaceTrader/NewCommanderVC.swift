@@ -13,7 +13,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var difficultyLevel: UILabel!
-    @IBOutlet weak var OKButton: UIButton!
+    @IBOutlet weak var OKButton: PurpleButtonTurnsGray!
     @IBOutlet weak var skillPoints: UILabel!
     @IBOutlet weak var pilotPoints: UILabel!
     @IBOutlet weak var fighterPoints: UILabel!
