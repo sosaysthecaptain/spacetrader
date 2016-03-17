@@ -2761,7 +2761,7 @@
                         <outlet property="techLevelLabel" destination="tNS-lG-aPB" id="jju-o0-GSy"/>
                         <outlet property="untrackButtonLabel" destination="7cQ-Xy-XpP" id="45s-3y-D1p"/>
                         <outlet property="warpButtonLabel" destination="u44-xC-fcG" id="3vm-zr-Hqv"/>
-                        <segue destination="ELE-CK-FDY" kind="presentation" identifier="warpScreenSegue" id="QJh-Dr-ysc"/>
+                        <segue destination="ELE-CK-FDY" kind="presentation" identifier="warpScreenSegue" animates="NO" id="QJh-Dr-ysc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTA-qk-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2861,7 +2861,7 @@
                         <outlet property="portableSingularityJump" destination="YRq-7A-BkP" id="ieH-gt-AoZ"/>
                         <outlet property="shortRangeChart" destination="4QT-sz-iFf" id="oCr-RO-HOG"/>
                         <outlet property="targetSystemLabel" destination="Rfu-G3-aYA" id="41e-2P-fJT"/>
-                        <segue destination="ELE-CK-FDY" kind="show" identifier="singularityWarpSegue" id="ufr-wM-KNn"/>
+                        <segue destination="ELE-CK-FDY" kind="show" identifier="singularityWarpSegue" animates="NO" id="ufr-wM-KNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-qV-9NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2921,14 +2921,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the warp screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-Dy-0Zw">
-                                <rect key="frame" x="20" y="28" width="177" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZgY-13-3fg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZgY-13-3fg" firstAttribute="top" secondItem="ZxR-W7-pGg" secondAttribute="bottom" constant="-20" id="0Df-7u-HrF"/>
+                            <constraint firstItem="ZgY-13-3fg" firstAttribute="leading" secondItem="3pg-x6-nEy" secondAttribute="leadingMargin" constant="-20" id="cbz-cy-9jm"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="Z73-QX-bwt" kind="presentation" identifier="encounterModal" animates="NO" id="iFt-eH-dU2"/>
@@ -7192,13 +7193,13 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="64M-bi-8yt"/>
+        <segue reference="LdK-j7-SWM"/>
+        <segue reference="ufr-wM-KNn"/>
+        <segue reference="LND-dr-SJk"/>
         <segue reference="NpZ-6P-UU1"/>
-        <segue reference="REb-7Y-v0a"/>
         <segue reference="Btw-3O-mir"/>
         <segue reference="Q3s-ve-bLK"/>
         <segue reference="Cl3-zi-3cm"/>
-        <segue reference="QJh-Dr-ysc"/>
         <segue reference="YkA-kv-Gq0"/>
         <segue reference="ATZ-Oj-oTW"/>
     </inferredMetricsTieBreakers>
