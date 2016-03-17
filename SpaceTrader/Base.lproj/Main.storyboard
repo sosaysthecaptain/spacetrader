@@ -5168,7 +5168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0j-ed-caq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2387" y="150"/>
+            <point key="canvasLocation" x="2261" y="168"/>
         </scene>
         <!--Personnel-->
         <scene sceneID="MDS-LH-Raf">
@@ -6751,7 +6751,7 @@
         <scene sceneID="Hyc-zn-b2c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stB-0D-xU3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buy" image="buyGray" selectedImage="buyPurple" id="tCy-DU-he4"/>
+                    <tabBarItem key="tabBarItem" title="Buy" image="buyPurple" id="tCy-DU-he4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NKL-Mv-SN1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -7173,7 +7173,6 @@
     </scenes>
     <resources>
         <image name="badge_bang" width="40" height="40"/>
-        <image name="buyGray" width="28" height="25"/>
         <image name="buyPurple" width="25" height="24"/>
         <image name="menuPurpleSmaller" width="30" height="30"/>
         <image name="sellGray" width="25" height="24"/>
@@ -7185,13 +7184,13 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HOC-30-z82"/>
-        <segue reference="QJh-Dr-ysc"/>
-        <segue reference="REb-7Y-v0a"/>
+        <segue reference="64M-bi-8yt"/>
         <segue reference="NpZ-6P-UU1"/>
+        <segue reference="REb-7Y-v0a"/>
         <segue reference="Btw-3O-mir"/>
         <segue reference="Q3s-ve-bLK"/>
         <segue reference="Cl3-zi-3cm"/>
+        <segue reference="QJh-Dr-ysc"/>
         <segue reference="YkA-kv-Gq0"/>
         <segue reference="ATZ-Oj-oTW"/>
     </inferredMetricsTieBreakers>
