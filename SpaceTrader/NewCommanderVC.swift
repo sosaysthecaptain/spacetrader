@@ -19,6 +19,10 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fighterPoints: UILabel!
     @IBOutlet weak var traderPoints: UILabel!
     @IBOutlet weak var engineerPoints: UILabel!
+    
+    //@IBOutlet weak var difficultyStepper: UIStepper!
+    
+    
     //@IBOutlet weak var backgroundImage: UIImageView!
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
@@ -43,25 +47,45 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     }
     var name = String()
     
-    var difficulty: Int = 2 {
-        didSet {
-            // crappy kludge
-            switch difficulty {
-            case 0:
-                difficultyLevel.text = "Beginner"
-            case 1:
-                difficultyLevel.text = "Easy"
-            case 2:
-                difficultyLevel.text = "Normal"
-            case 3:
-                difficultyLevel.text = "Hard"
-            case 4:
-                difficultyLevel.text = "Impossible"
-            default:
-                difficultyLevel.text = "UH OH"
-            }
-        }
-    }
+//    var difficulty: Int = 2 {
+//        didSet {
+//            // crappy kludge
+//            switch difficulty {
+//            case 0:
+//                difficultyLevel.text = "Beginner"
+//            case 1:
+//                difficultyLevel.text = "Easy"
+//            case 2:
+//                difficultyLevel.text = "Normal"
+//            case 3:
+//                difficultyLevel.text = "Hard"
+//            case 4:
+//                difficultyLevel.text = "Impossible"
+//            default:
+//                difficultyLevel.text = "UH OH"
+//            }
+//        }
+//    }
+    
+//    @IBAction func difficultyStepperChanged(sender: AnyObject) {
+//        print("difficulty stepper changed. New value: \(difficultyStepper.value)")
+//        switch difficultyStepper.value {
+//            case 0:
+//                difficultyLevel.text = "Beginner"
+//            case 1:
+//                difficultyLevel.text = "Easy"
+//            case 2:
+//                difficultyLevel.text = "Normal"
+//            case 3:
+//                difficultyLevel.text = "Hard"
+//            case 4:
+//                difficultyLevel.text = "Impossible"
+//            default:
+//                difficultyLevel.text = "UH OH"
+//        }
+//    }
+    
+    
     var pilot: Int {
         get {
             return NSNumberFormatter().numberFromString(pilotPoints.text!)!.integerValue
@@ -111,6 +135,13 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         // WIPE EXISTING GAME
         player = Commander(commanderName: "NIL", difficulty: DifficultyType.beginner, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
         galaxy = Galaxy()
+        
+        // set stepper values
+//        difficultyStepper.minimumValue = 0
+//        difficultyStepper.maximumValue = 4
+//        difficultyStepper.value = 2
+        
+        
     }
     
     func DismissKeyboard(){
@@ -126,19 +157,21 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func OkButton() {
         var kludgeDifficulty = DifficultyType.normal
-        switch difficulty {
-        case 0:
-            kludgeDifficulty = DifficultyType.beginner
-        case 1:
-            kludgeDifficulty = DifficultyType.easy
-        case 2:
-            kludgeDifficulty = DifficultyType.normal
-        case 3:
-            kludgeDifficulty = DifficultyType.hard
-        case 4:
-            kludgeDifficulty = DifficultyType.impossible
-        default:
-            print("fix difficulty switch")
+        let standin = 2                                         // DEBUG ONLY, REMOVE
+        
+        switch standin {                                        // originally difficultyStepper.value
+            case 0:
+                kludgeDifficulty = DifficultyType.beginner
+            case 1:
+                kludgeDifficulty = DifficultyType.easy
+            case 2:
+                kludgeDifficulty = DifficultyType.normal
+            case 3:
+                kludgeDifficulty = DifficultyType.hard
+            case 4:
+                kludgeDifficulty = DifficultyType.impossible
+            default:
+                print("fix difficulty switch")
             
         }
         
@@ -212,17 +245,17 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
     }
 
-    @IBAction func DifficultyPlusButton() {
-        if difficulty < 4 {
-            difficulty += 1
-        }
-    }
-
-    @IBAction func DifficultyMinusButton() {
-        if difficulty > 0 {
-            difficulty -= 1
-        }
-    }
+//    @IBAction func DifficultyPlusButton() {
+//        if difficulty < 4 {
+//            difficulty += 1
+//        }
+//    }
+//
+//    @IBAction func DifficultyMinusButton() {
+//        if difficulty > 0 {
+//            difficulty -= 1
+//        }
+//    }
     
     @IBAction func PilotMinusButton() {
         if pilot > 1 {
