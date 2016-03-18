@@ -5144,7 +5144,10 @@
                                         </constraints>
                                     </view>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-P5-iHd" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="237" y="136" width="94" height="29"/>
+                                        <rect key="frame" x="220" y="136" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="difficultyStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="sqf-py-lQa"/>
+                                        </connections>
                                     </stepper>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -5164,7 +5167,6 @@
                                     <constraint firstItem="6Df-I6-qBS" firstAttribute="baseline" secondItem="8dD-LI-OzA" secondAttribute="baseline" id="Fjh-uh-EBF"/>
                                     <constraint firstItem="r6F-NN-TR8" firstAttribute="baseline" secondItem="yJY-w0-s5F" secondAttribute="baseline" id="GAa-xO-nM4"/>
                                     <constraint firstItem="H4M-Yh-V1s" firstAttribute="baseline" secondItem="Twf-A0-k66" secondAttribute="baseline" id="GDi-5L-xOm"/>
-                                    <constraint firstItem="EQD-P5-iHd" firstAttribute="leading" secondItem="dx6-Zb-GVE" secondAttribute="trailing" constant="50" id="Gly-ui-ruR"/>
                                     <constraint firstItem="569-mh-JXV" firstAttribute="top" secondItem="4YY-iE-RFk" secondAttribute="bottom" constant="30" id="H0d-VS-S8F"/>
                                     <constraint firstItem="yJY-w0-s5F" firstAttribute="top" secondItem="E6P-iG-Sxu" secondAttribute="bottom" constant="20" id="HsC-3n-lqh"/>
                                     <constraint firstItem="rZw-de-5U6" firstAttribute="leading" secondItem="r6F-NN-TR8" secondAttribute="trailing" constant="8" id="IfP-44-HZF"/>
@@ -5190,6 +5192,7 @@
                                     <constraint firstItem="Epq-iU-xsY" firstAttribute="trailing" secondItem="yJY-w0-s5F" secondAttribute="trailing" id="ak5-RW-ogb"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="trailing" secondItem="569-mh-JXV" secondAttribute="trailing" id="eIw-OX-NNj"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="60" id="eJd-ub-UCb"/>
+                                    <constraint firstItem="EQD-P5-iHd" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="220" id="egD-wS-wQN"/>
                                     <constraint firstItem="Lbv-5s-w5p" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="163" id="fCY-VJ-Dvj"/>
                                     <constraint firstItem="aRJ-Xk-ujm" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="5" id="jMM-Ny-clT"/>
                                     <constraint firstItem="nnT-55-CPc" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="84" id="jwR-Mp-Uli"/>
@@ -5225,6 +5228,7 @@
                     <connections>
                         <outlet property="OKButton" destination="FgZ-oF-t9v" id="obM-e8-R3f"/>
                         <outlet property="difficultyLevel" destination="dx6-Zb-GVE" id="Du1-C9-LD9"/>
+                        <outlet property="difficultyStepper" destination="EQD-P5-iHd" id="fb7-Gq-NTT"/>
                         <outlet property="engineerPoints" destination="Twf-A0-k66" id="46f-dx-rze"/>
                         <outlet property="fighterPoints" destination="8dD-LI-OzA" id="mX6-lq-OJO"/>
                         <outlet property="nameField" destination="nnT-55-CPc" id="BWC-AQ-66i"/>

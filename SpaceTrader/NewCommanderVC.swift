@@ -20,7 +20,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var traderPoints: UILabel!
     @IBOutlet weak var engineerPoints: UILabel!
     
-    //@IBOutlet weak var difficultyStepper: UIStepper!
+    @IBOutlet weak var difficultyStepper: PurpleStepper!
+
     
     
     //@IBOutlet weak var backgroundImage: UIImageView!
@@ -67,23 +68,22 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //        }
 //    }
     
-//    @IBAction func difficultyStepperChanged(sender: AnyObject) {
-//        print("difficulty stepper changed. New value: \(difficultyStepper.value)")
-//        switch difficultyStepper.value {
-//            case 0:
-//                difficultyLevel.text = "Beginner"
-//            case 1:
-//                difficultyLevel.text = "Easy"
-//            case 2:
-//                difficultyLevel.text = "Normal"
-//            case 3:
-//                difficultyLevel.text = "Hard"
-//            case 4:
-//                difficultyLevel.text = "Impossible"
-//            default:
-//                difficultyLevel.text = "UH OH"
-//        }
-//    }
+    @IBAction func difficultyStepperChanged(sender: AnyObject) {
+        switch difficultyStepper.value {
+            case 0:
+                difficultyLevel.text = "Beginner"
+            case 1:
+                difficultyLevel.text = "Easy"
+            case 2:
+                difficultyLevel.text = "Normal"
+            case 3:
+                difficultyLevel.text = "Hard"
+            case 4:
+                difficultyLevel.text = "Impossible"
+            default:
+                difficultyLevel.text = "UH OH"
+        }
+    }
     
     
     var pilot: Int {
@@ -137,9 +137,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         galaxy = Galaxy()
         
         // set stepper values
-//        difficultyStepper.minimumValue = 0
-//        difficultyStepper.maximumValue = 4
-//        difficultyStepper.value = 2
+        difficultyStepper.minimumValue = 0
+        difficultyStepper.maximumValue = 4
+        difficultyStepper.value = 2
         
         
     }
@@ -157,9 +157,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func OkButton() {
         var kludgeDifficulty = DifficultyType.normal
-        let standin = 2                                         // DEBUG ONLY, REMOVE
         
-        switch standin {                                        // originally difficultyStepper.value
+        switch difficultyStepper.value {
             case 0:
                 kludgeDifficulty = DifficultyType.beginner
             case 1:
