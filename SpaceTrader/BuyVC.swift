@@ -87,10 +87,6 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         robotsQty.setTitle("", forState: controlState)
         
 
-        
-        // fill out info at the bottom
-        
-        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         //cashLabel.text = "Cash: \(player.credits) cr."
         
         
@@ -291,7 +287,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         
         
-        // set description string
+        // set target system & description string
+        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
         
     }

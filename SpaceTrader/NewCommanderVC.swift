@@ -140,40 +140,6 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     }
     
     
-//    var pilot: Int {
-//        get {
-//            return NSNumberFormatter().numberFromString(pilotPoints.text!)!.integerValue
-//        }
-//        set {
-//            pilotPoints.text = "\(newValue)"
-//        }
-//    }
-//    var fighter: Int {
-//        get {
-//            return NSNumberFormatter().numberFromString(fighterPoints.text!)!.integerValue
-//        }
-//        set {
-//            fighterPoints.text = "\(newValue)"
-//        }
-//}
-//    var trader: Int {
-//        get {
-//            return NSNumberFormatter().numberFromString(traderPoints.text!)!.integerValue
-//        }
-//        set {
-//            traderPoints.text = "\(newValue)"
-//        }
-//    }
-//    var engineer: Int {
-//        get {
-//            return NSNumberFormatter().numberFromString(engineerPoints.text!)!.integerValue
-//        }
-//        set {
-//            engineerPoints.text = "\(newValue)"
-//        }
-//    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)

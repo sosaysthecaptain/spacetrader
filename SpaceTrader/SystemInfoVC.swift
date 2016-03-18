@@ -130,6 +130,20 @@ class SystemInfoVC: UIViewController {
         } else {
             specialButton.enabled = false
         }
+        
+        // disable fuel button if none needed
+        if player.commanderShip.fuel == player.commanderShip.fuelTanks {
+            fuelButton.enabled = false
+        } else {
+            fuelButton.enabled = true
+        }
+        
+        // disable repair button if no repairs needed
+        if player.commanderShip.hullPercentage == 100 {
+            repairsButton.enabled = false
+        } else {
+            repairsButton.enabled = true
+        }
     }
     
     @IBAction func maxFuel(sender: AnyObject) {
