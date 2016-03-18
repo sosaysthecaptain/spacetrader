@@ -21,6 +21,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var engineerPoints: UILabel!
     
     @IBOutlet weak var difficultyStepper: PurpleStepper!
+    @IBOutlet weak var pilotStepper: PurpleStepper!
+    @IBOutlet weak var fighterStepper: PurpleStepper!
+    @IBOutlet weak var traderStepper: PurpleStepper!
+    @IBOutlet weak var engineerStepper: PurpleStepper!
+    
 
     
     
@@ -37,15 +42,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         return UIStatusBarStyle.LightContent
     }
     
-    
-    var availableSkill: Int {
-        get {
-            return NSNumberFormatter().numberFromString(skillPoints.text!)!.integerValue
-        }
-        set {
-            skillPoints.text = "\(newValue)"
-        }
-    }
+    let totalSkill = 20                             // sums to this
+    var availableSkill = 16                         // this is skill remaining
     var name = String()
     
 //    var difficulty: Int = 2 {
@@ -86,38 +84,94 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    var pilot: Int {
-        get {
-            return NSNumberFormatter().numberFromString(pilotPoints.text!)!.integerValue
-        }
-        set {
-            pilotPoints.text = "\(newValue)"
-        }
+    @IBAction func pilotStepperChanged(sender: AnyObject) {
+        stepperChanged()
     }
-    var fighter: Int {
-        get {
-            return NSNumberFormatter().numberFromString(fighterPoints.text!)!.integerValue
-        }
-        set {
-            fighterPoints.text = "\(newValue)"
-        }
-}
-    var trader: Int {
-        get {
-            return NSNumberFormatter().numberFromString(traderPoints.text!)!.integerValue
-        }
-        set {
-            traderPoints.text = "\(newValue)"
-        }
+    
+    @IBAction func fighterStepperChanged(sender: AnyObject) {
+        stepperChanged()
     }
-    var engineer: Int {
-        get {
-            return NSNumberFormatter().numberFromString(engineerPoints.text!)!.integerValue
-        }
-        set {
-            engineerPoints.text = "\(newValue)"
-        }
+
+    
+    @IBAction func traderStepperChanged(sender: AnyObject) {
+        stepperChanged()
     }
+    
+    @IBAction func engineerStepperChanged(sender: AnyObject) {
+        stepperChanged()
+    }
+    
+    func stepperChanged() {
+        // find skillPointsRemaining
+        
+        availableSkill = totalSkill - (Int(pilotStepper.value) + Int(fighterStepper.value) + Int(traderStepper.value) + Int(engineerStepper.value))
+        
+        //availableSkill = Int(pilotStepper.value) + Int(fighterStepper.value) + Int(traderStepper.value) + Int(engineerStepper.value)
+        
+        // set maximums--current, if no more skill points available, else 9.
+        if availableSkill < 1 {
+            pilotStepper.maximumValue = pilotStepper.value
+        } else {
+            pilotStepper.maximumValue = 9
+        }
+        if availableSkill < 1 {
+            fighterStepper.maximumValue = fighterStepper.value
+        } else {
+            fighterStepper.maximumValue = 9
+        }
+        if availableSkill < 1 {
+            traderStepper.maximumValue = traderStepper.value
+        } else {
+            traderStepper.maximumValue = 9
+        }
+        if availableSkill < 1 {
+            engineerStepper.maximumValue = engineerStepper.value
+        } else {
+            engineerStepper.maximumValue = 9
+        }
+        
+        // set labels
+        pilotPoints.text = "\(Int(pilotStepper.value))"
+        fighterPoints.text = "\(Int(fighterStepper.value))"
+        traderPoints.text = "\(Int(traderStepper.value))"
+        engineerPoints.text = "\(Int(engineerStepper.value))"
+        
+        skillPoints.text = "\(availableSkill)"
+    }
+    
+    
+//    var pilot: Int {
+//        get {
+//            return NSNumberFormatter().numberFromString(pilotPoints.text!)!.integerValue
+//        }
+//        set {
+//            pilotPoints.text = "\(newValue)"
+//        }
+//    }
+//    var fighter: Int {
+//        get {
+//            return NSNumberFormatter().numberFromString(fighterPoints.text!)!.integerValue
+//        }
+//        set {
+//            fighterPoints.text = "\(newValue)"
+//        }
+//}
+//    var trader: Int {
+//        get {
+//            return NSNumberFormatter().numberFromString(traderPoints.text!)!.integerValue
+//        }
+//        set {
+//            traderPoints.text = "\(newValue)"
+//        }
+//    }
+//    var engineer: Int {
+//        get {
+//            return NSNumberFormatter().numberFromString(engineerPoints.text!)!.integerValue
+//        }
+//        set {
+//            engineerPoints.text = "\(newValue)"
+//        }
+//    }
     
     
     override func viewDidLoad() {
@@ -141,7 +195,21 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         difficultyStepper.maximumValue = 4
         difficultyStepper.value = 2
         
+        pilotStepper.minimumValue = 1
+        pilotStepper.maximumValue = 9
+        pilotStepper.value = 1
         
+        fighterStepper.minimumValue = 1
+        fighterStepper.maximumValue = 9
+        fighterStepper.value = 1
+        
+        traderStepper.minimumValue = 1
+        traderStepper.maximumValue = 9
+        traderStepper.value = 1
+        
+        engineerStepper.minimumValue = 1
+        engineerStepper.maximumValue = 9
+        engineerStepper.value = 1
     }
     
     func DismissKeyboard(){
@@ -182,7 +250,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
             name = nameField.text!
         }
 
-        player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: Int(pilotStepper.value), fighterSkill: Int(fighterStepper.value), traderSkill: Int(traderStepper.value), engineerSkill: Int(engineerStepper.value))
         galaxy.createGalaxy()
         
         // give player a pulse laser
@@ -244,74 +312,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
     }
 
-//    @IBAction func DifficultyPlusButton() {
-//        if difficulty < 4 {
-//            difficulty += 1
-//        }
-//    }
-//
-//    @IBAction func DifficultyMinusButton() {
-//        if difficulty > 0 {
-//            difficulty -= 1
-//        }
-//    }
-    
-    @IBAction func PilotMinusButton() {
-        if pilot > 1 {
-            pilot -= 1
-            availableSkill += 1
-        }
-    }
-
-    @IBAction func PilotPlusButton() {
-        if pilot < 9 && availableSkill > 0 {
-            pilot += 1
-            availableSkill -= 1
-        }
-    }
 
 
-    @IBAction func FighterPlusButton() {
-        if fighter < 9 && availableSkill > 0 {
-            fighter += 1
-            availableSkill -= 1
-        }
-    }
-
-    @IBAction func FighterMinusButton() {
-        if fighter > 1 {
-            fighter -= 1
-            availableSkill += 1
-        }
-    }
-    
-    @IBAction func TraderPlusButton() {
-        if trader < 9 && availableSkill > 0 {
-            trader += 1
-            availableSkill -= 1
-        }
-    }
-    
-    @IBAction func TraderMinusButton() {
-        if trader > 1 {
-            trader -= 1
-            availableSkill += 1
-        }
-    }
-    
-    @IBAction func EngineerPlusButton() {
-        if engineer < 9 && availableSkill > 0 {
-            engineer += 1
-            availableSkill -= 1
-        }
-    }
-
-    @IBAction func EngineerMinusButton() {
-        if engineer > 1 {
-            engineer -= 1
-            availableSkill += 1
-        }
-    }
     
     // REMAINING ISSUES:
     // - done button on keyboard must make keyboard go away

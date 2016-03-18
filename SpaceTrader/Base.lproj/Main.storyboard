@@ -4999,118 +4999,38 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZw-de-5U6">
-                                        <rect key="frame" x="179" y="259" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="PilotPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="r8f-B4-Sqn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ead-nD-Zqs">
-                                        <rect key="frame" x="125" y="259" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="−">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="PilotMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="AOZ-Gi-QWX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyP-cV-zLe">
-                                        <rect key="frame" x="125" y="301" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="−">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="FighterMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="Boy-iO-Z1z"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35O-bZ-B3S">
-                                        <rect key="frame" x="125" y="343" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="−">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="TraderMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="Akz-Jd-lYm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkP-oc-15o">
-                                        <rect key="frame" x="125" y="385" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="−">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="EngineerMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="6EC-qD-hXh"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx6-Zb-GVE" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="131" y="140" width="56" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-I6-qBS">
-                                        <rect key="frame" x="179" y="301" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="FighterPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="qmM-v9-KKP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-62-TNh">
-                                        <rect key="frame" x="179" y="343" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="TraderPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="86A-PN-kP0"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-Yh-V1s">
-                                        <rect key="frame" x="179" y="385" width="30" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="EngineerPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="dqx-eZ-Zkg"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-NN-TR8" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="270" width="8" height="21"/>
+                                        <rect key="frame" x="125" y="270" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dD-LI-OzA" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="312" width="8" height="21"/>
+                                        <rect key="frame" x="125" y="312" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7b-Bv-JM4" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="354" width="8" height="21"/>
+                                        <rect key="frame" x="125" y="354" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twf-A0-k66" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="396" width="8" height="21"/>
+                                        <rect key="frame" x="125" y="396" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-5s-w5p" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="227" width="18" height="21"/>
+                                        <rect key="frame" x="125" y="227" width="18" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -5149,11 +5069,34 @@
                                             <action selector="difficultyStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="sqf-py-lQa"/>
                                         </connections>
                                     </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="JEz-St-m7G" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="220" y="266" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="pilotStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="IFX-EC-s22"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DCG-Uw-M2u" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="220" y="308" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="fighterStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="BdE-QP-2yd"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-Px-Vml" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="220" y="350" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="traderStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="WoL-d3-gLc"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-kG-dA2" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="220" y="392" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="engineerStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="Y97-1D-tIo"/>
+                                        </connections>
+                                    </stepper>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="4aX-62-TNh" firstAttribute="baseline" secondItem="e7b-Bv-JM4" secondAttribute="baseline" id="1kF-9k-8yZ"/>
-                                    <constraint firstItem="r6F-NN-TR8" firstAttribute="leading" secondItem="ead-nD-Zqs" secondAttribute="trailing" constant="8" id="3Us-ah-ZVf"/>
+                                    <constraint firstItem="DCG-Uw-M2u" firstAttribute="centerY" secondItem="Epq-iU-xsY" secondAttribute="centerY" id="1eq-RO-IwN"/>
                                     <constraint firstItem="Lbv-5s-w5p" firstAttribute="baseline" secondItem="E6P-iG-Sxu" secondAttribute="baseline" id="3y8-yf-yyE"/>
                                     <constraint firstItem="Twf-A0-k66" firstAttribute="baseline" secondItem="gl1-qg-sAd" secondAttribute="baseline" id="52W-Ts-SuU"/>
                                     <constraint firstItem="gl1-qg-sAd" firstAttribute="top" secondItem="RRO-6S-Ygw" secondAttribute="bottom" constant="20" id="5TC-gD-icC"/>
@@ -5161,49 +5104,42 @@
                                     <constraint firstItem="nnT-55-CPc" firstAttribute="leading" secondItem="4YY-iE-RFk" secondAttribute="trailing" constant="11" id="7bV-7N-C2h"/>
                                     <constraint firstItem="AhI-6J-pNc" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="26" id="8J1-fG-ML2"/>
                                     <constraint firstItem="8dD-LI-OzA" firstAttribute="baseline" secondItem="Epq-iU-xsY" secondAttribute="baseline" id="8ko-Lr-WNZ"/>
+                                    <constraint firstItem="JEz-St-m7G" firstAttribute="centerY" secondItem="yJY-w0-s5F" secondAttribute="centerY" id="8zB-aX-MGc"/>
                                     <constraint firstItem="dx6-Zb-GVE" firstAttribute="leading" secondItem="569-mh-JXV" secondAttribute="trailing" constant="20" id="AEh-H2-7a3"/>
+                                    <constraint firstItem="DCG-Uw-M2u" firstAttribute="leading" secondItem="JEz-St-m7G" secondAttribute="leading" id="AYa-kT-6hg"/>
                                     <constraint firstItem="RRO-6S-Ygw" firstAttribute="top" secondItem="Epq-iU-xsY" secondAttribute="bottom" constant="20" id="B4g-s2-Y6G"/>
-                                    <constraint firstItem="rZw-de-5U6" firstAttribute="baseline" secondItem="r6F-NN-TR8" secondAttribute="baseline" id="BXb-GV-UIp"/>
-                                    <constraint firstItem="6Df-I6-qBS" firstAttribute="baseline" secondItem="8dD-LI-OzA" secondAttribute="baseline" id="Fjh-uh-EBF"/>
+                                    <constraint firstItem="JEz-St-m7G" firstAttribute="leading" secondItem="EQD-P5-iHd" secondAttribute="leading" id="BPT-vE-J3V"/>
                                     <constraint firstItem="r6F-NN-TR8" firstAttribute="baseline" secondItem="yJY-w0-s5F" secondAttribute="baseline" id="GAa-xO-nM4"/>
-                                    <constraint firstItem="H4M-Yh-V1s" firstAttribute="baseline" secondItem="Twf-A0-k66" secondAttribute="baseline" id="GDi-5L-xOm"/>
                                     <constraint firstItem="569-mh-JXV" firstAttribute="top" secondItem="4YY-iE-RFk" secondAttribute="bottom" constant="30" id="H0d-VS-S8F"/>
                                     <constraint firstItem="yJY-w0-s5F" firstAttribute="top" secondItem="E6P-iG-Sxu" secondAttribute="bottom" constant="20" id="HsC-3n-lqh"/>
-                                    <constraint firstItem="rZw-de-5U6" firstAttribute="leading" secondItem="r6F-NN-TR8" secondAttribute="trailing" constant="8" id="IfP-44-HZF"/>
-                                    <constraint firstItem="H4M-Yh-V1s" firstAttribute="leading" secondItem="4aX-62-TNh" secondAttribute="leading" id="JhF-Jn-KZc"/>
                                     <constraint firstItem="gl1-qg-sAd" firstAttribute="trailing" secondItem="RRO-6S-Ygw" secondAttribute="trailing" id="Jwq-gz-nFF"/>
                                     <constraint firstItem="569-mh-JXV" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="40" id="K1D-10-Ulh"/>
                                     <constraint firstItem="Twf-A0-k66" firstAttribute="leading" secondItem="e7b-Bv-JM4" secondAttribute="leading" id="MJH-5b-3eI"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="top" secondItem="aRJ-Xk-ujm" secondAttribute="bottom" constant="14" id="NBH-1j-fW3"/>
                                     <constraint firstItem="yJY-w0-s5F" firstAttribute="trailing" secondItem="E6P-iG-Sxu" secondAttribute="trailing" id="NIi-VA-xMd"/>
-                                    <constraint firstItem="ead-nD-Zqs" firstAttribute="baseline" secondItem="r6F-NN-TR8" secondAttribute="baseline" id="PRe-mR-Q15"/>
-                                    <constraint firstItem="PyP-cV-zLe" firstAttribute="baseline" secondItem="8dD-LI-OzA" secondAttribute="baseline" id="PlY-Uh-Mrp"/>
                                     <constraint firstItem="FgZ-oF-t9v" firstAttribute="centerX" secondItem="6n4-ja-ens" secondAttribute="centerX" id="R4v-ob-pKb"/>
                                     <constraint firstItem="AhI-6J-pNc" firstAttribute="centerX" secondItem="6n4-ja-ens" secondAttribute="centerX" id="R6Z-z9-2vf"/>
                                     <constraint firstItem="aRJ-Xk-ujm" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" id="TCW-DO-a3M"/>
                                     <constraint firstItem="Epq-iU-xsY" firstAttribute="top" secondItem="yJY-w0-s5F" secondAttribute="bottom" constant="20" id="TSG-D6-X1M"/>
-                                    <constraint firstItem="SkP-oc-15o" firstAttribute="baseline" secondItem="Twf-A0-k66" secondAttribute="baseline" id="Und-kf-Ooa"/>
                                     <constraint firstItem="RRO-6S-Ygw" firstAttribute="trailing" secondItem="Epq-iU-xsY" secondAttribute="trailing" id="WS5-7c-mhQ"/>
                                     <constraint firstItem="4YY-iE-RFk" firstAttribute="centerY" secondItem="nnT-55-CPc" secondAttribute="centerY" id="XP1-fn-IYj"/>
                                     <constraint firstItem="r6F-NN-TR8" firstAttribute="leading" secondItem="Lbv-5s-w5p" secondAttribute="leading" id="XxH-AO-O9x"/>
                                     <constraint firstItem="e7b-Bv-JM4" firstAttribute="leading" secondItem="8dD-LI-OzA" secondAttribute="leading" id="Ye8-Ug-edx"/>
                                     <constraint firstItem="EQD-P5-iHd" firstAttribute="centerY" secondItem="569-mh-JXV" secondAttribute="centerY" id="ZtH-Ii-3Ju"/>
-                                    <constraint firstItem="35O-bZ-B3S" firstAttribute="leading" secondItem="PyP-cV-zLe" secondAttribute="leading" id="a4g-Vs-dKp"/>
                                     <constraint firstItem="Epq-iU-xsY" firstAttribute="trailing" secondItem="yJY-w0-s5F" secondAttribute="trailing" id="ak5-RW-ogb"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="trailing" secondItem="569-mh-JXV" secondAttribute="trailing" id="eIw-OX-NNj"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="60" id="eJd-ub-UCb"/>
                                     <constraint firstItem="EQD-P5-iHd" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="220" id="egD-wS-wQN"/>
-                                    <constraint firstItem="Lbv-5s-w5p" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="163" id="fCY-VJ-Dvj"/>
+                                    <constraint firstItem="Lbv-5s-w5p" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="125" id="fCY-VJ-Dvj"/>
+                                    <constraint firstItem="wT8-kG-dA2" firstAttribute="leading" secondItem="2E7-Px-Vml" secondAttribute="leading" id="gYi-21-0bZ"/>
                                     <constraint firstItem="aRJ-Xk-ujm" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="5" id="jMM-Ny-clT"/>
                                     <constraint firstItem="nnT-55-CPc" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="84" id="jwR-Mp-Uli"/>
+                                    <constraint firstItem="2E7-Px-Vml" firstAttribute="leading" secondItem="DCG-Uw-M2u" secondAttribute="leading" id="ky5-I1-Xex"/>
                                     <constraint firstItem="e7b-Bv-JM4" firstAttribute="baseline" secondItem="RRO-6S-Ygw" secondAttribute="baseline" id="kza-yw-r97"/>
-                                    <constraint firstItem="SkP-oc-15o" firstAttribute="leading" secondItem="35O-bZ-B3S" secondAttribute="leading" id="lbm-Ca-rdH"/>
                                     <constraint firstItem="dx6-Zb-GVE" firstAttribute="baseline" secondItem="569-mh-JXV" secondAttribute="baseline" id="mKt-XE-oib"/>
                                     <constraint firstItem="8dD-LI-OzA" firstAttribute="leading" secondItem="r6F-NN-TR8" secondAttribute="leading" id="nUo-bp-Ugi"/>
-                                    <constraint firstItem="4aX-62-TNh" firstAttribute="leading" secondItem="6Df-I6-qBS" secondAttribute="leading" id="t29-KG-b8q"/>
-                                    <constraint firstItem="PyP-cV-zLe" firstAttribute="leading" secondItem="ead-nD-Zqs" secondAttribute="leading" id="uto-mu-N0r"/>
-                                    <constraint firstItem="6Df-I6-qBS" firstAttribute="leading" secondItem="rZw-de-5U6" secondAttribute="leading" id="wwK-tn-XwX"/>
-                                    <constraint firstItem="35O-bZ-B3S" firstAttribute="baseline" secondItem="e7b-Bv-JM4" secondAttribute="baseline" id="z8P-DO-DnX"/>
+                                    <constraint firstItem="2E7-Px-Vml" firstAttribute="centerY" secondItem="RRO-6S-Ygw" secondAttribute="centerY" id="qVr-J1-6GQ"/>
+                                    <constraint firstItem="wT8-kG-dA2" firstAttribute="centerY" secondItem="gl1-qg-sAd" secondAttribute="centerY" id="yKn-Qg-dyZ"/>
                                     <constraint firstItem="4YY-iE-RFk" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="10" id="zMI-2f-JfG"/>
                                 </constraints>
                                 <variation key="default">
@@ -5230,11 +5166,15 @@
                         <outlet property="difficultyLevel" destination="dx6-Zb-GVE" id="Du1-C9-LD9"/>
                         <outlet property="difficultyStepper" destination="EQD-P5-iHd" id="fb7-Gq-NTT"/>
                         <outlet property="engineerPoints" destination="Twf-A0-k66" id="46f-dx-rze"/>
+                        <outlet property="engineerStepper" destination="wT8-kG-dA2" id="6Jh-da-M9C"/>
                         <outlet property="fighterPoints" destination="8dD-LI-OzA" id="mX6-lq-OJO"/>
+                        <outlet property="fighterStepper" destination="DCG-Uw-M2u" id="2gE-4K-HL0"/>
                         <outlet property="nameField" destination="nnT-55-CPc" id="BWC-AQ-66i"/>
                         <outlet property="pilotPoints" destination="r6F-NN-TR8" id="hvj-Cd-oLB"/>
+                        <outlet property="pilotStepper" destination="JEz-St-m7G" id="kjR-LY-v4N"/>
                         <outlet property="skillPoints" destination="Lbv-5s-w5p" id="Sof-Ml-ALK"/>
                         <outlet property="traderPoints" destination="e7b-Bv-JM4" id="oUK-Qn-RyX"/>
+                        <outlet property="traderStepper" destination="2E7-Px-Vml" id="FSU-Oy-jRM"/>
                         <segue destination="Zyg-E7-QYl" kind="show" identifier="newCommanderToMain" id="64M-bi-8yt"/>
                     </connections>
                 </viewController>
