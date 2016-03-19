@@ -37,6 +37,8 @@ class PlunderVC: UIViewController {
     @IBOutlet weak var doneButton: PurpleButtonVanishes!
     @IBOutlet weak var jettisonButton: PurpleButtonVanishes!
     
+    
+    
     var jettisonMode = false
     
     weak var delegate: PlunderDelegate?

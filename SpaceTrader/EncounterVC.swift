@@ -55,6 +55,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         displayImages()
         
         setBadgeImage()
+        
+        // progress bar
+        progressBar.progressTintColor = mainPurple                          // set color
+        let clicksLeft = Float(20) - Float(galaxy.currentJourney!.clicks)
+        progressBar.progress = clicksLeft / Float(20)
     }
     
     // set dark statusBar
@@ -91,6 +96,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBOutlet weak var opponentImageOverlay: UIImageView!
     
     @IBOutlet weak var badge: UIImageView!
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     
     // set on top of everything and sent to back programmatically
     // move to edit things underneath
