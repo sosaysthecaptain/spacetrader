@@ -1623,7 +1623,7 @@
         <!--Buy <Item>-->
         <scene sceneID="Alx-Sk-4lA">
             <objects>
-                <viewController title="Buy &lt;Item&gt;" id="dkT-Nd-rsk" customClass="BuyPickerVC" sceneMemberID="viewController">
+                <viewController title="Buy &lt;Item&gt;" id="dkT-Nd-rsk" customClass="BuyPickerVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K9H-Bz-YCY"/>
                         <viewControllerLayoutGuide type="bottom" id="fzE-Lj-k9w"/>
@@ -1632,7 +1632,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-fW-Ln1" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-fW-Ln1" customClass="StandardLabel" customModule="SpaceTrader">
                                 <rect key="frame" x="20" y="50" width="350" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1691,7 +1691,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstLabel" destination="xVd-fW-Ln1" id="Hzt-T4-HWI"/>
+                        <outlet property="buyButton" destination="NVM-P3-yTd" id="afH-HW-gGO"/>
+                        <outlet property="firstLabel" destination="xVd-fW-Ln1" id="Lj1-6J-3Mp"/>
                         <outlet property="quantityLabel" destination="0NI-9e-4ra" id="0h6-Iw-Pt5"/>
                         <outlet property="secondLabel" destination="zie-2c-q1V" id="kDP-Bo-jPu"/>
                         <outlet property="slider" destination="2bw-7S-9w4" id="U7i-9K-RJe"/>
