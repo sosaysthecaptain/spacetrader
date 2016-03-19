@@ -21,20 +21,21 @@ class PlunderVC: UIViewController {
     }
     
     
-    @IBOutlet weak var waterQuantity: UIButton!
-    @IBOutlet weak var fursQuantity: UIButton!
-    @IBOutlet weak var foodQuantity: UIButton!
-    @IBOutlet weak var oreQuantity: UIButton!
-    @IBOutlet weak var gamesQuantity: UIButton!
-    @IBOutlet weak var firearmsQuantity: UIButton!
-    @IBOutlet weak var medicineQuantity: UIButton!
-    @IBOutlet weak var machinesQuantity: UIButton!
-    @IBOutlet weak var narcoticsQuantity: UIButton!
-    @IBOutlet weak var robotsQuantity: UIButton!
+    @IBOutlet weak var waterQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var fursQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var foodQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var oreQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var gamesQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var firearmsQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var medicineQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var machinesQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var narcoticsQuantity: PurpleButtonVanishes!
+    @IBOutlet weak var robotsQuantity: PurpleButtonVanishes!
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var baysLabel: UILabel!
-    @IBOutlet weak var jettisonButton: UIButton!
+    
+    @IBOutlet weak var doneButton: PurpleButtonVanishes!
+    @IBOutlet weak var jettisonButton: PurpleButtonVanishes!
     
     var jettisonMode = false
     
@@ -44,7 +45,9 @@ class PlunderVC: UIViewController {
         let controlState = UIControlState()
         // set title to "Plunder Cargo", jettison button text to present
         titleLabel.text = "Plunder Cargo"
-        jettisonButton.setTitle("Jettison", forState: controlState)
+        jettisonButton.enabled = true
+        doneButton.setTitle("Done", forState: controlState)
+        //jettisonButton.setTitle("Jettison", forState: controlState)
         
         // set quantities
         waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", forState: controlState)
@@ -58,15 +61,17 @@ class PlunderVC: UIViewController {
         narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", forState: controlState)
         
-        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
-        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
+//        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
+//        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
     func updateUIJettisonMode() {
         let controlState = UIControlState()
         // set title to "Jettison Cargo", make jettison button vanish
         titleLabel.text = "Jettison Cargo"
-        jettisonButton.setTitle("", forState: controlState)
+        doneButton.setTitle("Back to Plunder", forState: controlState)
+        jettisonButton.enabled = false
+        //jettisonButton.setTitle("", forState: controlState)
         
         // set quantities on commander ship
         waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water))", forState: controlState)
@@ -81,8 +86,8 @@ class PlunderVC: UIViewController {
         robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots))", forState: controlState)
         
         
-        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
-        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
+//        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
+//        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
     func getMaxQuantity(commodity: TradeItemType) -> Int {

@@ -26,10 +26,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var traderStepper: PurpleStepper!
     @IBOutlet weak var engineerStepper: PurpleStepper!
     
-
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     
-    //@IBOutlet weak var backgroundImage: UIImageView!
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
@@ -137,6 +136,15 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         engineerPoints.text = "\(Int(engineerStepper.value))"
         
         skillPoints.text = "\(availableSkill)"
+        
+        // enable/disable "OK" button as appropriate
+        // second condition is invisible cheat--leave it blank and get 100k
+        if availableSkill == 0 || ((availableSkill == 16) && difficultyStepper.value == 2) {
+            OKButton.enabled = true
+        } else {
+            OKButton.enabled = false
+        }
+        
     }
     
     
@@ -145,7 +153,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         
         // set starfield background z index appropriately
-        //self.view.sendSubviewToBack(backgroundImage)
+        self.view.sendSubviewToBack(backgroundImage)
         
         nameField.delegate = self
         
