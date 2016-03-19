@@ -13,6 +13,7 @@ protocol BuyModalVCDelegate: class {
     
 }
 
+// OBSOLETE
 class BuyModalVC: UIViewController  {       // the one that calls the function in the delegate
 
     

@@ -80,6 +80,7 @@
 		5AE975631C10CA2A005D78E1 /* SpecialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975621C10CA2A005D78E1 /* SpecialVC.swift */; };
 		5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975641C10DE24005D78E1 /* Newspaper.swift */; };
 		5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */; };
+		5AEBE7ED1C9CEBC8008F339E /* BuyPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBE7EC1C9CEBC8008F339E /* BuyPickerVC.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
 		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; };
@@ -178,6 +179,7 @@
 		5AE975621C10CA2A005D78E1 /* SpecialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialVC.swift; sourceTree = "<group>"; };
 		5AE975641C10DE24005D78E1 /* Newspaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newspaper.swift; sourceTree = "<group>"; };
 		5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
+		5AEBE7EC1C9CEBC8008F339E /* BuyPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyPickerVC.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
 		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				5A24376D1C9388290004D6CE /* UI Classes */,
 				5AB36E8D1BF18B3600941CF6 /* Menus */,
 				5A078AC01BB33C100005155D /* BuyModalVC.swift */,
+				5AEBE7EC1C9CEBC8008F339E /* BuyPickerVC.swift */,
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
 				5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */,
@@ -529,6 +532,7 @@
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
 				5ADE2FCA1C2104E700F3F986 /* ShipVC.swift in Sources */,
 				5ADE2FCC1C21148400F3F986 /* QuestsVC.swift in Sources */,
+				5AEBE7ED1C9CEBC8008F339E /* BuyPickerVC.swift in Sources */,
 				5A71725C1C1793D40082BF0C /* CommanderStatusVC.swift in Sources */,
 				5AE71F991C06BCB0004378BD /* Utils.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,

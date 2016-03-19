@@ -117,53 +117,63 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBAction func buyWaterTapped(sender: AnyObject) {
         //print("buy water tapped, sender side")
         buySellCommodity = TradeItemType.Water
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyFursTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Furs
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyFoodTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Food
         buyAsOpposedToSell = true
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyOreTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Ore
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyGamesTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Games
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyFirearmsTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Firearms
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyMedicineTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Medicine
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyMachinesTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Machines
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyNarcoticsTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Narcotics
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     @IBAction func buyRobotsTapped(sender: AnyObject) {
         buySellCommodity = TradeItemType.Robots
-        performSegueWithIdentifier("buyModal", sender: sender)
+        //performSegueWithIdentifier("buyModal", sender: sender)
+        performSegueWithIdentifier("buyPicker", sender: sender)
     }
     
     // Max functions
