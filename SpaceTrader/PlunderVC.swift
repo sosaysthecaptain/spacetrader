@@ -20,6 +20,11 @@ class PlunderVC: UIViewController {
         updateUI()
     }
     
+    // set dark statusBar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     
     @IBOutlet weak var waterQuantity: PurpleButtonVanishes!
     @IBOutlet weak var fursQuantity: PurpleButtonVanishes!
@@ -138,6 +143,76 @@ class PlunderVC: UIViewController {
         }
     }
     
+    // "Some" button functions
+    // ALL OF THESE MUST FIRE ONLY IF THE RELEVANT QUANTITY IS GREATER THAN ZERO
+    @IBAction func waterSome(sender: AnyObject) {
+        // set buySellCommodity to water
+        buySellCommodity = TradeItemType.Water
+        
+        // set plunderAsOpposedToJettison (if !jettisonMode)
+        plunderAsOpposedToJettison = !jettisonMode
+        
+        // fire segue
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func fursSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Furs
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func foodSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Food
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func oreSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Ore
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func gamesSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Games
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func firearmsSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Firearms
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func medicineSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Medicine
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func machinesSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Machines
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func narcoticsSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Narcotics
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    @IBAction func robotsSome(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Robots
+        plunderAsOpposedToJettison = !jettisonMode
+        performSegueWithIdentifier("jettisonPicker", sender: sender)
+    }
+    
+    
+    
+    // "All" button functions
     @IBAction func waterAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Water)
     }

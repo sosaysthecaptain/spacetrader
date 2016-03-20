@@ -46,6 +46,7 @@ var systemsInRange: [StarSystem] = []
 
 var buySellCommodity: TradeItemType?
 var buyAsOpposedToSell: Bool = true
+var plunderAsOpposedToJettison: Bool = true
 
 var travelBySingularity = false
 var dontDeleteLocalSpecialEvent = false

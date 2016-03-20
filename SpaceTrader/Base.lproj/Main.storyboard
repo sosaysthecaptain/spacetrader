@@ -3466,6 +3466,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="waterSome:" destination="caS-If-549" eventType="touchUpInside" id="x3n-Ig-ptj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlG-Ka-dpb" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="124" width="40" height="28"/>
@@ -3475,6 +3478,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="fursSome:" destination="caS-If-549" eventType="touchUpInside" id="zMk-YD-wpb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wL-lQ-bYz" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="161" width="40" height="28"/>
@@ -3484,6 +3490,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="foodSome:" destination="caS-If-549" eventType="touchUpInside" id="YY1-Fg-Sn5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7de-Jv-Qt7" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="198" width="40" height="28"/>
@@ -3493,6 +3502,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="oreSome:" destination="caS-If-549" eventType="touchUpInside" id="ec5-W2-fVW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTh-KO-dnY" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="235" width="40" height="28"/>
@@ -3502,6 +3514,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="gamesSome:" destination="caS-If-549" eventType="touchUpInside" id="N54-oh-fM6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fth-f4-Dxn" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="272" width="40" height="28"/>
@@ -3511,6 +3526,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="firearmsSome:" destination="caS-If-549" eventType="touchUpInside" id="CBz-Yx-nJY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-At-O0C" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="309" width="40" height="28"/>
@@ -3520,6 +3538,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="medicineSome:" destination="caS-If-549" eventType="touchUpInside" id="aX6-PH-MOz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hj-Zu-JuW" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="346" width="40" height="28"/>
@@ -3529,6 +3550,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="machinesSome:" destination="caS-If-549" eventType="touchUpInside" id="x6p-b5-cyB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdP-gA-4rF" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="383" width="40" height="28"/>
@@ -3538,6 +3562,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="narcoticsSome:" destination="caS-If-549" eventType="touchUpInside" id="9Lz-pa-Tnr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iue-da-4zR" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="420" width="40" height="28"/>
@@ -3547,6 +3574,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="robotsSome:" destination="caS-If-549" eventType="touchUpInside" id="q8N-I8-zFi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-0D-bb1" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="170" y="124" width="39" height="28"/>
@@ -3819,11 +3849,132 @@
                         <outlet property="robotsQuantity" destination="iue-da-4zR" id="Iz3-XF-4Wf"/>
                         <outlet property="titleLabel" destination="Byj-6c-iBV" id="XNT-FX-2vx"/>
                         <outlet property="waterQuantity" destination="hTl-P2-F18" id="n40-PI-Chk"/>
+                        <segue destination="IFt-eC-iv9" kind="show" identifier="jettisonPicker" animates="NO" id="iF0-71-HYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zkc-BE-Io5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3045" y="2729"/>
+        </scene>
+        <!--Jettison PickerVC-->
+        <scene sceneID="tdJ-OL-ijz">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="IFt-eC-iv9" customClass="JettisonPickerVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EIx-oG-wVx"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ja-jf-of1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRR-Q7-cUO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ja2-Qt-JMn">
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plunder &lt;commodity&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-Oy-j7J">
+                                        <rect key="frame" x="176" y="10" width="209" height="28"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-0M-68g" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="80" width="50" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgJ-AG-mSk" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="121" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ytu-vf-wzc">
+                                        <rect key="frame" x="38" y="250" width="484" height="31"/>
+                                        <connections>
+                                            <action selector="sliderMoved:" destination="IFt-eC-iv9" eventType="valueChanged" id="UA7-ab-kDT"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;##&gt; bays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-ui-Bsq" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="215" width="83" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apq-kl-l7Y" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="417" y="396" width="93" height="42"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <state key="normal" title="Plunder"/>
+                                        <connections>
+                                            <action selector="plunderPressed:" destination="IFt-eC-iv9" eventType="touchUpInside" id="bTm-fv-E8K"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-yu-Uqp" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="495" width="560" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="W38-ni-aXd"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRA-xH-1g2" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="396" width="88" height="42"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="IFt-eC-iv9" eventType="touchUpInside" id="mtc-7n-Xfq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ytu-vf-wzc" firstAttribute="leading" secondItem="Ja2-Qt-JMn" secondAttribute="leading" constant="40" id="0ej-k5-fSZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ytu-vf-wzc" secondAttribute="trailing" constant="40" id="0y0-sZ-Yg0"/>
+                                    <constraint firstItem="Ytu-vf-wzc" firstAttribute="top" secondItem="dA7-ui-Bsq" secondAttribute="bottom" constant="14" id="2Lf-wl-T0S"/>
+                                    <constraint firstItem="apq-kl-l7Y" firstAttribute="centerX" secondItem="Ja2-Qt-JMn" secondAttribute="centerX" id="JyX-GV-DdG"/>
+                                    <constraint firstItem="PgJ-AG-mSk" firstAttribute="leading" secondItem="JtZ-0M-68g" secondAttribute="leading" id="QBN-hx-OgH"/>
+                                    <constraint firstItem="kQz-Oy-j7J" firstAttribute="centerX" secondItem="Ja2-Qt-JMn" secondAttribute="centerX" id="RbJ-ZR-0ia"/>
+                                    <constraint firstItem="mRA-xH-1g2" firstAttribute="baseline" secondItem="apq-kl-l7Y" secondAttribute="baseline" id="RiD-1K-d95"/>
+                                    <constraint firstAttribute="bottom" secondItem="apq-kl-l7Y" secondAttribute="bottom" constant="102" id="b2J-hz-YAJ"/>
+                                    <constraint firstItem="l3S-yu-Uqp" firstAttribute="leading" secondItem="Ja2-Qt-JMn" secondAttribute="leading" id="dNK-uR-Xdl"/>
+                                    <constraint firstItem="kQz-Oy-j7J" firstAttribute="top" secondItem="Ja2-Qt-JMn" secondAttribute="top" constant="10" id="da6-Fe-Gto"/>
+                                    <constraint firstItem="JtZ-0M-68g" firstAttribute="top" secondItem="Ja2-Qt-JMn" secondAttribute="top" constant="80" id="fZ0-zF-G1m"/>
+                                    <constraint firstAttribute="bottom" secondItem="l3S-yu-Uqp" secondAttribute="bottom" id="pJs-Wp-t5J"/>
+                                    <constraint firstAttribute="trailing" secondItem="l3S-yu-Uqp" secondAttribute="trailing" id="s71-QC-hBX"/>
+                                    <constraint firstItem="dA7-ui-Bsq" firstAttribute="centerX" secondItem="Ja2-Qt-JMn" secondAttribute="centerX" id="sl9-WJ-KSp"/>
+                                    <constraint firstItem="Ytu-vf-wzc" firstAttribute="top" secondItem="Ja2-Qt-JMn" secondAttribute="top" constant="250" id="vZt-KN-FEr"/>
+                                    <constraint firstItem="PgJ-AG-mSk" firstAttribute="top" secondItem="JtZ-0M-68g" secondAttribute="bottom" constant="20" id="xL7-Zp-kTh"/>
+                                    <constraint firstAttribute="trailing" secondItem="apq-kl-l7Y" secondAttribute="trailing" constant="50" id="zHE-KY-bFN"/>
+                                    <constraint firstItem="mRA-xH-1g2" firstAttribute="leading" secondItem="Ja2-Qt-JMn" secondAttribute="leading" constant="50" id="zI9-q3-ioE"/>
+                                    <constraint firstItem="JtZ-0M-68g" firstAttribute="leading" secondItem="Ja2-Qt-JMn" secondAttribute="leading" constant="20" id="zuU-8R-SK7"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JyX-GV-DdG"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ja2-Qt-JMn" secondAttribute="trailing" id="dwK-FY-I6D"/>
+                            <constraint firstItem="Ja2-Qt-JMn" firstAttribute="top" secondItem="EIx-oG-wVx" secondAttribute="bottom" constant="20" id="x7j-jO-HkA"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ja2-Qt-JMn" secondAttribute="leading" id="zUH-SH-STm"/>
+                            <constraint firstItem="9Ja-jf-of1" firstAttribute="top" secondItem="Ja2-Qt-JMn" secondAttribute="bottom" constant="20" id="zyG-1E-WRk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButtonOutlet" destination="mRA-xH-1g2" id="cG5-3b-rFh"/>
+                        <outlet property="firstLabel" destination="JtZ-0M-68g" id="ZHO-bC-Vo8"/>
+                        <outlet property="plunderButtonOutlet" destination="apq-kl-l7Y" id="iOW-iV-1ZP"/>
+                        <outlet property="quantityLabel" destination="dA7-ui-Bsq" id="VJe-Xn-SUX"/>
+                        <outlet property="secondLabel" destination="PgJ-AG-mSk" id="dPj-8R-pP9"/>
+                        <outlet property="slider" destination="Ytu-vf-wzc" id="ozE-Ig-Dhg"/>
+                        <outlet property="titleLabel" destination="kQz-Oy-j7J" id="Mxv-Pz-kw2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nre-7v-mJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3757" y="2723"/>
         </scene>
         <!--Game OverVC-->
         <scene sceneID="AC6-NE-Dcd">
