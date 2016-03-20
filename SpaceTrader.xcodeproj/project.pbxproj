@@ -82,6 +82,7 @@
 		5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */; };
 		5AEBE7ED1C9CEBC8008F339E /* BuyPickerVCOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBE7EC1C9CEBC8008F339E /* BuyPickerVCOLD.swift */; };
 		5AEBE7EF1C9CF5D2008F339E /* BuyPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBE7EE1C9CF5D2008F339E /* BuyPickerVC.swift */; };
+		5AEBE7F11C9DF97C008F339E /* SellPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEBE7F01C9DF97C008F339E /* SellPickerVC.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
 		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; };
@@ -182,6 +183,7 @@
 		5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
 		5AEBE7EC1C9CEBC8008F339E /* BuyPickerVCOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyPickerVCOLD.swift; sourceTree = "<group>"; };
 		5AEBE7EE1C9CF5D2008F339E /* BuyPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyPickerVC.swift; sourceTree = "<group>"; };
+		5AEBE7F01C9DF97C008F339E /* SellPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellPickerVC.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
 		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */,
 				5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */,
 				5A278EAF1BE5632B00679276 /* PlunderVC.swift */,
+				5AEBE7F01C9DF97C008F339E /* SellPickerVC.swift */,
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */,
@@ -549,6 +552,7 @@
 				5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */,
 				5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */,
 				5AD3A10D1C87A38A004388D4 /* Design2VC.swift in Sources */,
+				5AEBE7F11C9DF97C008F339E /* SellPickerVC.swift in Sources */,
 				5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */,
 				5A71725A1C1651820082BF0C /* MenuVC.swift in Sources */,
 				5AEBE7EF1C9CF5D2008F339E /* BuyPickerVC.swift in Sources */,

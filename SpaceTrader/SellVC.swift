@@ -123,14 +123,16 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellWater(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Water) != 0 {
             buySellCommodity = TradeItemType.Water
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
     }
     
     @IBAction func sellFurs(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Furs) != 0 {
             buySellCommodity = TradeItemType.Furs
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -138,7 +140,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellFood(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Food) != 0 {
             buySellCommodity = TradeItemType.Food
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -146,7 +149,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellOre(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Ore) != 0 {
             buySellCommodity = TradeItemType.Ore
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -154,7 +158,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellGames(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Games) != 0 {
             buySellCommodity = TradeItemType.Games
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -162,7 +167,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellFirearms(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Firearms) != 0 {
             buySellCommodity = TradeItemType.Firearms
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -170,7 +176,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellMedicine(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Medicine) != 0 {
             buySellCommodity = TradeItemType.Medicine
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -178,7 +185,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellMachines(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Machines) != 0 {
             buySellCommodity = TradeItemType.Machines
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -186,7 +194,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellNarcotics(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Narcotics) != 0 {
             buySellCommodity = TradeItemType.Narcotics
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
@@ -194,7 +203,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func sellRobots(sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Robots) != 0 {
             buySellCommodity = TradeItemType.Robots
-            performSegueWithIdentifier("sellModal", sender: sender)
+            //performSegueWithIdentifier("sellModal", sender: sender)
+            performSegueWithIdentifier("sellPicker", sender: sender)
         }
 
     }
