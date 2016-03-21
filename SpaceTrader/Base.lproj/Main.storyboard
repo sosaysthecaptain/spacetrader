@@ -3836,6 +3836,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="baysDisplay" destination="BWw-Qo-yVX" id="5bR-nA-MYg"/>
                         <outlet property="doneButton" destination="oUY-cX-kkg" id="djl-Jo-y7T"/>
                         <outlet property="firearmsQuantity" destination="fth-f4-Dxn" id="Xqp-Xm-Hfk"/>
                         <outlet property="foodQuantity" destination="3wL-lQ-bYz" id="YrP-mc-j0O"/>

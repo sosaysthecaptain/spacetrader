@@ -44,7 +44,7 @@ class Opponent: NSObject, NSCoding {
             // return
         }
         
-        // select ship, based on tries--TEST THIS
+        // select ship, based on tries
         let shipType = pickShipRandomlyBasedOnOccurance(tries)
         ship = SpaceShip(type: shipType, IFFStatus: type)
         
@@ -122,13 +122,8 @@ class Opponent: NSObject, NSCoding {
         }
         
         // populate commodities
-        print("DEBUG: THIS IS RUNNING")
-        print("IFFStatus: \(ship.IFFStatus)")
         if ship.IFFStatus != IFFStatusType.Police && ship.IFFStatus != IFFStatusType.Mantis && ship.IFFStatus != IFFStatusType.Dragonfly && ship.IFFStatus != IFFStatusType.SpaceMonster && ship.IFFStatus != IFFStatusType.Scarab {
-            print("about to call fillCargoBays")
             fillCargoBays()
-            print("fillCargoBays called. Items on board: \(ship.getQuantity(TradeItemType.Water)), \(ship.getQuantity(TradeItemType.Furs)), \(ship.getQuantity(TradeItemType.Food)), \(ship.getQuantity(TradeItemType.Ore)), \(ship.getQuantity(TradeItemType.Games)), \(ship.getQuantity(TradeItemType.Firearms)), \(ship.getQuantity(TradeItemType.Medicine)), \(ship.getQuantity(TradeItemType.Machines)), \(ship.getQuantity(TradeItemType.Narcotics)), \(ship.getQuantity(TradeItemType.Robots))")
-            
         }
         
         // fill weapon slots
@@ -289,10 +284,7 @@ class Opponent: NSObject, NSCoding {
             ship.addCargo(TradeItemType.Narcotics, quantity: 5, pricePaid: 0)
         }
         
-        print("just after special override stuff, checking to see if quantities have been messed up yet")
-        print("fillCargoBays called. Items on board: \(ship.getQuantity(TradeItemType.Water)), \(ship.getQuantity(TradeItemType.Furs)), \(ship.getQuantity(TradeItemType.Food)), \(ship.getQuantity(TradeItemType.Ore)), \(ship.getQuantity(TradeItemType.Games)), \(ship.getQuantity(TradeItemType.Firearms)), \(ship.getQuantity(TradeItemType.Medicine)), \(ship.getQuantity(TradeItemType.Machines)), \(ship.getQuantity(TradeItemType.Narcotics)), \(ship.getQuantity(TradeItemType.Robots))")
-        
-        displayResults()
+        //displayResults()
     }
     
 
@@ -454,7 +446,6 @@ class Opponent: NSObject, NSCoding {
     }
     
     func fillCargoBays() {
-        print("FILL CARGO BAYS IS FIRING")
         
         let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
         
@@ -481,8 +472,6 @@ class Opponent: NSObject, NSCoding {
         } else if baysToBeFilled < 0 {
             baysToBeFilled = 0
         }
-        
-        print("BAYS TO BE FILLED: \(baysToBeFilled)")
         
         // *POPULATE*
         // decide how many different items to have
@@ -512,7 +501,6 @@ class Opponent: NSObject, NSCoding {
             uniques = min(uniques, 8)
             uniques = max(uniques, 2)
         }
-        print("UNIQUE COMMODITIES: \(uniques)")
         
         // randomly choose that many commodities
         var commoditiesInUse: [TradeItemType] = []
@@ -523,13 +511,10 @@ class Opponent: NSObject, NSCoding {
         }
         
         // for each item, randomly assign it to one of these categories, add it
-        print("about to add cargo. baysToBeFilled: \(baysToBeFilled)")
         for _ in 0 ..< baysToBeFilled {
             let index = rand(uniques)
             let item = commoditiesInUse[index]
-            print("adding 1 unit of \(item.rawValue)")
             ship.addCargo(item, quantity: 1, pricePaid: 0)
-            print("quantity of \(item.rawValue) on board opponent: \(ship.getQuantity(item))")
         }
     
         

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PlunderVCDelegate: class {
+    func plunderPickerDidFinish(controller: JettisonPickerVC)
+}
+
 class JettisonPickerVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,7 +22,8 @@ class JettisonPickerVC: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var cancelButtonOutlet: GrayButtonTurnsLighter!
     @IBOutlet weak var plunderButtonOutlet: PurpleButtonTurnsGray!
-
+    
+    weak var delegate: PlunderVCDelegate?
     
     let commodity = buySellCommodity!                      // this is stored as a global
     var max = 0                                             // set in viewDidLoad, based on operation
@@ -91,20 +96,18 @@ class JettisonPickerVC: UIViewController {
     
     
     @IBAction func plunderPressed(sender: AnyObject) {
-    }
-    
-    @IBAction func cancelPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    
-    @IBAction func plunderPressedOLD(sender: AnyObject) {
         if plunderAsOpposedToJettison {
             // add to player's ship
             player.commanderShip.addCargo(commodity, quantity: Int(slider.value), pricePaid: 0)
             
             // remove from opponent's ship
             galaxy.currentJourney!.currentEncounter!.opponent.ship.removeCargo(commodity, quantity: Int(slider.value))
+            
+            // return to plunder, not jettison
+            justFinishedJettisonNotPlunder = false
+            
+            // fire delegate method
+            self.delegate?.plunderPickerDidFinish(self)
             
             // close
             self.dismissViewControllerAnimated(false, completion: nil)
@@ -117,9 +120,11 @@ class JettisonPickerVC: UIViewController {
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
                     (alert: UIAlertAction!) -> Void in
-                    // dump, set littering flag, close
+                    // dump, set littering flag, send delegate message, close
                     player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
                     player.hasLitteredThisTrip = true
+                    justFinishedJettisonNotPlunder = true            // to return to jettison, not plunder
+                    self.delegate?.plunderPickerDidFinish(self)
                     self.dismissViewControllerAnimated(false, completion: nil)
                 }))
                 alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
@@ -132,10 +137,14 @@ class JettisonPickerVC: UIViewController {
                 // don't bother if the player's already done it
                 player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
                 player.hasLitteredThisTrip = true
+                justFinishedJettisonNotPlunder = true
+                self.delegate?.plunderPickerDidFinish(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
             }
-            
-            
         }
+    }
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 }

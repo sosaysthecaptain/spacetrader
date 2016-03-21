@@ -12,13 +12,18 @@ protocol PlunderDelegate: class {
     func plunderDidFinish(controller: PlunderVC)
 }
 
-class PlunderVC: UIViewController {
+class PlunderVC: UIViewController, PlunderVCDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         updateUI()
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        updateUI()
+//        print("viewDidAppear firing")
+//    }
     
     // set dark statusBar
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -42,11 +47,31 @@ class PlunderVC: UIViewController {
     @IBOutlet weak var doneButton: PurpleButtonVanishes!
     @IBOutlet weak var jettisonButton: PurpleButtonVanishes!
     
+    @IBOutlet weak var baysDisplay: BaysCashBoxView!
     
     
     var jettisonMode = false
     
     weak var delegate: PlunderDelegate?
+    
+    // delegate (JettisonPickerVC) function--this fires when JettisonPickerVC completes
+    func plunderPickerDidFinish(controller: JettisonPickerVC) {
+        // set plunder or jettison mode correctly, update UI accordingly
+        if justFinishedJettisonNotPlunder {
+            jettisonMode = true
+            
+            // update UI, jettison mode
+            updateUIJettisonMode()
+        } else {
+            jettisonMode = false
+            
+            // update UI, plunder mode
+            updateUI()
+        }
+        
+        // reset the flag for next time
+        justFinishedJettisonNotPlunder = false
+    }
     
     func updateUI() {
         let controlState = UIControlState()
@@ -68,8 +93,7 @@ class PlunderVC: UIViewController {
         narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", forState: controlState)
         
-//        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
-//        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
+        baysDisplay.redrawSelf()
     }
     
     func updateUIJettisonMode() {
@@ -215,42 +239,52 @@ class PlunderVC: UIViewController {
     // "All" button functions
     @IBAction func waterAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Water)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func fursAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Furs)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func foodAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Food)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func oreAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Ore)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func gamesAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Games)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func firearmsAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Firearms)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func medicineAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Medicine)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func machinesAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Machines)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func narcoticsAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Narcotics)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func robotsAll(sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Robots)
+        baysDisplay.redrawSelf()
     }
     
     @IBAction func jettisonButton(sender: AnyObject) {
@@ -259,6 +293,15 @@ class PlunderVC: UIViewController {
         } else {
             jettisonMode = true
             updateUIJettisonMode()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // make the delegate work
+        if segue.identifier == "jettisonPicker" {
+            print("relevant segue firing")
+            let modalVC: JettisonPickerVC = segue.destinationViewController as! JettisonPickerVC
+            modalVC.delegate = self
         }
     }
     

@@ -48,6 +48,8 @@ var buySellCommodity: TradeItemType?
 var buyAsOpposedToSell: Bool = true
 var plunderAsOpposedToJettison: Bool = true
 
+var justFinishedJettisonNotPlunder = false
+
 var travelBySingularity = false
 var dontDeleteLocalSpecialEvent = false
 
