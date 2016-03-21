@@ -100,25 +100,42 @@ class JettisonPickerVC: UIViewController {
     
     @IBAction func plunderPressedOLD(sender: AnyObject) {
         if plunderAsOpposedToJettison {
-            // plunder and close
-            // TODO
+            // add to player's ship
+            player.commanderShip.addCargo(commodity, quantity: Int(slider.value), pricePaid: 0)
+            
+            // remove from opponent's ship
+            galaxy.currentJourney!.currentEncounter!.opponent.ship.removeCargo(commodity, quantity: Int(slider.value))
+            
+            // close
+            self.dismissViewControllerAnimated(false, completion: nil)
         } else {
             // confirm littering
-//            let title = "Dump \(commodity.rawValue)?"
-//            let message = "Are you sure you want to dump \(Int(slider.value)) bays of \(commodity.rawValue)?"
-//            
-//            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-//            alertController.addAction(UIAlertAction(title: "Dump", style: UIAlertActionStyle.Destructive ,handler: {
-//                (alert: UIAlertAction!) -> Void in
-//                // dump and close
-//                player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
-//                self.navigationController?.popToRootViewControllerAnimated(true)
-//            }))
-//            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
-//                (alert: UIAlertAction!) -> Void in
-//                // do nothing
-//            }))
-//            self.presentViewController(alertController, animated: true, completion: nil)
+            if !player.hasLitteredThisTrip {
+                let title = "Space Littering"
+                let message = "Dumping cargo in space is considered littering. If the police find your dumped goods and track them to you, this will influence your record. Do you really wish to dump?"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // dump, set littering flag, close
+                    player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
+                    player.hasLitteredThisTrip = true
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                }))
+                alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // close window
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // don't bother if the player's already done it
+                player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
+                player.hasLitteredThisTrip = true
+                self.dismissViewControllerAnimated(false, completion: nil)
+            }
+            
+            
         }
     }
 }

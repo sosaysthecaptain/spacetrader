@@ -25,6 +25,7 @@ class Commander: NSObject, NSCoding {
     var ignorePolice = false
     var ignoreTraders = false
     var alreadyPaidForNewspaper = false
+    var hasLitteredThisTrip = false
     var caughtLittering = false
     var portableSingularity = true                  // TESTING ONLY, RESET TO FALSE
     
