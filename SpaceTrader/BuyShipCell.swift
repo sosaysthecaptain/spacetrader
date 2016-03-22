@@ -71,9 +71,10 @@ class BuyShipCell: UITableViewCell {
             let numberFormatter = NSNumberFormatter()
             numberFormatter.numberStyle = .DecimalStyle
             let priceFormatted = numberFormatter.stringFromNumber(price)
-            priceField.text = "\(priceFormatted!) credits"
+            priceField.text = "\(priceFormatted!) cr."
         } else {
             priceField.text = "not sold"
+            priceField.textColor = inactiveGray
         }
         
         if player.commanderShip.type == ship {

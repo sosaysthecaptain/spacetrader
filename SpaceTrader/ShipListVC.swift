@@ -46,7 +46,7 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //print("You selected cell #\(indexPath.row)!")
         chosenShip = items[indexPath.row]
         chosenShipType = ships[indexPath.row]
-        print("You selected \(chosenShip)")
+        //print("You selected \(chosenShip)")
         performSegueWithIdentifier("shipDetail", sender: chosenShip)
     }
     
