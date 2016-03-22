@@ -16,6 +16,11 @@ class GameOverVC: UIViewController {
     @IBOutlet weak var fullScreenGraphic: UIImageView!
     
 
+    // set dark statusBar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func viewDidLoad() {
         // set background image based on game over type
         // this can be found at player.endGameType

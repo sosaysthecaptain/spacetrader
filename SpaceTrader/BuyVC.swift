@@ -67,7 +67,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var narcoticsMaxButton: PurpleButtonVanishes!
     @IBOutlet weak var robotsMaxButton: PurpleButtonVanishes!
     
-    let maxCharactersBeforeShrinkingText = 7
+    let maxCharactersBeforeShrinkingText = 8
     let textSizeToShrinkTo: CGFloat = 13
     
     
@@ -468,36 +468,37 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
         
         // shrink price string if too long
-        if waterPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(waterPrice.text!) {
             waterPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if fursPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(fursPrice.text!) {
             fursPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if foodPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(foodPrice.text!) {
             foodPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if orePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(orePrice.text!) {
             orePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if gamesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(gamesPrice.text!) {
             gamesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if firearmsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(firearmsPrice.text!) {
             firearmsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if medicinePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(medicinePrice.text!) {
             medicinePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if machinesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(machinesPrice.text!) {
             machinesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if narcoticsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(narcoticsPrice.text!) {
             narcoticsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if robotsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if shouldShrink(robotsPrice.text!) {
             robotsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
+
         
         highlightProfitOpportunities()
         
@@ -604,6 +605,22 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         } else {
             robotsProjectedPL.textColor = lossColor
         }
+    }
+    
+    // returns true if text should be shrunk to fit the P/L column, false otherwise
+    func shouldShrink(text: String) -> Bool {
+        // true if "not sold"
+        if text == "not sold" {
+            return true
+        }
+        
+        // true if over limit
+        if text.characters.count > maxCharactersBeforeShrinkingText {
+            return true
+        }
+        
+        // false otherwise
+        return false
     }
     
     func getPPL(commodity: TradeItemType) -> Int {

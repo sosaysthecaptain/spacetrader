@@ -10,7 +10,7 @@ import UIKit
 
 class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let section0 = ["New Game", "Load Game", "Save Game"]
+    let section0 = ["New Game", "Load Game", "Save Game", "Retire"]
     let section1 = ["Commander Status", "Ship", "Personnel", "Quests", "Bank"]
     let section2 = ["High Scores"]
     let section3 = ["Options", "About Space Trader"]
@@ -71,6 +71,8 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             case 2:
                 print("save game")
                 performSegueWithIdentifier("saveGameSegue", sender: nil)
+            case 3:
+                self.retire()
             default:
                 print("error")
             }
@@ -123,6 +125,32 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
             self.presentViewController(vc, animated: true, completion: nil)
         }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func retire() {
+        print("retire called")
+        
+        let title = "Retire?"
+        let message = "Are you sure you want to retire?"
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Retire", style: UIAlertActionStyle.Destructive ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // end game
+            player.endGameType = EndGameStatus.Retired
+            
+            // load game over VC
+            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
+            self.presentViewController(vc, animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // do nothing
+        }))
+        
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }

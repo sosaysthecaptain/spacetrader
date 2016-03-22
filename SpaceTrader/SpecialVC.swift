@@ -26,7 +26,9 @@ class SpecialVC: UIViewController {
     
     func loadData() {
         if player.specialEvents.special {
-            // DEBUG
+//            // set font, which apparently we have to do here
+//            specialEventText.font = UIFont(name: "AvenirNext-DemiBold", size: 14)!
+            
             print("SpecialVC reporting in. specialEventID: \(galaxy.currentSystem!.specialEvent)")
             print("title, from player.specialEvents: \(player.specialEvents.specialEventTitle)")
             
