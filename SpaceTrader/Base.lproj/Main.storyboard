@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LzY-Mh-0aZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LzY-Mh-0aZ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -3458,7 +3458,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTl-P2-F18" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTl-P2-F18" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="120" y="83" width="40" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="8Hk-Ng-U8X"/>
@@ -5684,6 +5684,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Personnel" id="44w-6W-9Hq">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fdW-Py-ap0"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="7Ix-dJ-O5w">
                             <connections>
                                 <action selector="done:" destination="1s8-qu-jkZ" id="Bgj-rQ-0I7"/>

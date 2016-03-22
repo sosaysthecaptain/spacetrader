@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!
         ]
         
+        // set navigation bar button font
+        let controlState = UIControlState()
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!], forState: controlState)
+        
         // THIS WAS OVERRIDING OTHER THINGS
         // set global font, used wherever not set otherwise
         //UILabel.appearance().font = UIFont(name: "AvenirNext-DemiBold", size: 16)
