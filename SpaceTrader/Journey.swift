@@ -523,6 +523,11 @@ class Journey: NSObject, NSCoding {
         // flag
         galaxy.journeyJustFinished = true
         
+        // if uneventful trip, fire alert
+        if uneventfulTrip {
+            galaxy.alertsToFireOnArrival.append(AlertID.TravelUneventfulTrip)
+        }
+        
     }
     
     //    func generateEncounters() {         // OLD, but with useful code
