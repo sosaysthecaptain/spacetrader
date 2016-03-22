@@ -20,7 +20,7 @@ class ShortRangeChartView: UIView {
     var wormholeAsOpposedToPlanet = false
     
     let pointsPerParsec: CGFloat = 6
-    let circleColor = UIColor.blackColor()
+    let circleColor = textGray
     
     var locationOfCurrentPlanet: CGPoint {
         get {
@@ -218,32 +218,38 @@ class ShortRangeChartView: UIView {
         let planetZeroX = planetOnMap.mapLocation.x
         let planetZeroY = planetOnMap.mapLocation.y
         
+        let crosshairColor = textGray
+        
         let upperTick = UIBezierPath()
         upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
         upperTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 8))
         upperTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        //UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         upperTick.stroke()
         
         let lowerTick = UIBezierPath()
         lowerTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 5))
         lowerTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 10))
         lowerTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        //UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         lowerTick.stroke()
         
         let rightTick = UIBezierPath()
         rightTick.moveToPoint(CGPoint(x: planetZeroX + 5, y: planetZeroY))
         rightTick.addLineToPoint(CGPoint(x: planetZeroX + 10, y: planetZeroY))
         rightTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        //UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         rightTick.stroke()
         
         let leftTick = UIBezierPath()
         leftTick.moveToPoint(CGPoint(x: planetZeroX - 5, y: planetZeroY))
         leftTick.addLineToPoint(CGPoint(x: planetZeroX - 10, y: planetZeroY))
         leftTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        //UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         leftTick.stroke()
     }
 
@@ -309,32 +315,34 @@ class ShortRangeChartView: UIView {
         let planetZeroX = planetOnMap.mapLocation.x
         let planetZeroY = planetOnMap.mapLocation.y
         
+        let crosshairColor = textGray
+        
         let upperLTick = UIBezierPath()
         upperLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY - 4))
         upperLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY - 7))
         upperLTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         upperLTick.stroke()
         
         let lowerLTick = UIBezierPath()
         lowerLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY + 4))
         lowerLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY + 7))
         lowerLTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         lowerLTick.stroke()
         
         let lowerRTick = UIBezierPath()
         lowerRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY + 4))
         lowerRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY + 7))
         lowerRTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         lowerRTick.stroke()
         
         let upperRTick = UIBezierPath()
         upperRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY - 4))
         upperRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY - 7))
         upperRTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        crosshairColor.setStroke()
         upperRTick.stroke()
     }
     
