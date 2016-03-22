@@ -19,10 +19,10 @@ class Opponent: NSObject, NSCoding {
         self.type = type
         
         // these are placeholders only, because I want to be able to do the instantiating function in multiple pieces
-        self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: rand(10), fighterSkill: rand(10), traderSkill: rand(10), engineerSkill: rand(10))
-        self.ship = SpaceShip(type: ShipType.Gnat, IFFStatus: type)
         
-        print("DEBUG init concluded. Captain status: pilot \(self.commander.pilotSkill), fighter \(self.commander.fighterSkill), trader \(self.commander.traderSkill), engineer \(self.commander.engineerSkill)")
+        self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: rand(10), fighterSkill: rand(10), traderSkill: rand(10), engineerSkill: rand(10))
+
+        self.ship = SpaceShip(type: ShipType.Gnat, IFFStatus: type)
     }
     
     func generateOpponent() {

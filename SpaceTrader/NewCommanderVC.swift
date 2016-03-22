@@ -247,7 +247,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         
-        player.escapePod = true
+        //player.escapePod = true
         
         
         

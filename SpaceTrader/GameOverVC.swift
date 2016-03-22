@@ -12,6 +12,9 @@ class GameOverVC: UIViewController {
     
     var madeHighScores = false
     var score = 0
+    
+    @IBOutlet weak var fullScreenGraphic: UIImageView!
+    
 
     override func viewDidLoad() {
         // set background image based on game over type
@@ -28,11 +31,25 @@ class GameOverVC: UIViewController {
         // autosave game, so loader will see that game is over and not try to play it again
         saveState()
         
+        // load appropriate graphic
+        switch player.endGameType {
+        case EndGameStatus.Killed:
+            fullScreenGraphic.image = UIImage(named: "destroyed")
+        case EndGameStatus.Retired:
+            fullScreenGraphic.image = UIImage(named: "remote")
+        case EndGameStatus.BoughtMoon:
+            fullScreenGraphic.image = UIImage(named: "retirement")
+        case EndGameStatus.BoughtMoonGirl:
+            fullScreenGraphic.image = UIImage(named: "princess")
+        default:
+            print("error")
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         // wait, display alert
-        sleep(1)
+        sleep(2)
         
         // sleep seems to keep this VC around for a second. Otherwise it loads and instantly dismisses
         

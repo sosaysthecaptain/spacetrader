@@ -47,6 +47,7 @@ class Commander: NSObject, NSCoding {
     
     
     // skills                       DO WE WANT TO DO THIS BY MAX OR TOTAL? SEE WHAT ORIGINAL DOES
+    // DANGER: THIS CALCULATES BASED ON PLAYER'S CREW, NOT ON THIS COMMANDER'S CREW     (TODO, FIX, TESTING, DEBUG)
     var pilotSkill: Int {
         get {
             var max = initialPilotSkill

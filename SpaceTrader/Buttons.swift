@@ -254,6 +254,12 @@ class BaysCashBox: SpaceTraderButton {
     }
 }
 
+//class StyledBarButtonItem: UIBarButtonItem {
+//    required init?(coder: aDecoder) {
+//        
+//    }
+//}
+
 // can set color, that's about it
 class PurpleStepper: UIStepper {
     required init?(coder aDecoder: NSCoder) {
