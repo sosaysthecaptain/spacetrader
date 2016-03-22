@@ -11,7 +11,7 @@ import UIKit
 class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     
     @IBOutlet weak var targetSystemLabel: UILabel!
-    @IBOutlet weak var portableSingularityJump: CustomButton!
+    @IBOutlet weak var portableSingularityJump: GrayButtonVanishes!
     
     
     override func viewDidAppear(animated: Bool) {
@@ -33,6 +33,8 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     
     
     override func viewDidLoad() {
+        
+        // enable jump button if player has a portable singularity
         if player.portableSingularity {
             portableSingularityJump.enabled = true
         } else {
@@ -57,6 +59,18 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
         galacticChart.redrawSelf()
         shortRangeChart.redrawSelf()
         targetSystemLabel.text = "Target System: \(galaxy.targetSystem!.name)"
+        
+        // if target system is current system or in range, disable jump if enable
+        if galaxy.targetSystemInRange || (galaxy.currentSystem!.name == galaxy.targetSystem!.name) {
+            portableSingularityJump.enabled = false
+        } else {
+            // otherwise enable it, but only if the player has a portable singularity
+            if player.portableSingularity {
+                portableSingularityJump.enabled = true
+            } else {
+                portableSingularityJump.enabled = false
+            }
+        }
     }
     
     @IBAction func usePortableSinglularity(sender: AnyObject) {
