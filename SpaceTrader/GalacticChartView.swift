@@ -81,7 +81,7 @@ class GalacticChartView: UIView {
     func drawRangeCircle(mapLocation: CGPoint) {
         let rangeCirclePath = UIBezierPath(arcCenter: mapLocation, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         rangeCirclePath.lineWidth = 1
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         rangeCirclePath.stroke()
     }
     
@@ -95,7 +95,7 @@ class GalacticChartView: UIView {
         redArrow.moveToPoint(CGPoint(x: startX, y: startY))
         redArrow.addLineToPoint(CGPoint(x: endX, y: endY))
         redArrow.lineWidth = 1.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         redArrow.stroke()
     }
     
@@ -206,28 +206,28 @@ class GalacticChartView: UIView {
         upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
         upperTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 10))
         upperTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         upperTick.stroke()
         
         let lowerTick = UIBezierPath()
         lowerTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 5))
         lowerTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 10))
         lowerTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         lowerTick.stroke()
         
         let rightTick = UIBezierPath()
         rightTick.moveToPoint(CGPoint(x: planetZeroX + 5, y: planetZeroY))
         rightTick.addLineToPoint(CGPoint(x: planetZeroX + 10, y: planetZeroY))
         rightTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         rightTick.stroke()
         
         let leftTick = UIBezierPath()
         leftTick.moveToPoint(CGPoint(x: planetZeroX - 5, y: planetZeroY))
         leftTick.addLineToPoint(CGPoint(x: planetZeroX - 10, y: planetZeroY))
         leftTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         leftTick.stroke()
     }
     
@@ -239,28 +239,28 @@ class GalacticChartView: UIView {
         upperLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY - 4))
         upperLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY - 7))
         upperLTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         upperLTick.stroke()
         
         let lowerLTick = UIBezierPath()
         lowerLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY + 4))
         lowerLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY + 7))
         lowerLTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         lowerLTick.stroke()
         
         let lowerRTick = UIBezierPath()
         lowerRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY + 4))
         lowerRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY + 7))
         lowerRTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         lowerRTick.stroke()
         
         let upperRTick = UIBezierPath()
         upperRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY - 4))
         upperRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY - 7))
         upperRTick.lineWidth = 2.0
-        UIColor.blackColor().setStroke()
+        textGray.setStroke()
         upperRTick.stroke()
     }
     

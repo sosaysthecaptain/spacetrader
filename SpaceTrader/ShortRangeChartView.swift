@@ -102,12 +102,27 @@ class ShortRangeChartView: UIView {
         if add {
             drawPlanetCircle(location, visited: visited)
             
-            // add name
+            // ADD NAME
             let nameLocationX: CGFloat = xCoord - 15
             let nameLocationY: CGFloat = yCoord - 20
             let nameLocation = CGPointMake(nameLocationX, nameLocationY)
-            let text = NSAttributedString(string: system.name)
-            text.drawAtPoint(nameLocation)
+            
+            
+            // font is set here, attributed text setup mess
+            let text = system.name
+            let font = UIFont(name: "AvenirNext-Regular", size: 13.0)
+            let color = textGray
+            let myAttributes = [NSFontAttributeName: font!,
+                                NSForegroundColorAttributeName: color]
+            
+            // create attributed string
+            //let attributedText = NSAttributedString(string: system.name)
+            let attrString = NSAttributedString(
+                string: text,
+                attributes: myAttributes)
+            
+            // write attributed string at correct location
+            attrString.drawAtPoint(nameLocation)
             
             // add to planetsOnMap
             let mapEntry = mapPlanet(system: system, mapLocation: location)
