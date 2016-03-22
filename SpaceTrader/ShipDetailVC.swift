@@ -30,7 +30,7 @@ class ShipDetailVC: UIViewController {
     @IBOutlet weak var crewLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    @IBOutlet weak var buyButton: CustomButton!
+    @IBOutlet weak var buyButton: PurpleButtonTurnsGray!
     
     override func viewDidLoad() {
         super.viewDidLoad()

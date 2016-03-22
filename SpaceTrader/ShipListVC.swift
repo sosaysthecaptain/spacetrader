@@ -48,6 +48,9 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         chosenShipType = ships[indexPath.row]
         //print("You selected \(chosenShip)")
         performSegueWithIdentifier("shipDetail", sender: chosenShip)
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
