@@ -506,7 +506,7 @@ class Commander: NSObject, NSCoding {
         }
         
         if shieldMaxTotal == 0 {
-            return "No Shields"
+            return "No shields"
         } else {
             return "Shields at \(Int((Double(shieldActualTotal) / Double(shieldMaxTotal)) * 100))%"
         }

@@ -451,6 +451,11 @@ class Journey: NSObject, NSCoding {
         let journeyDistance = galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!)
         let oldSystem = galaxy.currentSystem
         
+        // recharge shields the rest of the way
+        for shield in player.commanderShip.shield {
+            shield.currentStrength = shield.power
+        }
+        
         // marie celeste: if player has gotten away with it, he's in the clear
         if player.specialEvents.marieCelesteStatus == 1 {
             player.specialEvents.marieCelesteStatus = 2
