@@ -41,8 +41,9 @@ class BankVC: UIViewController {
         let currentDebtFormatted = numberFormatter.stringFromNumber(player.debt)
         currentDebtLabel.text = "\(currentDebtFormatted!) cr."
         
-        // maximum loan
-        let maxLoan = getMaxLoan()
+        // maximum loan--round down to nearest multiple of 100
+        var maxLoan = getMaxLoan()
+        maxLoan = maxLoan - (maxLoan % 100)
         let maxLoanFormatted = numberFormatter.stringFromNumber(maxLoan)
         maximumLoanLabel.text = "\(maxLoanFormatted!) cr."
         
@@ -53,6 +54,13 @@ class BankVC: UIViewController {
             payBackLoanLabel.enabled = false
         } else {
             payBackLoanLabel.enabled = true
+        }
+        
+        // disable get loan button if no credit available
+        if maxLoan == 0 {
+            getLoanLabel.enabled = false
+        } else {
+            getLoanLabel.enabled = true
         }
         
         // insurance numbers
