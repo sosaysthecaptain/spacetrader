@@ -63,7 +63,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         // tribbles?
         if player.commanderShip.tribbles != 0 {
-            print("tribbles are present. \(player.commanderShip.tribbles) tribbles. Drawing one.")
             
             // figure out how many tribbles to draw
             let tribbles = player.commanderShip.tribbles
@@ -83,8 +82,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
             if tribbles > 100000 {
                 numberOfTribblesToDraw = 17
             }
-            
-            print("drawing \(numberOfTribblesToDraw) tribbles")
             
             // draw them
             for _ in 0..<numberOfTribblesToDraw {
@@ -709,6 +706,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 galaxy.currentJourney!.currentEncounter!.concludeEncounter()
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
+            print("YOU HAVE SURRENDERED TO THE POLICE")
+            arrest()
         }
     }
     
@@ -1194,9 +1194,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // make time pass
         player.days += daysInPrison
         
+        // format fine
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        let fineFormatted = numberFormatter.stringFromNumber(fine)
+        
         // launch alert
         let title = "Convicted"
-        let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fine) credits."
+        let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fineFormatted!) credits."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
@@ -2201,9 +2206,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
         let yMax = backgroundView.frame.size.height - 30
         let xCoord = rand(Int(xMax))
         let yCoord = rand(Int(yMax))
-        
-        print("xMax: \(xMax), yMax: \(yMax)")
-        
         
         // instantiate tribble
         let tribble = UIImageView(frame:CGRectMake(CGFloat(xCoord), CGFloat(yCoord), 20, 20));    // x, y, width, height

@@ -172,7 +172,7 @@ class Encounter: NSObject, NSCoding {
             button4Text = "Bribe"
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
-            encounterText2 = "The police summon you to submit to an inspection"
+            encounterText2 = "The police summon you to submit to an inspection."
 
         } else if type == EncounterType.policeFlee {
             button1Text = "Attack"
