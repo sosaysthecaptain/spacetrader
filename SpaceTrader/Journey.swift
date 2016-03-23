@@ -197,27 +197,18 @@ class Journey: NSObject, NSCoding {
             }
         }
         
-        print("CLICKS: \(clicks)*******************************************************")
-        print("encounterTest: \(encounterTest)")
-        print("strengthPirates: \(strengthPirates)")
-        print("strengthPolice: \(strengthPolice)")
-        print("strengthTraders: \(strengthTraders)")
-        
         // ELSE, check if it is time for an encounter
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
             print("at \(clicks) clicks, eligible for an encounter")
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
-                print("PIRATE SELECTED, \(clicks) clicks")
                 pirate = true
                 encounterThisClick = true
             } else if encounterTest < (strengthPirates + strengthPolice) {
-                print("PIRATE SELECTED, \(clicks) clicks")
                 police = true
                 encounterThisClick = true
-            } else if encounterTest < (strengthTraders * 5) {       // OVER 2 | not orthodox, but this seemed high
+            } else if encounterTest < (strengthTraders + ((strengthPolice + strengthPirates) / 3)) {       // OVER 2 | not orthodox, but this seemed high
                 // properly, strengthPirates + strengthPolice + strengthTraders
-                print("TRADER SELECTED, \(clicks) clicks")
                 trader = true
                 encounterThisClick = true
             } // else if Wild status/Kravat...
