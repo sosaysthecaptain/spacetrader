@@ -31,6 +31,11 @@ class CommanderStatusVC: UIViewController  {
         loadData()
     }
     
+    // set back button title to "Back"
+//    func viewWillAppear() {
+//        self.navigationItem.backBarButtonItem?.title = "Back"
+//    }
+    
     func loadData() {
         nameLabel.text = player.commanderName
         difficultyLabel.text = player.difficulty.rawValue

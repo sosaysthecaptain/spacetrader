@@ -67,10 +67,9 @@ class QuestStringCell: UITableViewCell {
         textView.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         
         // set text vertical alignment to center
-        
-        //textView.textAlignment = .Center
-        //contentVerticalAlignment = UIControlContentVerticalAlignment.Center
-        
+        var topCorrect = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale) / 2
+        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect;
+        textView.contentInset.top = topCorrect
     }
     
 }

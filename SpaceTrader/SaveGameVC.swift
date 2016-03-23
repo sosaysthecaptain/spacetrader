@@ -8,22 +8,45 @@
 
 import UIKit
 
-class SaveGameVC: UIViewController {
+class SaveGameVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         textField.becomeFirstResponder()
         
-        // Do any additional setup after loading the view.
+        // set up textField delegate
+        textField.delegate = self
+        
+        // initially set save button to inactive, since there can't be any text in the textField yet
+        saveButton.enabled = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // when textField edited, see if chars, if so enable save button
+    @IBAction func textFieldWasEdited(sender: AnyObject) {
+        if textField.text!.characters.count > 0 {
+            saveButton.enabled = true
+        } else {
+            saveButton.enabled = false
+        }
     }
+    
+    // dismiss keyboard on "Done"
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // dismiss keyboard when tap on background
+//    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+//        textField.resignFirstResponder()
+//        self.view.endEditing(true)
+//    }
+    
     
     @IBAction func saveButton(sender: AnyObject) {
         // make this only work if user has entered something in the text field

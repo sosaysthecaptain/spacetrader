@@ -141,5 +141,12 @@ class DesignVC: UIViewController, UITextFieldDelegate {
         updateUI()
     }
     
+    // set back button text for child VCs to "Back"
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
+    
 
 }

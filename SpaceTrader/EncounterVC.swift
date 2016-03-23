@@ -605,7 +605,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
             // plunder
             // see if player has cargo
             var noCargo = false
-            if player.commanderShip.cargo.count == 0 {
+            if player.commanderShip.waterOnBoard == 0 &&
+                player.commanderShip.fursOnBoard == 0 &&
+                player.commanderShip.foodOnBoard == 0 &&
+                player.commanderShip.oreOnBoard == 0 &&
+                player.commanderShip.gamesOnBoard == 0 &&
+                player.commanderShip.firearmsOnBoard == 0 &&
+                player.commanderShip.medicineOnBoard == 0 &&
+                player.commanderShip.machinesOnBoard == 0 &&
+                player.commanderShip.narcoticsOnBoard == 0 &&
+                player.commanderShip.robotsOnBoard == 0 {
+                
                 noCargo = true
             }
             if noCargo {
@@ -616,9 +626,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
                     player.credits = 0
                 }
                 
+                // format moneyToTake
+                let numberFormatter = NSNumberFormatter()
+                numberFormatter.numberStyle = .DecimalStyle
+                let moneyToTakeFormatted = numberFormatter.stringFromNumber(moneyToTake)
+                
                 // alert
                 let title = "Pirates Find No Cargo"
-                let message = "The pirates are very angry that they find no cargo on your ship. To stop them from destroying you, you have no choice but to pay them an amount equal to 5% of your current worth - \(moneyToTake) credits."
+                let message = "The pirates are very angry that they find no cargo on your ship. To stop them from destroying you, you have no choice but to pay them an amount equal to 5% of your current worth—\(moneyToTakeFormatted!) credits."
                 
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
