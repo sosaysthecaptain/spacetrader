@@ -197,16 +197,27 @@ class Journey: NSObject, NSCoding {
             }
         }
         
+        print("CLICKS: \(clicks)*******************************************************")
+        print("encounterTest: \(encounterTest)")
+        print("strengthPirates: \(strengthPirates)")
+        print("strengthPolice: \(strengthPolice)")
+        print("strengthTraders: \(strengthTraders)")
+        
         // ELSE, check if it is time for an encounter
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
+            print("at \(clicks) clicks, eligible for an encounter")
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
+                print("PIRATE SELECTED, \(clicks) clicks")
                 pirate = true
                 encounterThisClick = true
             } else if encounterTest < (strengthPirates + strengthPolice) {
+                print("PIRATE SELECTED, \(clicks) clicks")
                 police = true
                 encounterThisClick = true
-            } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
+            } else if encounterTest < (strengthTraders * 5) {       // OVER 2 | not orthodox, but this seemed high
+                // properly, strengthPirates + strengthPolice + strengthTraders
+                print("TRADER SELECTED, \(clicks) clicks")
                 trader = true
                 encounterThisClick = true
             } // else if Wild status/Kravat...
@@ -319,10 +330,55 @@ class Journey: NSObject, NSCoding {
             encounterThisClick = true
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if trader && !encounterThisClick {
+        //} else if trader && !encounterThisClick {
+        } else if trader {
+            var tradeInOrbit = false
             encounterThisClick = true
-            currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
+            
+            // DETERMINING SORT OF TRADER ENCOUNTER
+            if player.commanderShip.cloaked {
+                
+                // if cloaked, traderIgnore
+                //print("trader ignoring cuz you're cloaked")
+                encounterType = EncounterType.traderIgnore
+            } else if (player.policeRecordInt < 3) && (rand(100) <= (player.reputation.rawValue * 10)) {
+                
+                // If you're a criminal, traders tend to flee if you've got at least some reputation
+                //print("trader fleeing cuz you're scary")
+                encounterType = EncounterType.traderFlee
+            } else {
+                // eligible for trade encounter. Determine whether trade in orbit at all
+                if rand(100) > 50 {                                 // SET CHANCE OF TRADE IN ORBIT HERE
+                    //print("trade in orbit!")
+                    tradeInOrbit = true
+                } else {
+                    //print("no trade in orbit!")
+                    encounterType = EncounterType.traderIgnore
+                }
+            }
+            
+            // if trade is to proceed, determine whether will be traderBuy or traderSell based on how many bays the player has available
+            if tradeInOrbit {
+                // figure out how many bays the player has full
+                let baysFull = player.commanderShip.baysOfTradeableItems
+                
+                // if player has more bays full than not, will be traderBuy. Else, traderSell
+                if baysFull > player.commanderShip.baysAvailable {
+                    encounterType = EncounterType.traderBuy
+                } else {
+                    encounterType = EncounterType.traderSell
+                }
+            }
+            
+            // take into account user's preferences as to ignoring traders, ignoring trade in orbit
+            if player.ignoreTraders {
+                encounterType = EncounterType.nullEncounter
+            }
+            
+            // type determined, instantiate encounter
+            currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
+            
         } else if mantis && !encounterThisClick {
             encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)

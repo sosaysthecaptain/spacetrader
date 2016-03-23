@@ -73,6 +73,10 @@ class SpaceShip: NSObject, NSCoding {
         return total
     }
     
+    var baysOfTradeableItems: Int {
+        return (waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard)
+    }
+    
     var value: Int {
         var total = self.price
         for item in weapon {
@@ -99,9 +103,17 @@ class SpaceShip: NSObject, NSCoding {
         return crew.count + 1
     }
     
+    var cloaked: Bool {
+        for item in gadget {
+            if item.type == GadgetType.Cloaking {
+                return true
+            }
+        }
+        return false
+    }
+    
     var raided = false
     //var justLootedMarieCeleste = false
-    var cloaked = false
     var disabled = false
     
     // ALT METHOD: special cargo bools:
@@ -918,7 +930,6 @@ class SpaceShip: NSObject, NSCoding {
             
             self.raided = decoder.decodeObjectForKey("raided") as! Bool
             //self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
-            self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
             self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
             self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObjectForKey("IFFStatus") as! String!)!
             
@@ -980,7 +991,6 @@ class SpaceShip: NSObject, NSCoding {
             
             encoder.encodeObject(raided, forKey: "raided")
             //encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
-            encoder.encodeObject(cloaked, forKey: "cloaked")
             encoder.encodeObject(disabled, forKey: "disabled")
             encoder.encodeObject(IFFStatus.rawValue, forKey: "IFFStatus")
             
