@@ -60,6 +60,37 @@ class EncounterVC: UIViewController, PlunderDelegate {
         progressBar.progressTintColor = mainPurple                          // set color
         let clicksLeft = Float(20) - Float(galaxy.currentJourney!.clicks)
         progressBar.progress = clicksLeft / Float(20)
+        
+        // tribbles?
+        if player.commanderShip.tribbles != 0 {
+            print("tribbles are present. \(player.commanderShip.tribbles) tribbles. Drawing one.")
+            
+            // figure out how many tribbles to draw
+            let tribbles = player.commanderShip.tribbles
+            var numberOfTribblesToDraw = 0
+            if tribbles > 10 {
+                numberOfTribblesToDraw = 1
+            }
+            if tribbles > 100 {
+                numberOfTribblesToDraw = 2
+            }
+            if tribbles > 1000 {
+                numberOfTribblesToDraw = 3
+            }
+            if (tribbles > 2000) && (tribbles < 100000) {
+                numberOfTribblesToDraw = Int(tribbles / 1000)
+            }
+            if tribbles > 100000 {
+                numberOfTribblesToDraw = 17
+            }
+            
+            print("drawing \(numberOfTribblesToDraw) tribbles")
+            
+            // draw them
+            for _ in 0..<numberOfTribblesToDraw {
+                addTribbleAtRandomPosition()
+            }
+        }
     }
     
     // set dark statusBar
@@ -2162,5 +2193,48 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     
     // END IMAGE STUFF****************************************************************************
+    
+    // tribbles
+    func addTribbleAtRandomPosition() {
+        // generate random coordinates
+        let xMax = backgroundView.frame.size.width - 30
+        let yMax = backgroundView.frame.size.height - 30
+        let xCoord = rand(Int(xMax))
+        let yCoord = rand(Int(yMax))
+        
+        print("xMax: \(xMax), yMax: \(yMax)")
+        
+        
+        // instantiate tribble
+        let tribble = UIImageView(frame:CGRectMake(CGFloat(xCoord), CGFloat(yCoord), 20, 20));    // x, y, width, height
+        
+        // set tribble a random image
+        let random = rand(8)
+        switch random {
+            case 0:
+                tribble.image = UIImage(named: "trib0")
+            case 1:
+                tribble.image = UIImage(named: "trib1")
+            case 2:
+                tribble.image = UIImage(named: "trib2")
+            case 3:
+                tribble.image = UIImage(named: "trib3")
+            case 4:
+                tribble.image = UIImage(named: "trib4")
+            case 5:
+                tribble.image = UIImage(named: "trib5")
+            case 6:
+                tribble.image = UIImage(named: "trib6")
+            case 7:
+                tribble.image = UIImage(named: "trib7")
+            default:
+                print("error")
+        }
+        
+        // give tribble a tag, for removal if necessary
+        
+        // add tribble to view
+        self.view.addSubview(tribble)
+    }
 
 }

@@ -276,6 +276,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         
         player.credits = 1000000     // for testing, give player money
+        
+        // testing tribbles
+        //player.commanderShip.tribbles = 104000
 
         
         // END TESTING STUFF ********************************************************************
