@@ -834,7 +834,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 
                 
             }))
-            alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss alert
             }))

@@ -6581,7 +6581,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpR-Ll-Anc">
-                                                    <rect key="frame" x="18" y="8" width="564" height="68"/>
+                                                    <rect key="frame" x="18" y="8" width="564" height="56"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
@@ -6589,11 +6589,20 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BpR-Ll-Anc" secondAttribute="bottom" constant="12" id="E38-Xj-9Kh"/>
                                                 <constraint firstAttribute="topMargin" secondItem="BpR-Ll-Anc" secondAttribute="top" id="FuC-7m-WfR"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="BpR-Ll-Anc" secondAttribute="leading" constant="-10" id="Z60-Z9-hIx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BpR-Ll-Anc" secondAttribute="trailing" constant="10" id="gdM-Sq-7ds"/>
+                                                <constraint firstItem="BpR-Ll-Anc" firstAttribute="centerY" secondItem="joo-vl-h1j" secondAttribute="centerY" id="gqI-pg-l5o"/>
+                                                <constraint firstItem="BpR-Ll-Anc" firstAttribute="top" secondItem="joo-vl-h1j" secondAttribute="topMargin" id="qmi-Ar-cyZ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BpR-Ll-Anc" secondAttribute="bottom" id="uhT-bg-vKn"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="FuC-7m-WfR"/>
+                                                    <exclude reference="uhT-bg-vKn"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textView" destination="BpR-Ll-Anc" id="M90-wF-sEE"/>

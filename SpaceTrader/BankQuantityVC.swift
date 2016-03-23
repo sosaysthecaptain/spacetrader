@@ -22,7 +22,7 @@ class BankQuantityVC: UIViewController {
     
     @IBOutlet weak var text1: UILabel!
     @IBOutlet weak var text2: UILabel!
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: PurpleButtonTurnsGray!
     @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var numberLabel: UILabel!
     
@@ -91,6 +91,13 @@ class BankQuantityVC: UIViewController {
         let selectedValueFormatted = numberFormatter.stringFromNumber(selectedValue)
         
         numberLabel.text = "\(selectedValueFormatted!) credits"
+        
+        // disable get loan button if quantity is zero
+        if selectedValue == 0 {
+            buttonOutlet.enabled = false
+        } else {
+            buttonOutlet.enabled = true
+        }
     }
 
     @IBAction func getLoan(sender: AnyObject) {

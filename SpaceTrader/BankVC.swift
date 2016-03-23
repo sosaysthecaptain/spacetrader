@@ -111,9 +111,8 @@ class BankVC: UIViewController {
     @IBAction func buyInsurance(sender: AnyObject) {
         if player.insurance {
             // stop insurance
-            print("SHOULD NOW LAUNCH ALERT")                // DEBUG
             let title = "Stop Insurance"
-            let message = "Do you really want to stop your insurance and lose your no-claim?."
+            let message = "Do you really want to stop your insurance and lose your no-claim?"
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
@@ -121,7 +120,7 @@ class BankVC: UIViewController {
                 player.insurance = false
                 self.setData()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))

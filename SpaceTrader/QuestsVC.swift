@@ -64,7 +64,12 @@ class QuestStringCell: UITableViewCell {
     func setCell(text: String) {
         print("setCell called. Passed text: \(text)")
         textView.text = text
-        textView.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+        textView.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
+        
+        // set text vertical alignment to center
+        
+        //textView.textAlignment = .Center
+        //contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         
     }
     
