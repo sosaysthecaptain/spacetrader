@@ -3430,26 +3430,20 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBN-ve-y6y" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="80" width="50" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enA-6c-jA5" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="117" width="52" height="21"/>
+                                        <rect key="frame" x="22" y="117" width="52" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCH-D7-9US" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="154" width="52" height="21"/>
+                                        <rect key="frame" x="22" y="154" width="52" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many do you want to buy?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q87-fR-q2t" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="210" width="239" height="21"/>
+                                        <rect key="frame" x="22" y="210" width="239" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -3460,8 +3454,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woX-xC-ftL" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="424" y="408" width="80" height="42"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woX-xC-ftL" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="430" y="408" width="80" height="42"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
                                         <state key="normal" title="Trade"/>
                                         <connections>
@@ -3491,6 +3485,12 @@
                                             <action selector="sliderDidMove:" destination="0zP-NB-8s0" eventType="valueChanged" id="fQ6-Ws-V8f"/>
                                         </connections>
                                     </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwn-rW-H1Q" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="22" y="80" width="50" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -3498,24 +3498,24 @@
                                     <constraint firstAttribute="trailing" secondItem="kbE-9R-Moa" secondAttribute="trailing" id="8QK-Mp-gd1"/>
                                     <constraint firstAttribute="trailing" secondItem="1HK-0f-G0C" secondAttribute="trailing" constant="40" id="8b3-sD-pI0"/>
                                     <constraint firstItem="1HK-0f-G0C" firstAttribute="leading" secondItem="hFm-qi-8pP" secondAttribute="leading" constant="40" id="8mT-D4-VEz"/>
-                                    <constraint firstItem="yBN-ve-y6y" firstAttribute="top" secondItem="hFm-qi-8pP" secondAttribute="top" constant="80" id="Lgu-io-smh"/>
+                                    <constraint firstItem="Hwn-rW-H1Q" firstAttribute="top" secondItem="hFm-qi-8pP" secondAttribute="top" constant="80" id="Fsy-si-7RE"/>
                                     <constraint firstItem="kbE-9R-Moa" firstAttribute="leading" secondItem="hFm-qi-8pP" secondAttribute="leading" id="MH9-iV-tG8"/>
                                     <constraint firstItem="NQy-Hp-wv9" firstAttribute="leading" secondItem="hFm-qi-8pP" secondAttribute="leading" constant="50" id="Mqn-Nr-0TH"/>
                                     <constraint firstItem="1HK-0f-G0C" firstAttribute="top" secondItem="hFm-qi-8pP" secondAttribute="top" constant="320" id="Oy1-Ud-TCi"/>
-                                    <constraint firstItem="enA-6c-jA5" firstAttribute="top" secondItem="yBN-ve-y6y" secondAttribute="bottom" constant="16" id="Sx1-XB-KUI"/>
                                     <constraint firstAttribute="bottom" secondItem="woX-xC-ftL" secondAttribute="bottom" constant="102" id="V5D-jx-quo"/>
                                     <constraint firstItem="WWA-wQ-zR9" firstAttribute="centerX" secondItem="hFm-qi-8pP" secondAttribute="centerX" id="V98-3t-KMC"/>
                                     <constraint firstItem="dtl-4K-29N" firstAttribute="centerX" secondItem="hFm-qi-8pP" secondAttribute="centerX" id="YmZ-0U-7Qo"/>
                                     <constraint firstAttribute="bottom" secondItem="NQy-Hp-wv9" secondAttribute="bottom" constant="102" id="a95-05-xhr"/>
                                     <constraint firstItem="WWA-wQ-zR9" firstAttribute="top" secondItem="hFm-qi-8pP" secondAttribute="top" constant="10" id="c4w-zy-kbd"/>
+                                    <constraint firstItem="enA-6c-jA5" firstAttribute="top" secondItem="Hwn-rW-H1Q" secondAttribute="bottom" constant="16" id="dCY-Bh-z8F"/>
                                     <constraint firstItem="q87-fR-q2t" firstAttribute="top" secondItem="oCH-D7-9US" secondAttribute="bottom" constant="35" id="g9B-JV-WRB"/>
                                     <constraint firstItem="q87-fR-q2t" firstAttribute="leading" secondItem="oCH-D7-9US" secondAttribute="leading" id="gux-kF-o1p"/>
                                     <constraint firstItem="oCH-D7-9US" firstAttribute="top" secondItem="enA-6c-jA5" secondAttribute="bottom" constant="16" id="gwu-F9-tc5"/>
-                                    <constraint firstItem="enA-6c-jA5" firstAttribute="leading" secondItem="yBN-ve-y6y" secondAttribute="leading" id="h5R-bn-D7r"/>
+                                    <constraint firstItem="enA-6c-jA5" firstAttribute="leading" secondItem="Hwn-rW-H1Q" secondAttribute="leading" id="hQf-0O-LgS"/>
                                     <constraint firstAttribute="bottom" secondItem="kbE-9R-Moa" secondAttribute="bottom" id="lIA-oT-auJ"/>
-                                    <constraint firstItem="yBN-ve-y6y" firstAttribute="leading" secondItem="hFm-qi-8pP" secondAttribute="leading" constant="20" id="pBf-T4-2gq"/>
                                     <constraint firstAttribute="trailing" secondItem="woX-xC-ftL" secondAttribute="trailing" constant="50" id="rJf-Xb-CI0"/>
                                     <constraint firstItem="1HK-0f-G0C" firstAttribute="top" secondItem="dtl-4K-29N" secondAttribute="bottom" constant="14" id="y5I-Jo-f3z"/>
+                                    <constraint firstItem="Hwn-rW-H1Q" firstAttribute="leading" secondItem="hFm-qi-8pP" secondAttribute="leading" constant="22" id="yL7-kX-3Ns"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3529,12 +3529,12 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="NQy-Hp-wv9" id="hDN-MW-yIk"/>
-                        <outlet property="firstLabel" destination="yBN-ve-y6y" id="gTY-aF-GFW"/>
-                        <outlet property="fourthLabel" destination="q87-fR-q2t" id="YtC-Is-JmA"/>
+                        <outlet property="firstLabel" destination="Hwn-rW-H1Q" id="43W-7r-Hqd"/>
+                        <outlet property="fourthLabel" destination="q87-fR-q2t" id="CoW-2j-IHb"/>
                         <outlet property="quantityLabel" destination="dtl-4K-29N" id="FNg-gW-vZS"/>
-                        <outlet property="secondLabel" destination="enA-6c-jA5" id="yii-SN-T7V"/>
+                        <outlet property="secondLabel" destination="enA-6c-jA5" id="F3d-mR-MRF"/>
                         <outlet property="slider" destination="1HK-0f-G0C" id="vAl-Dg-Ldl"/>
-                        <outlet property="thirdLabel" destination="oCH-D7-9US" id="MEi-ta-O1J"/>
+                        <outlet property="thirdLabel" destination="oCH-D7-9US" id="gP2-S1-iXD"/>
                         <outlet property="titleLabel" destination="WWA-wQ-zR9" id="rpG-zk-faM"/>
                         <outlet property="tradeButton" destination="woX-xC-ftL" id="Z7U-PX-VuA"/>
                     </connections>

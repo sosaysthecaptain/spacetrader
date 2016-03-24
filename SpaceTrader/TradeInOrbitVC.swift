@@ -15,10 +15,21 @@ protocol TradeInOrbitDelegate: class {
 class TradeInOrbitVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var firstLabel: StandardLabel!
-    @IBOutlet weak var secondLabel: StandardLabel!
-    @IBOutlet weak var thirdLabel: StandardLabel!
-    @IBOutlet weak var fourthLabel: StandardLabel!
+    
+    
+    
+    @IBOutlet weak var firstLabel: SmallLabelGray!
+    @IBOutlet weak var secondLabel: SmallLabelGray!
+    @IBOutlet weak var thirdLabel: SmallLabelGray!
+    @IBOutlet weak var fourthLabel: SmallLabelGray!
+    
+    
+    
+//    @IBOutlet weak var firstLabel: StandardLabel!
+//    @IBOutlet weak var secondLabel: StandardLabel!
+//    @IBOutlet weak var thirdLabel: StandardLabel!
+//    @IBOutlet weak var fourthLabel: StandardLabel!
+    
     @IBOutlet weak var quantityLabel: PurpleHeader!
     
     @IBOutlet weak var slider: UISlider!
@@ -59,8 +70,11 @@ class TradeInOrbitVC: UIViewController {
             
             // generate ask price
             let localBuyPrice = galaxy.currentSystem!.getBuyPrice(commodityToTrade)
-            askPrice = localBuyPrice + (rand(Int(Double(localBuyPrice) * 0.3))) - (rand(Int(Double(localBuyPrice) * 0.3)))
-            print("local buy price is \(localBuyPrice), asking \(askPrice)")            // DEBUG
+            askPrice = localBuyPrice + (rand(Int(Double(localBuyPrice) * 0.3))) - (rand(Int(Double(localBuyPrice) * 0.3))) + 10
+            // handle case where not sold locally and asking price is zero
+            if askPrice == 0 {
+                askPrice = galaxy.getAverageSalePrice(commodityToTrade)
+            }
             
             // calculate max
 //            let maxAfford = player.credits / askPrice
@@ -81,7 +95,38 @@ class TradeInOrbitVC: UIViewController {
             fourthLabel.text = "How many do you want to sell?"
         } else {
             // SELL
+            // arbitrarily choose commodity
+            let commodities = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+            let random = rand(10)
+            commodityToTrade = commodities[random]
             
+            // calculate tradeOfferAmount
+            tradeOfferAmount = Int(Double(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargoBays) * 0.75)
+            
+            // generate ask price
+            let localBuyPrice = galaxy.currentSystem!.getBuyPrice(commodityToTrade)
+            askPrice = localBuyPrice + (rand(Int(Double(localBuyPrice) * 0.3))) - (rand(Int(Double(localBuyPrice) * 0.3))) - 10
+            // handle case where not sold locally and asking price is zero
+            if askPrice == 0 {
+                askPrice = galaxy.getAverageSalePrice(commodityToTrade)
+            }
+            
+            print("local buy price is \(localBuyPrice), asking \(askPrice)")            // DEBUG
+            
+            // calculate max
+            let maxAfford = player.credits / askPrice
+            let maxRoom = player.commanderShip.baysAvailable
+            max = min(maxAfford, maxRoom, tradeOfferAmount)
+            
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            let askPriceFormatted = numberFormatter.stringFromNumber(askPrice)
+            
+            titleLabel.text = "Buy \(commodityToTrade.rawValue)"
+            firstLabel.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
+            secondLabel.text = "The trader has \(player.commanderShip.getQuantity(commodityToTrade)) units for sale."
+            thirdLabel.text = "You have money and space for \(max) units."
+            fourthLabel.text = "How many do you want to buy?"
         }
         
         // update slider stuff
@@ -93,6 +138,12 @@ class TradeInOrbitVC: UIViewController {
     
     func updateQuantityLabel() {
         quantityLabel.text = "\(Int(slider.value)) Units"
+        
+        if Int(slider.value) == 0 {
+            tradeButton.enabled = false
+        } else {
+            tradeButton.enabled = true
+        }
     }
 
     @IBAction func sliderDidMove(sender: AnyObject) {
@@ -128,8 +179,27 @@ class TradeInOrbitVC: UIViewController {
                 })
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // sell
+            
+            player.commanderShip.addCargo(commodityToTrade, quantity: Int(slider.value), pricePaid: askPrice)
+            player.credits -= askPrice * Int(slider.value)
+            
+            // launch alert
+            let title: String = "Trade Completed"
+            let message: String = "Thanks for buying the \(commodityToTrade.rawValue). It's been a pleasure doing business with you."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // end encounter, close VC
+                self.dismissViewControllerAnimated(false, completion: {
+                    // fire delegate method here
+                    
+                    self.delegate?.tradeDidFinish(self)
+                })
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
-        
-        
     }
 }
