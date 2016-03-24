@@ -911,7 +911,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         }
         galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
         
-        // redraw view
+        // EXPERIMENTAL
+        if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader {
+            galaxy.currentJourney!.currentEncounter!.encounterText2 = "The trader ship attacks."
+        }
+        
         redrawViewController()
     }
     

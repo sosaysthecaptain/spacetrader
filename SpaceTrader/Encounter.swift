@@ -273,6 +273,8 @@ class Encounter: NSObject, NSCoding {
             button3Text = ""
             button4Text = ""
             
+            encounterText2 = "The trader ship is fleeing."
+            
             encounterText2 = "Your opponent is fleeing."
         } else if type == EncounterType.traderSurrender {
             button1Text = "Attack"
