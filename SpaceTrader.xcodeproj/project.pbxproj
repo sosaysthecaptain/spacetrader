@@ -17,6 +17,7 @@
 		5A07695D1BEAA0A90007C746 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07695C1BEAA0A90007C746 /* Buttons.swift */; };
 		5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078ABE1BB1CBD20005155D /* SellVC.swift */; };
 		5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078AC01BB33C100005155D /* BuyModalVC.swift */; };
+		5A0AA1931CA3223800687592 /* TradeInOrbitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AA1921CA3223800687592 /* TradeInOrbitVC.swift */; };
 		5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */; };
 		5A1DBBC71C0E3509009E8D0C /* UniversalGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */; };
 		5A24376C1C9329130004D6CE /* BaysCashBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */; };
@@ -115,6 +116,7 @@
 		5A07695C1BEAA0A90007C746 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		5A078ABE1BB1CBD20005155D /* SellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		5A078AC01BB33C100005155D /* BuyModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyModalVC.swift; sourceTree = "<group>"; };
+		5A0AA1921CA3223800687592 /* TradeInOrbitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeInOrbitVC.swift; sourceTree = "<group>"; };
 		5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListDualTableVC.swift; sourceTree = "<group>"; };
 		5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalGadget.swift; sourceTree = "<group>"; };
 		5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaysCashBoxView.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */,
+				5A0AA1921CA3223800687592 /* TradeInOrbitVC.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
 				5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */,
 			);
@@ -488,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */,
+				5A0AA1931CA3223800687592 /* TradeInOrbitVC.swift in Sources */,
 				5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */,
 				5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */,
 				5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */,

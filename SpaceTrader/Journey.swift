@@ -207,7 +207,7 @@ class Journey: NSObject, NSCoding {
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
                 encounterThisClick = true
-            } else if encounterTest < (strengthTraders + ((strengthPolice + strengthPirates) / 3)) {       // OVER 2 | not orthodox, but this seemed high
+            } else if encounterTest < (strengthTraders + ((strengthPolice + strengthPirates) / 1)) {       // OVER 2 | not orthodox, but this seemed high
                 // properly, strengthPirates + strengthPolice + strengthTraders
                 trader = true
                 encounterThisClick = true
@@ -351,12 +351,15 @@ class Journey: NSObject, NSCoding {
             // if trade is to proceed, determine whether will be traderBuy or traderSell based on how many bays the player has available
             if tradeInOrbit {
                 // figure out how many bays the player has full
-                let baysFull = player.commanderShip.baysOfTradeableItems
+                let baysFull = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
                 
                 // if player has more bays full than not, will be traderBuy. Else, traderSell
+                print("baysFull: \(baysFull), baysAvailable: \(player.commanderShip.baysAvailable)")
                 if baysFull > player.commanderShip.baysAvailable {
+                    print("player has more bays full, encounter will be traderBuy")
                     encounterType = EncounterType.traderBuy
                 } else {
+                    print("player has more bays empty, encounter will be traderSell")
                     encounterType = EncounterType.traderSell
                 }
             }

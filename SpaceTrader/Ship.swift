@@ -73,10 +73,6 @@ class SpaceShip: NSObject, NSCoding {
         return total
     }
     
-    var baysOfTradeableItems: Int {
-        return (waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard)
-    }
-    
     var value: Int {
         var total = self.price
         for item in weapon {
@@ -110,6 +106,23 @@ class SpaceShip: NSObject, NSCoding {
             }
         }
         return false
+    }
+    
+    var getItemWithLargestQuantity: TradeItemType {
+        var runningBestItem = TradeItemType.Water
+        var runningBestAmount = 0
+        
+        let items = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+        
+        for item in items {
+            let quantityOnBoard = self.getQuantity(item)
+            if quantityOnBoard > runningBestAmount {
+                runningBestItem = item
+                runningBestAmount = quantityOnBoard
+            }
+        }
+        
+        return runningBestItem
     }
     
     var raided = false

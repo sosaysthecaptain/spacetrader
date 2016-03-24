@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EncounterVC: UIViewController, PlunderDelegate {
+class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -228,6 +228,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
 
     }
     
+    func tradeDidFinish(controller: TradeInOrbitVC) {
+        dismissViewController()
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+    }
+    
     func dismissViewController() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -239,6 +244,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "plunderModal" {
             let modalVC: PlunderVC = segue.destinationViewController as! PlunderVC
+            modalVC.delegate = self
+        }
+        if segue.identifier == "tradeInOrbit" {
+            let modalVC: TradeInOrbitVC = segue.destinationViewController as! TradeInOrbitVC
             modalVC.delegate = self
         }
     }
@@ -790,7 +799,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func trade() {
-        // TODO
+        performSegueWithIdentifier("tradeInOrbit", sender: nil)
     }
     
     func bribe() {
