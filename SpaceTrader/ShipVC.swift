@@ -8,6 +8,7 @@
 
 import UIKit
 
+// OBSOLETE, SUPERCEDED BY SHIP2VC
 class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var typeLabel: UILabel!

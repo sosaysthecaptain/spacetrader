@@ -5799,6 +5799,35 @@
             <point key="canvasLocation" x="3092" y="168"/>
         </scene>
         <!--Personnel-->
+        <scene sceneID="JKP-Jm-hbS">
+            <objects>
+                <viewController title="Personnel" id="BZd-ve-IMj" customClass="Mercenaries2VC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tfo-xy-80i"/>
+                        <viewControllerLayoutGuide type="bottom" id="qWu-Fq-Kd1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dgD-L9-XcL">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Personnel" id="Wi5-GS-j5e">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="tz0-Ke-QuW">
+                            <connections>
+                                <action selector="donePressed:" destination="BZd-ve-IMj" id="QRF-I1-J5z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <segue destination="ala-zk-ekz" kind="show" identifier="mercenaryDetail" id="gLW-Zt-l96"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqn-Mv-66C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2138" y="-1966"/>
+        </scene>
+        <!--Personnel-->
         <scene sceneID="MDS-LH-Raf">
             <objects>
                 <viewController id="1s8-qu-jkZ" customClass="MercenariesVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
@@ -5869,12 +5898,12 @@
                     <connections>
                         <outlet property="tableView1" destination="GXk-YB-lzH" id="798-Jd-SU7"/>
                         <outlet property="tableView2" destination="iUH-Vk-L3Z" id="XAE-b5-qRU"/>
-                        <segue destination="ala-zk-ekz" kind="show" identifier="mercenaryDetail" id="uED-0y-qbB"/>
+                        <segue destination="ala-zk-ekz" kind="show" identifier="mercenaryDetailOld" id="uED-0y-qbB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eD8-rQ-Lrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="-1967"/>
+            <point key="canvasLocation" x="-1928" y="-2943"/>
         </scene>
         <!--Personnel Information-->
         <scene sceneID="NB3-dQ-TTN">
@@ -6011,7 +6040,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpH-zS-ocT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="-1970"/>
+            <point key="canvasLocation" x="3501" y="-2088"/>
         </scene>
         <!--Newspaper-->
         <scene sceneID="AYU-Aq-6fA">
@@ -6228,7 +6257,7 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Hire Mercenaries"/>
                                 <connections>
-                                    <segue destination="6xM-0L-v7u" kind="presentation" id="Hlw-51-ahH"/>
+                                    <segue destination="rvO-g4-mJh" kind="presentation" id="zhU-Ey-WmG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
@@ -7115,7 +7144,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G32-DB-DTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="-4153"/>
+            <point key="canvasLocation" x="823" y="-4979"/>
+        </scene>
+        <!--Commander Status-->
+        <scene sceneID="3zm-Oa-SIv">
+            <objects>
+                <viewController title="Commander Status" id="xmr-t0-zTL" customClass="CommanderStatus2VC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F3K-IH-2ug"/>
+                        <viewControllerLayoutGuide type="bottom" id="q2W-Yv-Fb2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R5x-hG-dm5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wnf-vZ-Owd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataViewCell" id="KW6-NL-d8z" customClass="CommanderStatusTableViewCell" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KW6-NL-d8z" id="vg5-0t-DH2">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R9-um-Rm2" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDd-lr-lmL" customClass="LightGrayLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="540" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TDd-lr-lmL" secondAttribute="trailing" constant="10" id="33H-9N-dAM"/>
+                                                <constraint firstItem="0R9-um-Rm2" firstAttribute="centerY" secondItem="vg5-0t-DH2" secondAttribute="centerY" id="Qtf-8y-V2M"/>
+                                                <constraint firstItem="TDd-lr-lmL" firstAttribute="centerY" secondItem="vg5-0t-DH2" secondAttribute="centerY" id="jZV-lY-lP6"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="0R9-um-Rm2" secondAttribute="leading" constant="-10" id="x56-Jt-4mI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="keyLabel" destination="0R9-um-Rm2" id="rHo-6d-my1"/>
+                                            <outlet property="valueLabel" destination="TDd-lr-lmL" id="71l-Zl-dZp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xmr-t0-zTL" id="pXG-Fl-xXP"/>
+                                    <outlet property="delegate" destination="xmr-t0-zTL" id="1J7-ja-rHV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wnf-vZ-Owd" firstAttribute="top" secondItem="F3K-IH-2ug" secondAttribute="bottom" constant="-20" id="21r-ah-Kes"/>
+                            <constraint firstItem="wnf-vZ-Owd" firstAttribute="leading" secondItem="R5x-hG-dm5" secondAttribute="leadingMargin" constant="-20" id="F2H-XA-r93"/>
+                            <constraint firstItem="q2W-Yv-Fb2" firstAttribute="top" secondItem="wnf-vZ-Owd" secondAttribute="bottom" id="eb3-NV-3Bi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wnf-vZ-Owd" secondAttribute="trailing" constant="-20" id="voF-BP-SD0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wnf-vZ-Owd" id="8ck-Mp-Nw8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gD7-xc-DC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="-4133"/>
         </scene>
         <!--Ship-->
         <scene sceneID="Ob9-IC-QjV">
@@ -7379,8 +7479,7 @@
                         <segue destination="jA6-fh-QL3" kind="show" identifier="shipSegueOld" id="53N-xp-IUJ"/>
                         <segue destination="Lcm-tf-PiG" kind="show" identifier="questsSegue" id="Ar9-K4-bFr"/>
                         <segue destination="w91-2u-hYv" kind="show" identifier="bankSegue" id="kNQ-SZ-n7e"/>
-                        <segue destination="aCM-XP-DSP" kind="show" identifier="commanderStatusSegue" id="T8h-U3-MQC"/>
-                        <segue destination="1s8-qu-jkZ" kind="show" identifier="personnelSegue" id="Cl3-zi-3cm"/>
+                        <segue destination="1s8-qu-jkZ" kind="show" identifier="personnelSegueOld" id="Cl3-zi-3cm"/>
                         <segue destination="hAw-Mn-ebQ" kind="show" identifier="gameMenuToNewGame" id="3Q1-XC-r58"/>
                         <segue destination="Qju-ZK-wY0" kind="show" identifier="saveGameSegue" id="UNn-vJ-URu"/>
                         <segue destination="Wm3-cU-jE3" kind="show" identifier="loadGameFromMenu" id="Btw-3O-mir"/>
@@ -7389,6 +7488,8 @@
                         <segue destination="hCQ-9f-5bf" kind="show" identifier="aboutSpaceTraderSegue" id="oWK-Jg-tvH"/>
                         <segue destination="D9y-jd-91M" kind="show" identifier="gameOverFromMenu" id="BMi-US-Qfe"/>
                         <segue destination="X0Z-Pa-keA" kind="show" identifier="shipSegue" id="ycv-d0-lap"/>
+                        <segue destination="xmr-t0-zTL" kind="show" identifier="commanderStatusSegue" id="dW2-rg-CkT"/>
+                        <segue destination="BZd-ve-IMj" kind="show" identifier="personnelSegue" id="XhI-dd-ihR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grt-on-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -7446,7 +7547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEX-HB-5cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="-3067"/>
+            <point key="canvasLocation" x="2653" y="-3067"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vdJ-Vu-z9d">
@@ -7652,7 +7753,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B38-gd-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="-1999"/>
+            <point key="canvasLocation" x="-2676" y="-2975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eUp-Wk-Owq">
@@ -7931,6 +8032,24 @@
             </objects>
             <point key="canvasLocation" x="670" y="-467"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hv5-YB-plH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvO-g4-mJh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lex-EI-e07">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BZd-ve-IMj" kind="relationship" relationship="rootViewController" id="z0M-AT-Edg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KBZ-uY-LbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1450" y="-1966"/>
+        </scene>
     </scenes>
     <resources>
         <image name="badge_bang" width="30" height="30"/>
@@ -7946,14 +8065,16 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cgx-NQ-uql"/>
-        <segue reference="c5m-hx-g89"/>
-        <segue reference="Btw-3O-mir"/>
-        <segue reference="Cl3-zi-3cm"/>
-        <segue reference="Q3s-ve-bLK"/>
-        <segue reference="64M-bi-8yt"/>
-        <segue reference="REb-7Y-v0a"/>
+        <segue reference="c3w-zS-mG3"/>
         <segue reference="ufr-wM-KNn"/>
+        <segue reference="64M-bi-8yt"/>
+        <segue reference="94b-YL-qQM"/>
+        <segue reference="XhI-dd-ihR"/>
+        <segue reference="Q3s-ve-bLK"/>
+        <segue reference="Btw-3O-mir"/>
+        <segue reference="gLW-Zt-l96"/>
+        <segue reference="REb-7Y-v0a"/>
         <segue reference="Zhh-Pf-9hC"/>
+        <segue reference="c5m-hx-g89"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// OBSOLETE
 class CommanderStatusVC: UIViewController  {
 
     @IBOutlet weak var nameLabel: UILabel!

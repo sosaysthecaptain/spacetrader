@@ -29,6 +29,8 @@
 		5A2A5A0E1C500CAE00E31031 /* GameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A5A0D1C500CAE00E31031 /* GameOverVC.swift */; };
 		5A2A5A101C50238600E31031 /* HighScoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */; };
 		5A34BDAC1CA47B950099BC75 /* Ship2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34BDAB1CA47B950099BC75 /* Ship2VC.swift */; };
+		5A34BDAE1CA586C10099BC75 /* CommanderStatus2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34BDAD1CA586C10099BC75 /* CommanderStatus2VC.swift */; };
+		5A34BDB01CA5B0C20099BC75 /* Mercenaries2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34BDAF1CA5B0C20099BC75 /* Mercenaries2VC.swift */; };
 		5A447B581C99B47E00F0AA3A /* LaunchScreenSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A447B571C99B47E00F0AA3A /* LaunchScreenSplash.storyboard */; };
 		5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FAF1BC0ACC400021B13 /* WarpVC.swift */; };
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; };
@@ -129,6 +131,8 @@
 		5A2A5A0D1C500CAE00E31031 /* GameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverVC.swift; sourceTree = "<group>"; };
 		5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresVC.swift; sourceTree = "<group>"; };
 		5A34BDAB1CA47B950099BC75 /* Ship2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship2VC.swift; sourceTree = "<group>"; };
+		5A34BDAD1CA586C10099BC75 /* CommanderStatus2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderStatus2VC.swift; sourceTree = "<group>"; };
+		5A34BDAF1CA5B0C20099BC75 /* Mercenaries2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mercenaries2VC.swift; sourceTree = "<group>"; };
 		5A447B571C99B47E00F0AA3A /* LaunchScreenSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreenSplash.storyboard; sourceTree = "<group>"; };
 		5A518FAF1BC0ACC400021B13 /* WarpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpVC.swift; sourceTree = "<group>"; };
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
 				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
 				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
+				5A34BDAD1CA586C10099BC75 /* CommanderStatus2VC.swift */,
 				5AD3A10C1C87A38A004388D4 /* Design2VC.swift */,
 				5AD3A10A1C86846E004388D4 /* DesignVC.swift */,
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
@@ -251,6 +256,7 @@
 				5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */,
 				5A7172591C1651820082BF0C /* MenuVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
+				5A34BDAF1CA5B0C20099BC75 /* Mercenaries2VC.swift */,
 				5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */,
 				5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */,
 				5A85A9DC1C505F82007338BE /* OptionsVC.swift */,
@@ -541,6 +547,7 @@
 				5ACE0CB81C697A5F00DB0F4A /* MeltdownVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */,
+				5A34BDAE1CA586C10099BC75 /* CommanderStatus2VC.swift in Sources */,
 				5A2A5A0C1C4FF9E600E31031 /* HighScore.swift in Sources */,
 				5A24376C1C9329130004D6CE /* BaysCashBoxView.swift in Sources */,
 				5A07695D1BEAA0A90007C746 /* Buttons.swift in Sources */,
@@ -566,6 +573,7 @@
 				5AEBE7F11C9DF97C008F339E /* SellPickerVC.swift in Sources */,
 				5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */,
 				5A71725A1C1651820082BF0C /* MenuVC.swift in Sources */,
+				5A34BDB01CA5B0C20099BC75 /* Mercenaries2VC.swift in Sources */,
 				5AEBE7EF1C9CF5D2008F339E /* BuyPickerVC.swift in Sources */,
 				5AFEB63B1C4954E9000F51BE /* SavedGame.swift in Sources */,
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,
