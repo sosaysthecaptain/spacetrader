@@ -5809,7 +5809,57 @@
                     <view key="view" contentMode="scaleToFill" id="dgD-L9-XcL">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8KG-1I-akt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personnelPrototypeCell" id="Stn-5R-Vrz" customClass="PersonnelTableViewCell" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Stn-5R-Vrz" id="4Qe-tG-6e3">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRT-uO-7Pv" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MO-zZ-zsd" customClass="LightGrayLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="540" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4MO-zZ-zsd" secondAttribute="trailing" constant="10" id="Ew9-QP-aGF"/>
+                                                <constraint firstItem="4MO-zZ-zsd" firstAttribute="centerY" secondItem="4Qe-tG-6e3" secondAttribute="centerY" id="VJO-1L-3Yf"/>
+                                                <constraint firstItem="uRT-uO-7Pv" firstAttribute="centerY" secondItem="4Qe-tG-6e3" secondAttribute="centerY" id="s7A-mr-s1K"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="uRT-uO-7Pv" secondAttribute="leading" constant="-10" id="tqc-Mp-zM8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="keyLabel" destination="uRT-uO-7Pv" id="mPN-N4-SXU"/>
+                                            <outlet property="valueLabel" destination="4MO-zZ-zsd" id="Pud-8e-2wi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BZd-ve-IMj" id="s03-T6-07l"/>
+                                    <outlet property="delegate" destination="BZd-ve-IMj" id="KMT-Ql-ucO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="8KG-1I-akt" secondAttribute="trailing" constant="-20" id="F5u-Gg-lud"/>
+                            <constraint firstItem="qWu-Fq-Kd1" firstAttribute="top" secondItem="8KG-1I-akt" secondAttribute="bottom" id="XFq-DR-vMf"/>
+                            <constraint firstItem="8KG-1I-akt" firstAttribute="top" secondItem="Tfo-xy-80i" secondAttribute="bottom" id="ia9-Wj-UQm"/>
+                            <constraint firstItem="8KG-1I-akt" firstAttribute="leading" secondItem="dgD-L9-XcL" secondAttribute="leadingMargin" constant="-20" id="zRG-XF-SrO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Personnel" id="Wi5-GS-j5e">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="tz0-Ke-QuW">
@@ -5820,6 +5870,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="tableView" destination="8KG-1I-akt" id="gzq-CA-dhY"/>
                         <segue destination="ala-zk-ekz" kind="show" identifier="mercenaryDetail" id="gLW-Zt-l96"/>
                     </connections>
                 </viewController>
