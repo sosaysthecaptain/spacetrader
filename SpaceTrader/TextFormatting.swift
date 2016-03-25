@@ -47,6 +47,19 @@ class StandardLabelPurple: UILabel {
     }
 }
 
+class LightGrayLabel: UILabel {
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        self.setup()
+    }
+    
+    func setup() {
+        self.textColor = inactiveGray
+        self.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+        
+    }
+}
+
 class PurpleHeader: UILabel {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
