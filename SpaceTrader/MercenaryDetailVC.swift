@@ -27,7 +27,7 @@ class MercenaryDetailVC: UIViewController {
         super.viewDidLoad()
         displayInformation()
     }
-
+    
     func displayInformation() {
         nameLabel.text = selectedMercenary!.name
         dailyCostLabel.text = "\(selectedMercenary!.costPerDay) cr. daily"
@@ -96,7 +96,11 @@ class MercenaryDetailVC: UIViewController {
         }
         galaxy.currentSystem!.mercenaries.removeAtIndex(indexOfMercenary)
         
-        navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
+        //self.performSegueWithIdentifier("unwind", sender: self)
+        //performSegueWithIdentifier("finishedMercenaryDetail", sender: nil)
+        //dismissViewControllerAnimated(true, completion: nil)
+        //navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func fireMercenary() {
@@ -109,7 +113,12 @@ class MercenaryDetailVC: UIViewController {
             currentIndex += 1
         }
         player.commanderShip.crew.removeAtIndex(indexOfMercenary)
-        navigationController?.popToRootViewControllerAnimated(true)
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        //self.performSegueWithIdentifier("unwind", sender: self)
+        //performSegueWithIdentifier("finishedMercenaryDetail", sender: nil)
+        //dismissViewControllerAnimated(true, completion: nil)
+        //navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

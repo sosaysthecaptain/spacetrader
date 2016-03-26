@@ -5872,11 +5872,13 @@
                     <connections>
                         <outlet property="tableView" destination="8KG-1I-akt" id="gzq-CA-dhY"/>
                         <segue destination="ala-zk-ekz" kind="show" identifier="mercenaryDetail" id="gLW-Zt-l96"/>
+                        <segue destination="XUD-9V-MwR" kind="unwind" unwindAction="unwindAfterMercenaryDetail:" id="XJG-rd-e1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dqn-Mv-66C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XUD-9V-MwR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2138" y="-1966"/>
+            <point key="canvasLocation" x="2166" y="-1966"/>
         </scene>
         <!--Personnel-->
         <scene sceneID="MDS-LH-Raf">
@@ -5965,46 +5967,46 @@
                         <viewControllerLayoutGuide type="bottom" id="2FG-IQ-FoG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NEu-Iw-DKQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-el-PH3" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-el-PH3" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="30" y="20" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="66 credits daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-zn-84a" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66 credits daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-zn-84a" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="30" y="49" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pilot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6M-bY-bR8" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6M-bY-bR8" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="71" y="78" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fighter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXM-eO-LX1" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fighter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXM-eO-LX1" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="51" y="107" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trader:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="er9-Dd-lAF" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trader:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="er9-Dd-lAF" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="55" y="136" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Engineer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Iq-jSp" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engineer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Iq-jSp" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="38" y="165" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-3a-pVW" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-3a-pVW" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="502" y="420" width="68" height="42"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
                                 <state key="normal" title="Hire"/>
@@ -6012,25 +6014,25 @@
                                     <action selector="hireFireButton:" destination="ala-zk-ekz" eventType="touchUpInside" id="4c7-A0-FKW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-5f-m9K" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-5f-m9K" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="120" y="78" width="32" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boC-zE-Czx" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boC-zE-Czx" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="120" y="107" width="32" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkD-wJ-fTa" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkD-wJ-fTa" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="120" y="136" width="32" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szc-qc-Qca" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;#&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szc-qc-Qca" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="120" y="165" width="32" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6087,9 +6089,11 @@
                         <outlet property="nameLabel" destination="JNl-el-PH3" id="bvg-LY-bgv"/>
                         <outlet property="pilotLabel" destination="wWm-5f-m9K" id="q0H-JZ-F5j"/>
                         <outlet property="traderLabel" destination="TkD-wJ-fTa" id="IXY-7I-zQK"/>
+                        <segue destination="9Vi-uC-L65" kind="unwind" unwindAction="unwindAfterMercenaryDetail:" id="y8v-Uf-djp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpH-zS-ocT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9Vi-uC-L65" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3501" y="-2088"/>
         </scene>
@@ -6307,9 +6311,6 @@
                                 <rect key="frame" x="433" y="221" width="147" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Hire Mercenaries"/>
-                                <connections>
-                                    <segue destination="rvO-g4-mJh" kind="presentation" id="zhU-Ey-WmG"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="223" y="221" width="80" height="34"/>
@@ -8120,12 +8121,12 @@
         <segue reference="ufr-wM-KNn"/>
         <segue reference="64M-bi-8yt"/>
         <segue reference="94b-YL-qQM"/>
-        <segue reference="XhI-dd-ihR"/>
         <segue reference="Q3s-ve-bLK"/>
         <segue reference="Btw-3O-mir"/>
-        <segue reference="gLW-Zt-l96"/>
         <segue reference="REb-7Y-v0a"/>
         <segue reference="Zhh-Pf-9hC"/>
         <segue reference="c5m-hx-g89"/>
+        <segue reference="z0M-AT-Edg"/>
+        <segue reference="gLW-Zt-l96"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,12 +12,24 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
+    // variables to reference
+    let fillableSlotsOnYourShip = player.commanderShip.crewQuarters - 1
+    
+    var selectedMercenary: CrewMember?
+    var hireNotFire: Bool?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // fix bug whereby table view starts halfway down the page
         self.edgesForExtendedLayout = UIRectEdge.None
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        self.tableView.reloadData()
     }
 
 
@@ -29,29 +41,37 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: PersonnelTableViewCell = tableView.dequeueReusableCellWithIdentifier("personnelPrototypeCell") as! PersonnelTableViewCell
 
         if indexPath.section == 0 {
-            // basic info
-            if indexPath.row == 0 {
-                cell.setLabels("Name", valueLabel: "\(player.commanderName)")
-            } else if indexPath.row == 1 {
-                cell.setLabels("Difficulty", valueLabel: "\(player.difficulty.rawValue)")
-            } else if indexPath.row == 2 {
-                cell.setLabels("Time", valueLabel: "\(player.days)")
+            // your crew
+            if fillableSlotsOnYourShip == 0 {
+                if indexPath.row == 0 {
+                    cell.setLabels("<no available crew quarters>", valueLabel: "")
+                }
             } else {
-                print("error")
+                if indexPath.row < fillableSlotsOnYourShip {
+                    // there is a slot, something will be written
+                    if indexPath.row < player.commanderShip.crew.count {
+                        // there is a crewmember in this slot. Display
+                        cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "\(player.commanderShip.crew[indexPath.row].name)")
+                        // set disclosure indicator
+                        cell.accessoryType = .DisclosureIndicator
+                    } else {
+                        // empty slot
+                        cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "<empty slot>")
+                    }
+                }
             }
             //cell.accessoryType = .DisclosureIndicator
         } else if indexPath.section == 1 {
-            // skills
-            if indexPath.row == 0 {
-                cell.setLabels("Pilot", valueLabel: "\(player.initialPilotSkill) (\(player.pilotSkill))")
-            } else if indexPath.row == 1 {
-                cell.setLabels("Fighter", valueLabel: "\(player.initialFighterSkill) (\(player.fighterSkill))")
-            } else if indexPath.row == 2 {
-                cell.setLabels("Trader", valueLabel: "\(player.initialTraderSkill) (\(player.traderSkill))")
-            } else if indexPath.row == 3 {
-                cell.setLabels("Engineer", valueLabel: "\(player.initialEngineerSkill) (\(player.engineerSkill))")
+            // see if any mercenaries are available to be hired here
+            if galaxy.currentSystem!.mercenaries.count == 0 {
+                if indexPath.row == 0 {
+                    cell.setLabels("<no available mercenaries at this system>", valueLabel: "")
+                }
             } else {
-                print("error")
+                if indexPath.row < galaxy.currentSystem!.mercenaries.count {
+                    cell.setLabels("\(galaxy.currentSystem!.mercenaries[indexPath.row].name)", valueLabel: "")
+                    cell.accessoryType = .DisclosureIndicator
+                }
             }
 
         }
@@ -65,19 +85,38 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 3
+            return fillableSlotsOnYourShip
         } else if section == 1 {
-            return 4
+            if galaxy.currentSystem!.mercenaries.count > 0 {
+                return galaxy.currentSystem!.mercenaries.count
+            } else {
+                return 1
+            }
         } else {
             return 0
         }
             
     }
     
-    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //
-    //        print("selected \(indexPath.section), \(indexPath.row)")
-    //    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        print("selected \(indexPath.section), \(indexPath.row)")
+        
+        if indexPath.section == 0 {
+            // one of your crew
+            hireNotFire = false
+            selectedMercenary = player.commanderShip.crew[indexPath.row]
+            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+        } else {
+            // someone available for hire
+            hireNotFire = true
+            selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
+            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+        }
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -87,6 +126,22 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             return "error"
         }
+    }
+    
+    // sets properties in the destination vc
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "mercenaryDetail") {
+            let vc = (segue.destinationViewController as! MercenaryDetailVC)
+            vc.selectedMercenary = selectedMercenary
+            vc.hireNotFire = hireNotFire
+        }
+        
+    }
+    
+    // unwind segue
+    @IBAction func unwindAfterMercenaryDetail(segue:UIStoryboardSegue) {
+        print("mercenaries reached by unwind segue!")
     }
 
     
