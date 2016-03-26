@@ -57,6 +57,7 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
                     } else {
                         // empty slot
                         cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "<empty slot>")
+                        cell.accessoryType = .None          // necessary in case you fire someone and this reloads
                     }
                 }
             }

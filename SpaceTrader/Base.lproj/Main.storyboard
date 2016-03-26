@@ -6311,6 +6311,9 @@
                                 <rect key="frame" x="433" y="221" width="147" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Hire Mercenaries"/>
+                                <connections>
+                                    <segue destination="rvO-g4-mJh" kind="presentation" id="THg-xK-WFM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="223" y="221" width="80" height="34"/>
