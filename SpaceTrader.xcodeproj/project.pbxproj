@@ -250,6 +250,7 @@
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
+				5A34BDB11CA725C00099BC75 /* EquipmentList2VC.swift */,
 				5A85A9DA1C502D50007338BE /* HighScoresCell.swift */,
 				5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */,
 				5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */,
@@ -270,7 +271,6 @@
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
 				5A34BDAB1CA47B950099BC75 /* Ship2VC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
-				5A34BDB11CA725C00099BC75 /* EquipmentList2VC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
