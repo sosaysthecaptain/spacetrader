@@ -298,6 +298,9 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    // UTILITY************************************************************************************
+    //func getImageForUniversalGadget(universalGadget: Universa)
+    
     // sets properties in the destination vc
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
