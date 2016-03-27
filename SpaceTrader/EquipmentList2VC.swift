@@ -43,9 +43,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        //self.tableView.reloadData()
-        //self.refreshView()
+        self.refreshView()                  // needed for return from detail view
     }
     
     
@@ -210,24 +208,6 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         self.tableView.reloadData()
-        
-        
-        // DEBUG ************************************************************************
-        print("end refreshView()")
-        print("shipItems:********************************************")
-        for item in shipItems {
-            print(item.name)
-        }
-        
-        print("inventoryKeyArray:********************************************")
-        for item in inventoryKeyArray {
-            print(item)
-        }
-        
-        print("inventoryValueArray:************************************************")
-        for item in inventoryValueArray {
-            print(item)
-        }
     }
     
     
@@ -246,13 +226,14 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             }
         } else if indexPath.section == 1 {
+            // available items
             if availableItems.count == 0 {
                 // set <no available items>
                 cell.setLabels("<none available>", valueLabel: "")
                 cell.accessoryType = .None
             } else {
                 if indexPath.row < availableItems.count {
-                    cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "\(availableItems[indexPath.row].name)")
+                    cell.setLabels("\(availableItems[indexPath.row].name)", valueLabel: "")
                     cell.accessoryType = .DisclosureIndicator
                 }
             }
@@ -284,25 +265,28 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return 0
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        print("selected \(indexPath.section), \(indexPath.row)")
-//        
-//        if indexPath.section == 0 {
-//            // one of your crew
-//            hireNotFire = false
-//            selectedMercenary = player.commanderShip.crew[indexPath.row]
-//            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
-//        } else {
-//            // someone available for hire
-//            hireNotFire = true
-//            selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
-//            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
-//        }
-//        
-//        // deselection
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("selected \(indexPath.section), \(indexPath.row)")
+        
+        if indexPath.section == 0 {
+            
+            // user selected inventory item
+            if indexPath.row <= (shipItems.count - 1) {
+                chosenItem = shipItems[indexPath.row]
+                buyNotSell = false
+                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+            }
+        } else {
+            // user selected available item
+            chosenItem = availableItems[indexPath.row]
+            buyNotSell = true
+            performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+        }
+        
+        // deselection
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
