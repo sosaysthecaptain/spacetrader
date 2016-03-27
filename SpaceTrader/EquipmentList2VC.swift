@@ -21,6 +21,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var inventoryKeyArray: [String] = []
     var inventoryValueArray: [String] = []
+    var inventoryDisclosureIndicator: [Bool] = []
     
     
     var shipItems: [UniversalGadget] = []
@@ -34,6 +35,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.reloadData()
+        self.refreshView()
         
         // fix bug whereby table view starts halfway down the page
         self.edgesForExtendedLayout = UIRectEdge.None
@@ -43,7 +45,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidAppear(animated: Bool) {
         
         //self.tableView.reloadData()
-        self.refreshView()
+        //self.refreshView()
     }
     
     
@@ -68,17 +70,20 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             // populate current weapons
             inventoryKeyArray = []
             inventoryValueArray = []
+            inventoryDisclosureIndicator = []
             shipItems = []
             let weaponSlotCount = player.commanderShip.weaponSlots
             if weaponSlotCount == 0 {
                 inventoryKeyArray.append("<Your Ship Has No Weapon Slots>")
                 inventoryValueArray.append("")
+                inventoryDisclosureIndicator.append(false)
             } else {
                 // add weapons
                 var slotNumber = 1
                 for item in player.commanderShip.weapon {
                     inventoryKeyArray.append("Weapon slot \(slotNumber)")
                     inventoryValueArray.append("\(item.name)")
+                    inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 0, wType: item.type, sType: nil, gType: nil))
                     slotNumber += 1
                 }
@@ -87,6 +92,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 while (weaponSlotCount + 1) > slotNumber {
                     inventoryKeyArray.append("Weapon slot \(slotNumber)")
                     inventoryValueArray.append("<empty>")
+                    inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
             }
@@ -113,17 +119,20 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             // populate current shields
             inventoryKeyArray = []
             inventoryValueArray = []
+            inventoryDisclosureIndicator = []
             shipItems = []
             let shieldSlotCount = player.commanderShip.shieldSlots
             if shieldSlotCount == 0 {
                 inventoryKeyArray.append("<Your Ship Has No Shield Slots>")
                 inventoryValueArray.append("")
+                inventoryDisclosureIndicator.append(false)
             } else {
                 // add shields
                 var slotNumber = 1
                 for item in player.commanderShip.shield {
                     inventoryKeyArray.append("Shield slot \(slotNumber)")
                     inventoryValueArray.append("\(item.name)")
+                    inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 1, wType: nil, sType: item.type, gType: nil))
                     slotNumber += 1
                 }
@@ -132,6 +141,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 while (shieldSlotCount + 1) > slotNumber {
                     inventoryKeyArray.append("Shield slot \(slotNumber)")
                     inventoryValueArray.append("<empty>")
+                    inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
             }
@@ -159,16 +169,19 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             // populate current gadgets
             inventoryKeyArray = []
             inventoryValueArray = []
+            inventoryDisclosureIndicator = []
             let gadgetSlotCount = player.commanderShip.gadgetSlots
             if gadgetSlotCount == 0 {
                 inventoryKeyArray.append("<Your Ship Has No Gadget Slots>")
                 inventoryValueArray.append("")
+                inventoryDisclosureIndicator.append(false)
             } else {
                 // add gadget
                 var slotNumber = 1
                 for item in player.commanderShip.gadget {
                     inventoryKeyArray.append("Gadget slot \(slotNumber)")
                     inventoryValueArray.append("\(item.name)")
+                    inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 2, wType: nil, sType: nil, gType: item.type))
                     slotNumber += 1
                 }
@@ -177,6 +190,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 while (gadgetSlotCount + 1) > slotNumber {
                     inventoryKeyArray.append("Gadget slot \(slotNumber)")
                     inventoryValueArray.append("<empty>")
+                    inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
             }
@@ -225,36 +239,21 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             // inventory
             if indexPath.row < inventoryKeyArray.count {
                 cell.setLabels(inventoryKeyArray[indexPath.row], valueLabel: inventoryValueArray[indexPath.row])
+                if inventoryDisclosureIndicator[indexPath.row] == true {
+                    cell.accessoryType = .DisclosureIndicator
+                } else {
+                    cell.accessoryType = .None
+                }
             }
-            
-            
-//            if fillableSlotsOnYourShip == 0 {
-//                if indexPath.row == 0 {
-//                    cell.setLabels("<no available crew quarters>", valueLabel: "")
-//                }
-//            } else {
-//                if indexPath.row < fillableSlotsOnYourShip {
-//                    // there is a slot, something will be written
-//                    if indexPath.row < player.commanderShip.crew.count {
-//                        // there is a crewmember in this slot. Display
-//                        cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "\(player.commanderShip.crew[indexPath.row].name)")
-//                        // set disclosure indicator
-//                        cell.accessoryType = .DisclosureIndicator
-//                    } else {
-//                        // empty slot
-//                        cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "<empty slot>")
-//                        cell.accessoryType = .None          // necessary in case you fire someone and this reloads
-//                    }
-//                }
-//            }
-            //cell.accessoryType = .DisclosureIndicator
         } else if indexPath.section == 1 {
             if availableItems.count == 0 {
                 // set <no available items>
                 cell.setLabels("<none available>", valueLabel: "")
+                cell.accessoryType = .None
             } else {
                 if indexPath.row < availableItems.count {
                     cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "\(availableItems[indexPath.row].name)")
+                    cell.accessoryType = .DisclosureIndicator
                 }
             }
             
