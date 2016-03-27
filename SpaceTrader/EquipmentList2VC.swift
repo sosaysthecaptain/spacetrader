@@ -33,6 +33,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tableView.reloadData()
         
         // fix bug whereby table view starts halfway down the page
         self.edgesForExtendedLayout = UIRectEdge.None
@@ -41,7 +42,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidAppear(animated: Bool) {
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
+        self.refreshView()
     }
     
     
@@ -83,7 +85,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (weaponSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Slot \(slotNumber): <empty>")
+                    inventoryKeyArray.append("Weapon slot \(slotNumber)")
+                    inventoryValueArray.append("<empty>")
                     slotNumber += 1
                 }
             }
@@ -127,7 +130,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (shieldSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Slot \(slotNumber): <empty>")
+                    inventoryKeyArray.append("Shield slot \(slotNumber)")
+                    inventoryValueArray.append("<empty>")
                     slotNumber += 1
                 }
             }
@@ -171,7 +175,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (gadgetSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Slot \(slotNumber): <empty>")
+                    inventoryKeyArray.append("Gadget slot \(slotNumber)")
+                    inventoryValueArray.append("<empty>")
                     slotNumber += 1
                 }
             }
@@ -191,6 +196,24 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         self.tableView.reloadData()
+        
+        
+        // DEBUG ************************************************************************
+        print("end refreshView()")
+        print("shipItems:********************************************")
+        for item in shipItems {
+            print(item.name)
+        }
+        
+        print("inventoryKeyArray:********************************************")
+        for item in inventoryKeyArray {
+            print(item)
+        }
+        
+        print("inventoryValueArray:************************************************")
+        for item in inventoryValueArray {
+            print(item)
+        }
     }
     
     
@@ -200,7 +223,9 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if indexPath.section == 0 {
             // inventory
-            // TODO
+            if indexPath.row < inventoryKeyArray.count {
+                cell.setLabels(inventoryKeyArray[indexPath.row], valueLabel: inventoryValueArray[indexPath.row])
+            }
             
             
 //            if fillableSlotsOnYourShip == 0 {
