@@ -79,8 +79,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 // add weapons
                 var slotNumber = 1
                 for item in player.commanderShip.weapon {
-                    inventoryKeyArray.append("Weapon slot \(slotNumber)")
-                    inventoryValueArray.append("\(item.name)")
+                    inventoryKeyArray.append("\(item.name)")
+                    inventoryValueArray.append("")
                     inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 0, wType: item.type, sType: nil, gType: nil))
                     slotNumber += 1
@@ -88,8 +88,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (weaponSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Weapon slot \(slotNumber)")
-                    inventoryValueArray.append("<empty>")
+                    inventoryKeyArray.append("<empty slot>")       // Previously "Weapon slot 1"
+                    inventoryValueArray.append("")           // previously <item>
                     inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
@@ -128,8 +128,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 // add shields
                 var slotNumber = 1
                 for item in player.commanderShip.shield {
-                    inventoryKeyArray.append("Shield slot \(slotNumber)")
-                    inventoryValueArray.append("\(item.name)")
+                    inventoryKeyArray.append("\(item.name)")
+                    inventoryValueArray.append("")
                     inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 1, wType: nil, sType: item.type, gType: nil))
                     slotNumber += 1
@@ -137,8 +137,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (shieldSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Shield slot \(slotNumber)")
-                    inventoryValueArray.append("<empty>")
+                    inventoryKeyArray.append("<empty>")
+                    inventoryValueArray.append("")
                     inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
@@ -177,8 +177,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 // add gadget
                 var slotNumber = 1
                 for item in player.commanderShip.gadget {
-                    inventoryKeyArray.append("Gadget slot \(slotNumber)")
-                    inventoryValueArray.append("\(item.name)")
+                    inventoryKeyArray.append("\(item.name)")
+                    inventoryValueArray.append("")
                     inventoryDisclosureIndicator.append(true)
                     shipItems.append(UniversalGadget(typeIndex: 2, wType: nil, sType: nil, gType: item.type))
                     slotNumber += 1
@@ -186,8 +186,8 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 shipItemsCount = shipItems.count
                 // add empty slots
                 while (gadgetSlotCount + 1) > slotNumber {
-                    inventoryKeyArray.append("Gadget slot \(slotNumber)")
-                    inventoryValueArray.append("<empty>")
+                    inventoryKeyArray.append("<empty>")
+                    inventoryValueArray.append("")
                     inventoryDisclosureIndicator.append(false)
                     slotNumber += 1
                 }
