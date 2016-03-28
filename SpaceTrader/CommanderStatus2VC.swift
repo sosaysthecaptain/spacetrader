@@ -24,6 +24,9 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: CommanderStatusTableViewCell = tableView.dequeueReusableCellWithIdentifier("dataViewCell") as! CommanderStatusTableViewCell
         
+        // since this is infomational only, none of these should be selectable
+        cell.userInteractionEnabled = false
+        
         if indexPath.section == 0 {
             // basic info
             if indexPath.row == 0 {
