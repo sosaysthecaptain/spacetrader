@@ -2230,10 +2230,10 @@
             </objects>
             <point key="canvasLocation" x="8486" y="1772"/>
         </scene>
-        <!--Equipment DetailVC-->
+        <!--Equipment Info-->
         <scene sceneID="q6a-Oq-6xf">
             <objects>
-                <viewController id="Ibv-PY-xwS" customClass="EquipmentDetailVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Equipment Info" id="Ibv-PY-xwS" customClass="EquipmentDetailVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dJZ-6a-kd3"/>
                         <viewControllerLayoutGuide type="bottom" id="9Zf-kM-bpy"/>
@@ -2242,12 +2242,6 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SD-ct-neu" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="206" y="15" width="188" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADr-3e-5AE">
                                 <rect key="frame" x="249" y="50" width="102" height="82"/>
                                 <subviews>
@@ -2267,14 +2261,8 @@
                                     <constraint firstAttribute="height" constant="82" id="rIu-ox-amr"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yw-kV-Bna" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="55" y="162" width="45" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44n-C1-Bci" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="55" y="188" width="45" height="18"/>
+                                <rect key="frame" x="62" y="188" width="38" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2297,7 +2285,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgv-KB-kGJ" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgv-KB-kGJ" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="110" y="162" width="52" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2327,8 +2315,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-Nz-i8C" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="275" y="472" width="51" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-Nz-i8C" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="272" y="472" width="57" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Buy"/>
                                 <connections>
@@ -2345,19 +2333,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7SD-ct-neu" firstAttribute="centerX" secondItem="kQ9-eg-4SB" secondAttribute="centerX" id="2lB-Lk-6P6"/>
                             <constraint firstItem="RC5-Id-abq" firstAttribute="leading" secondItem="13X-cr-e3Z" secondAttribute="leading" id="2q7-l2-JiP"/>
                             <constraint firstItem="DdM-i2-gGN" firstAttribute="trailing" secondItem="E5k-1k-pz1" secondAttribute="trailing" id="3re-2i-cqB"/>
                             <constraint firstItem="dcj-QD-iMH" firstAttribute="leading" secondItem="DdM-i2-gGN" secondAttribute="leading" id="669-bK-nPJ"/>
                             <constraint firstItem="9Zf-kM-bpy" firstAttribute="top" secondItem="Gb2-Nz-i8C" secondAttribute="bottom" constant="30" id="6Hd-7h-35r"/>
                             <constraint firstItem="RC5-Id-abq" firstAttribute="baseline" secondItem="E5k-1k-pz1" secondAttribute="baseline" id="6wP-Or-2dF"/>
-                            <constraint firstItem="44n-C1-Bci" firstAttribute="trailing" secondItem="0Yw-kV-Bna" secondAttribute="trailing" id="ABm-0T-vej"/>
-                            <constraint firstItem="44n-C1-Bci" firstAttribute="leading" secondItem="0Yw-kV-Bna" secondAttribute="leading" id="Bk0-zC-c0y"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="0Yw-kV-Bna" secondAttribute="leading" id="CoF-iG-vP0"/>
-                            <constraint firstItem="bgv-KB-kGJ" firstAttribute="leading" secondItem="0Yw-kV-Bna" secondAttribute="trailing" constant="10" id="DZm-tE-dl2"/>
                             <constraint firstItem="E5k-1k-pz1" firstAttribute="top" secondItem="44n-C1-Bci" secondAttribute="bottom" constant="8" id="FA3-os-DVu"/>
                             <constraint firstItem="DdM-i2-gGN" firstAttribute="top" secondItem="E5k-1k-pz1" secondAttribute="bottom" constant="8" id="Fcm-HC-wGK"/>
-                            <constraint firstItem="0Yw-kV-Bna" firstAttribute="top" secondItem="ADr-3e-5AE" secondAttribute="bottom" constant="30" id="GHL-Zb-Z1i"/>
                             <constraint firstItem="L30-oB-xrP" firstAttribute="leading" secondItem="Tl1-03-8ZD" secondAttribute="leading" id="Hc6-5e-kL9"/>
                             <constraint firstItem="E5k-1k-pz1" firstAttribute="trailing" secondItem="44n-C1-Bci" secondAttribute="trailing" id="IZ0-QE-sHd"/>
                             <constraint firstItem="ADr-3e-5AE" firstAttribute="top" secondItem="dJZ-6a-kd3" secondAttribute="bottom" constant="50" id="JvV-Ol-tSt"/>
@@ -2365,12 +2347,11 @@
                             <constraint firstItem="dcj-QD-iMH" firstAttribute="top" secondItem="DdM-i2-gGN" secondAttribute="bottom" constant="8" id="L4o-oS-Zmk"/>
                             <constraint firstItem="Tl1-03-8ZD" firstAttribute="leading" secondItem="RC5-Id-abq" secondAttribute="leading" id="MHG-re-wJY"/>
                             <constraint firstItem="L30-oB-xrP" firstAttribute="baseline" secondItem="dcj-QD-iMH" secondAttribute="baseline" id="QBF-lr-Pnx"/>
-                            <constraint firstItem="bgv-KB-kGJ" firstAttribute="baseline" secondItem="0Yw-kV-Bna" secondAttribute="baseline" id="RVT-fk-xf1"/>
                             <constraint firstAttribute="leadingMargin" secondItem="04g-0V-EUX" secondAttribute="leading" id="SlX-sN-7MU"/>
                             <constraint firstItem="Gb2-Nz-i8C" firstAttribute="centerX" secondItem="kQ9-eg-4SB" secondAttribute="centerX" id="VXp-y1-eHK"/>
                             <constraint firstItem="13X-cr-e3Z" firstAttribute="baseline" secondItem="44n-C1-Bci" secondAttribute="baseline" id="Vcx-UO-kO9"/>
-                            <constraint firstItem="7SD-ct-neu" firstAttribute="top" secondItem="dJZ-6a-kd3" secondAttribute="bottom" constant="15" id="Ydj-r0-ktS"/>
-                            <constraint firstItem="44n-C1-Bci" firstAttribute="top" secondItem="0Yw-kV-Bna" secondAttribute="bottom" constant="8" id="ZuC-Tz-EYS"/>
+                            <constraint firstItem="bgv-KB-kGJ" firstAttribute="top" secondItem="dJZ-6a-kd3" secondAttribute="bottom" constant="162" id="Wwn-Wp-GAW"/>
+                            <constraint firstItem="13X-cr-e3Z" firstAttribute="leading" secondItem="44n-C1-Bci" secondAttribute="trailing" constant="10" id="ZYu-tT-yK0"/>
                             <constraint firstItem="E5k-1k-pz1" firstAttribute="leading" secondItem="44n-C1-Bci" secondAttribute="leading" id="ep8-ES-8h1"/>
                             <constraint firstItem="04g-0V-EUX" firstAttribute="top" secondItem="dcj-QD-iMH" secondAttribute="bottom" constant="20" id="gOr-Gu-yiC"/>
                             <constraint firstItem="13X-cr-e3Z" firstAttribute="leading" secondItem="bgv-KB-kGJ" secondAttribute="leading" id="ifO-H9-W93"/>
@@ -2380,10 +2361,10 @@
                             <constraint firstItem="ADr-3e-5AE" firstAttribute="centerX" secondItem="kQ9-eg-4SB" secondAttribute="centerX" id="uIt-Vu-aEB"/>
                             <constraint firstItem="Tl1-03-8ZD" firstAttribute="baseline" secondItem="DdM-i2-gGN" secondAttribute="baseline" id="wIV-4D-tih"/>
                             <constraint firstItem="dcj-QD-iMH" firstAttribute="trailing" secondItem="DdM-i2-gGN" secondAttribute="trailing" id="xv5-rR-1K9"/>
+                            <constraint firstItem="13X-cr-e3Z" firstAttribute="top" secondItem="bgv-KB-kGJ" secondAttribute="bottom" constant="8" id="ytL-3A-Q6r"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="CoF-iG-vP0"/>
                                 <exclude reference="ep8-ES-8h1"/>
                                 <exclude reference="kiv-Eg-TIT"/>
                                 <exclude reference="669-bK-nPJ"/>
@@ -5937,6 +5918,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MO-zZ-zsd" customClass="LightGrayLabel" customModule="SpaceTrader" customModuleProvider="target">
                                                     <rect key="frame" x="540" y="11" width="42" height="21"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5947,7 +5929,13 @@
                                                 <constraint firstItem="4MO-zZ-zsd" firstAttribute="centerY" secondItem="4Qe-tG-6e3" secondAttribute="centerY" id="VJO-1L-3Yf"/>
                                                 <constraint firstItem="uRT-uO-7Pv" firstAttribute="centerY" secondItem="4Qe-tG-6e3" secondAttribute="centerY" id="s7A-mr-s1K"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="uRT-uO-7Pv" secondAttribute="leading" constant="-10" id="tqc-Mp-zM8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4MO-zZ-zsd" secondAttribute="trailing" constant="10" id="vf5-DG-0Kg"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Ew9-QP-aGF"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="keyLabel" destination="uRT-uO-7Pv" id="mPN-N4-SXU"/>
@@ -6066,10 +6054,10 @@
             </objects>
             <point key="canvasLocation" x="-1928" y="-2943"/>
         </scene>
-        <!--Personnel Information-->
+        <!--Personnel Info-->
         <scene sceneID="NB3-dQ-TTN">
             <objects>
-                <viewController title="Personnel Information" id="ala-zk-ekz" customClass="MercenaryDetailVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Personnel Info" id="ala-zk-ekz" customClass="MercenaryDetailVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yio-gC-RLW"/>
                         <viewControllerLayoutGuide type="bottom" id="2FG-IQ-FoG"/>
@@ -8246,17 +8234,17 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="64M-bi-8yt"/>
+        <segue reference="BMi-US-Qfe"/>
         <segue reference="FU7-pK-WDz"/>
-        <segue reference="QJh-Dr-ysc"/>
-        <segue reference="Zhh-Pf-9hC"/>
-        <segue reference="Btw-3O-mir"/>
-        <segue reference="Q3s-ve-bLK"/>
-        <segue reference="z0M-AT-Edg"/>
-        <segue reference="gLW-Zt-l96"/>
+        <segue reference="64M-bi-8yt"/>
         <segue reference="REb-7Y-v0a"/>
+        <segue reference="QJh-Dr-ysc"/>
+        <segue reference="Btw-3O-mir"/>
+        <segue reference="Cl3-zi-3cm"/>
+        <segue reference="XhI-dd-ihR"/>
+        <segue reference="Q3s-ve-bLK"/>
+        <segue reference="gLW-Zt-l96"/>
         <segue reference="c5m-hx-g89"/>
         <segue reference="kdA-Wi-tPd"/>
-        <segue reference="c3w-zS-mG3"/>
     </inferredMetricsTieBreakers>
 </document>

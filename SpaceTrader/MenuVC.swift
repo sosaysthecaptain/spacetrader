@@ -40,6 +40,9 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = section3[indexPath.row]
         }
         
+        // set font
+        cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+        
         return cell
     }
     
@@ -158,7 +161,7 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // set back button text for child VCs to "Back"
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
-        backItem.title = "Back"
+        backItem.title = "Menu"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
     

@@ -221,8 +221,10 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 cell.setLabels(inventoryKeyArray[indexPath.row], valueLabel: inventoryValueArray[indexPath.row])
                 if inventoryDisclosureIndicator[indexPath.row] == true {
                     cell.accessoryType = .DisclosureIndicator
+                    cell.userInteractionEnabled = true
                 } else {
                     cell.accessoryType = .None
+                    cell.userInteractionEnabled = false
                 }
             }
         } else if indexPath.section == 1 {
@@ -231,10 +233,12 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 // set <no available items>
                 cell.setLabels("<none available>", valueLabel: "")
                 cell.accessoryType = .None
+                cell.userInteractionEnabled = false
             } else {
                 if indexPath.row < availableItems.count {
                     cell.setLabels("\(availableItems[indexPath.row].name)", valueLabel: "")
                     cell.accessoryType = .DisclosureIndicator
+                    cell.userInteractionEnabled = true
                 }
             }
             

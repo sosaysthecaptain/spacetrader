@@ -110,7 +110,7 @@ class ShortRangeChartView: UIView {
             
             // font is set here, attributed text setup mess
             let text = system.name
-            let font = UIFont(name: "AvenirNext-Regular", size: 13.0)
+            let font = UIFont(name: "AvenirNext-DemiBold", size: 13.0)
             let color = textGray
             let myAttributes = [NSFontAttributeName: font!,
                                 NSForegroundColorAttributeName: color]

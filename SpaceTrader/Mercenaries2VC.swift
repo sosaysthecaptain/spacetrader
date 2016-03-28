@@ -54,10 +54,12 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
                         cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "\(player.commanderShip.crew[indexPath.row].name)")
                         // set disclosure indicator
                         cell.accessoryType = .DisclosureIndicator
+                        cell.userInteractionEnabled = true
                     } else {
                         // empty slot
                         cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "<empty slot>")
                         cell.accessoryType = .None          // necessary in case you fire someone and this reloads
+                        cell.userInteractionEnabled = false
                     }
                 }
             }
@@ -66,12 +68,14 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
             // see if any mercenaries are available to be hired here
             if galaxy.currentSystem!.mercenaries.count == 0 {
                 if indexPath.row == 0 {
-                    cell.setLabels("<no available mercenaries at this system>", valueLabel: "")
+                    cell.setLabels("<none>", valueLabel: "")
+                    cell.userInteractionEnabled = false
                 }
             } else {
                 if indexPath.row < galaxy.currentSystem!.mercenaries.count {
                     cell.setLabels("\(galaxy.currentSystem!.mercenaries[indexPath.row].name)", valueLabel: "")
                     cell.accessoryType = .DisclosureIndicator
+                    cell.userInteractionEnabled = true
                 }
             }
 

@@ -28,6 +28,9 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: DataViewTableCell = tableView.dequeueReusableCellWithIdentifier("dataViewCell") as! DataViewTableCell
         
+        // since this is infomational only, none of these should be selectable
+        cell.userInteractionEnabled = false
+        
         if indexPath.section == 0 {
             // ship info
             if indexPath.row == 0 {
