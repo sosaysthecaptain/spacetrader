@@ -1134,10 +1134,28 @@
             </objects>
             <point key="canvasLocation" x="8647" y="-345"/>
         </scene>
-        <!--Design Your Own Ship-->
+        <!--Name and Size-->
+        <scene sceneID="BlZ-kT-nJk">
+            <objects>
+                <viewController title="Name and Size" id="cLa-VM-bhw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yus-Up-W2F"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ww-qA-chw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="66u-aj-Pn3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-Bt-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9344" y="-345"/>
+        </scene>
+        <!--Space Allocation-->
         <scene sceneID="y5e-tx-2S7">
             <objects>
-                <viewController title="Design Your Own Ship" id="pAI-51-RBD" customClass="Design2VC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Space Allocation" id="pAI-51-RBD" customClass="Design2VC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6KO-ku-NZI"/>
                         <viewControllerLayoutGuide type="bottom" id="tTB-BB-M2O"/>
@@ -1532,7 +1550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-l4-bPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9458" y="-401"/>
+            <point key="canvasLocation" x="10024" y="-345"/>
         </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
@@ -2449,7 +2467,7 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Design Your Own Ship"/>
                                 <connections>
-                                    <segue destination="lgM-Qm-TxB" kind="show" id="QYt-vW-SEO"/>
+                                    <segue destination="lgM-Qm-TxB" kind="presentation" id="QYt-vW-SEO"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDW-ci-DsX" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
