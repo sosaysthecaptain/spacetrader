@@ -105,14 +105,23 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if indexPath.section == 0 {
             // one of your crew
-            hireNotFire = false
-            selectedMercenary = player.commanderShip.crew[indexPath.row]
-            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+            
+            // verify that this isn't an empty slot
+            if indexPath.row < player.commanderShip.crew.count {
+                hireNotFire = false
+                selectedMercenary = player.commanderShip.crew[indexPath.row]
+                performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+            }
+            
         } else {
             // someone available for hire
-            hireNotFire = true
-            selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
-            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+            
+            // verify not empty slot
+            if indexPath.row < galaxy.currentSystem!.mercenaries.count {
+                hireNotFire = true
+                selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
+                performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+            }
         }
         
         // deselection

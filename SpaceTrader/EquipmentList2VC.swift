@@ -260,7 +260,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     print("error")
             }
         } else if section == 1 {
-            return availableItems.count
+            return max(availableItems.count, 1)
         }
         return 0
     }
@@ -270,18 +270,19 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         print("selected \(indexPath.section), \(indexPath.row)")
         
         if indexPath.section == 0 {
-            
-            // user selected inventory item
-            if indexPath.row <= (shipItems.count - 1) {
+            // inventory item
+            if indexPath.row < (shipItems.count) {          // check that this isn't the cell saying "no item"
                 chosenItem = shipItems[indexPath.row]
                 buyNotSell = false
                 performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
             }
         } else {
             // user selected available item
-            chosenItem = availableItems[indexPath.row]
-            buyNotSell = true
-            performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+            if indexPath.row < (availableItems.count) {
+                chosenItem = availableItems[indexPath.row]
+                buyNotSell = true
+                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+            }
         }
         
         // deselection

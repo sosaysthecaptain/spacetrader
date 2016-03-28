@@ -17,7 +17,7 @@ class EquipmentDetailVC: UIViewController {
     @IBOutlet weak var sellPrice: UILabel!
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var blurb: UITextView!
-    @IBOutlet weak var buyButtonLabel: UIButton!
+    @IBOutlet weak var buyButtonLabel: PurpleButtonTurnsGray!
     
     
     var chosenItem: UniversalGadget?
