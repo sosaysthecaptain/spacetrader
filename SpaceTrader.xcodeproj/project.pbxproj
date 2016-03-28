@@ -52,6 +52,7 @@
 		5A85A9DB1C502D50007338BE /* HighScoresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DA1C502D50007338BE /* HighScoresCell.swift */; };
 		5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DC1C505F82007338BE /* OptionsVC.swift */; };
 		5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */; };
+		5A9818FF1CA9B9B70087450E /* DesignNaSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
 		5AAB08B71C4AD166000BB87F /* LoadGameCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */; };
 		5AAD55271C234F72001FC8AD /* BankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55261C234F72001FC8AD /* BankVC.swift */; };
@@ -155,6 +156,7 @@
 		5A85A9DA1C502D50007338BE /* HighScoresCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresCell.swift; sourceTree = "<group>"; };
 		5A85A9DC1C505F82007338BE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresGameOverVC.swift; sourceTree = "<group>"; };
+		5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignNaSVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
 		5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadGameCellTableViewCell.swift; sourceTree = "<group>"; };
 		5AAD55261C234F72001FC8AD /* BankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankVC.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
 				5A34BDAD1CA586C10099BC75 /* CommanderStatus2VC.swift */,
 				5AD3A10C1C87A38A004388D4 /* Design2VC.swift */,
+				5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */,
 				5AD3A10A1C86846E004388D4 /* DesignVC.swift */,
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
@@ -517,6 +520,7 @@
 				5A7DE88D1C49E04E006A3D48 /* LoadGameVC.swift in Sources */,
 				5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */,
 				5AE975631C10CA2A005D78E1 /* SpecialVC.swift in Sources */,
+				5A9818FF1CA9B9B70087450E /* DesignNaSVC.swift in Sources */,
 				5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */,

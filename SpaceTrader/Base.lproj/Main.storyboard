@@ -974,7 +974,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rdn-YA-av1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="noG-jv-NCF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vut-Sl-MX7">
@@ -1038,7 +1038,7 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <action selector="continueButton:" destination="lgM-Qm-TxB" eventType="touchUpInside" id="cRh-S5-f05"/>
+                                    <segue destination="cLa-VM-bhw" kind="show" id="8fY-mJ-vwb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ship Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hX-zE-Vmy">
@@ -1117,6 +1117,10 @@
                             <constraint firstItem="5hX-zE-Vmy" firstAttribute="leading" secondItem="ePh-AO-Q9N" secondAttribute="leading" id="wCw-6A-NJe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Design Your Own Ship" id="GTT-We-jCJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="T6e-17-Yt4"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="logoView" destination="vut-Sl-MX7" id="kxq-d4-DKl"/>
                         <outlet property="shipNameTextField" destination="ycH-v0-pWH" id="dri-KI-nxX"/>
@@ -1127,30 +1131,98 @@
                         <outlet property="textView1" destination="zfv-cH-gEF" id="Tsd-aT-6gJ"/>
                         <outlet property="textView2" destination="dhO-D4-Zrb" id="cvf-OZ-19C"/>
                         <outlet property="textView3" destination="uTW-LD-5rj" id="q5n-3f-Fk9"/>
-                        <segue destination="pAI-51-RBD" kind="show" identifier="BYOSsecondPageSegue" id="1Eh-mE-ldv"/>
+                        <segue destination="pAI-51-RBD" kind="show" identifier="BYOSsecondPageSegueOld" id="1Eh-mE-ldv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jm8-Qd-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8647" y="-345"/>
+            <point key="canvasLocation" x="9459" y="-345"/>
         </scene>
         <!--Name and Size-->
         <scene sceneID="BlZ-kT-nJk">
             <objects>
-                <viewController title="Name and Size" id="cLa-VM-bhw" sceneMemberID="viewController">
+                <viewController title="Name and Size" id="cLa-VM-bhw" customClass="DesignNaSVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yus-Up-W2F"/>
                         <viewControllerLayoutGuide type="bottom" id="0ww-qA-chw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="66u-aj-Pn3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVr-9X-Ssf" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="2" y="44" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jTm-k5-1Jp">
+                                <rect key="frame" x="100" y="40" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cLa-VM-bhw" id="ccc-De-vCd"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xp-jP-bLy" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="53" y="105" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8y0-dU-nQy" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="100" y="105" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-UX-npa">
+                                <rect key="frame" x="486" y="101" width="94" height="29"/>
+                                <color key="tintColor" red="0.1803921568627451" green="0.0" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="stepperWasPressed:" destination="cLa-VM-bhw" eventType="valueChanged" id="dvp-6b-gT1"/>
+                                </connections>
+                            </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIw-sE-Bjy" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="254" y="452" width="92" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="continueTapped:" destination="cLa-VM-bhw" eventType="touchUpInside" id="Ht3-zl-X6K"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jTm-k5-1Jp" secondAttribute="trailing" id="0LZ-TZ-05G"/>
+                            <constraint firstItem="6Xp-jP-bLy" firstAttribute="trailing" secondItem="tVr-9X-Ssf" secondAttribute="trailing" id="2ub-rz-Dbt"/>
+                            <constraint firstItem="jTm-k5-1Jp" firstAttribute="top" secondItem="yus-Up-W2F" secondAttribute="bottom" constant="40" id="5aK-wt-pos"/>
+                            <constraint firstItem="jTm-k5-1Jp" firstAttribute="leading" secondItem="66u-aj-Pn3" secondAttribute="leadingMargin" constant="80" id="A0r-wU-EAY"/>
+                            <constraint firstItem="cfF-UX-npa" firstAttribute="trailing" secondItem="jTm-k5-1Jp" secondAttribute="trailing" id="Fw2-jD-KPy"/>
+                            <constraint firstItem="rIw-sE-Bjy" firstAttribute="centerX" secondItem="66u-aj-Pn3" secondAttribute="centerX" id="KAI-Df-afF"/>
+                            <constraint firstItem="8y0-dU-nQy" firstAttribute="baseline" secondItem="6Xp-jP-bLy" secondAttribute="baseline" id="KM2-Wf-M5t"/>
+                            <constraint firstItem="jTm-k5-1Jp" firstAttribute="leading" secondItem="tVr-9X-Ssf" secondAttribute="trailing" constant="10" id="TRI-9S-5BP"/>
+                            <constraint firstItem="8y0-dU-nQy" firstAttribute="leading" secondItem="jTm-k5-1Jp" secondAttribute="leading" id="Vxu-Fw-s4K"/>
+                            <constraint firstItem="cfF-UX-npa" firstAttribute="centerY" secondItem="6Xp-jP-bLy" secondAttribute="centerY" id="fgL-0F-pqf"/>
+                            <constraint firstItem="tVr-9X-Ssf" firstAttribute="centerY" secondItem="jTm-k5-1Jp" secondAttribute="centerY" id="jCH-NJ-gDr"/>
+                            <constraint firstItem="0ww-qA-chw" firstAttribute="top" secondItem="rIw-sE-Bjy" secondAttribute="bottom" constant="50" id="oGT-aP-BsC"/>
+                            <constraint firstItem="6Xp-jP-bLy" firstAttribute="top" secondItem="tVr-9X-Ssf" secondAttribute="bottom" constant="40" id="s5E-ZW-F7j"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="continueButton" destination="rIw-sE-Bjy" id="NfJ-EH-Tss"/>
+                        <outlet property="nameTextField" destination="jTm-k5-1Jp" id="h7U-Kn-7Zm"/>
+                        <outlet property="sizeLabel" destination="8y0-dU-nQy" id="5NZ-hM-kkb"/>
+                        <outlet property="stepper" destination="cfF-UX-npa" id="5oe-xM-W1V"/>
+                        <segue destination="pAI-51-RBD" kind="show" identifier="BYOSsecondPageSegue" id="xmg-UF-vEv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-Bt-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9344" y="-345"/>
+            <point key="canvasLocation" x="10156" y="-345"/>
         </scene>
         <!--Space Allocation-->
         <scene sceneID="y5e-tx-2S7">
@@ -1161,7 +1233,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tTB-BB-M2O"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="45h-Z9-zcC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Space Allocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45p-lg-9cE">
@@ -1521,6 +1593,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="cancelDesignOutlet" destination="di1-Z6-ron" id="IRY-K6-iXE"/>
                         <outlet property="cargoBaysField" destination="gzP-z1-ef7" id="4of-mk-bJV"/>
@@ -1550,7 +1623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-l4-bPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10024" y="-345"/>
+            <point key="canvasLocation" x="10836" y="-345"/>
         </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
@@ -2467,7 +2540,7 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Design Your Own Ship"/>
                                 <connections>
-                                    <segue destination="lgM-Qm-TxB" kind="presentation" id="QYt-vW-SEO"/>
+                                    <segue destination="Uul-ja-6oi" kind="presentation" id="QYt-vW-SEO"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDW-ci-DsX" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
@@ -8222,6 +8295,24 @@
             </objects>
             <point key="canvasLocation" x="7794" y="1128"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eMc-Lv-acl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uul-ja-6oi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xVb-mT-m4D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lgM-Qm-TxB" kind="relationship" relationship="rootViewController" id="ihY-kd-j7s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bi1-Mc-mBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8647" y="-345"/>
+        </scene>
     </scenes>
     <resources>
         <image name="badge_bang" width="30" height="30"/>
@@ -8249,5 +8340,6 @@
         <segue reference="Q3s-ve-bLK"/>
         <segue reference="gLW-Zt-l96"/>
         <segue reference="c5m-hx-g89"/>
+        <segue reference="xmg-UF-vEv"/>
     </inferredMetricsTieBreakers>
 </document>
