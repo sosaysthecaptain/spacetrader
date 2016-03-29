@@ -65,6 +65,12 @@ class DesignNaSVC: UIViewController, UITextFieldDelegate {
         updateUI()
     }
     
+    @IBAction func cancelPressed(sender: AnyObject) {
+        // close window, return to shipyard
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     // CALL THIS FROM stepperWasPressed
     func updateUI() {
         switch stepper.value {

@@ -10,6 +10,16 @@ import UIKit
 
 class Design2VC: UIViewController {
 
+    
+    @IBOutlet weak var cargoBaysLabel: StandardLabel!
+    @IBOutlet weak var rangeLabel: StandardLabel!
+    @IBOutlet weak var hullStrengthLabel: StandardLabel!
+    @IBOutlet weak var weaponSlotsLabel: StandardLabel!
+    @IBOutlet weak var shieldSlotsLabel: StandardLabel!
+    @IBOutlet weak var gadgetSlotsLabel: StandardLabel!
+    @IBOutlet weak var crewQuartersLabel: StandardLabel!
+
+    
     @IBOutlet weak var cargoBaysField: UITextField!
     @IBOutlet weak var rangeField: UITextField!
     @IBOutlet weak var hullStrengthField: UITextField!
@@ -18,13 +28,13 @@ class Design2VC: UIViewController {
     @IBOutlet weak var gadgetSlotsField: UITextField!
     @IBOutlet weak var crewQuartersField: UITextField!
     
-    @IBOutlet weak var cargoBaysStepper: UIStepper!
-    @IBOutlet weak var rangeStepper: UIStepper!
-    @IBOutlet weak var hullStrengthStepper: UIStepper!
-    @IBOutlet weak var weaponSlotsStepper: UIStepper!
-    @IBOutlet weak var shieldSlotsStepper: UIStepper!
-    @IBOutlet weak var gadgetSlotsStepper: UIStepper!
-    @IBOutlet weak var crewQuartersStepper: UIStepper!
+    @IBOutlet weak var cargoBaysStepper: PurpleStepper!
+    @IBOutlet weak var rangeStepper: PurpleStepper!
+    @IBOutlet weak var hullStrengthStepper: PurpleStepper!
+    @IBOutlet weak var weaponSlotsStepper: PurpleStepper!
+    @IBOutlet weak var shieldSlotsStepper: PurpleStepper!
+    @IBOutlet weak var gadgetSlotsStepper: PurpleStepper!
+    @IBOutlet weak var crewQuartersStepper: PurpleStepper!
     
     @IBOutlet weak var unitsUsedLabel: UILabel!
     @IBOutlet weak var percentMaxLabel: UILabel!
@@ -34,8 +44,8 @@ class Design2VC: UIViewController {
     @IBOutlet weak var lessTradeInLabel: UILabel!
     @IBOutlet weak var totalCostLabel: UILabel!
     
-    @IBOutlet weak var cancelDesignOutlet: CustomButton!
-    @IBOutlet weak var constructShipOutlet: CustomButton!
+    @IBOutlet weak var cancelDesignOutlet: GrayButtonTurnsLighter!
+    @IBOutlet weak var constructShipOutlet: PurpleButtonTurnsGray!
     
     // use variables
     var size: SizeType = SizeType.Medium        // set from player on viewDidLoad
@@ -90,13 +100,13 @@ class Design2VC: UIViewController {
         computePrices()
         
         // set value fields
-        cargoBaysField.text = "\(Int(cargoBaysStepper.value))"
-        rangeField.text = "\(Int(rangeStepper.value))"
-        hullStrengthField.text = "\(Int(hullStrengthStepper.value))"
-        weaponSlotsField.text = "\(Int(weaponSlotsStepper.value))"
-        shieldSlotsField.text = "\(Int(shieldSlotsStepper.value))"
-        gadgetSlotsField.text = "\(Int(gadgetSlotsStepper.value))"
-        crewQuartersField.text = "\(Int(crewQuartersStepper.value))"
+        cargoBaysLabel.text = "\(Int(cargoBaysStepper.value))"
+        rangeLabel.text = "\(Int(rangeStepper.value))"
+        hullStrengthLabel.text = "\(Int(hullStrengthStepper.value))"
+        weaponSlotsLabel.text = "\(Int(weaponSlotsStepper.value))"
+        shieldSlotsLabel.text = "\(Int(shieldSlotsStepper.value))"
+        gadgetSlotsLabel.text = "\(Int(gadgetSlotsStepper.value))"
+        crewQuartersLabel.text = "\(Int(crewQuartersStepper.value))"
         
         // set units in use labels
         unitsUsedLabel.text = "\(Int(unitsInUse))/\(Int(maxUnits))"
@@ -315,18 +325,17 @@ class Design2VC: UIViewController {
     }
     
     @IBAction func cancelDesignAction(sender: AnyObject) {
-        // LEAVING THIS FUNCTIONALITY OUT FOR NOW
-        
         // reset values (probably not necessary)
-//        player.selectedConstructShipSize = SizeType.Medium
-//        cargoBaysStepper.value = cargoBaysStepper.minimumValue
-//        rangeStepper.value = rangeStepper.minimumValue
-//        hullStrengthStepper.value = hullStrengthStepper.minimumValue
-//        weaponSlotsStepper.value = weaponSlotsStepper.minimumValue
-//        shieldSlotsStepper.value = shieldSlotsStepper.minimumValue
-//        gadgetSlotsStepper.value = gadgetSlotsStepper.minimumValue
+        player.selectedConstructShipSize = SizeType.Medium
+        cargoBaysStepper.value = cargoBaysStepper.minimumValue
+        rangeStepper.value = rangeStepper.minimumValue
+        hullStrengthStepper.value = hullStrengthStepper.minimumValue
+        weaponSlotsStepper.value = weaponSlotsStepper.minimumValue
+        shieldSlotsStepper.value = shieldSlotsStepper.minimumValue
+        gadgetSlotsStepper.value = gadgetSlotsStepper.minimumValue
         
         // close window, return to shipyard
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // CONSTRUCT SHIP FUNCTIONS
