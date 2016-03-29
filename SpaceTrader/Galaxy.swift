@@ -512,7 +512,9 @@ class Galaxy: NSObject, NSCoding {
         print("total planets populated: \(totalPlanets)")
         
         // DEBUG: print systems not in range
-        seeHowManySystemsAreReachable()
+        //seeHowManySystemsAreReachable()
+        //getUnreachablePlanets()
+        reassignUnreachablePlanets()
         
     }
     
@@ -569,6 +571,15 @@ class Galaxy: NSObject, NSCoding {
             system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
             proximityFlag = verifyMinDistance(system, i: planets.count)
         }
+    }
+    
+    func reassignRandomCoordsNoCheck(system: StarSystem) {
+        let wUpper: UInt32 = 148
+        let wLower: UInt32 = 2
+        let hUpper: UInt32 = 108
+        let hLower: UInt32 = 2
+        system.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+        system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
     }
     
 
@@ -1116,60 +1127,126 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func seeHowManySystemsAreReachable() {
+    
+    // STUFF PERTAINING TO REACHABLE PLANETS ISSUE********************************************************
+    // this one will be removed
+//    func seeHowManySystemsAreReachable() {
+//        var reachableSystems: [StarSystem] = []
+//        reachableSystems.append(currentSystem!)
+//        // distance to test for is found within getSystemsInRangeOfPlanet
+//        
+//        print("REACHABLE SYSTEM READOUT****************************************************************")
+//        print("reachable systems initialized with \(reachableSystems[0].name)")
+//        
+//        var systemsWithinTenOfCurrent: [StarSystem] = []
+//        let foundSystems = getSystemsInRangeOfPlanet(reachableSystems[0])
+//        for item in foundSystems {
+//            systemsWithinTenOfCurrent.append(item)
+//        }
+//        print("planets within ten clicks of currentSystem:")
+//        for planet in systemsWithinTenOfCurrent {
+//            print(planet.name)
+//        }
+//
+//        // second jump
+//        var furtherReachableSystems = planetsReachableWithinFurtherTenClicks(systemsWithinTenOfCurrent)
+//        print("\(furtherReachableSystems.count) systems reachable in two jumps")
+//        
+//        // third jump
+//        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+//        print("\(furtherReachableSystems.count) systems reachable in three jumps")
+//        
+//        // fourth jump
+//        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+//        print("\(furtherReachableSystems.count) systems reachable in four jumps")
+//        
+//        // fifth jump
+//        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+//        print("\(furtherReachableSystems.count) systems reachable in five jumps")
+//        
+//        for _ in 0..<20 {
+//            furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+//        }
+//        print("\(furtherReachableSystems.count) systems reachable in 25 jumps")
+//        
+//        // generate and display list of unreachable planets
+//        let unreachablePlanets = getUnreachableSystems(furtherReachableSystems)
+//        for system in unreachablePlanets {
+//            print("unreachable: \(system.name)")
+//        }
+//        
+//        print("reassigning...")
+//        reassignCoordsOfUnreachableSystems(unreachablePlanets)
+//        
+//        
+//        
+//    }
+    
+    func getUnreachablePlanets() -> [StarSystem] {
+        // returns all planets unreachable from 13 parsec jumps from currentSystem
+        
         var reachableSystems: [StarSystem] = []
         reachableSystems.append(currentSystem!)
-        // distance to test for is found within getSystemsInRangeOfPlanet
-        
-        print("REACHABLE SYSTEM READOUT****************************************************************")
-        print("reachable systems initialized with \(reachableSystems[0].name)")
         
         var systemsWithinTenOfCurrent: [StarSystem] = []
         let foundSystems = getSystemsInRangeOfPlanet(reachableSystems[0])
         for item in foundSystems {
             systemsWithinTenOfCurrent.append(item)
         }
-        print("planets within ten clicks of currentSystem:")
-        for planet in systemsWithinTenOfCurrent {
-            print(planet.name)
-        }
-
+        // first jump
+        var furtherReachableSystems = planetsReachableWithinFurtherTenClicks(reachableSystems)
+        //print("\(furtherReachableSystems.count) systems reachable in one jumps")
+        
         // second jump
-        var furtherReachableSystems = planetsReachableWithinFurtherTenClicks(systemsWithinTenOfCurrent)
-        print("\(furtherReachableSystems.count) systems reachable in two jumps")
+        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(systemsWithinTenOfCurrent)
+        //print("\(furtherReachableSystems.count) systems reachable in two jumps")
         
         // third jump
         furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
-        print("\(furtherReachableSystems.count) systems reachable in three jumps")
+        //print("\(furtherReachableSystems.count) systems reachable in three jumps")
         
         // fourth jump
         furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
-        print("\(furtherReachableSystems.count) systems reachable in four jumps")
+        //print("\(furtherReachableSystems.count) systems reachable in four jumps")
         
         // fifth jump
         furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
-        print("\(furtherReachableSystems.count) systems reachable in five jumps")
+        //print("\(furtherReachableSystems.count) systems reachable in five jumps")
         
         for _ in 0..<20 {
             furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
         }
-        print("\(furtherReachableSystems.count) systems reachable in 25 jumps")
-        
-//        for _ in 0..<20 {
-//            furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
-//        }
-//        print("\(furtherReachableSystems.count) systems reachable in 55 jumps")
+        //print("\(furtherReachableSystems.count) systems reachable in 25 jumps")
         
         // generate and display list of unreachable planets
         let unreachablePlanets = getUnreachableSystems(furtherReachableSystems)
-        for system in unreachablePlanets {
-            print("unreachable: \(system.name)")
-        }
+
         
-        
-        
-        
+        //print("getUnreachablePlanets found \(unreachablePlanets.count) unreachable systems")
+        return unreachablePlanets
     }
+    
+    func getUnreachablePlanetsCount() -> Int {
+        let unreachable = getUnreachablePlanets()
+        return unreachable.count
+    }
+    
+    
+    // reassigns unreachable, repeats until no more unreachable
+    func reassignUnreachablePlanets() {
+        while getUnreachablePlanetsCount() != 0 {
+            reassignUnreachablePlanetsOnce()
+        }
+    }
+    
+    // reassigns once, used by above
+    func reassignUnreachablePlanetsOnce() {
+        let unreachable = getUnreachablePlanets()
+        for planet in unreachable {
+            reassignRandomCoordsNoCheck(planet)
+        }
+    }
+    
     
     // debug method
     func planetsReachableWithinFurtherTenClicks(testArray: [StarSystem]) -> [StarSystem] {
@@ -1225,6 +1302,19 @@ class Galaxy: NSObject, NSCoding {
         return unreachableSystems
     }
     
+    func reassignCoordsOfUnreachableSystems(unreachableSystems: [StarSystem]) {
+        for system in unreachableSystems {
+            // find it in galaxy
+            for planet in planets {
+                if planet.name == system.name {
+                    // reassign its coords
+                    reassignRandomCoords(planet)
+                }
+            }
+        }
+    }
+    
+    // END STUFF PERTAINING TO REACHABLE PLANETS ISSUE****************************************************
     
     func initializeMercenaries() {
         // initial array--all mercenary names, less the reserved ones
