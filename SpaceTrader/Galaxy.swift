@@ -1133,65 +1133,41 @@ class Galaxy: NSObject, NSCoding {
         for planet in systemsWithinTenOfCurrent {
             print(planet.name)
         }
+
+        // second jump
+        var furtherReachableSystems = planetsReachableWithinFurtherTenClicks(systemsWithinTenOfCurrent)
+        print("\(furtherReachableSystems.count) systems reachable in two jumps")
         
-        // next level--run same check for each of the ones we can up with
-        print("SECOND LEVEL CHECK: FURTHER PLANETS REACHABLE WITHIN ANOTHER JUMP OF TEN")
+        // third jump
+        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+        print("\(furtherReachableSystems.count) systems reachable in three jumps")
         
-        let furtherReachableSystems = planetsReachableWithinFurtherTenClicks(systemsWithinTenOfCurrent)
-        for planet in furtherReachableSystems {
-            print("second level: \(planet.name)")
+        // fourth jump
+        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+        print("\(furtherReachableSystems.count) systems reachable in four jumps")
+        
+        // fifth jump
+        furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+        print("\(furtherReachableSystems.count) systems reachable in five jumps")
+        
+        for _ in 0..<20 {
+            furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+        }
+        print("\(furtherReachableSystems.count) systems reachable in 25 jumps")
+        
+//        for _ in 0..<20 {
+//            furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
+//        }
+//        print("\(furtherReachableSystems.count) systems reachable in 55 jumps")
+        
+        // generate and display list of unreachable planets
+        let unreachablePlanets = getUnreachableSystems(furtherReachableSystems)
+        for system in unreachablePlanets {
+            print("unreachable: \(system.name)")
         }
         
         
         
-//        // begin with current system, remove systems in range to. Do this loop 50x
-//        for i in 0..<50 {
-//            print("outer loop, iteration \(i). reachableSystems count is \(reachableSystems.count)")
-//            var planetsToAppendToReachable: [StarSystem] = []
-//            for world in reachableSystems {
-//                // get reachable
-//                planetsToAppendToReachable = []
-//                planetsToAppendToReachable = getSystemsInRangeOfPlanet(world)
-//            }
-//            
-//            // add results to reachable
-//            for foundPlanet in planetsToAppendToReachable {
-//                var foundFlag = false
-//                for entry in reachableSystems {
-//                    if foundPlanet.name == entry.name {
-//                        foundFlag = true
-//                    }
-//                    // if not, add it
-//                    if !foundFlag {
-//                        reachableSystems.append(foundPlanet)
-//                    }
-//                }
-//            }
-//        }
-//        
-//        // RESULTS--create and print unreachable array
-//        var unreachableSystems: [StarSystem] = []
-//        
-//        // if a system in galaxy isn't in reachableSystems, add it to unreachable
-//        for system in planets {
-//            // check if in reachable
-//            var inReachable = false
-//            for entry in reachableSystems {
-//                if system.name == entry.name {
-//                    inReachable = true
-//                }
-//            }
-//            // if it wasn't in reachable, add it to unreachable
-//            if !inReachable {
-//                unreachableSystems.append(system)
-//            }
-//        }
-//        
-//        print("RESULTS OF UNREACHABLE SYSTEMS:")
-//        print("\(unreachableSystems.count) systems of a total of \(planets.count) are not reachable with a short jump from the starting point")
-//        for system in unreachableSystems {
-//            print(system.name)
-//        }
         
     }
     
@@ -1224,6 +1200,29 @@ class Galaxy: NSObject, NSCoding {
         }
         
         return notRedundantReturnArray
+    }
+    
+    // debug method
+    func getUnreachableSystems(reachableArray: [StarSystem]) -> [StarSystem] {
+        // given an array of planets, returns those planets in the galaxy not in that array
+        
+        // find still unreachable systems
+        var unreachableSystems: [StarSystem] = []
+        for system in planets {
+            // go through furtherReachableSystems, if not there, add it
+            var foundFlag = false
+            for item in reachableArray {
+                if item.name == system.name {
+                    foundFlag = true
+                }
+            }
+            
+            if !foundFlag {
+                unreachableSystems.append(system)
+            }
+        }
+        
+        return unreachableSystems
     }
     
     
