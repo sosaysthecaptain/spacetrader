@@ -81,10 +81,12 @@ class SellPickerVC: UIViewController {
     }
     
     @IBAction func sellPressed(sender: AnyObject) {
+        
+        
         if sellAsOpposedToDump {
             // sell and close
             player.sell(commodity, quantity: Int(slider.value))
-            navigationController?.popToRootViewControllerAnimated(true)
+            self.dismissViewControllerAnimated(true, completion: nil)
         } else {
             // dump--confirm
             let title = "Dump \(commodity.rawValue)?"
@@ -95,7 +97,8 @@ class SellPickerVC: UIViewController {
                 (alert: UIAlertAction!) -> Void in
                 // dump and close
                 player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
-                self.navigationController?.popToRootViewControllerAnimated(true)
+                //self.navigationController?.popToRootViewControllerAnimated(true)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }))
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
@@ -103,6 +106,11 @@ class SellPickerVC: UIViewController {
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

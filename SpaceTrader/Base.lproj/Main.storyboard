@@ -958,7 +958,7 @@
                         <outlet property="waterPrice" destination="pAF-k7-fmW" id="5Jt-ca-Fht"/>
                         <outlet property="waterProjectedPL" destination="bkt-Eg-kDc" id="oi6-Ns-ttR"/>
                         <outlet property="waterQty" destination="Pn2-Po-UiZ" id="Mf9-jq-kLx"/>
-                        <segue destination="dkT-Nd-rsk" kind="presentation" identifier="buyPicker" id="U1N-tv-A6R"/>
+                        <segue destination="O2u-lE-dhv" kind="presentation" identifier="buyPicker" id="U1N-tv-A6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfU-FP-PCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1105,7 +1105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jm8-Qd-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9459" y="-345"/>
+            <point key="canvasLocation" x="10271" y="-345"/>
         </scene>
         <!--Name and Size-->
         <scene sceneID="BlZ-kT-nJk">
@@ -1208,7 +1208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-Bt-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10156" y="-345"/>
+            <point key="canvasLocation" x="10968" y="-345"/>
         </scene>
         <!--Space Allocation-->
         <scene sceneID="y5e-tx-2S7">
@@ -1639,7 +1639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-l4-bPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10836" y="-345"/>
+            <point key="canvasLocation" x="11648" y="-345"/>
         </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
@@ -1736,67 +1736,86 @@
                         <viewControllerLayoutGuide type="bottom" id="fzE-Lj-k9w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2oI-ay-3i9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-fW-Ln1" customClass="StandardLabel" customModule="SpaceTrader">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-fW-Ln1" customClass="StandardLabel" customModule="SpaceTrader">
                                 <rect key="frame" x="20" y="50" width="350" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many would you like to buy?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zie-2c-q1V" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How many would you like to buy?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zie-2c-q1V" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="20" y="91" width="253" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2bw-7S-9w4">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2bw-7S-9w4">
                                 <rect key="frame" x="58" y="200" width="484" height="31"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="dkT-Nd-rsk" eventType="valueChanged" id="S1b-An-eDp"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;##&gt; bays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NI-9e-4ra" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;##&gt; bays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NI-9e-4ra" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="259" y="159" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5r-01-Wih" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="491" width="600" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="GB7-Lv-E5e"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVM-P3-yTd" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="272" y="464" width="57" height="34"/>
+                                <rect key="frame" x="483" y="402" width="57" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Buy"/>
                                 <connections>
                                     <action selector="buyPressed:" destination="dkT-Nd-rsk" eventType="touchUpInside" id="xnL-M7-TW8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQq-Ws-f0x" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="60" y="402" width="78" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="buyPressed:" destination="dkT-Nd-rsk" eventType="touchUpInside" id="Gvz-wn-E1s"/>
+                                    <action selector="cancelButtonPressed:" destination="dkT-Nd-rsk" eventType="touchUpInside" id="Mda-AA-Hit"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NVM-P3-yTd" secondAttribute="trailing" constant="40" id="0s5-fF-U5v"/>
                             <constraint firstItem="fzE-Lj-k9w" firstAttribute="top" secondItem="t5r-01-Wih" secondAttribute="bottom" id="4WC-Gr-gMe"/>
                             <constraint firstItem="zie-2c-q1V" firstAttribute="top" secondItem="xVd-fW-Ln1" secondAttribute="bottom" constant="20" id="ENZ-3F-gH3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t5r-01-Wih" secondAttribute="trailing" constant="-20" id="Fub-2g-iR1"/>
-                            <constraint firstItem="fzE-Lj-k9w" firstAttribute="top" secondItem="NVM-P3-yTd" secondAttribute="bottom" constant="102" id="K4l-HG-bBr"/>
+                            <constraint firstItem="mQq-Ws-f0x" firstAttribute="baseline" secondItem="NVM-P3-yTd" secondAttribute="baseline" id="Ii1-a7-tc0"/>
+                            <constraint firstItem="fzE-Lj-k9w" firstAttribute="top" secondItem="NVM-P3-yTd" secondAttribute="bottom" constant="100" id="K4l-HG-bBr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xVd-fW-Ln1" secondAttribute="leading" id="OX0-bT-9rf"/>
                             <constraint firstItem="t5r-01-Wih" firstAttribute="leading" secondItem="2oI-ay-3i9" secondAttribute="leadingMargin" constant="-20" id="QLm-wS-i1h"/>
                             <constraint firstItem="zie-2c-q1V" firstAttribute="leading" secondItem="xVd-fW-Ln1" secondAttribute="leading" id="Ryk-GR-sX5"/>
                             <constraint firstItem="2bw-7S-9w4" firstAttribute="top" secondItem="K9H-Bz-YCY" secondAttribute="bottom" constant="180" id="WiC-UT-6fG"/>
                             <constraint firstItem="2bw-7S-9w4" firstAttribute="leading" secondItem="2oI-ay-3i9" secondAttribute="leadingMargin" constant="40" id="Z98-vH-4NQ"/>
+                            <constraint firstItem="mQq-Ws-f0x" firstAttribute="leading" secondItem="2oI-ay-3i9" secondAttribute="leadingMargin" constant="40" id="mEK-nU-wlq"/>
                             <constraint firstItem="2bw-7S-9w4" firstAttribute="top" secondItem="0NI-9e-4ra" secondAttribute="bottom" constant="20" id="mIL-Cd-fE5"/>
                             <constraint firstItem="0NI-9e-4ra" firstAttribute="centerX" secondItem="2oI-ay-3i9" secondAttribute="centerX" id="o0c-3d-Tet"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2bw-7S-9w4" secondAttribute="trailing" constant="40" id="qfp-pe-ufg"/>
                             <constraint firstItem="xVd-fW-Ln1" firstAttribute="top" secondItem="K9H-Bz-YCY" secondAttribute="bottom" constant="30" id="rV2-y9-9Fu"/>
                             <constraint firstItem="NVM-P3-yTd" firstAttribute="centerX" secondItem="0NI-9e-4ra" secondAttribute="centerX" id="uZf-1U-2mq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uZf-1U-2mq"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="xhb-My-9ZC"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="buyButton" destination="NVM-P3-yTd" id="afH-HW-gGO"/>
                         <outlet property="firstLabel" destination="xVd-fW-Ln1" id="Lj1-6J-3Mp"/>
@@ -1807,7 +1826,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrS-fJ-2Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7821" y="-310"/>
+            <point key="canvasLocation" x="8633" y="-310"/>
         </scene>
         <!--Fuel Repair ModalVC-->
         <scene sceneID="TVu-z4-4cO">
@@ -5292,7 +5311,7 @@
                         <outlet property="waterPL" destination="bMY-of-NVO" id="Myz-Rq-pmg"/>
                         <outlet property="waterPrice" destination="96N-qY-U1h" id="SPz-yO-RT7"/>
                         <outlet property="waterQuantity" destination="iKc-Pd-IKp" id="7ls-n8-bhL"/>
-                        <segue destination="Mzq-8J-HiG" kind="show" identifier="sellPicker" id="w5p-po-LRr"/>
+                        <segue destination="yRy-91-qbG" kind="presentation" identifier="sellPicker" id="w5p-po-LRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Km-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5308,36 +5327,36 @@
                         <viewControllerLayoutGuide type="bottom" id="S4b-8E-uVM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qDx-Ua-oQV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-Ts-1gr" customClass="StandardLabel" customModule="SpaceTrader">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-Ts-1gr" customClass="StandardLabel" customModule="SpaceTrader">
                                 <rect key="frame" x="20" y="50" width="350" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzf-Dd-pL6" customClass="StandardLabel" customModule="SpaceTrader">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You can buy up to &lt;#&gt; bays of &lt;commodity&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzf-Dd-pL6" customClass="StandardLabel" customModule="SpaceTrader">
                                 <rect key="frame" x="20" y="91" width="350" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-4j-F1x">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-4j-F1x">
                                 <rect key="frame" x="58" y="200" width="484" height="31"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="Mzq-8J-HiG" eventType="valueChanged" id="W74-Hv-pi5"/>
                                     <action selector="sliderMoved:" destination="dkT-Nd-rsk" eventType="valueChanged" id="qBI-Jo-tH9"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;##&gt; bays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5A-5i-cka" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;##&gt; bays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5A-5i-cka" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="259" y="159" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7He-gS-Cxt" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="525" y="506" width="55" height="34"/>
+                                <rect key="frame" x="475" y="402" width="55" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Sell"/>
                                 <connections>
@@ -5346,25 +5365,37 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-Uy-sIT" customClass="BaysCashBoxView" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="491" width="600" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aMi-cw-xSx"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkY-Pe-oDa" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="70" y="402" width="78" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="buyPressed:" destination="dkT-Nd-rsk" eventType="touchUpInside" id="GMf-sc-1sM"/>
+                                    <action selector="cancelPressed:" destination="Mzq-8J-HiG" eventType="touchUpInside" id="07L-Gs-4H3"/>
+                                    <action selector="sellPressed:" destination="Mzq-8J-HiG" eventType="touchUpInside" id="0sO-qi-PKs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="S4b-8E-uVM" firstAttribute="top" secondItem="7He-gS-Cxt" secondAttribute="bottom" constant="60" id="2Vg-ps-vEO"/>
+                            <constraint firstItem="S4b-8E-uVM" firstAttribute="top" secondItem="7He-gS-Cxt" secondAttribute="bottom" constant="100" id="2Vg-ps-vEO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ia5-Uy-sIT" secondAttribute="trailing" constant="-20" id="AHm-ap-Wtw"/>
                             <constraint firstItem="I5A-5i-cka" firstAttribute="centerX" secondItem="qDx-Ua-oQV" secondAttribute="centerX" id="Hpq-PH-rzh"/>
                             <constraint firstItem="5E9-4j-F1x" firstAttribute="top" secondItem="I5A-5i-cka" secondAttribute="bottom" constant="20" id="Idf-Zf-5TU"/>
+                            <constraint firstItem="rkY-Pe-oDa" firstAttribute="baseline" secondItem="7He-gS-Cxt" secondAttribute="baseline" id="Kr7-Z0-amI"/>
+                            <constraint firstItem="rkY-Pe-oDa" firstAttribute="leading" secondItem="qDx-Ua-oQV" secondAttribute="leadingMargin" constant="50" id="L36-TT-zsr"/>
                             <constraint firstItem="5E9-4j-F1x" firstAttribute="leading" secondItem="qDx-Ua-oQV" secondAttribute="leadingMargin" constant="40" id="SHd-Vk-t9d"/>
                             <constraint firstItem="gzf-Dd-pL6" firstAttribute="top" secondItem="ObA-Ts-1gr" secondAttribute="bottom" constant="20" id="YRy-uY-8HS"/>
                             <constraint firstItem="ObA-Ts-1gr" firstAttribute="top" secondItem="bQ2-Wg-OzE" secondAttribute="bottom" constant="30" id="Znj-Gu-0Rr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ObA-Ts-1gr" secondAttribute="leading" id="esC-W5-gAc"/>
                             <constraint firstItem="S4b-8E-uVM" firstAttribute="top" secondItem="ia5-Uy-sIT" secondAttribute="bottom" id="fIZ-EO-pLC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7He-gS-Cxt" secondAttribute="trailing" id="gpn-od-ErA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7He-gS-Cxt" secondAttribute="trailing" constant="50" id="gpn-od-ErA"/>
                             <constraint firstItem="5E9-4j-F1x" firstAttribute="top" secondItem="bQ2-Wg-OzE" secondAttribute="bottom" constant="180" id="kn8-at-Mp5"/>
                             <constraint firstItem="ia5-Uy-sIT" firstAttribute="leading" secondItem="qDx-Ua-oQV" secondAttribute="leadingMargin" constant="-20" id="mTB-bE-cNX"/>
                             <constraint firstItem="7He-gS-Cxt" firstAttribute="centerX" secondItem="qDx-Ua-oQV" secondAttribute="centerX" id="q21-Zy-voc"/>
@@ -5377,6 +5408,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="LeF-0Y-d9l"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="firstLabel" destination="ObA-Ts-1gr" id="WWA-zC-lo9"/>
                         <outlet property="quantityLabel" destination="I5A-5i-cka" id="7TC-Zr-RT4"/>
@@ -5387,7 +5420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Igm-1v-rww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6274" y="-1064"/>
+            <point key="canvasLocation" x="7086" y="-1064"/>
         </scene>
         <!--Load Game-->
         <scene sceneID="tsY-7o-p0X">
@@ -8327,7 +8360,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bi1-Mc-mBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8647" y="-345"/>
+            <point key="canvasLocation" x="9459" y="-345"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pfh-8b-CRD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O2u-lE-dhv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y4m-le-DPy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dkT-Nd-rsk" kind="relationship" relationship="rootViewController" id="izo-jH-3HG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9dw-oc-xIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7821" y="-310"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3ZG-vD-CMb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yRy-91-qbG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JJW-wj-6i6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mzq-8J-HiG" kind="relationship" relationship="rootViewController" id="yfq-XQ-f0x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="taG-JS-3em" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6274" y="-1064"/>
         </scene>
     </scenes>
     <resources>

@@ -61,8 +61,11 @@ class BuyPickerVC: UIViewController {
         player.buy(commodity, quantity: Int(slider.value))
         
         // close VC
-        navigationController?.popToRootViewControllerAnimated(true)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }
