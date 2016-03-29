@@ -890,6 +890,22 @@ class Galaxy: NSObject, NSCoding {
         targetSystem = systemsInRange[0]
     }
     
+    // this is used in making the galaxy. Sees what planets are within minimum range of a given system
+    func getSystemsInRangeOfPlanet(referencePlanet: StarSystem) -> [StarSystem] {
+        var returnArray: [StarSystem] = []
+        
+        let range = 8                                      // set max allowable distance here
+        
+        for planet in planets {
+            let distance = getDistance(referencePlanet, system2: planet)
+            if distance <= range {
+                returnArray.append(planet)
+            }
+        }
+
+        return returnArray
+    }
+    
     func getTechLevelValue(level: TechLevelType) -> Int {
         switch level {
             case TechLevelType.techLevel0:
@@ -1094,6 +1110,20 @@ class Galaxy: NSObject, NSCoding {
                     }
                 }
             }
+        }
+    }
+    
+    func seeHowManySystemsAreReachable() {
+        var reachableSystems: [StarSystem] = []
+        reachableSystems.append(currentSystem!)
+        let testedRangeDistance = 10
+        
+        print("REACHABLE SYSTEM READOUT****************************************************************")
+        print("reachable systems initialized with \(reachableSystems[0].name)")
+        
+        // begin with current system, remove systems in range to
+        for world in reachableSystems {
+            // get
         }
     }
     
