@@ -1246,6 +1246,7 @@ class Galaxy: NSObject, NSCoding {
 //    }
     
     // puts failing system into galaxy, making sure it is between 5 and 13 parsecs from nearest neighbor
+    // WORKS
     func reinsertSystemDoingAllChecks(system: StarSystem) {
         var passing = false
         
@@ -1264,13 +1265,13 @@ class Galaxy: NSObject, NSCoding {
             }
         }
         
-        
+        system.locationChecked = true
     }
     
     func getDistanceToClosestNeighbor(system: StarSystem) -> Int {
         var runningMin = 1000
         for planet in planets {
-            if planet.name != system.name {
+            if (planet.name != system.name) && planet.locationChecked {
                 let distance = getDistance(system, system2: planet)
                 if distance < runningMin {
                     runningMin = distance
@@ -1330,6 +1331,11 @@ class Galaxy: NSObject, NSCoding {
             furtherReachableSystems = planetsReachableWithinFurtherTenClicks(furtherReachableSystems)
         }
         //print("\(furtherReachableSystems.count) systems reachable in 25 jumps")
+        
+        // tag reachable
+        for system in furtherReachableSystems {
+            system.locationChecked = true
+        }
         
         // generate and display list of unreachable planets
         let unreachablePlanets = getUnreachableSystems(furtherReachableSystems)
