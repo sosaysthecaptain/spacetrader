@@ -528,6 +528,13 @@ class Galaxy: NSObject, NSCoding {
         // handle unreachable planet issue
         print("first pass: \(getUnreachablePlanetsCount()) unreachable")
         let unreachable = getUnreachablePlanets()
+        
+        // recursive, nuclear option
+        if unreachable.count > 15 {
+            self.createGalaxy()
+        }
+        
+        // kinder, gentler option that works in most other cases
         for planet in unreachable {
             print("reassigning coords of \(planet.name)")
             reinsertSystemDoingAllChecks(planet)
