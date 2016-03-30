@@ -525,24 +525,17 @@ class Galaxy: NSObject, NSCoding {
         }
         print("total planets populated: \(totalPlanets)")
         
-        // DEBUG: print systems not in range
-        //seeHowManySystemsAreReachable()
+        // handle unreachable planet issue
         print("first pass: \(getUnreachablePlanetsCount()) unreachable")
         let unreachable = getUnreachablePlanets()
         for planet in unreachable {
             print("reassigning coords of \(planet.name)")
-            reassignRandomCoords2(planet)
+            reinsertSystemDoingAllChecks(planet)
         }
-        //reassignUnreachablePlanets()
         print("second pass: unreachable planets: \(getUnreachablePlanetsCount())")
-//        print("checking each planet for reachability with new method")
-//        for planet in planets {
-//            makeSureContinuousJumpChain(planet)
-//        }
-
-        
-        // NONE OF THIS IS ANY GOOD. NEED BETTER WAY OF SOLVING THE PROBLEM
     }
+    
+
     
     func getDistance(system1: StarSystem, system2: StarSystem) -> Int {
         let xDistance = abs(system1.xCoord - system2.xCoord)
@@ -1251,6 +1244,42 @@ class Galaxy: NSObject, NSCoding {
 //        
 //        
 //    }
+    
+    // puts failing system into galaxy, making sure it is between 5 and 13 parsecs from nearest neighbor
+    func reinsertSystemDoingAllChecks(system: StarSystem) {
+        var passing = false
+        
+        while !passing {
+            let wUpper: UInt32 = 148
+            let wLower: UInt32 = 2
+            let hUpper: UInt32 = 108
+            let hLower: UInt32 = 2
+            system.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+            system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
+            
+            // check condition
+            let minDistance = getDistanceToClosestNeighbor(system)
+            if (minDistance <= 13) && (minDistance > 4) {
+                passing = true
+            }
+        }
+        
+        
+    }
+    
+    func getDistanceToClosestNeighbor(system: StarSystem) -> Int {
+        var runningMin = 1000
+        for planet in planets {
+            if planet.name != system.name {
+                let distance = getDistance(system, system2: planet)
+                if distance < runningMin {
+                    runningMin = distance
+                }
+            }
+        }
+        print("distance from \(system.name) to closest neighbor is \(runningMin)")
+        return runningMin
+    }
     
     // deals with alphabet issue by shuffling available planets array
     func shuffleAvailableNames(inputArray: [String]) -> [String] {
