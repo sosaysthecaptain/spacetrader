@@ -527,26 +527,19 @@ class Galaxy: NSObject, NSCoding {
         
         // DEBUG: print systems not in range
         //seeHowManySystemsAreReachable()
-        //getUnreachablePlanets()
+        print("first pass: \(getUnreachablePlanetsCount()) unreachable")
+        let unreachable = getUnreachablePlanets()
+        for planet in unreachable {
+            print("reassigning coords of \(planet.name)")
+            reassignRandomCoords2(planet)
+        }
         //reassignUnreachablePlanets()
-        print("unreachable planets: \(getUnreachablePlanetsCount())")
+        print("second pass: unreachable planets: \(getUnreachablePlanetsCount())")
 //        print("checking each planet for reachability with new method")
 //        for planet in planets {
 //            makeSureContinuousJumpChain(planet)
 //        }
-        
-        // start over provision
-//        let unreachableCount = getUnreachablePlanetsCount()
-//        print("unreachableCount: \(unreachableCount)")
-//        if unreachableCount > 4 {
-//            print("TOO MANY UNREACHABLE PLANETS, STARTING OVER")
-//            self.createGalaxy()
-//        } else if unreachableCount > 0 {
-//            reassignUnreachablePlanets()
-//            print("minor corrective action taken. Unreachable: \(getUnreachablePlanetsCount())")
-//        } else if unreachableCount == 0 {
-//            print("everything is reachable")
-//        }
+
         
         // NONE OF THIS IS ANY GOOD. NEED BETTER WAY OF SOLVING THE PROBLEM
     }
@@ -630,6 +623,18 @@ class Galaxy: NSObject, NSCoding {
         let hLower: UInt32 = 2
         system.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
         system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
+    }
+    
+    func reassignRandomCoords2(system: StarSystem) {
+        var proximityFlag = false
+        var i = 0
+        while !proximityFlag {
+            reassignRandomCoordsNoCheck(system)
+            print("reassigning \(system.name), iteration \(i)")
+            i += 1
+            proximityFlag = !verifyMinDistance(system, i: planets.count)
+        }
+        
     }
     
 
@@ -1313,11 +1318,6 @@ class Galaxy: NSObject, NSCoding {
     
     // reassigns unreachable, repeats until no more unreachable
     func reassignUnreachablePlanets() {
-        // if too many unreachable planets initially, will make a mess
-//        while getUnreachablePlanetsCount() > 4 {
-//            randomlyReassignCurrentSystem()
-//        }
-        
         while getUnreachablePlanetsCount() != 0 {
             reassignUnreachablePlanetsOnce()
         }
@@ -1327,7 +1327,7 @@ class Galaxy: NSObject, NSCoding {
     func reassignUnreachablePlanetsOnce() {
         let unreachable = getUnreachablePlanets()
         for planet in unreachable {
-            reassignRandomCoordsNoCheck(planet)
+            reassignRandomCoords2(planet)
         }
     }
     
@@ -1457,6 +1457,25 @@ class Galaxy: NSObject, NSCoding {
             }
         }
     }
+    
+//    func verifyMaxDistance(system1: StarSystem, i: Int) -> Bool {
+//        var minDistance = 1000
+//        
+//        for index in 0..<i {
+//            let distance = getDistance(system1, system2: planets[index])
+//            if distance < minDistance {
+//                minDistance = distance
+//            }
+//        }
+//        
+//        if minDistance > 13 {
+//            return false
+//        } else {
+//            print("\(system1.name)'s closest neighbor is \(minDistance) parsecs away")
+//            return true
+//        }
+//    }
+    
     
     // END STUFF PERTAINING TO REACHABLE PLANETS ISSUE****************************************************
     
