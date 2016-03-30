@@ -41,6 +41,8 @@ class StarSystem: NSObject, NSCoding {
         }
     }
     
+    var locationChecked = false
+    
     var scarabIsHere = false
     var dragonflyIsHere = false
     var swarmingWithAliens = false
