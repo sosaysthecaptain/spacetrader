@@ -373,7 +373,7 @@ class Design2VC: UIViewController {
                 // do nothing
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else if player.commanderShip.crew.count < (Int(crewQuartersStepper.value) + 1) {
+        } else if player.commanderShip.crew.count > (Int(crewQuartersStepper.value) + 1) {
             // if not enough crew slots, refuse transaction
             let title = "Too Many Crewmembers"
             let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."

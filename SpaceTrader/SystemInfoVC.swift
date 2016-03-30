@@ -109,7 +109,7 @@ class SystemInfoVC: UIViewController {
         
         let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
         let repairsCost = repairsNeeded * player.commanderShip.repairCosts
-        hullText1.text = "Your hull strength is at 100%."
+        hullText1.text = "Your hull strength is at \(player.commanderShip.hullPercentage)%."
         if repairsNeeded == 0 {
             hullText2.text = "No repairs are needed."
             // disappear repairs button

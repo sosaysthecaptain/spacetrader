@@ -8400,7 +8400,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="badge_bang" width="40" height="40"/>
+        <image name="badge_bang" width="30" height="30"/>
         <image name="buyPurple" width="25" height="24"/>
         <image name="menuPurpleSmaller" width="30" height="30"/>
         <image name="sellGray" width="25" height="24"/>

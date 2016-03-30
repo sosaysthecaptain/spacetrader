@@ -308,7 +308,7 @@ class Newspaper: NSObject, NSCoding {
         case PoliticsType.confederacy:
             switch random {
             case 0: headline = "States Dispute Natural Resource Rights!"
-            case 1: headline = "States Denied Federal Funds over Local Laws!"
+            case 1: headline = "States Denied Federal Funds Over Local Laws!"
             case 2: headline = "Southern States Resist Federal Taxation for Capital Projects!"
             case 3: headline = "States Request Federal Intervention in Citrus Conflict!"
             default: headline = ""

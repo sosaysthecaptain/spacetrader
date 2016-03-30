@@ -526,7 +526,7 @@ class Galaxy: NSObject, NSCoding {
         print("total planets populated: \(totalPlanets)")
         
         // handle unreachable planet issue
-        print("first pass: \(getUnreachablePlanetsCount()) unreachable")
+        //print("first pass: \(getUnreachablePlanetsCount()) unreachable")
         let unreachable = getUnreachablePlanets()
         
         // recursive, nuclear option
@@ -539,7 +539,7 @@ class Galaxy: NSObject, NSCoding {
             print("reassigning coords of \(planet.name)")
             reinsertSystemDoingAllChecks(planet)
         }
-        print("second pass: unreachable planets: \(getUnreachablePlanetsCount())")
+        //print("second pass: unreachable planets: \(getUnreachablePlanetsCount())")
     }
     
 
