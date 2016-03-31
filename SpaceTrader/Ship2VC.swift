@@ -40,16 +40,18 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             } else if indexPath.row == 2 {
                 cell.setLabels("Cargo Bays", valueLabel: "\(player.commanderShip.cargoBays)")
             } else if indexPath.row == 3 {
-                cell.setLabels("Hull Strength", valueLabel: "\(player.commanderShip.hullStrength)")
+                cell.setLabels("Range", valueLabel: "\(player.commanderShip.fuelTanks) parsecs")
             } else if indexPath.row == 4 {
-                cell.setLabels("Weapon Slots", valueLabel: "\(player.commanderShip.weaponSlots)")
+                cell.setLabels("Hull Strength", valueLabel: "\(player.commanderShip.hullStrength)")
             } else if indexPath.row == 5 {
-                cell.setLabels("Shield Slots", valueLabel: "\(player.commanderShip.shieldSlots)")
+                cell.setLabels("Weapon Slots", valueLabel: "\(player.commanderShip.weaponSlots)")
             } else if indexPath.row == 6 {
-                cell.setLabels("Gadget Slots", valueLabel: "\(player.commanderShip.gadgetSlots)")
+                cell.setLabels("Shield Slots", valueLabel: "\(player.commanderShip.shieldSlots)")
             } else if indexPath.row == 7 {
-                cell.setLabels("Crew Quarters", valueLabel: "\(player.commanderShip.crewSlotsFilled)/\(player.commanderShip.crewQuarters)")
+                cell.setLabels("Gadget Slots", valueLabel: "\(player.commanderShip.gadgetSlots)")
             } else if indexPath.row == 8 {
+                cell.setLabels("Crew Quarters", valueLabel: "\(player.commanderShip.crewSlotsFilled)/\(player.commanderShip.crewQuarters)")
+            } else if indexPath.row == 9 {
                 // format...
                 let numberFormatter = NSNumberFormatter()
                 numberFormatter.numberStyle = .DecimalStyle
@@ -114,7 +116,7 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 9
+            return 10
         } else if section == 1 {
             if numberOfWeaponSlots > 0 {
                 return numberOfWeaponSlots

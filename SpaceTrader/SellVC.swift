@@ -211,8 +211,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     override func viewDidLoad() {
         
-        recurringUpdate()
         loadPrices()
+        recurringUpdate()
         buyAsOpposedToSell = false    
     }
     

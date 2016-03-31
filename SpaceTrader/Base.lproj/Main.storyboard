@@ -2309,6 +2309,13 @@
                                     <outlet property="delegate" destination="Y04-X1-AkW" id="EWS-gV-j9e"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pe9-rH-B9Y">
+                                <rect key="frame" x="0.0" y="0.0" width="158" height="46"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="nHF-Lo-DWD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.1803921568627451" green="0.0" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
@@ -2317,8 +2324,11 @@
                             <constraint firstItem="Jy0-kh-oGZ" firstAttribute="centerX" secondItem="8NX-fM-m8q" secondAttribute="centerX" id="1iN-vX-7EJ"/>
                             <constraint firstItem="6k5-Mv-A2Q" firstAttribute="leading" secondItem="8NX-fM-m8q" secondAttribute="leadingMargin" constant="-20" id="EAf-Cf-8Hv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6k5-Mv-A2Q" secondAttribute="trailing" constant="-20" id="Q1b-db-sUt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pe9-rH-B9Y" secondAttribute="trailing" constant="-20" id="UtC-Ek-sOn"/>
                             <constraint firstItem="Jy0-kh-oGZ" firstAttribute="top" secondItem="b7R-2U-n9u" secondAttribute="bottom" constant="8" id="cdt-fl-Mdt"/>
                             <constraint firstItem="QRF-fp-5OO" firstAttribute="top" secondItem="6k5-Mv-A2Q" secondAttribute="bottom" id="jay-Tz-vOG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pe9-rH-B9Y" secondAttribute="leading" constant="20" id="pH9-YO-Td0"/>
+                            <constraint firstItem="pe9-rH-B9Y" firstAttribute="top" secondItem="b7R-2U-n9u" secondAttribute="bottom" id="vh7-xg-qIT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Equipment" id="uQe-Wp-g4f">
@@ -2330,6 +2340,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="grayPatchView" destination="pe9-rH-B9Y" id="R0S-D1-QX2"/>
                         <outlet property="segmentedControl" destination="Jy0-kh-oGZ" id="OFt-mh-wKd"/>
                         <outlet property="tableView" destination="6k5-Mv-A2Q" id="BZI-gU-enb"/>
                         <segue destination="Ibv-PY-xwS" kind="show" identifier="gadgetDetail" id="kdA-Wi-tPd"/>
@@ -8479,7 +8490,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="QJh-Dr-ysc"/>
         <segue reference="64M-bi-8yt"/>
-        <segue reference="FU7-pK-WDz"/>
+        <segue reference="NpZ-6P-UU1"/>
+        <segue reference="REb-7Y-v0a"/>
         <segue reference="Cl3-zi-3cm"/>
         <segue reference="Q3s-ve-bLK"/>
         <segue reference="K2U-qg-SzU"/>
@@ -8487,10 +8499,9 @@
         <segue reference="Btw-3O-mir"/>
         <segue reference="XhI-dd-ihR"/>
         <segue reference="gLW-Zt-l96"/>
-        <segue reference="REb-7Y-v0a"/>
         <segue reference="Zhh-Pf-9hC"/>
         <segue reference="c5m-hx-g89"/>
         <segue reference="xmg-UF-vEv"/>
-        <segue reference="fc0-hX-FHZ"/>
+        <segue reference="kdA-Wi-tPd"/>
     </inferredMetricsTieBreakers>
 </document>

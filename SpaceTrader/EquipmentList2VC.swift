@@ -12,6 +12,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var grayPatchView: UIView!
     
     var selectorIndex = 0
     
@@ -39,6 +40,9 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // fix bug whereby table view starts halfway down the page
         self.edgesForExtendedLayout = UIRectEdge.None
+        
+        // send view to background. Not possible to do this in IB
+        self.view.sendSubviewToBack(grayPatchView)
         
     }
     

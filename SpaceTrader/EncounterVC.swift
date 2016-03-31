@@ -1105,7 +1105,13 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent has been disabled."
         
-        galaxy.currentJourney!.currentEncounter!.setButtons("Surrender")
+        // experimental--police can't be plundered
+        if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus != IFFStatusType.Police {
+            galaxy.currentJourney!.currentEncounter!.setButtons("Surrender")    // originally just this line
+        } else {
+            galaxy.currentJourney!.currentEncounter!.setButtons("IgnoreFlee")
+        }
+        
         
         // special situations. We don't plunder special ships
         if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Dragonfly {
