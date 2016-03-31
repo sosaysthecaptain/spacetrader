@@ -17,18 +17,10 @@ class TradeInOrbitVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    
-    @IBOutlet weak var firstLabel: SmallLabelGray!
-    @IBOutlet weak var secondLabel: SmallLabelGray!
-    @IBOutlet weak var thirdLabel: SmallLabelGray!
-    @IBOutlet weak var fourthLabel: SmallLabelGray!
-    
-    
-    
-//    @IBOutlet weak var firstLabel: StandardLabel!
-//    @IBOutlet weak var secondLabel: StandardLabel!
-//    @IBOutlet weak var thirdLabel: StandardLabel!
-//    @IBOutlet weak var fourthLabel: StandardLabel!
+    @IBOutlet weak var firstTextView: UITextView!
+    @IBOutlet weak var secondTextView: UITextView!
+    @IBOutlet weak var thirdTextView: UITextView!
+    @IBOutlet weak var fourthTextView: UITextView!
     
     @IBOutlet weak var quantityLabel: PurpleHeader!
     
@@ -89,10 +81,10 @@ class TradeInOrbitVC: UIViewController {
             let askPriceFormatted = numberFormatter.stringFromNumber(askPrice)
             
             titleLabel.text = "Sell \(commodityToTrade.rawValue)"
-            firstLabel.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
-            secondLabel.text = "You have \(player.commanderShip.getQuantity(commodityToTrade)) units in your hold."
-            thirdLabel.text = "The trader offers to buy \(max) units."
-            fourthLabel.text = "How many do you want to sell?"
+            firstTextView.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
+            secondTextView.text = "You have \(player.commanderShip.getQuantity(commodityToTrade)) units in your hold."
+            thirdTextView.text = "The trader offers to buy \(max) units."
+            fourthTextView.text = "How many do you want to sell?"
         } else {
             // SELL
             // arbitrarily choose commodity
@@ -123,10 +115,10 @@ class TradeInOrbitVC: UIViewController {
             let askPriceFormatted = numberFormatter.stringFromNumber(askPrice)
             
             titleLabel.text = "Buy \(commodityToTrade.rawValue)"
-            firstLabel.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
-            secondLabel.text = "The trader has \(player.commanderShip.getQuantity(commodityToTrade)) units for sale."
-            thirdLabel.text = "You have money and space for \(max) units."
-            fourthLabel.text = "How many do you want to buy?"
+            firstTextView.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
+            secondTextView.text = "The trader has \(player.commanderShip.getQuantity(commodityToTrade)) units for sale."
+            thirdTextView.text = "You have money and space for \(max) units."
+            fourthTextView.text = "How many do you want to buy?"
         }
         
         // update slider stuff

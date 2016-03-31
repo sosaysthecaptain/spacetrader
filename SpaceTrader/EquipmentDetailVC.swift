@@ -117,9 +117,9 @@ class EquipmentDetailVC: UIViewController {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .DecimalStyle
         let buyPriceFormatted = numberFormatter.stringFromNumber(chosenItem!.price)
-        buyPrice.text = "\(buyPriceFormatted!) credits"
+        buyPrice.text = "\(buyPriceFormatted!) cr."
         let sellPriceFormatted = numberFormatter.stringFromNumber(chosenItem!.sellPrice)
-        sellPrice.text = "\(sellPriceFormatted!) credits"
+        sellPrice.text = "\(sellPriceFormatted!) cr."
         
         let controlState = UIControlState()
         if buyNotSell! {

@@ -309,6 +309,11 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     // sets properties in the destination vc
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        // set text of back button
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
         if(segue.identifier == "gadgetDetail") {
             let vc = (segue.destinationViewController as! EquipmentDetailVC)
             vc.chosenItem = chosenItem

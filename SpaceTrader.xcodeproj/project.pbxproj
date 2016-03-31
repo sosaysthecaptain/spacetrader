@@ -54,6 +54,7 @@
 		5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */; };
 		5A9818FF1CA9B9B70087450E /* DesignNaSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
+		5A9957E01CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */; };
 		5AAB08B71C4AD166000BB87F /* LoadGameCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */; };
 		5AAD55271C234F72001FC8AD /* BankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55261C234F72001FC8AD /* BankVC.swift */; };
 		5AAD55291C235DE0001FC8AD /* BankQuantityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */; };
@@ -158,6 +159,7 @@
 		5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresGameOverVC.swift; sourceTree = "<group>"; };
 		5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignNaSVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
+		5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8bitOperatorPlus-Bold.ttf"; sourceTree = "<group>"; };
 		5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadGameCellTableViewCell.swift; sourceTree = "<group>"; };
 		5AAD55261C234F72001FC8AD /* BankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankVC.swift; sourceTree = "<group>"; };
 		5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankQuantityVC.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		5AD5F88F1B9A122200154B21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */,
 				5AD5F8901B9A122200154B21 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -487,6 +490,7 @@
 			files = (
 				5A447B581C99B47E00F0AA3A /* LaunchScreenSplash.storyboard in Resources */,
 				5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */,
+				5A9957E01CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf in Resources */,
 				5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

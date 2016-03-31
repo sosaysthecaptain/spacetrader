@@ -207,7 +207,7 @@ class Journey: NSObject, NSCoding {
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
                 encounterThisClick = true
-            } else if encounterTest < (strengthTraders + ((strengthPolice + strengthPirates) / 1)) {       // OVER 2 | not orthodox, but this seemed high
+            } else if encounterTest < (strengthTraders + ((strengthPolice + strengthPirates) / 2)) {       // OVER 2 | not orthodox, but this seemed high
                 // properly, strengthPirates + strengthPolice + strengthTraders
                 trader = true
                 encounterThisClick = true

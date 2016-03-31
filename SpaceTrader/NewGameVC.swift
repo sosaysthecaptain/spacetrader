@@ -10,6 +10,8 @@ import UIKit
 
 class NewGameVC: UIViewController {
     
+
+    
     var foundGame = false
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class NewGameVC: UIViewController {
         }
 
 
+        
     }
     
     override func viewDidAppear(animated: Bool) {
