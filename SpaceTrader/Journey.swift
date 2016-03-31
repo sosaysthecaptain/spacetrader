@@ -318,6 +318,30 @@ class Journey: NSObject, NSCoding {
             // honor autoIgnore and autoFlee, both of which have yet to be implemented
             
             // instantiate the encounter we've set up, with encounterType.
+            // skip if it's an ignore encounter and you've turned off that kind
+            if encounterType == EncounterType.policeIgnore {
+                if player.ignorePolice {
+                    encounterType = EncounterType.nullEncounter
+                    encounterThisClick = false
+                    print("player opted out of police ignore encounter")
+                }
+            }
+            
+            if encounterType == EncounterType.pirateIgnore {
+                if player.ignorePirates {
+                    encounterType = EncounterType.nullEncounter
+                    encounterThisClick = false
+                    print("player opted out of pirate ignore encounter")
+                }
+            }
+            
+            if encounterType == EncounterType.traderIgnore {
+                if player.ignoreTraders {
+                    encounterType = EncounterType.nullEncounter
+                    encounterThisClick = false
+                    print("player opted out of trader ignore encounter")
+                }
+            }
             encounterThisClick = true
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
@@ -578,6 +602,46 @@ class Journey: NSObject, NSCoding {
             galaxy.alertsToFireOnArrival.append(AlertID.TravelUneventfulTrip)
         }
         
+        // DEBT NOTIFICATIONS
+        
+        // intermittantly remind player he has debt
+        if (player.debt > 0) && (player.days & 3 == 0) && (player.remindLoans) {
+            galaxy.alertsToFireOnArrival.append(AlertID.DebtReminder)
+        }
+        
+        // autofuel, if appropriate
+        if player.autoFuel {
+            let cost = player.commanderShip.costOfFuel
+            if cost <= player.credits {
+                player.buyMaxFuel()
+            } else {
+                // too broke message
+                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFFuel)
+            }
+        }
+        
+        // auto repair, if appropriate
+        if player.autoRepair {
+            let cost = player.commanderShip.repairCosts
+            if cost <= player.credits {
+                player.buyMaxRepairs()
+            } else {
+                // too broke message
+                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFRepairs)
+            }
+        }
+        
+        // auto buy newspaper, if appropriate
+        if player.autoNewspaper {
+            let cost = galaxy.currentSystem!.costOfNewspaper
+            if cost <= player.credits {
+                galaxy.currentSystem!.newspaper.generatePaper()
+                player.alreadyPaidForNewspaper = true
+            } else {
+                // too broke message
+                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFNewspaper)
+            }
+        }
     }
     
     //    func generateEncounters() {         // OLD, but with useful code

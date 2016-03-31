@@ -164,7 +164,10 @@ class Alert {
             self.noButton = nil
         case .DebtReminder:
             self.header = "Loan Notification"
-            self.text = "The Bank's Loan Officer reminds you that your debt continues to accrue interest. You currently owe \(self.passedString1)."
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            let debtFormatted = numberFormatter.stringFromNumber(player.debt)
+            self.text = "The Bank's Loan Officer reminds you that your debt continues to accrue interest. You currently owe \(debtFormatted!) cr."
             self.yesButton = "OK"
             self.noButton = nil
         case .DebtTooLargeGrounded:
@@ -184,7 +187,7 @@ class Alert {
             self.noButton = nil
         case .DebtWarning:
             self.header = "Warning: Large Debt"
-            self.text = "Your debt is getting too large. Reduce it quickly or your ship will be pit on a chain!"
+            self.text = "Your debt is getting too large. Reduce it quickly or your ship will be put on a chain!"
             self.yesButton = "OK"
             self.noButton = nil
         case .Egg:

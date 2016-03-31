@@ -1731,10 +1731,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             } else if ship == ShipType.Scorpion {
                 healthy = 35
                 empty = 170
-            } else {
-                // ship == ShipType.Bottle
+            } else if ship == ShipType.Bottle {
                 healthy = 0
                 empty = 200
+            } else {
+                print("error")
             }
 
         } else {
@@ -1787,10 +1788,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             } else if ship == ShipType.Scorpion {
                 healthy = 40
                 empty = 155
-            } else {
-                // ship == ShipType.Bottle
+            } else if ship == ShipType.Bottle {
                 healthy = 0
                 empty = 200
+            } else {
+                print("error")
             }
         }
         
@@ -2171,8 +2173,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // state == "sd"
                 image = UIImage(named: "scorpionsd")!
             }
-        } else {
-            // ship == ShipType.Bottle
+        } else if ship == ShipType.Bottle {
             if state == "h" {
                 image = UIImage(named: "bottle")!
             } else if state == "d" {
@@ -2183,6 +2184,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // state == "sd"
                 //image = UIImage(named: "ship0sd")
             }
+        } else {
+            print("error")
         }
         
         return image

@@ -41,6 +41,10 @@ class StarSystem: NSObject, NSCoding {
         }
     }
     
+    var costOfNewspaper: Int {
+        return player.difficultyInt + 1
+    }
+    
     var locationChecked = false
     
     var scarabIsHere = false
