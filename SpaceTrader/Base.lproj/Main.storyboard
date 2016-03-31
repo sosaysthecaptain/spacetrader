@@ -4422,37 +4422,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commander Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-Jh-Jp7">
-                                                    <rect key="frame" x="8" y="8" width="153" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commander Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-Jh-Jp7" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="8" width="153" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-qm-dsi">
-                                                    <rect key="frame" x="465" y="8" width="127" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-qm-dsi" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="455" y="8" width="127" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-pR-PVx">
-                                                    <rect key="frame" x="8" y="35" width="134" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-pR-PVx" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="35" width="134" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Net Worth: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-it-mUr">
-                                                    <rect key="frame" x="424" y="35" width="168" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Net Worth: &lt;number&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-it-mUr" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                    <rect key="frame" x="414" y="35" width="168" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="uWI-it-mUr" secondAttribute="trailing" id="9sZ-Jz-6xi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uWI-it-mUr" secondAttribute="trailing" constant="10" id="9sZ-Jz-6xi"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="uWI-it-mUr" secondAttribute="bottom" id="DTM-ME-140"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qyI-qm-dsi" secondAttribute="trailing" id="F8n-cF-aPy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qyI-qm-dsi" secondAttribute="trailing" constant="10" id="F8n-cF-aPy"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4e3-pR-PVx" secondAttribute="bottom" id="I1Y-k2-7PA"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="JZP-Jh-Jp7" secondAttribute="leading" id="WGx-e4-wN1"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="JZP-Jh-Jp7" secondAttribute="leading" constant="-10" id="WGx-e4-wN1"/>
                                                 <constraint firstAttribute="topMargin" secondItem="qyI-qm-dsi" secondAttribute="top" id="id8-mn-Xj6"/>
                                                 <constraint firstItem="4e3-pR-PVx" firstAttribute="leading" secondItem="JZP-Jh-Jp7" secondAttribute="leading" id="j4U-Y4-KrR"/>
                                                 <constraint firstItem="4e3-pR-PVx" firstAttribute="top" secondItem="uWI-it-mUr" secondAttribute="bottom" constant="8" id="ttE-ee-9ic"/>
