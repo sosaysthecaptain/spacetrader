@@ -963,7 +963,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfU-FP-PCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7157" y="-319"/>
+            <point key="canvasLocation" x="7969" y="-319"/>
         </scene>
         <!--Design Your Own Ship-->
         <scene sceneID="58w-40-cJB">
@@ -1105,7 +1105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jm8-Qd-S7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10271" y="-345"/>
+            <point key="canvasLocation" x="11083" y="-345"/>
         </scene>
         <!--Name and Size-->
         <scene sceneID="BlZ-kT-nJk">
@@ -1208,7 +1208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-Bt-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10968" y="-345"/>
+            <point key="canvasLocation" x="11780" y="-345"/>
         </scene>
         <!--Space Allocation-->
         <scene sceneID="y5e-tx-2S7">
@@ -1639,7 +1639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-l4-bPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11648" y="-345"/>
+            <point key="canvasLocation" x="12460" y="-345"/>
         </scene>
         <!--Ship List-->
         <scene sceneID="FdH-zj-imv">
@@ -1826,7 +1826,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrS-fJ-2Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8633" y="-310"/>
+            <point key="canvasLocation" x="9445" y="-310"/>
         </scene>
         <!--Fuel Repair ModalVC-->
         <scene sceneID="TVu-z4-4cO">
@@ -5338,7 +5338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Km-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5534" y="-1056"/>
+            <point key="canvasLocation" x="6346" y="-1056"/>
         </scene>
         <!--Sell PickerVC-->
         <scene sceneID="sdF-lg-phJ">
@@ -5442,7 +5442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Igm-1v-rww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7086" y="-1064"/>
+            <point key="canvasLocation" x="7898" y="-1064"/>
         </scene>
         <!--Load Game-->
         <scene sceneID="tsY-7o-p0X">
@@ -5518,7 +5518,13 @@
                             <constraint firstItem="J7x-7u-3Zb" firstAttribute="top" secondItem="l1r-fb-iS2" secondAttribute="bottom" id="fGj-NR-cgz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Load Game" id="AEU-0s-6J2"/>
+                    <navigationItem key="navigationItem" title="Load Game" id="AEU-0s-6J2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Dpr-Ws-FBB">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Wm3-cU-jE3" id="2wI-Y4-26t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="J7x-7u-3Zb" id="K17-4n-Euh"/>
@@ -5526,7 +5532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4i-oM-gcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708" y="-514"/>
+            <point key="canvasLocation" x="-4" y="-538"/>
         </scene>
         <!--New GameVC-->
         <scene sceneID="seZ-QI-OUO">
@@ -5560,7 +5566,7 @@
                                 <inset key="contentEdgeInsets" minX="20" minY="15" maxX="20" maxY="15"/>
                                 <state key="normal" title="Load Game"/>
                                 <connections>
-                                    <segue destination="Wm3-cU-jE3" kind="show" id="g1Q-Jj-Pqv"/>
+                                    <segue destination="ZDb-nH-Noz" kind="show" id="g1Q-Jj-Pqv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxL-hH-po8" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
@@ -5793,7 +5799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMC-FO-1RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="-467"/>
+            <point key="canvasLocation" x="2294" y="-467"/>
         </scene>
         <!--New CommanderVC-->
         <scene sceneID="qNF-vS-8lj">
@@ -6265,8 +6271,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-3a-pVW" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="502" y="420" width="68" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-3a-pVW" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="492" y="469" width="68" height="42"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
                                 <state key="normal" title="Hire"/>
                                 <connections>
@@ -6307,7 +6313,7 @@
                             <constraint firstItem="wWm-5f-m9K" firstAttribute="leading" secondItem="d6M-bY-bR8" secondAttribute="trailing" constant="10" id="GKE-RF-M6d"/>
                             <constraint firstItem="wWm-5f-m9K" firstAttribute="baseline" secondItem="d6M-bY-bR8" secondAttribute="baseline" id="IOe-VA-zl4"/>
                             <constraint firstItem="xMy-zn-84a" firstAttribute="leading" secondItem="JNl-el-PH3" secondAttribute="leading" id="KGO-Bb-C7X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FTP-3a-pVW" secondAttribute="trailing" constant="10" id="Oai-ca-kMO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FTP-3a-pVW" secondAttribute="trailing" constant="20" id="Oai-ca-kMO"/>
                             <constraint firstItem="FTP-3a-pVW" firstAttribute="centerX" secondItem="NEu-Iw-DKQ" secondAttribute="centerX" id="Owb-6n-3TP"/>
                             <constraint firstItem="SH5-Iq-jSp" firstAttribute="leading" secondItem="er9-Dd-lAF" secondAttribute="leading" id="PB2-YV-NIq"/>
                             <constraint firstItem="xMy-zn-84a" firstAttribute="top" secondItem="JNl-el-PH3" secondAttribute="bottom" constant="8" id="RDE-kF-1C6"/>
@@ -6320,7 +6326,7 @@
                             <constraint firstItem="er9-Dd-lAF" firstAttribute="top" secondItem="HXM-eO-LX1" secondAttribute="bottom" constant="8" id="Z6M-A9-DaG"/>
                             <constraint firstItem="boC-zE-Czx" firstAttribute="baseline" secondItem="HXM-eO-LX1" secondAttribute="baseline" id="ciq-Vv-dKi"/>
                             <constraint firstItem="HXM-eO-LX1" firstAttribute="top" secondItem="d6M-bY-bR8" secondAttribute="bottom" constant="8" id="dkJ-Xf-k1V"/>
-                            <constraint firstItem="2FG-IQ-FoG" firstAttribute="top" secondItem="FTP-3a-pVW" secondAttribute="bottom" constant="30" id="fxb-py-QWK"/>
+                            <constraint firstItem="2FG-IQ-FoG" firstAttribute="top" secondItem="FTP-3a-pVW" secondAttribute="bottom" constant="25" id="fxb-py-QWK"/>
                             <constraint firstItem="HXM-eO-LX1" firstAttribute="leading" secondItem="d6M-bY-bR8" secondAttribute="leading" id="hEJ-fg-c66"/>
                             <constraint firstItem="TkD-wJ-fTa" firstAttribute="leading" secondItem="boC-zE-Czx" secondAttribute="leading" id="kPC-ue-O3H"/>
                             <constraint firstItem="wWm-5f-m9K" firstAttribute="leading" secondItem="NEu-Iw-DKQ" secondAttribute="leadingMargin" constant="100" id="kg7-50-tSJ"/>
@@ -7796,7 +7802,7 @@
                         <segue destination="1s8-qu-jkZ" kind="show" identifier="personnelSegueOld" id="Cl3-zi-3cm"/>
                         <segue destination="hAw-Mn-ebQ" kind="show" identifier="gameMenuToNewGame" id="3Q1-XC-r58"/>
                         <segue destination="Qju-ZK-wY0" kind="show" identifier="saveGameSegue" id="UNn-vJ-URu"/>
-                        <segue destination="Wm3-cU-jE3" kind="show" identifier="loadGameFromMenu" id="Btw-3O-mir"/>
+                        <segue destination="ZDb-nH-Noz" kind="show" identifier="loadGameFromMenuOld" id="Btw-3O-mir"/>
                         <segue destination="dh8-f5-cCL" kind="show" identifier="optionsSegue" id="gC2-2Y-JA5"/>
                         <segue destination="7LO-KN-Rs8" kind="show" identifier="highScoresFromMenuOld" id="Q3s-ve-bLK"/>
                         <segue destination="hCQ-9f-5bf" kind="show" identifier="aboutSpaceTraderSegue" id="oWK-Jg-tvH"/>
@@ -7805,6 +7811,7 @@
                         <segue destination="xmr-t0-zTL" kind="show" identifier="commanderStatusSegue" id="dW2-rg-CkT"/>
                         <segue destination="BZd-ve-IMj" kind="show" identifier="personnelSegue" id="XhI-dd-ihR"/>
                         <segue destination="tEb-Cf-TS2" kind="show" identifier="highScoresFromMenu" id="Rcc-24-Noc"/>
+                        <segue destination="Wm3-cU-jE3" kind="show" identifier="loadGameFromMenu" id="K2U-qg-SzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grt-on-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -7904,7 +7911,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-Yu-jDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4722" y="-1023"/>
+            <point key="canvasLocation" x="5534" y="-1023"/>
         </scene>
         <!--Buy-->
         <scene sceneID="Hyc-zn-b2c">
@@ -7923,7 +7930,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn7-Vt-4pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6345" y="-319"/>
+            <point key="canvasLocation" x="7157" y="-319"/>
         </scene>
         <!--Shipyard-->
         <scene sceneID="y8A-xr-9as">
@@ -8013,7 +8020,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-P3-DW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="-562"/>
+            <point key="canvasLocation" x="3056" y="-562"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zEy-3l-JNt">
@@ -8345,7 +8352,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIh-k8-j6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="-467"/>
+            <point key="canvasLocation" x="1482" y="-467"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hv5-YB-plH">
@@ -8399,7 +8406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bi1-Mc-mBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9459" y="-345"/>
+            <point key="canvasLocation" x="10271" y="-345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfh-8b-CRD">
@@ -8417,7 +8424,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dw-oc-xIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7821" y="-310"/>
+            <point key="canvasLocation" x="8633" y="-310"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ZG-vD-CMb">
@@ -8435,7 +8442,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taG-JS-3em" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6274" y="-1064"/>
+            <point key="canvasLocation" x="7086" y="-1064"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="liG-Zj-Mxc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZDb-nH-Noz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cnZ-vD-uts">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wm3-cU-jE3" kind="relationship" relationship="rootViewController" id="gkk-jy-tIE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpJ-ZP-HfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-708" y="-514"/>
         </scene>
     </scenes>
     <resources>
@@ -8452,17 +8477,18 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SLK-Ty-5ft"/>
-        <segue reference="g1Q-Jj-Pqv"/>
-        <segue reference="FU7-pK-WDz"/>
         <segue reference="QJh-Dr-ysc"/>
-        <segue reference="Rcc-24-Noc"/>
-        <segue reference="XhI-dd-ihR"/>
-        <segue reference="Q3s-ve-bLK"/>
+        <segue reference="SLK-Ty-5ft"/>
+        <segue reference="REb-7Y-v0a"/>
+        <segue reference="FU7-pK-WDz"/>
         <segue reference="Cl3-zi-3cm"/>
+        <segue reference="Q3s-ve-bLK"/>
+        <segue reference="K2U-qg-SzU"/>
+        <segue reference="Rcc-24-Noc"/>
+        <segue reference="Btw-3O-mir"/>
+        <segue reference="XhI-dd-ihR"/>
         <segue reference="gLW-Zt-l96"/>
         <segue reference="Zhh-Pf-9hC"/>
-        <segue reference="REb-7Y-v0a"/>
         <segue reference="c5m-hx-g89"/>
         <segue reference="1Eh-mE-ldv"/>
         <segue reference="fc0-hX-FHZ"/>

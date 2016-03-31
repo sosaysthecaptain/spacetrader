@@ -92,5 +92,10 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             deleteGame(indexPath.row)
         }
     }
+    
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
 }

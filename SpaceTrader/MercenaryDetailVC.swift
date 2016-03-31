@@ -16,7 +16,7 @@ class MercenaryDetailVC: UIViewController {
     @IBOutlet weak var fighterLabel: UILabel!
     @IBOutlet weak var traderLabel: UILabel!
     @IBOutlet weak var engineerLabel: UILabel!
-    @IBOutlet weak var hireButtonLabel: CustomButton!
+    @IBOutlet weak var hireButtonLabel: PurpleButtonTurnsGray!
 
     
     

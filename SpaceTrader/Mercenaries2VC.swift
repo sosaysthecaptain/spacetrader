@@ -151,6 +151,11 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
             vc.hireNotFire = hireNotFire
         }
         
+        // set back button text for child VCs to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
     }
     
     // unwind segue
