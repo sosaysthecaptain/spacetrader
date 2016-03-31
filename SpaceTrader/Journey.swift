@@ -173,6 +173,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.swarmingWithAliens {
             let random = rand(10)
             if random > 3 {
+                print("TIME FOR MANTIS ENCOUNTER")
                 mantis = true
                 encounterThisClick = true
             }
@@ -216,6 +217,7 @@ class Journey: NSObject, NSCoding {
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                     // mantis
+                    print("TIME FOR MANTIS ENCOUNTER")
                     mantis = true
                     encounterThisClick = true
                 }
@@ -398,8 +400,11 @@ class Journey: NSObject, NSCoding {
             currentEncounter!.beginEncounter()
             
         } else if mantis && !encounterThisClick {
+            print("MANTIS ENCOUNTER...")            // WE SEEM TO NEVER BE MAKING IT HERE
             encounterThisClick = true
+            print("set encounterThisClick to true")
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
+            print("about to begin mantisAttack encounter...passing control to Encounter")
             currentEncounter!.beginEncounter()
         } else if dragonfly && !encounterThisClick {
             encounterThisClick = true
