@@ -160,7 +160,7 @@ class TradeInOrbitVC: UIViewController {
             let message: String = "Thanks for selling the \(commodityToTrade.rawValue). It's been a pleasure doing business with you."
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // end encounter, close VC
                 //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
@@ -182,7 +182,7 @@ class TradeInOrbitVC: UIViewController {
             let message: String = "Thanks for buying the \(commodityToTrade.rawValue). It's been a pleasure doing business with you."
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // end encounter, close VC
                 self.dismissViewControllerAnimated(false, completion: {
