@@ -305,6 +305,16 @@ class SpaceShip: NSObject, NSCoding {
         }
     }
     
+    // returns true if player has cloaking device, false otherwise
+    var cloakingDevice: Bool {
+        for device in gadget {
+            if device.type == GadgetType.Cloaking {
+                return true
+            }
+        }
+        return false
+    }
+    
     // is this even used
     var waterOnBoard: Int = 0
     var fursOnBoard: Int = 0

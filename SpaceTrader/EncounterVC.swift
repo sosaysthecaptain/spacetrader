@@ -291,7 +291,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             self.presentViewController(alertController, animated: true, completion: nil)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Scorpion {
             
-            // make sure player is using disabling weapons
+            // if scorpion, make sure player is using disabling weapons
             var disruptorFlag = false
             for weapon in player.commanderShip.weapon {
                 if weapon.type == WeaponType.quantumDisruptor || weapon.type == WeaponType.photonDisruptor {
@@ -330,6 +330,28 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             alertController.addAction(UIAlertAction(title: "OK, I Won't", style: UIAlertActionStyle.Cancel,handler: nil))
             // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else  if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Mantis {
+            // if mantis, make sure player has hull damaging weapons
+            var playerHasHullDamagingWeapons = false
+            for item in player.commanderShip.weapon {
+                if (item.type == WeaponType.pulseLaser) || (item.type == WeaponType.beamLaser) || (item.type == WeaponType.militaryLaser) || (item.type == WeaponType.morgansLaser) {
+                    playerHasHullDamagingWeapons = true
+                }
+            }
+            
+            if !playerHasHullDamagingWeapons {
+                // alert player that he has no hull damaging weapons, cancel attack
+                let title: String = "No Hull-Damaging Weapons"
+                let message: String = "You only have disabling weapons, but your opponent cannot be disabled!"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                // do nothing, dismiss modal
+                self.presentViewController(alertController, animated: true, completion: nil)
+
+                
+            }
             
         } else {
             // make sure player has weapons
