@@ -349,8 +349,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
                 // do nothing, dismiss modal
                 self.presentViewController(alertController, animated: true, completion: nil)
-
-                
+            } else {
+                self.actuallyAttack()
             }
             
         } else {

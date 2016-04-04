@@ -75,7 +75,6 @@ class Encounter: NSObject, NSCoding {
         let IFF = getIFFStatusTypeforEncounterType(type)
         
         // generate opponent
-        print("DEBUG. About to instantiate opponent. IFF: \(type)")
         opponent = Opponent(type: IFF)
         opponent.generateOpponent()
         
@@ -106,9 +105,6 @@ class Encounter: NSObject, NSCoding {
         if type == EncounterType.nullEncounter {
             concludeEncounter()
         }
-        
-        // debug
-        print("Encounter: instantiating an encounter of type \(type)")
         
         setEncounterTextAndButtons()
         fireModal()
@@ -454,7 +450,6 @@ class Encounter: NSObject, NSCoding {
     }
     
     func fireModal() {          // LAUNCHES AN ENCOUNTER VIEW
-        print("encounter.fireModal is attempting to launch an encounter, type \(type)")
         
         var passedText = NSString(string: "")
         if modalToCall == "main" {
@@ -488,7 +483,9 @@ class Encounter: NSObject, NSCoding {
             
             // PHOTON DISRUPTOR ACTION GOES HERE************************************************
             if opponent.ship.totalShields == 0 && player.commanderShip.photonDisruptor {
-                opponent.ship.disabled = true
+                if opponent.ship.type != ShipType.Mantis {      // mantises can't be disabled
+                    opponent.ship.disabled = true
+                }
                 
                 // quantum disruptor does more?
             }

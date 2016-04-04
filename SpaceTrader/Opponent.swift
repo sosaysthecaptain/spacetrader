@@ -14,7 +14,6 @@ class Opponent: NSObject, NSCoding {
     var type: IFFStatusType
     
     init(type: IFFStatusType) {
-        print("DEBUG-opponent. Instantiating opponent of type \(type)")
         
         self.type = type
         
@@ -80,8 +79,6 @@ class Opponent: NSObject, NSCoding {
             }
         }
         
-        print("gadgets: \(gadgetSlots) slots, \(numberOfGadgets) actual gadgets")
-        
         for _ in 0..<numberOfGadgets {
             addRandomlyChosenGadget(tries)
         }
@@ -93,8 +90,6 @@ class Opponent: NSObject, NSCoding {
                 cargoBays += 5
             }
         }
-        print("cargo bays: \(cargoBays)")
-
         
         let m = 3 + rand(cargoBays - 5)
         //print("m = \(m)")

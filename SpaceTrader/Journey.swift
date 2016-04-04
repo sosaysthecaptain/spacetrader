@@ -226,6 +226,12 @@ class Journey: NSObject, NSCoding {
         
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
+        
+        print("NEW ENCOUNTER****************************************************************")
+        print("creating encounter. Type: \(encounterType). Pirate? \(pirate), Police? \(police), Trader? \(trader)")
+        print("mantis? \(mantis)")
+        print("encounterThisClick? \(encounterThisClick)")
+        
         if pirate {
             encounterType = EncounterType.pirateAttack      // default
             //            print("pirate encounter. Default is attack.")
@@ -399,7 +405,7 @@ class Journey: NSObject, NSCoding {
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
             
-        } else if mantis && !encounterThisClick {
+        } else if mantis {                          // && !encounterThisClick
             print("MANTIS ENCOUNTER...")            // WE SEEM TO NEVER BE MAKING IT HERE
             encounterThisClick = true
             print("set encounterThisClick to true")
