@@ -363,8 +363,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {
                     (alert: UIAlertAction!) -> Void in
-                    // flag to false, can't attack
-                    self.actuallyAttack()
+                    // do nothing
                 }))
                 self.presentViewController(alertController, animated: true, completion: nil)
             } else {

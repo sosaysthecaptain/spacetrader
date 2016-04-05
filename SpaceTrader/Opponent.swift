@@ -380,6 +380,11 @@ class Opponent: NSObject, NSCoding {
                 runningBestGadgetIndex = maxIndex
             }
         }
+        
+        // fixing bug that caused occasional crash
+        if runningBestGadgetIndex > 3 {
+            runningBestGadgetIndex = gadgets.count - 1
+        }
         let newGadget = Gadget(type: gadgets[runningBestGadgetIndex])
         ship.gadget.append(newGadget)
     }

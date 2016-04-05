@@ -162,6 +162,10 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 
         // WIPE EXISTING GAME
         player = Commander(commanderName: "NIL", difficulty: DifficultyType.beginner, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
+        
+        // fix new commander bug, which crashes app by trying to save after only this much has been loaded
+        player.endGameType = EndGameStatus.Retired      // will be set to GameNotOver when commander properly instantiated
+        
         galaxy = Galaxy()
         
         // set stepper values
@@ -225,6 +229,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
 
         player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: Int(pilotStepper.value), fighterSkill: Int(fighterStepper.value), traderSkill: Int(traderStepper.value), engineerSkill: Int(engineerStepper.value))
+        player.endGameType = EndGameStatus.GameNotOver
         galaxy.createGalaxy()
         
         // give player a pulse laser
