@@ -121,9 +121,53 @@ class SpaceShip: NSObject, NSCoding {
                 runningBestAmount = quantityOnBoard
             }
         }
-        
         return runningBestItem
     }
+    
+    var maxCrewPilotSkill: Int {
+        var runningMax = 0
+        for member in crew {
+            if member.pilot > runningMax {
+                runningMax = member.pilot
+            }
+        }
+        //print("max opponent pilot skill: \(runningMax)")
+        return runningMax
+    }
+    
+    var maxCrewFighterSkill: Int {
+        var runningMax = 0
+        for member in crew {
+            if member.fighter > runningMax {
+                runningMax = member.fighter
+            }
+        }
+        //print("max opponent fighter skill: \(runningMax)")
+        return runningMax
+    }
+    
+    var maxCrewTraderSkill: Int {
+        var runningMax = 0
+        for member in crew {
+            if member.trader > runningMax {
+                runningMax = member.trader
+            }
+        }
+        //print("max opponent trader skill: \(runningMax)")
+        return runningMax
+    }
+    
+    var maxCrewEngineerSkill: Int {
+        var runningMax = 0
+        for member in crew {
+            if member.engineer > runningMax {
+                runningMax = member.engineer
+            }
+        }
+        //print("max opponent engineer skill: \(runningMax)")
+        return runningMax
+    }
+    
     
     var raided = false
     //var justLootedMarieCeleste = false

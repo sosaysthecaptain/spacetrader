@@ -78,10 +78,10 @@ class Encounter: NSObject, NSCoding {
         opponent = Opponent(type: IFF)
         opponent.generateOpponent()
         
-        pilotSkillOpponent = opponent.commander.pilotSkill
-        fighterSkillOpponent = opponent.commander.fighterSkill
-        traderSkillOpponent = opponent.commander.traderSkill
-        engineerSkillOpponent = opponent.commander.engineerSkill
+        pilotSkillOpponent = max(opponent.commander.pilotSkill, opponent.ship.maxCrewPilotSkill)
+        fighterSkillOpponent = max(opponent.commander.fighterSkill, opponent.ship.maxCrewFighterSkill)
+        traderSkillOpponent = max(opponent.commander.traderSkill, opponent.ship.maxCrewTraderSkill)
+        engineerSkillOpponent = max(opponent.commander.engineerSkill, opponent.ship.maxCrewEngineerSkill)
         
         for crewMember in opponent.ship.crew {
             if crewMember.pilot > pilotSkillOpponent {

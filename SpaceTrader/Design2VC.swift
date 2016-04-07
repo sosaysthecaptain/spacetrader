@@ -418,6 +418,8 @@ class Design2VC: UIViewController {
         newShip.cargoBays = Int(cargoBaysStepper.value)
         newShip.fuelTanks = Int(rangeStepper.value)
         newShip.hullStrength = Int(hullStrengthStepper.value)
+        newShip.hull = Int(hullStrengthStepper.value)
+        newShip.size = player.selectedConstructShipSize.rawValue
         newShip.weaponSlots = Int(weaponSlotsStepper.value)
         newShip.shieldSlots = Int(shieldSlotsStepper.value)
         newShip.gadgetSlots = Int(gadgetSlotsStepper.value)
