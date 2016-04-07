@@ -105,13 +105,19 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     cell.setLabels("Slot \(indexPath.row + 1)", valueLabel: "<empty slot>")
                 }
             }
+        } else if indexPath.section == 4 {
+            if player.commanderShip.specialCargoStrings.count == 0 {
+                cell.setLabels("<No Special Cargo>", valueLabel: "")
+            } else {
+                cell.setLabels("\(player.commanderShip.specialCargoStrings[indexPath.row])", valueLabel: "")
+            }
         }
         
         return cell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,6 +141,8 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             } else {
                 return 1
             }
+        } else if section == 4 {
+            return player.commanderShip.specialCargoStrings.count
         } else {
             return 0
         }
@@ -154,6 +162,8 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             return "Shields"
         } else if section == 3 {
             return "Gadgets"
+        } else if section == 4 {
+            return "Special Cargo"
         } else {
             return "error"
         }
