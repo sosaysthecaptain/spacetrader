@@ -173,8 +173,8 @@ class ShortRangeChartView: UIView {
     func drawPlanetCircle(location: CGPoint, visited: Bool) {
         let planetRadius = CGFloat(4)
         let planetCircle = UIBezierPath(arcCenter: location, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-        let unvisitedColor: UIColor = UIColor.greenColor()
-        let visitedColor: UIColor = UIColor.blueColor()
+        let unvisitedColor: UIColor = mapGreen
+        let visitedColor: UIColor = mapBlue
         
         if visited == true {
             visitedColor.set()
