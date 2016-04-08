@@ -67,7 +67,7 @@ class EquipmentDetailVC: UIViewController {
                         // buy item
                         self.buyItem()
                     }))
-                    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                         (alert: UIAlertAction!) -> Void in
                         //do nothing
                     }))
@@ -97,7 +97,7 @@ class EquipmentDetailVC: UIViewController {
                 (alert: UIAlertAction!) -> Void in
                 self.sellItem()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))

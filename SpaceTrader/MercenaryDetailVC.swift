@@ -70,7 +70,7 @@ class MercenaryDetailVC: UIViewController {
             let message = "Are you sure you want fire \(selectedMercenary!.name)?"
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 self.fireMercenary()
             }))

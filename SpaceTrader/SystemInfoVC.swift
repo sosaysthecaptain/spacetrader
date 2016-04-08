@@ -197,7 +197,7 @@ class SystemInfoVC: UIViewController {
                 player.alreadyPaidForNewspaper = true
                 self.performSegueWithIdentifier("newspaperModal", sender: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))

@@ -72,7 +72,7 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let message = "Your current game will be lost."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))

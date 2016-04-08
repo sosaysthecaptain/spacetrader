@@ -119,7 +119,7 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let message = "Your current game will be lost."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))
@@ -149,7 +149,7 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
             self.presentViewController(vc, animated: true, completion: nil)
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))

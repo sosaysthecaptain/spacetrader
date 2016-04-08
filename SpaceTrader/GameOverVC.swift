@@ -54,7 +54,7 @@ class GameOverVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         // wait, display alert
-        sleep(2)
+        sleep(1)
         
         // sleep seems to keep this VC around for a second. Otherwise it loads and instantly dismisses
         

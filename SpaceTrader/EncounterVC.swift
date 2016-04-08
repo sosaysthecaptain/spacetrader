@@ -269,7 +269,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 player.policeRecord = PoliceRecordType.criminalScore
                 self.actuallyAttack()
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default,handler: nil))
             // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
             
@@ -286,7 +286,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 player.policeRecord = PoliceRecordType.dubiousScore
                 self.actuallyAttack()
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default,handler: nil))
             // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Scorpion {
@@ -327,7 +327,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 galaxy.currentJourney!.currentEncounter!.warnedYet = true
                 self.actuallyAttack()
             }))
-            alertController.addAction(UIAlertAction(title: "OK, I Won't", style: UIAlertActionStyle.Cancel,handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK, I Won't", style: UIAlertActionStyle.Default,handler: nil))
             // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
             
@@ -426,7 +426,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // fire second alert and close
                 self.famousCaptainTraining()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss and conclude encounter
                 self.dismissViewController()
@@ -451,7 +451,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // fire second alert and close
                 self.famousCaptainTraining()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss and conclude encounter
                 self.dismissViewController()
@@ -476,7 +476,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // fire second alert and close
                 self.famousCaptainTraining()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss and conclude encounter
                 self.dismissViewController()
@@ -498,7 +498,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             self.drinkTonic()
             
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and conclude encounter
             self.dismissViewController()
@@ -512,12 +512,12 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         let message = "The ship is empty: there is nothing in the ship’s log, but the crew has vanished, leaving food on the tables and cargo in the holds. Do you wish to offload the cargo into your own holds?"
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Yes, Take Cargo", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "Yes, Take Cargo", style: UIAlertActionStyle.Destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
             // PLUNDER. Marie celeste should have 5 narcotics
             self.plunder()
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and conclude encounter
             self.dismissViewController()
@@ -1056,7 +1056,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
-        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and resume, for now
 //            print("you let it go")

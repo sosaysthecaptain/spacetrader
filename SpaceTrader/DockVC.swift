@@ -88,7 +88,7 @@ class DockVC: UIViewController {
             player.escapePod = true
             self.updateUI()
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // nothing, just close the modal
         }))

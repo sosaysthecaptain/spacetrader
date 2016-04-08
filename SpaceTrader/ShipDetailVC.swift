@@ -79,7 +79,7 @@ class ShipDetailVC: UIViewController {
                     // do nothing
                     self.buyNewShip(true)
                 }))
-                alertController.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.Default ,handler: {
+                alertController.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.Cancel ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     self.buyNewShip(false)
                 }))
@@ -187,7 +187,7 @@ class ShipDetailVC: UIViewController {
             // do nothing
             self.completeTransaction(transferEscapePod)
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // nothing, dismiss alert
         }))
