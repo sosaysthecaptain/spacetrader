@@ -17,6 +17,11 @@ class WarpViewVC: UIViewController {
     }
 
 
+    // set dark statusBar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     // FIRE ALERT MODALS
     // (maybe this should only fire the first? Let additional ones be sequential?)
     func messageHandler(notification: NSNotification) {

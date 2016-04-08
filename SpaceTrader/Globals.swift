@@ -84,6 +84,6 @@ let ZALKONSYSTEM = 118
 let mainPurple = UIColor(netHex:0x2E009F)
 let textGray = UIColor(netHex:0x2E2E2E)
 let inactiveGray = UIColor(netHex:0x848484)
-let mapBlue = UIColor(netHex:0x2E009F)
-let mapGreen = UIColor(netHex:0x008023)
+let mapBlue = UIColor(netHex:0x4b02FF)
+let mapGreen = UIColor(netHex:0x00A72E)
 

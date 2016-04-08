@@ -1098,6 +1098,12 @@ class Galaxy: NSObject, NSCoding {
         if player.days % 10 == 0 {
             player.incrementPoliceRecord(true)
         }
+        
+        // interest on player's debt
+        if player.debt != 0 {
+            let newDebt: Double = Double(player.debt) * 1.02
+            player.debt = Int(newDebt)
+        }
     }
     
     func shuffleStatus() {
