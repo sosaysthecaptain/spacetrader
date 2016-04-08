@@ -252,6 +252,15 @@ class Journey: NSObject, NSCoding {
                 encounterType = EncounterType.nullEncounter
             }
             
+            // handle cloaking logic
+            if player.commanderShip.cloakingDevice {
+                
+                // all pirate encounters become pirateCloaked
+                if (encounterType == EncounterType.pirateAttack) || (encounterType == EncounterType.pirateFlee) || (encounterType == EncounterType.pirateAttack) || (encounterType == EncounterType.pirateIgnore) {
+                    
+                    encounterType = EncounterType.pirateCloaked
+                }
+            }
             
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
@@ -260,7 +269,7 @@ class Journey: NSObject, NSCoding {
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
             if player.commanderShip.cloaked {
-                //                print("police are ignoring you because you're cloaked")
+                print("police are ignoring you because you're cloaked")
                 encounterType = EncounterType.policeIgnore
             } else if player.policeRecord.rawValue < 4 {
                 //                print("you are a criminal. Entering that clause...")
@@ -276,7 +285,7 @@ class Journey: NSObject, NSCoding {
                     //                    print("you are moderately scary, but dice roll determined they will attack you anyway")
                     encounterType = EncounterType.policeAttack
                 } else if player.commanderShip.cloaked {
-                    //                    print("you are a criminal, but cloaked. Police ignoring.")
+                    print("you are a criminal, but cloaked. Police ignoring.")
                     encounterType = EncounterType.policeIgnore
                 } else {
                     //                    print("you are a scary criminal. Police fleeing")
@@ -313,7 +322,7 @@ class Journey: NSObject, NSCoding {
             // IMPLEMENT LATER, MUST INSTANTIATE OPPONENT SHIP HERE TO DO THAT
             
             if encounterType == EncounterType.policeIgnore && player.commanderShip.cloaked {
-                //                print("you are cloaked and the police are ignoring you. Encounter won't happen")
+            //print("you are cloaked and the police are ignoring you. Encounter won't happen")
                 encounterType = EncounterType.nullEncounter
             }
             
@@ -350,6 +359,28 @@ class Journey: NSObject, NSCoding {
                     print("player opted out of trader ignore encounter")
                 }
             }
+            
+            // handle cloaking logic
+            if player.commanderShip.cloakingDevice {
+                
+                // all police encounters become policeCloaked
+                if  (encounterType == EncounterType.policeInspection) || (encounterType == EncounterType.policeIgnore) || (encounterType == EncounterType.postMariePoliceEncounter) {
+                    encounterType = EncounterType.policeCloaked
+                }
+                
+//                // all pirate encounters become pirateCloaked
+//                if (encounterType == EncounterType.pirateAttack) || (encounterType == EncounterType.pirateFlee) || (encounterType == EncounterType.pirateAttack) || (encounterType == EncounterType.pirateIgnore) {
+//                    
+//                    encounterType = EncounterType.pirateCloaked
+//                }
+//                
+//                // all trader encounters become traderCloaked
+//                if (encounterType == EncounterType.traderBuy) || (encounterType == EncounterType.traderSell) || (encounterType == EncounterType.traderIgnore) {
+//                    
+//                    encounterType = EncounterType.traderCloaked
+//                }
+            }
+            
             encounterThisClick = true
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
@@ -396,10 +427,22 @@ class Journey: NSObject, NSCoding {
                 }
             }
             
+            // handle cloaking logic
+            if player.commanderShip.cloakingDevice {
+
+                // all trader encounters become traderCloaked
+                if (encounterType == EncounterType.traderBuy) || (encounterType == EncounterType.traderSell) || (encounterType == EncounterType.traderIgnore) {
+                    
+                    encounterType = EncounterType.traderCloaked
+                }
+            }
+            
             // take into account user's preferences as to ignoring traders, ignoring trade in orbit
             if player.ignoreTraders {
                 encounterType = EncounterType.nullEncounter
             }
+            
+            
             
             // type determined, instantiate encounter
             currentEncounter = Encounter(type: encounterType, clicks: clicks)

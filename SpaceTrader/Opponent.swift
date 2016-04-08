@@ -13,6 +13,54 @@ class Opponent: NSObject, NSCoding {
     var commander: Commander
     var type: IFFStatusType
     
+    var pilot: Int {
+        var runningBest = commander.initialPilotSkill
+        if ship.crew.count > 0 {
+            for member in ship.crew {
+                if member.pilot > runningBest {
+                    runningBest = member.pilot
+                }
+            }
+        }
+        return runningBest
+    }
+    
+    var fighter: Int {
+        var runningBest = commander.initialFighterSkill
+        if ship.crew.count > 0 {
+            for member in ship.crew {
+                if member.fighter > runningBest {
+                    runningBest = member.fighter
+                }
+            }
+        }
+        return runningBest
+    }
+    
+    var trader: Int {
+        var runningBest = commander.initialTraderSkill
+        if ship.crew.count > 0 {
+            for member in ship.crew {
+                if member.trader > runningBest {
+                    runningBest = member.trader
+                }
+            }
+        }
+        return runningBest
+    }
+    
+    var engineer: Int {
+        var runningBest = commander.initialEngineerSkill
+        if ship.crew.count > 0 {
+            for member in ship.crew {
+                if member.engineer > runningBest {
+                    runningBest = member.engineer
+                }
+            }
+        }
+        return runningBest
+    }
+    
     init(type: IFFStatusType) {
         
         self.type = type

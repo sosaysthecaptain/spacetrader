@@ -2250,6 +2250,21 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 image = UIImage(named: "badge_bang")
         }
         
+        // handle cloak case
+        if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Null {
+            if galaxy.currentJourney!.currentEncounter!.type == EncounterType.pirateCloaked {
+                image = UIImage(named: "badge_pirate")
+            }
+            if galaxy.currentJourney!.currentEncounter!.type == EncounterType.policeCloaked {
+                image = UIImage(named: "badge_police")
+            }
+            if galaxy.currentJourney!.currentEncounter!.type == EncounterType.traderCloaked {
+                image = UIImage(named: "badge_trader")
+            }
+        }
+        
+        print("DEBUG: opponent IFFStatus: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus)")
+        
         badge.image = image
     }
     

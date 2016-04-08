@@ -398,6 +398,30 @@ class Encounter: NSObject, NSCoding {
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the famous captain Huie."
             encounterText2 = "The captain requests a brief meeting with you."
+        } else if type == EncounterType.policeCloaked {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
+            encounterText2 = "It doesn't notice you."
+        } else if type == EncounterType.pirateCloaked {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
+            encounterText2 = "It doesn't notice you."
+        } else if type == EncounterType.traderCloaked {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a trader \(opponent.ship.name)."
+            encounterText2 = "It doesn't notice you."
         }
     }
     

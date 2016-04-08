@@ -99,10 +99,27 @@ class SpaceShip: NSObject, NSCoding {
         return crew.count + 1
     }
     
-    var cloaked: Bool {
+    var cloaked: Bool {                                     // DEBUGGING...
+//        for item in gadget {
+//            if item.type == GadgetType.Cloaking {
+//                return true
+//            }
+//        }
+        return false
+    }
+    
+    var cloakingDevice: Bool {
+        
+        print("opponent engineer skill: \(galaxy.currentJourney?.currentEncounter?.opponent.engineer)")
+        
         for item in gadget {
             if item.type == GadgetType.Cloaking {
-                return true
+                // if cloaking device, player is cloaked only if engineer skill > opponent
+                if galaxy.currentJourney?.currentEncounter?.opponent.engineer == nil {
+                    return true
+                } else if player.engineerSkill > galaxy.currentJourney!.currentEncounter!.opponent.engineer {
+                    return true
+                }
             }
         }
         return false
@@ -347,16 +364,6 @@ class SpaceShip: NSObject, NSCoding {
         get {
             return totalCargo + baysTakenUpBySpecialCargo
         }
-    }
-    
-    // returns true if player has cloaking device, false otherwise
-    var cloakingDevice: Bool {
-        for device in gadget {
-            if device.type == GadgetType.Cloaking {
-                return true
-            }
-        }
-        return false
     }
     
     // is this even used

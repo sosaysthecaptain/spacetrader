@@ -557,6 +557,9 @@ enum EncounterType: Int {           // needs a raw value for NSCoding
     case famousCaptainAhab
     case famousCaptainHuie
     case famousCaptainConrad
+    case policeCloaked
+    case pirateCloaked
+    case traderCloaked
     case nullEncounter
 }
 
