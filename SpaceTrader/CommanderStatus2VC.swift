@@ -60,6 +60,8 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
             numberFormatter.numberStyle = .DecimalStyle
             let cashFormatted = numberFormatter.stringFromNumber(player.credits)
             let debtFormatted = numberFormatter.stringFromNumber(player.debt)
+            let creditLimitFormatted = numberFormatter.stringFromNumber(player.creditLimit)
+            let debtRatioFormatted = numberFormatter.stringFromNumber(player.debtRatio)
             let netWorthFormatted = numberFormatter.stringFromNumber(player.netWorth)
             
             // displaying
@@ -70,6 +72,10 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
             } else if indexPath.row == 1 {
                 cell.setLabels("Debt", valueLabel: "\(debtFormatted!) cr.")
             } else if indexPath.row == 2 {
+                cell.setLabels("Credit Limit", valueLabel: "\(creditLimitFormatted!) cr.")
+            } else if indexPath.row == 3 {
+                cell.setLabels("Debt Ratio", valueLabel: "\(debtRatioFormatted!)")
+            } else if indexPath.row == 4 {
                 cell.setLabels("Net Worth", valueLabel: "\(netWorthFormatted!) cr.")
             } else {
                 print("error")
@@ -103,7 +109,7 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
         } else if section == 1 {
             return 4
         } else if section == 2 {
-            return 3
+            return 5
         } else if section == 3 {
             return 3
         } else {

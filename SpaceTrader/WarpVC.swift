@@ -45,9 +45,22 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBAction func warpButton() {
         if galaxy.targetSystemInRange {
             // if button read "Warp"
-            galaxy.warp()
-            updateView()
-            shortRangeChart.redrawSelf()
+            // check if grounded, otherwise warp
+            if player.grounded {
+                let title = "Large Debt"
+                let message = "Your debt is too large. You are not allowed to leave this system until your debt is lowered."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // do nothing
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                galaxy.warp()
+                updateView()
+                shortRangeChart.redrawSelf()
+            }
         } else {
             // if button read "Track"
             galaxy.setTracked(galaxy.targetSystem!.name)

@@ -656,12 +656,16 @@ class Journey: NSObject, NSCoding {
             galaxy.alertsToFireOnArrival.append(AlertID.TravelUneventfulTrip)
         }
         
-        // DEBT NOTIFICATIONS
-        
-        // intermittantly remind player he has debt
-        if (player.debt > 0) && (player.days & 3 == 0) && (player.remindLoans) {
+        // debt notifications
+        if (player.debtRatio > 1.5) && (player.debt > 15000) {
+            galaxy.alertsToFireOnArrival.append(AlertID.DebtTooLargeGrounded)
+        } else if (player.debtRatio > 1.25) && (player.debt > 10000) {
+            galaxy.alertsToFireOnArrival.append(AlertID.DebtWarning)
+        } else if (player.debt > 0) && (player.days & 3 == 0) && (player.remindLoans) {
             galaxy.alertsToFireOnArrival.append(AlertID.DebtReminder)
         }
+        
+        //
         
         // autofuel, if appropriate
         if player.autoFuel {

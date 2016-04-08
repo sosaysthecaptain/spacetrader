@@ -45,9 +45,41 @@ class Commander: NSObject, NSCoding {
         return player.commanderShip.value
     }
     
+    var creditLimit: Int {
+        var limit = 0
+        if player.policeRecordInt >= 5 {
+            print("at least clean police record")
+            limit = max(1000, (player.netWorth / 10))
+            limit = min (25000, limit)
+            
+            // round to 200
+            if limit > 1000 {
+                limit = limit - (limit % 200)
+            }
+            
+            if limit < 0 {
+                limit = 0
+            }
+            
+            return limit
+        } else {
+            return 500
+        }
+    }
     
-    // skills                       DO WE WANT TO DO THIS BY MAX OR TOTAL? SEE WHAT ORIGINAL DOES
-    // DANGER: THIS CALCULATES BASED ON PLAYER'S CREW, NOT ON THIS COMMANDER'S CREW     (TODO, FIX, TESTING, DEBUG)
+    var debtRatio: Double {
+        return Double(debt) / Double(creditLimit)
+    }
+    
+    var grounded: Bool {
+        if (debtRatio > 1.5) && (debt > 15000) {
+            return true
+        }
+        return false
+    }
+    
+    
+    // skills
     var pilotSkill: Int {
         get {
             var max = initialPilotSkill
