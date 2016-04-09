@@ -57,7 +57,8 @@ class ShipDetailVC: UIViewController {
                 // do nothing
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else if player.commanderShip.crew.count < prototypeShip.crewQuarters + 1 {
+        } else if player.commanderShip.crew.count > prototypeShip.crewQuarters + 1 {
+            
             let title = "Too Many Crewmembers"
             let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."
             

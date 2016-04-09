@@ -3493,20 +3493,20 @@
                                     <constraint firstAttribute="height" constant="20" id="FCS-9A-oSw"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197" customClass="GrayButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="530" y="70" width="30" height="30"/>
                                 <state key="normal" title="x"/>
                                 <connections>
                                     <action selector="closeButton:" destination="Z73-QX-bwt" eventType="touchUpInside" id="tSf-zQ-Dq9"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jci-Hl-Day">
-                                <rect key="frame" x="180" y="-84" width="560" height="540"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fjd-9H-91m">
                                 <rect key="frame" x="40" y="563" width="520" height="2"/>
                             </progressView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jci-Hl-Day">
+                                <rect key="frame" x="-55" y="-49" width="560" height="540"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3596,6 +3596,7 @@
                         <outlet property="button2Text" destination="8iA-FL-PCu" id="QtZ-sE-7rL"/>
                         <outlet property="button3Text" destination="jF8-Ip-n9X" id="rQC-8b-zmV"/>
                         <outlet property="button4Text" destination="l8m-1h-I1B" id="yU2-QS-ZD8"/>
+                        <outlet property="closeButtonOutlet" destination="LCz-bE-197" id="MTD-U4-Q8l"/>
                         <outlet property="firstTextBlock" destination="tfX-8e-nV6" id="KSb-As-lKo"/>
                         <outlet property="opponentHull" destination="koD-aw-qW2" id="Rss-sZ-Cw0"/>
                         <outlet property="opponentImageBackground" destination="L5l-Ze-hsR" id="Frd-GZ-kHI"/>

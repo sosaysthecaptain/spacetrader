@@ -15,6 +15,13 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         // send view to background. Not possible to do this in IB
         self.view.sendSubviewToBack(backgroundView)
         
+        // disable close button, unless turned on in galaxy
+        if galaxy.closeButtonEnabled {
+            closeButtonOutlet.enabled = true
+        } else {
+            closeButtonOutlet.enabled = false
+        }
+        
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         playerShields.text = player.getShieldStrengthString(player.commanderShip)     // DEBUG FIX THIS
@@ -126,6 +133,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     @IBOutlet weak var badge: UIImageView!
     
     @IBOutlet weak var progressBar: UIProgressView!
+    
+    @IBOutlet weak var closeButtonOutlet: GrayButtonVanishes!
+    
     
     
     // set on top of everything and sent to back programmatically
@@ -760,6 +770,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     func submit() {
         // see if you have anything to worry about
         let contraband = getContrabandStatus()
+        print("contraband status: \(contraband)")
         
         // if not, apologise
         if !contraband {
@@ -910,7 +921,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         var contraband = false
         for item in player.commanderShip.cargo {
             if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
-                contraband = true
+                if item.quantity != 0 {
+                    contraband = true
+                }
             }
         }
         return contraband

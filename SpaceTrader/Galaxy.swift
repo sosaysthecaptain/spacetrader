@@ -50,6 +50,8 @@ class Galaxy: NSObject, NSCoding {
     
     var spaceTimeMessedUp = false
     
+    let closeButtonEnabled = true               // turn this on manually to enable skipping encounters
+    
     override init() {
         // deliberately empty
     }

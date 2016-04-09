@@ -34,7 +34,7 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
             } else if indexPath.row == 1 {
                 cell.setLabels("Difficulty", valueLabel: "\(player.difficulty.rawValue)")
             } else if indexPath.row == 2 {
-                cell.setLabels("Time", valueLabel: "\(player.days)")
+                cell.setLabels("Time", valueLabel: "\(player.days) days")
             } else {
                 print("error")
             }
