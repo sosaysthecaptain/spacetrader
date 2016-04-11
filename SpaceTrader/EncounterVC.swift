@@ -563,7 +563,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 actuallyFlee = false
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else if !contraband && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
+        } else if !contraband && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) && (player.policeRecord.rawValue >= 4) {
             
             let title: String = "You Have Nothing Illegal"
             let message: String = "Are you sure you want to do that? You are not carrying illegal goods, so you have nothing to fear!"
@@ -589,13 +589,16 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         if actuallyFlee {
             galaxy.currentJourney!.currentEncounter!.playerFleeing = true
             
-            // dock police record
-            if player.policeRecord == PoliceRecordType.cleanScore || player.policeRecord == PoliceRecordType.lawfulScore || player.policeRecord == PoliceRecordType.likedScore || player.policeRecord == PoliceRecordType.trustedScore {
-                player.policeRecord = PoliceRecordType.dubiousScore
-            } else if player.policeRecord == PoliceRecordType.dubiousScore {
-                player.policeRecord = PoliceRecordType.crookScore
+            // dock police record if fleeing a cop
+            if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
+                if player.policeRecord == PoliceRecordType.cleanScore || player.policeRecord == PoliceRecordType.lawfulScore || player.policeRecord == PoliceRecordType.likedScore || player.policeRecord == PoliceRecordType.trustedScore {
+                    player.policeRecord = PoliceRecordType.dubiousScore
+                } else if player.policeRecord == PoliceRecordType.dubiousScore {
+                    player.policeRecord = PoliceRecordType.crookScore
+                }
             }
             
+        
             // determine whether you'll escape
             var escape = false
             if player.difficulty == DifficultyType.beginner {

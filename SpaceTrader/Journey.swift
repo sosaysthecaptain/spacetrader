@@ -291,11 +291,14 @@ class Journey: NSObject, NSCoding {
                     //                    print("you are a scary criminal. Police fleeing")
                     encounterType = EncounterType.policeFlee
                 }
-                // if dubious police will inspect you
+                // if dubious police will inspect you more often than not
             } else if player.policeRecord.rawValue <= 4 {
-                //                print("your police record is dubious, so you are getting inspected")
-                encounterType = EncounterType.policeInspection
-                player.inspected = true
+                let random = rand(10)
+                if random > 3 {
+                    encounterType = EncounterType.policeInspection
+                    player.inspected = true
+                }
+                
                 // if clean but not as high as lawful, 10% chance of inspection on normal
             } else if player.policeRecord.rawValue == 5 {
                 // clean police record gets 50% chance of inspection

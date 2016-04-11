@@ -52,7 +52,7 @@ class MercenaryDetailVC: UIViewController {
     
     @IBAction func hireFireButton(sender: AnyObject) {
         if hireNotFire! {
-            if player.commanderShip.crew.count >= player.commanderShip.crewQuarters {
+            if (player.commanderShip.crew.count + 1) >= player.commanderShip.crewQuarters {
                 let title = "No Quarters Available"
                 let message = "You do not have quarters available for \(selectedMercenary!.name)."
                 

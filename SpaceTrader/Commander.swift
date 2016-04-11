@@ -133,7 +133,11 @@ class Commander: NSObject, NSCoding {
     var initialTraderSkill: Int
     var initialEngineerSkill: Int
     
-    var policeRecord = PoliceRecordType.cleanScore
+    var policeRecord = PoliceRecordType.cleanScore {
+        didSet {
+            print("DEBUG: POLICE RECORD SET TO \(policeRecord)")
+        }
+    }
     var reputation = ReputationType.harmlessRep
     var escapePod = false
     
