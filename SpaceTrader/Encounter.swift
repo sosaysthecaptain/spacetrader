@@ -606,6 +606,15 @@ class Encounter: NSObject, NSCoding {
         } else {
             theyHitYou = false
         }
+        
+        // handle player getting killed
+        if player.commanderShip.hullPercentage <= 0 {
+            if player.escapePod {
+                outcomePlayerDestroyedEscapes()
+            } else {
+                outcomePlayerDestroyedKilled()
+            }
+        }
     }
     
     func flee() {

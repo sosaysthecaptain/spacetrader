@@ -104,7 +104,7 @@ class HighScoreArchive: NSObject, NSCoding {
         self.sort()
         
         // if lowest in highscores is not > score, return true
-        var min = 999999999999
+        var min = 99999999
         for item in self.highScores {
             if item.score < min {
                 min = score.score
