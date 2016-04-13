@@ -592,7 +592,8 @@ class Encounter: NSObject, NSCoding {
         return outcome
     }
     
-    func fleeAttack() {
+    func fleeAttack() -> String {
+        var outcome = "fightContinues"
         // opponent gets a shot at you while you're fleeing
         
         let playerFleeingMarksmanshipPenalty = 2
@@ -610,11 +611,15 @@ class Encounter: NSObject, NSCoding {
         // handle player getting killed
         if player.commanderShip.hullPercentage <= 0 {
             if player.escapePod {
-                outcomePlayerDestroyedEscapes()
+                outcome = "playerDestroyedEscapes"
             } else {
-                outcomePlayerDestroyedKilled()
+                outcome = "playerDestroyedKilled"
             }
+        } else {
+            outcome = "fightContinues"
         }
+        
+        return outcome
     }
     
     func flee() {

@@ -628,8 +628,18 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 
             } else {
                 // opponent gets a shot at you
-                galaxy.currentJourney!.currentEncounter!.fleeAttack()
-                outcomeOpponentPursues()
+                let outcome = galaxy.currentJourney!.currentEncounter!.fleeAttack()
+                switch outcome {
+                    case "fightContinues":
+                        outcomeOpponentPursues()
+                    case "playerDestroyedKilled":
+                        outcomePlayerDestroyedKilled()
+                    case "playerDestroyedEscapes":
+                        outcomePlayerDestroyedEscapes()
+                    default:
+                        print("error")
+                }
+                //outcomeOpponentPursues()
             }
         }
     }
