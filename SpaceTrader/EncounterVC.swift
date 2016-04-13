@@ -277,6 +277,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 (alert: UIAlertAction!) -> Void in
                 // go ahead with it
                 player.policeRecord = PoliceRecordType.criminalScore
+                // reset buttons--encounter type becomes attack, player can no longer ignore
+                galaxy.currentJourney!.currentEncounter!.setButtons("Attack")
                 self.actuallyAttack()
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default,handler: nil))
