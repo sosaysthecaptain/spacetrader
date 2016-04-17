@@ -5834,92 +5834,92 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="569-mh-JXV">
-                                        <rect key="frame" x="10" y="126" width="71" height="22"/>
+                                        <rect key="frame" x="42" y="126" width="71" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill points:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6P-iG-Sxu" customClass="StandardLabelPurple" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="208" width="91" height="24"/>
+                                        <rect key="frame" x="42" y="208" width="91" height="24"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilot:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-w0-s5F">
-                                        <rect key="frame" x="57" y="252" width="38" height="22"/>
+                                        <rect key="frame" x="95" y="252" width="38" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fighter:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epq-iU-xsY">
-                                        <rect key="frame" x="37" y="294" width="58" height="22"/>
+                                        <rect key="frame" x="75" y="294" width="58" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trader:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-6S-Ygw">
-                                        <rect key="frame" x="42" y="336" width="53" height="22"/>
+                                        <rect key="frame" x="80" y="336" width="53" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engineer:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gl1-qg-sAd">
-                                        <rect key="frame" x="23" y="378" width="72" height="22"/>
+                                        <rect key="frame" x="61" y="378" width="72" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjs-8K-0ez">
-                                        <rect key="frame" x="-40" y="-50" width="30" height="39"/>
+                                        <rect key="frame" x="-20" y="-50" width="30" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx6-Zb-GVE" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="126" width="56" height="21"/>
+                                        <rect key="frame" x="123" y="126" width="56" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-NN-TR8" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="252" width="8" height="21"/>
+                                        <rect key="frame" x="143" y="252" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dD-LI-OzA" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="294" width="8" height="21"/>
+                                        <rect key="frame" x="143" y="294" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7b-Bv-JM4" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="336" width="8" height="21"/>
+                                        <rect key="frame" x="143" y="336" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twf-A0-k66" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="378" width="8" height="21"/>
+                                        <rect key="frame" x="143" y="378" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-5s-w5p" customClass="StandardLabelPurple" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="209" width="18" height="21"/>
+                                        <rect key="frame" x="143" y="209" width="18" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YY-iE-RFk">
-                                        <rect key="frame" x="10" y="74" width="50" height="22"/>
+                                        <rect key="frame" x="42" y="74" width="50" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nnT-55-CPc">
-                                        <rect key="frame" x="71" y="70" width="449" height="30"/>
+                                        <rect key="frame" x="103" y="70" width="88" height="30"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
@@ -5933,6 +5933,30 @@
                                             <action selector="OkButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="cf7-8b-VT6"/>
                                         </connections>
                                     </button>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-P5-iHd" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="416" y="122" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="difficultyStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="sqf-py-lQa"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DCG-Uw-M2u" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="416" y="290" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="fighterStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="BdE-QP-2yd"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-Px-Vml" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="416" y="332" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="traderStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="WoL-d3-gLc"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-kG-dA2" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="416" y="374" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="engineerStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="Y97-1D-tIo"/>
+                                        </connections>
+                                    </stepper>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-Xk-ujm" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="560" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5940,40 +5964,28 @@
                                             <constraint firstAttribute="height" constant="45" id="PHC-Ar-AYb"/>
                                         </constraints>
                                     </view>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-P5-iHd" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="122" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="difficultyStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="sqf-py-lQa"/>
-                                        </connections>
-                                    </stepper>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="JEz-St-m7G" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="248" width="94" height="29"/>
+                                        <rect key="frame" x="416" y="248" width="94" height="29"/>
                                         <connections>
                                             <action selector="pilotStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="IFX-EC-s22"/>
                                         </connections>
                                     </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DCG-Uw-M2u" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="290" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="fighterStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="BdE-QP-2yd"/>
-                                        </connections>
-                                    </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-Px-Vml" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="332" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="traderStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="WoL-d3-gLc"/>
-                                        </connections>
-                                    </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-kG-dA2" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="374" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="engineerStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="Y97-1D-tIo"/>
-                                        </connections>
-                                    </stepper>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgS-jE-vbu">
+                                        <rect key="frame" x="0.0" y="200" width="34" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="FE1-dZ-P87"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="34" id="q23-p7-MaN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDo-72-ujk">
+                                        <rect key="frame" x="518" y="200" width="34" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="XgM-yj-t5c"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="JEz-St-m7G" secondAttribute="trailing" constant="10" id="0Do-8s-kUc"/>
                                     <constraint firstItem="DCG-Uw-M2u" firstAttribute="centerY" secondItem="Epq-iU-xsY" secondAttribute="centerY" id="1eq-RO-IwN"/>
                                     <constraint firstItem="Lbv-5s-w5p" firstAttribute="baseline" secondItem="E6P-iG-Sxu" secondAttribute="baseline" id="3y8-yf-yyE"/>
                                     <constraint firstItem="Twf-A0-k66" firstAttribute="baseline" secondItem="gl1-qg-sAd" secondAttribute="baseline" id="52W-Ts-SuU"/>
@@ -5986,56 +5998,64 @@
                                     <constraint firstItem="DCG-Uw-M2u" firstAttribute="leading" secondItem="JEz-St-m7G" secondAttribute="leading" id="AYa-kT-6hg"/>
                                     <constraint firstItem="RRO-6S-Ygw" firstAttribute="top" secondItem="Epq-iU-xsY" secondAttribute="bottom" constant="20" id="B4g-s2-Y6G"/>
                                     <constraint firstItem="r6F-NN-TR8" firstAttribute="baseline" secondItem="yJY-w0-s5F" secondAttribute="baseline" id="GAa-xO-nM4"/>
+                                    <constraint firstAttribute="trailing" secondItem="dDo-72-ujk" secondAttribute="trailing" constant="8" id="GbW-5B-6M6"/>
+                                    <constraint firstItem="EQD-P5-iHd" firstAttribute="trailing" secondItem="JEz-St-m7G" secondAttribute="trailing" id="GcH-eu-8vB"/>
                                     <constraint firstItem="569-mh-JXV" firstAttribute="top" secondItem="4YY-iE-RFk" secondAttribute="bottom" constant="30" id="H0d-VS-S8F"/>
                                     <constraint firstItem="yJY-w0-s5F" firstAttribute="top" secondItem="E6P-iG-Sxu" secondAttribute="bottom" constant="20" id="HsC-3n-lqh"/>
+                                    <constraint firstItem="E6P-iG-Sxu" firstAttribute="leading" secondItem="IgS-jE-vbu" secondAttribute="trailing" constant="8" id="JIi-SR-VHF"/>
                                     <constraint firstItem="gl1-qg-sAd" firstAttribute="trailing" secondItem="RRO-6S-Ygw" secondAttribute="trailing" id="Jwq-gz-nFF"/>
-                                    <constraint firstItem="569-mh-JXV" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="10" id="K1D-10-Ulh"/>
                                     <constraint firstItem="Twf-A0-k66" firstAttribute="leading" secondItem="e7b-Bv-JM4" secondAttribute="leading" id="MJH-5b-3eI"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="top" secondItem="aRJ-Xk-ujm" secondAttribute="bottom" constant="10" id="NBH-1j-fW3"/>
                                     <constraint firstItem="yJY-w0-s5F" firstAttribute="trailing" secondItem="E6P-iG-Sxu" secondAttribute="trailing" id="NIi-VA-xMd"/>
                                     <constraint firstItem="Lbv-5s-w5p" firstAttribute="leading" secondItem="E6P-iG-Sxu" secondAttribute="trailing" constant="10" id="Od6-Os-JdJ"/>
                                     <constraint firstItem="JEz-St-m7G" firstAttribute="centerY" secondItem="yJY-w0-s5F" secondAttribute="centerY" id="QdF-GW-Kkr"/>
+                                    <constraint firstItem="JEz-St-m7G" firstAttribute="leading" secondItem="E6P-iG-Sxu" secondAttribute="trailing" priority="100" constant="60" id="Qrb-Qj-kzQ"/>
                                     <constraint firstItem="FgZ-oF-t9v" firstAttribute="centerX" secondItem="6n4-ja-ens" secondAttribute="centerX" id="R4v-ob-pKb"/>
                                     <constraint firstItem="AhI-6J-pNc" firstAttribute="centerX" secondItem="6n4-ja-ens" secondAttribute="centerX" id="R6Z-z9-2vf"/>
+                                    <constraint firstItem="569-mh-JXV" firstAttribute="leading" secondItem="E6P-iG-Sxu" secondAttribute="leading" id="RNI-EG-MIK"/>
                                     <constraint firstItem="aRJ-Xk-ujm" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" id="TCW-DO-a3M"/>
                                     <constraint firstItem="Epq-iU-xsY" firstAttribute="top" secondItem="yJY-w0-s5F" secondAttribute="bottom" constant="20" id="TSG-D6-X1M"/>
+                                    <constraint firstItem="dDo-72-ujk" firstAttribute="leading" secondItem="JEz-St-m7G" secondAttribute="trailing" constant="8" id="TSS-9E-4WJ"/>
                                     <constraint firstItem="RRO-6S-Ygw" firstAttribute="trailing" secondItem="Epq-iU-xsY" secondAttribute="trailing" id="WS5-7c-mhQ"/>
                                     <constraint firstItem="4YY-iE-RFk" firstAttribute="centerY" secondItem="nnT-55-CPc" secondAttribute="centerY" id="XP1-fn-IYj"/>
                                     <constraint firstItem="r6F-NN-TR8" firstAttribute="leading" secondItem="Lbv-5s-w5p" secondAttribute="leading" id="XxH-AO-O9x"/>
                                     <constraint firstItem="e7b-Bv-JM4" firstAttribute="leading" secondItem="8dD-LI-OzA" secondAttribute="leading" id="Ye8-Ug-edx"/>
                                     <constraint firstItem="EQD-P5-iHd" firstAttribute="centerY" secondItem="569-mh-JXV" secondAttribute="centerY" id="ZtH-Ii-3Ju"/>
+                                    <constraint firstItem="4YY-iE-RFk" firstAttribute="leading" secondItem="E6P-iG-Sxu" secondAttribute="leading" id="ZuO-AC-bLd"/>
                                     <constraint firstItem="Epq-iU-xsY" firstAttribute="trailing" secondItem="yJY-w0-s5F" secondAttribute="trailing" id="ak5-RW-ogb"/>
+                                    <constraint firstItem="dDo-72-ujk" firstAttribute="width" secondItem="IgS-jE-vbu" secondAttribute="width" id="bXn-T7-QVL"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="trailing" secondItem="569-mh-JXV" secondAttribute="trailing" id="eIw-OX-NNj"/>
                                     <constraint firstItem="E6P-iG-Sxu" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="60" id="eJd-ub-UCb"/>
-                                    <constraint firstItem="Lbv-5s-w5p" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="105" id="fCY-VJ-Dvj"/>
                                     <constraint firstItem="wT8-kG-dA2" firstAttribute="leading" secondItem="2E7-Px-Vml" secondAttribute="leading" id="gYi-21-0bZ"/>
                                     <constraint firstItem="aRJ-Xk-ujm" firstAttribute="top" secondItem="569-mh-JXV" secondAttribute="bottom" constant="5" id="jMM-Ny-clT"/>
                                     <constraint firstItem="nnT-55-CPc" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="70" id="jwR-Mp-Uli"/>
                                     <constraint firstItem="2E7-Px-Vml" firstAttribute="leading" secondItem="DCG-Uw-M2u" secondAttribute="leading" id="ky5-I1-Xex"/>
                                     <constraint firstItem="e7b-Bv-JM4" firstAttribute="baseline" secondItem="RRO-6S-Ygw" secondAttribute="baseline" id="kza-yw-r97"/>
+                                    <constraint firstItem="IgS-jE-vbu" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" id="lkL-dR-S6v"/>
                                     <constraint firstItem="dx6-Zb-GVE" firstAttribute="baseline" secondItem="569-mh-JXV" secondAttribute="baseline" id="mKt-XE-oib"/>
                                     <constraint firstItem="8dD-LI-OzA" firstAttribute="leading" secondItem="r6F-NN-TR8" secondAttribute="leading" id="nUo-bp-Ugi"/>
-                                    <constraint firstAttribute="trailing" secondItem="EQD-P5-iHd" secondAttribute="trailing" constant="10" id="pQI-6k-i8r"/>
                                     <constraint firstItem="2E7-Px-Vml" firstAttribute="centerY" secondItem="RRO-6S-Ygw" secondAttribute="centerY" id="qVr-J1-6GQ"/>
                                     <constraint firstAttribute="bottom" secondItem="FgZ-oF-t9v" secondAttribute="bottom" constant="20" id="ulK-If-nX7"/>
+                                    <constraint firstItem="JEz-St-m7G" firstAttribute="leading" secondItem="E6P-iG-Sxu" secondAttribute="trailing" priority="100" constant="60" id="wgK-QQ-Oyq"/>
+                                    <constraint firstItem="IgS-jE-vbu" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="200" id="xbE-Dm-9ZX"/>
                                     <constraint firstItem="wT8-kG-dA2" firstAttribute="centerY" secondItem="gl1-qg-sAd" secondAttribute="centerY" id="yKn-Qg-dyZ"/>
-                                    <constraint firstItem="4YY-iE-RFk" firstAttribute="leading" secondItem="6n4-ja-ens" secondAttribute="leading" constant="10" id="zMI-2f-JfG"/>
+                                    <constraint firstItem="dDo-72-ujk" firstAttribute="baseline" secondItem="IgS-jE-vbu" secondAttribute="baseline" id="zWI-XB-fkr"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="eIw-OX-NNj"/>
                                         <exclude reference="eJd-ub-UCb"/>
+                                        <exclude reference="Qrb-Qj-kzQ"/>
                                     </mask>
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Deb-TC-WAi">
-                                <rect key="frame" x="0.0" y="0.0" width="157" height="51"/>
+                                <rect key="frame" x="0.0" y="0.0" width="12" height="736"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="leading" secondItem="MPx-w0-eiq" secondAttribute="leadingMargin" id="17Q-wm-Ik7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nnT-55-CPc" secondAttribute="trailing" constant="40" id="1rJ-LW-Aeg"/>
                             <constraint firstItem="Deb-TC-WAi" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" constant="-20" id="Ahq-nF-Omn"/>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="centerX" secondItem="MPx-w0-eiq" secondAttribute="centerX" id="Dgg-n3-pVi"/>
                             <constraint firstItem="Deb-TC-WAi" firstAttribute="leading" secondItem="MPx-w0-eiq" secondAttribute="leadingMargin" constant="-20" id="UiH-iR-KCo"/>
