@@ -5918,8 +5918,11 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nnT-55-CPc">
-                                        <rect key="frame" x="103" y="70" width="407" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nnT-55-CPc">
+                                        <rect key="frame" x="103" y="70" width="457" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="6fd-mt-fFm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
@@ -5957,7 +5960,7 @@
                                             <action selector="engineerStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="Y97-1D-tIo"/>
                                         </connections>
                                     </stepper>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-Xk-ujm" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-Xk-ujm" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="560" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -5994,6 +5997,7 @@
                                     <constraint firstItem="nnT-55-CPc" firstAttribute="leading" secondItem="4YY-iE-RFk" secondAttribute="trailing" constant="11" id="7bV-7N-C2h"/>
                                     <constraint firstItem="AhI-6J-pNc" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="top" constant="20" id="8J1-fG-ML2"/>
                                     <constraint firstItem="8dD-LI-OzA" firstAttribute="baseline" secondItem="Epq-iU-xsY" secondAttribute="baseline" id="8ko-Lr-WNZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="nnT-55-CPc" secondAttribute="trailing" id="9OS-9m-thZ"/>
                                     <constraint firstItem="dx6-Zb-GVE" firstAttribute="leading" secondItem="569-mh-JXV" secondAttribute="trailing" constant="10" id="AEh-H2-7a3"/>
                                     <constraint firstItem="DCG-Uw-M2u" firstAttribute="leading" secondItem="JEz-St-m7G" secondAttribute="leading" id="AYa-kT-6hg"/>
                                     <constraint firstItem="RRO-6S-Ygw" firstAttribute="top" secondItem="Epq-iU-xsY" secondAttribute="bottom" constant="20" id="B4g-s2-Y6G"/>
@@ -6044,9 +6048,12 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="9OS-9m-thZ"/>
+                                        <exclude reference="5h7-iy-IS5"/>
                                         <exclude reference="eIw-OX-NNj"/>
                                         <exclude reference="eJd-ub-UCb"/>
                                         <exclude reference="Qrb-Qj-kzQ"/>
+                                        <exclude reference="RE0-Tk-Uii"/>
                                     </mask>
                                 </variation>
                             </view>
