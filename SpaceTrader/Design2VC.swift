@@ -47,6 +47,9 @@ class Design2VC: UIViewController {
     @IBOutlet weak var cancelDesignOutlet: GrayButtonTurnsLighter!
     @IBOutlet weak var constructShipOutlet: PurpleButtonTurnsGray!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     // use variables
     var size: SizeType = SizeType.Medium        // set from player on viewDidLoad
     var maxUnits: Double = 50                           // set in viewDidLoad, based on size
@@ -92,6 +95,13 @@ class Design2VC: UIViewController {
         // set defaults, load display
         self.setMaxMinDefault()
         self.updateDisplay()
+        
+        // scroll view
+        scrollView.contentSize.height = 603
+        
+        print("self.view.frame.size.width = \(self.view.frame.size.width)")
+        
+        
     }
     
     func updateDisplay() {

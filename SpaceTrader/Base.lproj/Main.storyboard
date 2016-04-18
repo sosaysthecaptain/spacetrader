@@ -1222,390 +1222,292 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space Allocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45p-lg-9cE" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="8" width="137" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargo Bays:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-J1-ek4" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="48" y="37" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-bn-Iq6" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="86" y="74" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hull Strength:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-t0-s7d" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="35" y="111" width="105" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weapon Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-B3-rUU" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="30" y="148" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shield Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikz-Aa-EtI" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="45" y="185" width="95" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gadget Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y80-Tj-rjB" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="36" y="222" width="104" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crew Quarters:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb9-2G-mRD" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="23" y="259" width="117" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units Used:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ln-Nc-cgN" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="295" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% of Max:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUV-wZ-cH5" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="464" y="295" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vez-ON-taT" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="119" y="295" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntK-aJ-rxc" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="548" y="295" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-Xw-s1a" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="351" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JZ-c6-KpP" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="61" y="380" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crowding Penalty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-df-2Cq" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="1" y="409" width="139" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Design Fee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-sS-S4P" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="49" y="438" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Less Trade-In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-mp-XgH" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="30" y="467" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y01-fI-ipk" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="57" y="496" width="83" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xp0-LD-6Km" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="33" width="94" height="29"/>
-                                <connections>
-                                    <action selector="cargoBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="vWQ-AH-YOV"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hjX-wC-OdK" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="70" width="94" height="29"/>
-                                <connections>
-                                    <action selector="rangeBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="UCA-fs-cer"/>
-                                </connections>
-                            </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-74-n9t" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="427" y="477" width="133" height="34"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                <state key="normal" title="Construct Ship"/>
-                                <connections>
-                                    <action selector="constructShipAction:" destination="pAI-51-RBD" eventType="touchUpInside" id="FmO-Mu-UwC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di1-Z6-ron" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="40" y="477" width="129" height="34"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                <state key="normal" title="Cancel Design"/>
-                                <connections>
-                                    <action selector="cancelDesignAction:" destination="pAI-51-RBD" eventType="touchUpInside" id="dlI-34-MJA"/>
-                                </connections>
-                            </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="egr-2f-uPm" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="107" width="94" height="29"/>
-                                <connections>
-                                    <action selector="hullStrengthStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="53O-bA-NGP"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="AVO-QW-rb1" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="144" width="94" height="29"/>
-                                <connections>
-                                    <action selector="weaponSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zKG-LA-vgX"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8fa-Dm-eQ8" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="181" width="94" height="29"/>
-                                <connections>
-                                    <action selector="shieldSlotsStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="N4L-v0-uwc"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-9R-Lm9" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="218" width="94" height="29"/>
-                                <connections>
-                                    <action selector="gadgetsSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zHo-bG-lTn"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-xM-Yvv" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="200" y="255" width="94" height="29"/>
-                                <connections>
-                                    <action selector="crewQuartersStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="pcd-C3-2m1"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3o-C5-TbV" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="380" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qma-ec-HfS" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="409" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uca-BK-xjU" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="438" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-Q2-Aoq" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="467" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqt-IN-C9v" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="496" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MME-1F-wKe" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="37" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-dW-Ec7" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="74" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-Gj-i7a" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="111" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-bB-PBC" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="148" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-hm-cRD" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="185" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-4d-6Fd" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="222" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d54-ll-h85" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="150" y="259" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZs-B6-gTA" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="316" width="600" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Z8q-js-lEp"/>
-                                </constraints>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzi-dG-6wZ">
+                                <rect key="frame" x="-20" y="-12" width="640" height="549"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCl-NQ-UVt" userLabel="containerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="640" height="549"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di1-Z6-ron" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="60" y="489" width="129" height="34"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="Cancel Design"/>
+                                                <connections>
+                                                    <action selector="cancelDesignAction:" destination="pAI-51-RBD" eventType="touchUpInside" id="dlI-34-MJA"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y01-fI-ipk" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="77" y="508" width="83" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Less Trade-In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-mp-XgH" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="479" width="110" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-xM-Yvv" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="267" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="crewQuartersStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="pcd-C3-2m1"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d54-ll-h85" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="271" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZs-B6-gTA" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="328" width="600" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Z8q-js-lEp"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cargo Bays:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-J1-ek4" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="68" y="49" width="92" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8fa-Dm-eQ8" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="193" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="shieldSlotsStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="N4L-v0-uwc"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gadget Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y80-Tj-rjB" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="56" y="234" width="104" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xp0-LD-6Km" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="45" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="cargoBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="vWQ-AH-YOV"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vez-ON-taT" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="139" y="307" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-bB-PBC" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="160" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="egr-2f-uPm" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="119" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="hullStrengthStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="53O-bA-NGP"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-Gj-i7a" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="123" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="AVO-QW-rb1" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="156" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="weaponSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zKG-LA-vgX"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="% of Max:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUV-wZ-cH5" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="484" y="307" width="74" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Space Allocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45p-lg-9cE" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="20" width="194" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqt-IN-C9v" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="508" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Design Fee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-sS-S4P" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="69" y="450" width="91" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hjX-wC-OdK" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="82" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="rangeBaysStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="UCA-fs-cer"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ship Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JZ-c6-KpP" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="81" y="392" width="79" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crew Quarters:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb9-2G-mRD" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="43" y="271" width="117" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Units Used:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ln-Nc-cgN" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="307" width="89" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uca-BK-xjU" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="450" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-dW-Ec7" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="86" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntK-aJ-rxc" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="568" y="307" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-hm-cRD" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="197" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-4d-6Fd" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="234" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crowding Penalty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-df-2Cq" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="21" y="421" width="139" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3o-C5-TbV" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="392" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-74-n9t" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="447" y="489" width="133" height="34"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="Construct Ship"/>
+                                                <connections>
+                                                    <action selector="constructShipAction:" destination="pAI-51-RBD" eventType="touchUpInside" id="FmO-Mu-UwC"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MME-1F-wKe" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="49" width="32" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Costs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-Xw-s1a" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="363" width="48" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hull Strength:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-t0-s7d" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="55" y="123" width="105" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shield Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikz-Aa-EtI" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="65" y="197" width="95" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qma-ec-HfS" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="421" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx,xxx cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-Q2-Aoq" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="479" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-bn-Iq6" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="106" y="86" width="54" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-9R-Lm9" customClass="PurpleStepper" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="220" y="230" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="gadgetsSlotStepperSet:" destination="pAI-51-RBD" eventType="valueChanged" id="zHo-bG-lTn"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weapon Slots:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-B3-rUU" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="160" width="110" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2sz-Gj-i7a" firstAttribute="leading" secondItem="6aK-dW-Ec7" secondAttribute="leading" id="0eA-ZK-3Tu"/>
-                            <constraint firstItem="egr-2f-uPm" firstAttribute="leading" secondItem="hjX-wC-OdK" secondAttribute="leading" id="2aD-Hg-zCY"/>
-                            <constraint firstItem="hKb-bB-PBC" firstAttribute="baseline" secondItem="UUR-B3-rUU" secondAttribute="baseline" id="3d1-8F-D9a"/>
-                            <constraint firstItem="7ln-Nc-cgN" firstAttribute="top" secondItem="Eb9-2G-mRD" secondAttribute="bottom" constant="15" id="43X-Lh-bVl"/>
-                            <constraint firstItem="8fa-Dm-eQ8" firstAttribute="centerY" secondItem="ikz-Aa-EtI" secondAttribute="centerY" id="5Gq-77-ek2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qZs-B6-gTA" secondAttribute="trailing" constant="-20" id="62G-ak-cEV"/>
-                            <constraint firstItem="d54-ll-h85" firstAttribute="leading" secondItem="xS8-4d-6Fd" secondAttribute="leading" id="6pU-tM-6Pe"/>
-                            <constraint firstItem="7ln-Nc-cgN" firstAttribute="leading" secondItem="Eb9-2G-mRD" secondAttribute="leading" id="6v2-hZ-zCN"/>
-                            <constraint firstItem="hKb-bB-PBC" firstAttribute="leading" secondItem="2sz-Gj-i7a" secondAttribute="leading" id="76d-F6-bDl"/>
-                            <constraint firstItem="ikz-Aa-EtI" firstAttribute="top" secondItem="UUR-B3-rUU" secondAttribute="bottom" constant="16" id="7TM-Qf-3v2"/>
-                            <constraint firstItem="fkT-Q2-Aoq" firstAttribute="baseline" secondItem="9FK-mp-XgH" secondAttribute="baseline" id="81i-HW-h0N"/>
-                            <constraint firstItem="b3a-bn-Iq6" firstAttribute="top" secondItem="3Eg-J1-ek4" secondAttribute="bottom" constant="16" id="8fx-Md-0i1"/>
-                            <constraint firstItem="D3o-C5-TbV" firstAttribute="baseline" secondItem="2JZ-c6-KpP" secondAttribute="baseline" id="8zb-nW-1Wj"/>
-                            <constraint firstItem="AVO-QW-rb1" firstAttribute="leading" secondItem="egr-2f-uPm" secondAttribute="leading" id="ABO-P6-LW8"/>
-                            <constraint firstItem="9FK-mp-XgH" firstAttribute="leading" secondItem="HRz-sS-S4P" secondAttribute="leading" id="ALj-wy-f7e"/>
-                            <constraint firstItem="egr-2f-uPm" firstAttribute="centerY" secondItem="7dM-t0-s7d" secondAttribute="centerY" id="Ars-L2-4qs"/>
-                            <constraint firstItem="Xp0-LD-6Km" firstAttribute="centerY" secondItem="3Eg-J1-ek4" secondAttribute="centerY" id="BEy-UY-kZ8"/>
-                            <constraint firstItem="UUR-B3-rUU" firstAttribute="leading" secondItem="7dM-t0-s7d" secondAttribute="leading" id="Bec-mU-xjk"/>
-                            <constraint firstItem="hb2-Xw-s1a" firstAttribute="top" secondItem="qZs-B6-gTA" secondAttribute="bottom" id="CGE-R6-9W4"/>
-                            <constraint firstItem="qma-ec-HfS" firstAttribute="baseline" secondItem="KIJ-df-2Cq" secondAttribute="baseline" id="CGS-b1-d8M"/>
-                            <constraint firstItem="Vez-ON-taT" firstAttribute="baseline" secondItem="7ln-Nc-cgN" secondAttribute="baseline" id="F5m-sn-tyY"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="7ln-Nc-cgN" secondAttribute="leading" id="GIJ-EX-B92"/>
-                            <constraint firstItem="9FK-mp-XgH" firstAttribute="trailing" secondItem="HRz-sS-S4P" secondAttribute="trailing" id="Ga0-Pv-kMl"/>
-                            <constraint firstItem="rUV-wZ-cH5" firstAttribute="leading" secondItem="7ln-Nc-cgN" secondAttribute="leading" id="GmA-tk-hTE"/>
-                            <constraint firstItem="FgT-xM-Yvv" firstAttribute="centerY" secondItem="Eb9-2G-mRD" secondAttribute="centerY" id="HtS-4z-A0z"/>
-                            <constraint firstItem="hb2-Xw-s1a" firstAttribute="leading" secondItem="7ln-Nc-cgN" secondAttribute="leading" id="IFq-a3-0Jw"/>
-                            <constraint firstItem="xS8-4d-6Fd" firstAttribute="leading" secondItem="F6v-hm-cRD" secondAttribute="leading" id="Io3-9o-xdo"/>
-                            <constraint firstItem="D3o-C5-TbV" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="130" id="Iy4-NH-PdQ"/>
-                            <constraint firstItem="D3o-C5-TbV" firstAttribute="leading" secondItem="2JZ-c6-KpP" secondAttribute="trailing" constant="10" id="JLS-bV-pba"/>
-                            <constraint firstItem="y01-fI-ipk" firstAttribute="trailing" secondItem="9FK-mp-XgH" secondAttribute="trailing" id="Jhd-AA-uHf"/>
-                            <constraint firstItem="ntK-aJ-rxc" firstAttribute="baseline" secondItem="rUV-wZ-cH5" secondAttribute="baseline" id="KWg-LF-vD7"/>
-                            <constraint firstItem="ikz-Aa-EtI" firstAttribute="trailing" secondItem="UUR-B3-rUU" secondAttribute="trailing" id="Ke9-LG-4pJ"/>
-                            <constraint firstItem="6aK-dW-Ec7" firstAttribute="leading" secondItem="MME-1F-wKe" secondAttribute="leading" id="Kl8-cG-I1E"/>
-                            <constraint firstItem="D3o-C5-TbV" firstAttribute="leading" secondItem="2JZ-c6-KpP" secondAttribute="trailing" constant="10" id="L19-kR-UOi"/>
-                            <constraint firstItem="F6v-hm-cRD" firstAttribute="baseline" secondItem="ikz-Aa-EtI" secondAttribute="baseline" id="LGx-0J-yI5"/>
-                            <constraint firstItem="7dM-t0-s7d" firstAttribute="trailing" secondItem="b3a-bn-Iq6" secondAttribute="trailing" id="MAF-3I-NT2"/>
-                            <constraint firstItem="hb2-Xw-s1a" firstAttribute="leading" secondItem="rUV-wZ-cH5" secondAttribute="leading" id="MpU-LJ-j3F"/>
-                            <constraint firstItem="HRz-sS-S4P" firstAttribute="leading" secondItem="KIJ-df-2Cq" secondAttribute="leading" id="Nc9-UM-3aS"/>
-                            <constraint firstItem="di1-Z6-ron" firstAttribute="baseline" secondItem="Nxo-74-n9t" secondAttribute="baseline" id="Nnz-Gj-jJ4"/>
-                            <constraint firstItem="hb2-Xw-s1a" firstAttribute="leading" secondItem="45p-lg-9cE" secondAttribute="leading" id="NrH-q8-Ngh"/>
-                            <constraint firstItem="rcr-9R-Lm9" firstAttribute="centerY" secondItem="Y80-Tj-rjB" secondAttribute="centerY" id="O9j-fh-OPS"/>
-                            <constraint firstItem="qZs-B6-gTA" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="-20" id="O9u-Wl-8BG"/>
-                            <constraint firstItem="6aK-dW-Ec7" firstAttribute="baseline" secondItem="b3a-bn-Iq6" secondAttribute="baseline" id="Of6-Ay-jxi"/>
-                            <constraint firstItem="Xp0-LD-6Km" firstAttribute="centerY" secondItem="3Eg-J1-ek4" secondAttribute="centerY" id="PMM-FD-UNL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nxo-74-n9t" secondAttribute="trailing" constant="20" id="Qcr-VI-Hgs"/>
-                            <constraint firstItem="MME-1F-wKe" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="130" id="Qeh-8X-pdk"/>
-                            <constraint firstItem="Y80-Tj-rjB" firstAttribute="top" secondItem="ikz-Aa-EtI" secondAttribute="bottom" constant="16" id="SAq-4F-bjx"/>
-                            <constraint firstItem="MME-1F-wKe" firstAttribute="leading" secondItem="3Eg-J1-ek4" secondAttribute="trailing" constant="10" id="Siv-67-6Az"/>
-                            <constraint firstItem="9FK-mp-XgH" firstAttribute="top" secondItem="HRz-sS-S4P" secondAttribute="bottom" constant="8" id="TNC-SG-hrH"/>
-                            <constraint firstItem="uca-BK-xjU" firstAttribute="leading" secondItem="qma-ec-HfS" secondAttribute="leading" id="TUH-Fu-1lF"/>
-                            <constraint firstItem="hb2-Xw-s1a" firstAttribute="top" secondItem="rUV-wZ-cH5" secondAttribute="bottom" constant="20" id="U3H-qD-y3Q"/>
-                            <constraint firstItem="KIJ-df-2Cq" firstAttribute="trailing" secondItem="2JZ-c6-KpP" secondAttribute="trailing" id="UXX-e3-aaf"/>
-                            <constraint firstItem="Vez-ON-taT" firstAttribute="baseline" secondItem="7ln-Nc-cgN" secondAttribute="baseline" id="Uu3-DB-pJE"/>
-                            <constraint firstItem="rUV-wZ-cH5" firstAttribute="top" secondItem="7ln-Nc-cgN" secondAttribute="bottom" constant="8" id="W6e-Ob-Pte"/>
-                            <constraint firstItem="Eb9-2G-mRD" firstAttribute="leading" secondItem="Y80-Tj-rjB" secondAttribute="leading" id="X5E-Iw-36z"/>
-                            <constraint firstItem="45p-lg-9cE" firstAttribute="top" secondItem="6KO-ku-NZI" secondAttribute="bottom" constant="8" id="XDZ-ec-65T"/>
-                            <constraint firstItem="2JZ-c6-KpP" firstAttribute="leading" secondItem="hb2-Xw-s1a" secondAttribute="leading" id="XoF-qs-fst"/>
-                            <constraint firstItem="HRz-sS-S4P" firstAttribute="top" secondItem="KIJ-df-2Cq" secondAttribute="bottom" constant="8" id="XvM-jn-q3e"/>
-                            <constraint firstItem="hjX-wC-OdK" firstAttribute="leading" secondItem="Xp0-LD-6Km" secondAttribute="leading" id="Zri-6G-EC6"/>
-                            <constraint firstItem="MME-1F-wKe" firstAttribute="leading" secondItem="Xp0-LD-6Km" secondAttribute="trailing" constant="10" id="apa-Kc-gUj"/>
-                            <constraint firstItem="UUR-B3-rUU" firstAttribute="trailing" secondItem="7dM-t0-s7d" secondAttribute="trailing" id="apn-yj-NtD"/>
-                            <constraint firstItem="uca-BK-xjU" firstAttribute="baseline" secondItem="HRz-sS-S4P" secondAttribute="baseline" id="bBd-OA-08I"/>
-                            <constraint firstItem="rUV-wZ-cH5" firstAttribute="baseline" secondItem="ntK-aJ-rxc" secondAttribute="baseline" id="bHy-zk-CeT"/>
-                            <constraint firstItem="b3a-bn-Iq6" firstAttribute="leading" secondItem="3Eg-J1-ek4" secondAttribute="leading" id="bJa-GL-ItR"/>
-                            <constraint firstItem="Vez-ON-taT" firstAttribute="leading" secondItem="7ln-Nc-cgN" secondAttribute="trailing" constant="10" id="bwg-S8-ZWN"/>
-                            <constraint firstItem="ntK-aJ-rxc" firstAttribute="baseline" secondItem="Vez-ON-taT" secondAttribute="baseline" id="cCB-rd-YJ7"/>
-                            <constraint firstItem="Y80-Tj-rjB" firstAttribute="trailing" secondItem="ikz-Aa-EtI" secondAttribute="trailing" id="diy-gz-Nod"/>
-                            <constraint firstItem="qma-ec-HfS" firstAttribute="leading" secondItem="D3o-C5-TbV" secondAttribute="leading" id="e3i-MY-m7Y"/>
-                            <constraint firstItem="7ln-Nc-cgN" firstAttribute="leading" secondItem="Eb9-2G-mRD" secondAttribute="leading" id="epC-Sf-7zb"/>
-                            <constraint firstItem="qZs-B6-gTA" firstAttribute="top" secondItem="7ln-Nc-cgN" secondAttribute="bottom" id="fJ7-vc-ayg"/>
-                            <constraint firstItem="ntK-aJ-rxc" firstAttribute="leading" secondItem="Vez-ON-taT" secondAttribute="leading" id="fcS-ZW-O2C"/>
-                            <constraint firstItem="Aqt-IN-C9v" firstAttribute="leading" secondItem="fkT-Q2-Aoq" secondAttribute="leading" id="g4C-bu-pWX"/>
-                            <constraint firstItem="xS8-4d-6Fd" firstAttribute="baseline" secondItem="Y80-Tj-rjB" secondAttribute="baseline" id="gsc-fT-mul"/>
-                            <constraint firstItem="2sz-Gj-i7a" firstAttribute="baseline" secondItem="7dM-t0-s7d" secondAttribute="baseline" id="hMR-cO-YAe"/>
-                            <constraint firstItem="y01-fI-ipk" firstAttribute="top" secondItem="9FK-mp-XgH" secondAttribute="bottom" constant="8" id="hOH-P4-Nt1"/>
-                            <constraint firstItem="tTB-BB-M2O" firstAttribute="top" secondItem="Nxo-74-n9t" secondAttribute="bottom" constant="25" id="hOM-d1-bJf"/>
-                            <constraint firstItem="8fa-Dm-eQ8" firstAttribute="leading" secondItem="AVO-QW-rb1" secondAttribute="leading" id="hgf-uw-Qnj"/>
-                            <constraint firstItem="d54-ll-h85" firstAttribute="baseline" secondItem="Eb9-2G-mRD" secondAttribute="baseline" id="iMd-Bl-WLh"/>
-                            <constraint firstItem="Eb9-2G-mRD" firstAttribute="top" secondItem="Y80-Tj-rjB" secondAttribute="bottom" constant="16" id="iiQ-UL-FKJ"/>
-                            <constraint firstItem="y01-fI-ipk" firstAttribute="leading" secondItem="9FK-mp-XgH" secondAttribute="leading" id="ioD-eX-N47"/>
-                            <constraint firstItem="di1-Z6-ron" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="20" id="j7b-uo-KJt"/>
-                            <constraint firstItem="Xp0-LD-6Km" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="180" id="jCi-TH-bC9"/>
-                            <constraint firstItem="rcr-9R-Lm9" firstAttribute="leading" secondItem="8fa-Dm-eQ8" secondAttribute="leading" id="jrm-KX-Ev4"/>
-                            <constraint firstItem="ntK-aJ-rxc" firstAttribute="leading" secondItem="rUV-wZ-cH5" secondAttribute="trailing" constant="10" id="lZ6-Oy-Nd7"/>
-                            <constraint firstItem="HRz-sS-S4P" firstAttribute="trailing" secondItem="KIJ-df-2Cq" secondAttribute="trailing" id="m6f-DW-2sx"/>
-                            <constraint firstItem="7dM-t0-s7d" firstAttribute="leading" secondItem="b3a-bn-Iq6" secondAttribute="leading" id="mZM-Vl-BhT"/>
-                            <constraint firstItem="fkT-Q2-Aoq" firstAttribute="leading" secondItem="uca-BK-xjU" secondAttribute="leading" id="mwg-ER-RgJ"/>
-                            <constraint firstItem="FgT-xM-Yvv" firstAttribute="leading" secondItem="rcr-9R-Lm9" secondAttribute="leading" id="mz2-8N-Fd1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ntK-aJ-rxc" secondAttribute="trailing" id="nyY-7g-WHu"/>
-                            <constraint firstItem="UUR-B3-rUU" firstAttribute="top" secondItem="7dM-t0-s7d" secondAttribute="bottom" constant="16" id="o5U-3B-Ui1"/>
-                            <constraint firstItem="F6v-hm-cRD" firstAttribute="leading" secondItem="hKb-bB-PBC" secondAttribute="leading" id="oWu-0r-B5X"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="45p-lg-9cE" secondAttribute="leading" id="omw-1d-vqa"/>
-                            <constraint firstItem="hjX-wC-OdK" firstAttribute="centerY" secondItem="b3a-bn-Iq6" secondAttribute="centerY" id="rqh-SP-XzZ"/>
-                            <constraint firstItem="3Eg-J1-ek4" firstAttribute="top" secondItem="45p-lg-9cE" secondAttribute="bottom" constant="8" id="rxq-ng-iv8"/>
-                            <constraint firstItem="AVO-QW-rb1" firstAttribute="centerY" secondItem="UUR-B3-rUU" secondAttribute="centerY" id="sup-Qa-xmI"/>
-                            <constraint firstItem="ikz-Aa-EtI" firstAttribute="leading" secondItem="UUR-B3-rUU" secondAttribute="leading" id="tdH-Ke-FHv"/>
-                            <constraint firstItem="3Eg-J1-ek4" firstAttribute="leading" secondItem="45p-lg-9cE" secondAttribute="leading" id="uY7-rG-foQ"/>
-                            <constraint firstItem="2JZ-c6-KpP" firstAttribute="top" secondItem="hb2-Xw-s1a" secondAttribute="bottom" constant="8" id="uhc-q3-xA8"/>
-                            <constraint firstItem="b3a-bn-Iq6" firstAttribute="trailing" secondItem="3Eg-J1-ek4" secondAttribute="trailing" id="vNz-iq-P61"/>
-                            <constraint firstItem="MME-1F-wKe" firstAttribute="baseline" secondItem="3Eg-J1-ek4" secondAttribute="baseline" id="vbb-sG-vF0"/>
-                            <constraint firstItem="7dM-t0-s7d" firstAttribute="top" secondItem="b3a-bn-Iq6" secondAttribute="bottom" constant="16" id="wMj-gk-7DO"/>
-                            <constraint firstItem="KIJ-df-2Cq" firstAttribute="top" secondItem="2JZ-c6-KpP" secondAttribute="bottom" constant="8" id="wel-pi-O5J"/>
-                            <constraint firstItem="KIJ-df-2Cq" firstAttribute="leading" secondItem="2JZ-c6-KpP" secondAttribute="leading" id="wz8-AS-9Ex"/>
-                            <constraint firstItem="7ln-Nc-cgN" firstAttribute="top" secondItem="Eb9-2G-mRD" secondAttribute="bottom" constant="8" id="xmI-oh-fEr"/>
-                            <constraint firstItem="Y80-Tj-rjB" firstAttribute="leading" secondItem="ikz-Aa-EtI" secondAttribute="leading" id="ynD-N1-ya5"/>
-                            <constraint firstItem="Eb9-2G-mRD" firstAttribute="trailing" secondItem="Y80-Tj-rjB" secondAttribute="trailing" id="z5e-Uf-8JH"/>
-                            <constraint firstItem="Aqt-IN-C9v" firstAttribute="baseline" secondItem="y01-fI-ipk" secondAttribute="baseline" id="zoc-MR-nGv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pzi-dG-6wZ" secondAttribute="trailing" id="3Mk-el-7Pi"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="563-Kz-OEI"/>
+                            <constraint firstAttribute="trailing" secondItem="pzi-dG-6wZ" secondAttribute="trailing" id="F2j-ei-LYP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="H0o-PZ-yR5"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" id="IWJ-NQ-tHG"/>
+                            <constraint firstAttribute="bottom" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="MW1-qH-MS6"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="height" secondItem="45h-Z9-zcC" secondAttribute="height" id="NbJ-3v-cA9"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="top" secondItem="45h-Z9-zcC" secondAttribute="topMargin" id="Xnp-NM-Ygb"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="width" secondItem="45h-Z9-zcC" secondAttribute="width" id="c6P-1X-CMJ"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="top" secondItem="45h-Z9-zcC" secondAttribute="top" id="oDl-wt-isC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pzi-dG-6wZ" secondAttribute="trailing" id="oKg-r8-7PG"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="top" secondItem="45h-Z9-zcC" secondAttribute="topMargin" id="pf8-D8-0GD"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" id="t9P-Yo-mla"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leading" id="wzI-pD-9Fz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="uY7-rG-foQ"/>
-                                <exclude reference="bJa-GL-ItR"/>
-                                <exclude reference="mZM-Vl-BhT"/>
-                                <exclude reference="Bec-mU-xjk"/>
-                                <exclude reference="apa-Kc-gUj"/>
-                                <exclude reference="tdH-Ke-FHv"/>
-                                <exclude reference="PMM-FD-UNL"/>
-                                <exclude reference="ynD-N1-ya5"/>
-                                <exclude reference="X5E-Iw-36z"/>
-                                <exclude reference="6v2-hZ-zCN"/>
-                                <exclude reference="epC-Sf-7zb"/>
-                                <exclude reference="xmI-oh-fEr"/>
-                                <exclude reference="Uu3-DB-pJE"/>
-                                <exclude reference="IFq-a3-0Jw"/>
-                                <exclude reference="MpU-LJ-j3F"/>
-                                <exclude reference="U3H-qD-y3Q"/>
-                                <exclude reference="XoF-qs-fst"/>
-                                <exclude reference="JLS-bV-pba"/>
-                                <exclude reference="wz8-AS-9Ex"/>
-                                <exclude reference="Nc9-UM-3aS"/>
-                                <exclude reference="ALj-wy-f7e"/>
-                                <exclude reference="ioD-eX-N47"/>
-                                <exclude reference="GmA-tk-hTE"/>
-                                <exclude reference="W6e-Ob-Pte"/>
-                                <exclude reference="KWg-LF-vD7"/>
-                                <exclude reference="fcS-ZW-O2C"/>
+                                <exclude reference="563-Kz-OEI"/>
+                                <exclude reference="F2j-ei-LYP"/>
+                                <exclude reference="MW1-qH-MS6"/>
+                                <exclude reference="NbJ-3v-cA9"/>
+                                <exclude reference="Xnp-NM-Ygb"/>
+                                <exclude reference="c6P-1X-CMJ"/>
+                                <exclude reference="oDl-wt-isC"/>
+                                <exclude reference="oKg-r8-7PG"/>
+                                <exclude reference="t9P-Yo-mla"/>
+                                <exclude reference="wzI-pD-9Fz"/>
                             </mask>
                         </variation>
                     </view>
@@ -1627,6 +1529,7 @@
                         <outlet property="percentMaxLabel" destination="ntK-aJ-rxc" id="eZe-WY-XfW"/>
                         <outlet property="rangeLabel" destination="6aK-dW-Ec7" id="yyC-mb-VAh"/>
                         <outlet property="rangeStepper" destination="hjX-wC-OdK" id="sd0-gk-9Sq"/>
+                        <outlet property="scrollView" destination="pzi-dG-6wZ" id="IJC-MR-Bkz"/>
                         <outlet property="shieldSlotsLabel" destination="F6v-hm-cRD" id="hQe-EP-UIC"/>
                         <outlet property="shieldSlotsStepper" destination="8fa-Dm-eQ8" id="4CU-do-6sI"/>
                         <outlet property="shipCostLabel" destination="D3o-C5-TbV" id="be3-h3-r4W"/>
