@@ -33,6 +33,10 @@ class NewGameVC: UIViewController {
         }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     @IBAction func newGamePressed(sender: AnyObject) {
         let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
         self.presentViewController(vc, animated: true, completion: nil)
