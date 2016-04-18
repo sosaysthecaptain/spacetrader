@@ -1292,7 +1292,7 @@
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vez-ON-taT" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                                <rect key="frame" x="139" y="307" width="32" height="21"/>
+                                                <rect key="frame" x="139" y="307" width="80" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1481,11 +1481,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="pzi-dG-6wZ" secondAttribute="trailing" id="3Mk-el-7Pi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pzi-dG-6wZ" secondAttribute="trailing" constant="-15" id="3Mk-el-7Pi"/>
                             <constraint firstAttribute="bottomMargin" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="563-Kz-OEI"/>
                             <constraint firstAttribute="trailing" secondItem="pzi-dG-6wZ" secondAttribute="trailing" id="F2j-ei-LYP"/>
                             <constraint firstAttribute="bottomMargin" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="H0o-PZ-yR5"/>
-                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" id="IWJ-NQ-tHG"/>
+                            <constraint firstItem="pzi-dG-6wZ" firstAttribute="leading" secondItem="45h-Z9-zcC" secondAttribute="leadingMargin" constant="-40" id="IWJ-NQ-tHG"/>
                             <constraint firstAttribute="bottom" secondItem="pzi-dG-6wZ" secondAttribute="bottom" id="MW1-qH-MS6"/>
                             <constraint firstItem="pzi-dG-6wZ" firstAttribute="height" secondItem="45h-Z9-zcC" secondAttribute="height" id="NbJ-3v-cA9"/>
                             <constraint firstItem="pzi-dG-6wZ" firstAttribute="top" secondItem="45h-Z9-zcC" secondAttribute="topMargin" id="Xnp-NM-Ygb"/>
