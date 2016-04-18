@@ -12,6 +12,7 @@ class NewGameVC: UIViewController {
     
 
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     var foundGame = false
     
     override func viewDidLoad() {
@@ -21,7 +22,8 @@ class NewGameVC: UIViewController {
             print("no autosaved game found.")
         }
 
-
+        // send view to background. Not possible to do this in IB
+        self.view.sendSubviewToBack(backgroundImage)
         
     }
     
