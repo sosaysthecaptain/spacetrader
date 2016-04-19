@@ -71,8 +71,8 @@ class SpecialEvents: NSObject, NSCoding {
                 specialEventTitle = "Alien Artifact"
                 specialEventText = "This alien artifact should be delivered to professor Berger, who is currently traveling. You can probably find him at a hi-tech solar system. The alien race which produced this artifact seems keen on getting it back, however, and may hinder the carrier. Are you, for a price, willing to deliver it?"
                 yesDismissButtonText = "Yes"
-                //noButtonText = ""
-                noButtonEnabled = false
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.dragonfly:
                 specialEventTitle = "Dragonfly"
