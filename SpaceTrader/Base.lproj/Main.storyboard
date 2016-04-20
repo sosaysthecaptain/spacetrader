@@ -6689,36 +6689,36 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEE-Kl-32M" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEE-Kl-32M" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="218" width="59" height="34"/>
-                                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="News"/>
                                                 <connections>
                                                     <action selector="buyNewspaper:" destination="I0c-F9-5oA" eventType="touchUpInside" id="k6b-9P-oPD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-Oc-kEO" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                <rect key="frame" x="505" y="218" width="105" height="34"/>
-                                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
-                                                <state key="normal" title="Mercenaries"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-Oc-kEO" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="473" y="218" width="137" height="34"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="Hire Mercenaries"/>
                                                 <connections>
                                                     <segue destination="rvO-g4-mJh" kind="presentation" id="THg-xK-WFM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                <rect key="frame" x="267" y="218" width="70" height="34"/>
-                                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="251" y="218" width="70" height="34"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Special"/>
                                                 <connections>
                                                     <segue destination="7KV-Kd-cUT" kind="presentation" identifier="specialModal" id="vph-Mi-zYL"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-nk-qOb">
-                                                <rect key="frame" x="107" y="235" width="152" height="0.0"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-nk-qOb">
+                                                <rect key="frame" x="107" y="235" width="136" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faS-c6-zP3">
-                                                <rect key="frame" x="345" y="235" width="152" height="0.0"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faS-c6-zP3">
+                                                <rect key="frame" x="329" y="235" width="136" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-Mb-K2s" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">

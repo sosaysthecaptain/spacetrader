@@ -19,7 +19,7 @@ class ShortRangeChartView: UIView {
     var planetsOnMap: [mapPlanet] = []
     var wormholeAsOpposedToPlanet = false
     
-    let pointsPerParsec: CGFloat = 6
+    var pointsPerParsec: CGFloat = 6
     let circleColor = textGray
     
     var locationOfCurrentPlanet: CGPoint {
@@ -34,6 +34,12 @@ class ShortRangeChartView: UIView {
     
     override func drawRect(rect: CGRect) {
         // this is the main function. It draws everything.
+        
+        // figure out size of screen this is displaying on, adjust scale accordingly
+        //print("view width: \(self.bounds.width)")
+        if self.bounds.width < 300 {
+            pointsPerParsec = 5
+        }
         
         // draw range circle
         let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)

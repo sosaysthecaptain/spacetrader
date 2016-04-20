@@ -144,6 +144,14 @@ class SystemInfoVC: UIViewController {
         } else {
             repairsButton.enabled = true
         }
+        
+        // shrink news/special/mercenary button text if small screen
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        if screenSize.width < 350 {
+            newsButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            specialButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            mercenariesButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
     }
     
     @IBAction func maxFuel(sender: AnyObject) {

@@ -14,7 +14,7 @@ class GalacticChartView: UIView {
     var planetsOnMap: [mapPlanet] = []
     var wormholeAsOpposedToPlanet = false
     
-    let pointsPerParsec: CGFloat = 2
+    var pointsPerParsec: CGFloat = 2
     let circleColor = UIColor.blackColor()
     
     var locationOfCurrentPlanet: CGPoint {
@@ -28,6 +28,12 @@ class GalacticChartView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        
+        // figure out size of screen this is displaying on, adjust scale accordingly
+        //print("view width: \(self.bounds.width)")
+        if self.bounds.width < 300 {
+            pointsPerParsec = 1.7
+        }
         
         // draw range circle
         
