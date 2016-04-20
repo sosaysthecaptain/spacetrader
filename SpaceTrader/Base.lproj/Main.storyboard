@@ -6657,7 +6657,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have fuel to fly xx parsecs." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="RI5-Xs-Xb7" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You have fuel to fly xx parsecs." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="RI5-Xs-Xb7" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="320" width="224" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6713,34 +6713,40 @@
                                                 <rect key="frame" x="331" y="223" width="114" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-Mb-K2s" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-Mb-K2s" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="272" y="320" width="338" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="EF5-rS-zzf"/>
+                                                </constraints>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Fuel"/>
                                                 <connections>
                                                     <action selector="maxFuel:" destination="I0c-F9-5oA" eventType="touchUpInside" id="pYK-NQ-0Gj"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tank is full." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eXT-5v-FK0" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your tank is full." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eXT-5v-FK0" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="340" width="224" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your hull strength is at 100%." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-xt-UVi" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your hull strength is at 100%." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-xt-UVi" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="380" width="210" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No repairs are needed." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="wXs-lh-2jZ" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No repairs are needed." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="wXs-lh-2jZ" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="400" width="210" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-Ze-Idy" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-Ze-Idy" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="258" y="380" width="352" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="7zY-uA-fcg"/>
+                                                </constraints>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Repairs"/>
                                                 <connections>
@@ -8597,7 +8603,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="K2U-qg-SzU"/>
-        <segue reference="94b-YL-qQM"/>
+        <segue reference="df9-TI-WZB"/>
         <segue reference="SLK-Ty-5ft"/>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
