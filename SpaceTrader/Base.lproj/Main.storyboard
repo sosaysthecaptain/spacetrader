@@ -4610,6 +4610,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS7-M8-b5A" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="235" y="83" width="37" height="28"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="J9F-jP-mwF"/>
                                     <constraint firstAttribute="width" constant="45" id="dj7-lh-g0O"/>
                                     <constraint firstAttribute="height" constant="28" id="qR7-D7-mwn"/>
                                 </constraints>
@@ -4645,6 +4646,7 @@
                                 <rect key="frame" x="235" y="119" width="37" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="GPx-wM-QOK"/>
+                                    <constraint firstAttribute="width" constant="38" id="H5S-lO-Yf6"/>
                                     <constraint firstAttribute="height" constant="28" id="rzH-Yz-AxB"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -4818,6 +4820,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Pr3-0H-PH0"/>
                                     <constraint firstAttribute="height" constant="28" id="jaU-0w-f9I"/>
+                                    <constraint firstAttribute="width" constant="38" id="tZB-li-ei2"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="All"/>
@@ -4835,6 +4838,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="AEJ-wh-IYr"/>
                                     <constraint firstAttribute="height" constant="28" id="Q5e-gC-Hvn"/>
+                                    <constraint firstAttribute="width" constant="38" id="SMY-rq-dDU"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="All"/>
@@ -4851,6 +4855,7 @@
                                 <rect key="frame" x="235" y="221" width="37" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="1je-D9-XZN"/>
+                                    <constraint firstAttribute="width" constant="38" id="Qt4-SD-07w"/>
                                     <constraint firstAttribute="width" constant="45" id="mlE-3i-Lzh"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -4867,6 +4872,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-26-p9V" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="235" y="255" width="37" height="28"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="1Vd-fR-QBS"/>
                                     <constraint firstAttribute="width" constant="45" id="PU1-r3-qmF"/>
                                     <constraint firstAttribute="height" constant="28" id="X1f-hs-b5q"/>
                                 </constraints>
@@ -4885,6 +4891,7 @@
                                 <rect key="frame" x="235" y="289" width="37" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="5jv-N3-qWy"/>
+                                    <constraint firstAttribute="width" constant="38" id="XXD-FL-jbH"/>
                                     <constraint firstAttribute="width" constant="45" id="x5R-Iz-eIu"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -4901,6 +4908,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyP-S2-iCF" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="235" y="323" width="37" height="28"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="Mih-fM-fdM"/>
                                     <constraint firstAttribute="height" constant="28" id="X0W-0x-NhA"/>
                                     <constraint firstAttribute="width" constant="45" id="spS-Yt-CFz"/>
                                 </constraints>
@@ -4918,6 +4926,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-8L-tXU" customClass="PurpleButtonTurnsGray" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="235" y="357" width="37" height="28"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="8zQ-gC-f8f"/>
                                     <constraint firstAttribute="height" constant="28" id="sGc-4e-FCq"/>
                                     <constraint firstAttribute="width" constant="45" id="xmJ-jo-AnV"/>
                                 </constraints>
@@ -4937,6 +4946,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Iv3-Ld-eX6"/>
                                     <constraint firstAttribute="height" constant="28" id="PxB-Ci-d0Z"/>
+                                    <constraint firstAttribute="width" constant="38" id="ebz-VX-YQz"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="All"/>
@@ -8586,20 +8596,20 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="K2U-qg-SzU"/>
+        <segue reference="94b-YL-qQM"/>
         <segue reference="SLK-Ty-5ft"/>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
-        <segue reference="QJh-Dr-ysc"/>
         <segue reference="REb-7Y-v0a"/>
-        <segue reference="df9-TI-WZB"/>
-        <segue reference="Rcc-24-Noc"/>
+        <segue reference="QJh-Dr-ysc"/>
         <segue reference="XhI-dd-ihR"/>
         <segue reference="BMi-US-Qfe"/>
+        <segue reference="Rcc-24-Noc"/>
         <segue reference="Cl3-zi-3cm"/>
-        <segue reference="K2U-qg-SzU"/>
         <segue reference="gLW-Zt-l96"/>
+        <segue reference="kdA-Wi-tPd"/>
         <segue reference="c5m-hx-g89"/>
         <segue reference="1Eh-mE-ldv"/>
-        <segue reference="kdA-Wi-tPd"/>
     </inferredMetricsTieBreakers>
 </document>

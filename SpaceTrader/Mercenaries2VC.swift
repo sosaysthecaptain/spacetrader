@@ -90,7 +90,7 @@ class Mercenaries2VC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return fillableSlotsOnYourShip
+            return max(fillableSlotsOnYourShip, 1)
         } else if section == 1 {
             if galaxy.currentSystem!.mercenaries.count > 0 {
                 return galaxy.currentSystem!.mercenaries.count

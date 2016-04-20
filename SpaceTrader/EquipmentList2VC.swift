@@ -76,7 +76,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             shipItems = []
             let weaponSlotCount = player.commanderShip.weaponSlots
             if weaponSlotCount == 0 {
-                inventoryKeyArray.append("<Your Ship Has No Weapon Slots>")
+                inventoryKeyArray.append("<Your ship has no weapon slots>")
                 inventoryValueArray.append("")
                 inventoryDisclosureIndicator.append(false)
             } else {
@@ -125,7 +125,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             shipItems = []
             let shieldSlotCount = player.commanderShip.shieldSlots
             if shieldSlotCount == 0 {
-                inventoryKeyArray.append("<Your Ship Has No Shield Slots>")
+                inventoryKeyArray.append("<Your ship has no shield slots>")
                 inventoryValueArray.append("")
                 inventoryDisclosureIndicator.append(false)
             } else {
@@ -174,7 +174,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
             inventoryDisclosureIndicator = []
             let gadgetSlotCount = player.commanderShip.gadgetSlots
             if gadgetSlotCount == 0 {
-                inventoryKeyArray.append("<Your Ship Has No Gadget Slots>")
+                inventoryKeyArray.append("<Your ship has no gadget slots>")
                 inventoryValueArray.append("")
                 inventoryDisclosureIndicator.append(false)
             } else {

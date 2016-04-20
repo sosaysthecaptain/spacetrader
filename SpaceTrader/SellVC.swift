@@ -395,33 +395,44 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         // handle dump buttons
         if galaxy.currentSystem!.waterSell == 0 {
             waterAllLabel.setTitle("Dump", forState: controlState)
+            waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.fursSell == 0 {
             fursAllLabel.setTitle("Dump", forState: controlState)
+            fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.foodSell == 0 {
             foodAllLabel.setTitle("Dump", forState: controlState)
+            foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.oreSell == 0 {
             oreAllLabel.setTitle("Dump", forState: controlState)
+            oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.gamesSell == 0 {
             gamesAllLabel.setTitle("Dump", forState: controlState)
+            gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.firearmsSell == 0 {
             firearmsAllLabel.setTitle("Dump", forState: controlState)
+            firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.medicineSell == 0 {
             medicineAllLabel.setTitle("Dump", forState: controlState)
+            medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.machinesSell == 0 {
             machinesAllLabel.setTitle("Dump", forState: controlState)
+            machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.narcoticsSell == 0 {
             narcoticsAllLabel.setTitle("Dump", forState: controlState)
+            // SET FONT SIZE
+            narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.robotsSell == 0 {
             robotsAllLabel.setTitle("Dump", forState: controlState)
+            robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         
     }
