@@ -3551,15 +3551,18 @@
                             <constraint firstItem="l8m-1h-I1B" firstAttribute="leading" secondItem="1Sp-Cn-eNY" secondAttribute="trailing" constant="8" symbolic="YES" id="H5t-ut-E5G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfX-8e-nV6" secondAttribute="trailing" constant="20" id="HNu-Vw-AjZ"/>
                             <constraint firstItem="jNF-SD-sgk" firstAttribute="top" secondItem="koD-aw-qW2" secondAttribute="bottom" constant="8" id="HTb-kw-loc"/>
+                            <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="jF8-Ip-n9X" secondAttribute="bottom" constant="50" id="J82-ms-PXc"/>
                             <constraint firstItem="vna-JK-gpb" firstAttribute="leading" secondItem="HPo-By-NeI" secondAttribute="trailing" constant="8" id="LUz-dA-UHQ"/>
                             <constraint firstItem="oCA-yX-O8m" firstAttribute="leading" secondItem="vna-JK-gpb" secondAttribute="leading" id="MUU-Dr-dW8"/>
                             <constraint firstItem="PoC-GG-vf1" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="leading" id="NxQ-XF-aA6"/>
+                            <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="l8m-1h-I1B" secondAttribute="bottom" constant="50" id="OEt-cb-oqn"/>
                             <constraint firstItem="jF8-Ip-n9X" firstAttribute="baseline" secondItem="8iA-FL-PCu" secondAttribute="baseline" id="OVm-8d-ctX"/>
                             <constraint firstItem="oTL-fO-GUv" firstAttribute="leading" secondItem="m1m-MM-iuo" secondAttribute="trailing" constant="8" symbolic="YES" id="Oxt-4O-yOP"/>
                             <constraint firstItem="HPo-By-NeI" firstAttribute="baseline" secondItem="oTL-fO-GUv" secondAttribute="baseline" id="QTA-Zy-MFU"/>
                             <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="Jci-Hl-Day" secondAttribute="bottom" constant="20" id="Qrd-m6-uKZ"/>
                             <constraint firstItem="LuO-V9-BUL" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="30" id="Qw9-jD-2jK"/>
                             <constraint firstItem="koD-aw-qW2" firstAttribute="top" secondItem="DlB-Cz-ljz" secondAttribute="bottom" constant="8" id="Qys-lj-2t8"/>
+                            <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="8iA-FL-PCu" secondAttribute="bottom" constant="50" id="RXy-1D-1Xp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="akI-hL-wga" secondAttribute="trailing" id="T3R-H3-tYz"/>
                             <constraint firstItem="oTL-fO-GUv" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="125" id="VaS-t7-F0n"/>
                             <constraint firstItem="HPo-By-NeI" firstAttribute="width" secondItem="akI-hL-wga" secondAttribute="width" id="Vna-d5-iw7"/>
@@ -4414,10 +4417,10 @@
                         <viewControllerLayoutGuide type="bottom" id="ciH-lo-OmA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pnu-IU-BFt">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-Qh-sdn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-Qh-sdn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -8594,20 +8597,20 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SLK-Ty-5ft"/>
-        <segue reference="ybb-n8-O5E"/>
-        <segue reference="pZh-7V-Edf"/>
-        <segue reference="REb-7Y-v0a"/>
         <segue reference="NpZ-6P-UU1"/>
-        <segue reference="Cl3-zi-3cm"/>
-        <segue reference="XhI-dd-ihR"/>
-        <segue reference="BMi-US-Qfe"/>
-        <segue reference="K2U-qg-SzU"/>
-        <segue reference="Rcc-24-Noc"/>
-        <segue reference="gLW-Zt-l96"/>
+        <segue reference="REb-7Y-v0a"/>
+        <segue reference="SLK-Ty-5ft"/>
+        <segue reference="pZh-7V-Edf"/>
+        <segue reference="ybb-n8-O5E"/>
         <segue reference="QJh-Dr-ysc"/>
-        <segue reference="1Eh-mE-ldv"/>
+        <segue reference="Zhh-Pf-9hC"/>
+        <segue reference="XhI-dd-ihR"/>
+        <segue reference="Cl3-zi-3cm"/>
+        <segue reference="Rcc-24-Noc"/>
+        <segue reference="K2U-qg-SzU"/>
+        <segue reference="gLW-Zt-l96"/>
         <segue reference="c5m-hx-g89"/>
+        <segue reference="1Eh-mE-ldv"/>
         <segue reference="kdA-Wi-tPd"/>
     </inferredMetricsTieBreakers>
 </document>
