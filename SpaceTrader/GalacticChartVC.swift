@@ -58,7 +58,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     func targetSystemDidChange() {
         galacticChart.redrawSelf()
         shortRangeChart.redrawSelf()
-        targetSystemLabel.text = "Target System: \(galaxy.targetSystem!.name)"
+        targetSystemLabel.text = "\(galaxy.targetSystem!.name)"
         
         // if target system is current system or in range, disable jump if enable
         if galaxy.targetSystemInRange || (galaxy.currentSystem!.name == galaxy.targetSystem!.name) {

@@ -3089,11 +3089,18 @@
                                     <constraint firstAttribute="height" constant="35" id="NQY-Ir-66G"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Target System:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSK-Ih-532" customClass="SmallLabelGray" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="67" y="504" width="103" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SR0-e0-agc" secondAttribute="trailing" id="6kE-OM-ElO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sLV-cC-4dn" secondAttribute="leading" id="8Hq-4g-Ozk"/>
+                            <constraint firstItem="VSK-Ih-532" firstAttribute="leading" secondItem="Rfu-G3-aYA" secondAttribute="leading" id="8cJ-Cu-XEK"/>
                             <constraint firstItem="E9d-Fn-lAc" firstAttribute="top" secondItem="4QT-sz-iFf" secondAttribute="bottom" constant="50" id="Bfr-6H-fv3"/>
                             <constraint firstItem="E9d-Fn-lAc" firstAttribute="top" secondItem="Rfu-G3-aYA" secondAttribute="bottom" constant="8" id="EhM-WF-Stb"/>
                             <constraint firstItem="Baq-ZF-rjf" firstAttribute="centerY" secondItem="NDZ-KJ-XKV" secondAttribute="centerY" id="FDC-b4-PN2"/>
@@ -3107,6 +3114,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="4QT-sz-iFf" secondAttribute="leading" id="kXr-2U-2v5"/>
                             <constraint firstItem="4QT-sz-iFf" firstAttribute="top" secondItem="Baq-ZF-rjf" secondAttribute="bottom" constant="9" id="kjz-ga-JIY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sLV-cC-4dn" secondAttribute="trailing" id="lmv-dL-szD"/>
+                            <constraint firstItem="Rfu-G3-aYA" firstAttribute="top" secondItem="VSK-Ih-532" secondAttribute="bottom" id="ral-U8-gw4"/>
                             <constraint firstItem="YRq-7A-BkP" firstAttribute="baseline" secondItem="SR0-e0-agc" secondAttribute="baseline" id="rkO-bE-AJ3"/>
                             <constraint firstItem="sLV-cC-4dn" firstAttribute="top" secondItem="ig7-TH-mrV" secondAttribute="bottom" id="sN0-X6-BHI"/>
                             <constraint firstItem="SR0-e0-agc" firstAttribute="leading" secondItem="YRq-7A-BkP" secondAttribute="trailing" constant="15" id="stL-II-0sw"/>
@@ -3194,7 +3202,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lKv-pM-DN6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3pg-x6-nEy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZgY-13-3fg">
@@ -8602,20 +8610,20 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2U-qg-SzU"/>
-        <segue reference="df9-TI-WZB"/>
+        <segue reference="1Eh-mE-ldv"/>
+        <segue reference="c5m-hx-g89"/>
+        <segue reference="kdA-Wi-tPd"/>
         <segue reference="SLK-Ty-5ft"/>
-        <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
-        <segue reference="REb-7Y-v0a"/>
-        <segue reference="QJh-Dr-ysc"/>
+        <segue reference="ybb-n8-O5E"/>
+        <segue reference="df9-TI-WZB"/>
+        <segue reference="Rcc-24-Noc"/>
+        <segue reference="K2U-qg-SzU"/>
         <segue reference="XhI-dd-ihR"/>
         <segue reference="BMi-US-Qfe"/>
-        <segue reference="Rcc-24-Noc"/>
         <segue reference="Cl3-zi-3cm"/>
         <segue reference="gLW-Zt-l96"/>
-        <segue reference="kdA-Wi-tPd"/>
-        <segue reference="c5m-hx-g89"/>
-        <segue reference="1Eh-mE-ldv"/>
+        <segue reference="ufr-wM-KNn"/>
+        <segue reference="REb-7Y-v0a"/>
     </inferredMetricsTieBreakers>
 </document>
