@@ -16,7 +16,6 @@ class DockVC: UIViewController {
     @IBOutlet weak var equipmentMessage1: UILabel!
     @IBOutlet weak var equipmentMessage2: UILabel!
     @IBOutlet weak var podMessage1: UILabel!
-    @IBOutlet weak var podMessage2: UILabel!
     
     @IBOutlet weak var shipButton: PurpleButtonVanishes!
     @IBOutlet weak var equipmentButton: PurpleButtonVanishes!
@@ -42,20 +41,20 @@ class DockVC: UIViewController {
         
         if player.escapePod {
             podMessage1.text = "You have an escape pod installed."
-            podMessage2.text = ""
+            //podMessage2.text = ""
             podButton.enabled = false
         } else if galaxy.getTechLevelValue(galaxy.currentSystem!.techLevel) <= 2 {
             podMessage1.text = "No escape pods for sale."
-            podMessage2.text = ""
+            //podMessage2.text = ""
             podButton.enabled = false
         } else if player.credits < 2000 {
             podMessage1.text = "You need at least 2,000 cr. to buy an escape pod."
-            podMessage2.text = ""
+            //podMessage2.text = ""
             podButton.enabled = false
         } else {
             // if current system is advanced enough to sell escape pods, make available
             podMessage1.text = "You can buy an escape pod for 2,000 cr."
-            podMessage2.text = ""
+            //podMessage2.text = ""
             podButton.enabled = true
         }
         

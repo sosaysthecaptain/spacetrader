@@ -2580,19 +2580,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="f1V-1K-aRr" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="f1V-1K-aRr" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="20" y="362" width="560" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CBn-hS-aSs" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="388" width="38" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-uN-Pyc" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-uN-Pyc" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="20" y="414" width="87" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Buy Pod"/>
@@ -2639,10 +2633,8 @@
                             <constraint firstAttribute="leadingMargin" secondItem="geC-fs-cOP" secondAttribute="leading" id="5SO-tz-hoW"/>
                             <constraint firstItem="YcH-6Y-fMA" firstAttribute="top" secondItem="gCQ-id-E6Y" secondAttribute="bottom" constant="8" id="5uk-y0-jmy"/>
                             <constraint firstItem="PoV-HB-f3h" firstAttribute="top" secondItem="WDW-ci-DsX" secondAttribute="bottom" id="6k9-UY-MFx"/>
-                            <constraint firstItem="ljN-uN-Pyc" firstAttribute="top" secondItem="CBn-hS-aSs" secondAttribute="bottom" constant="8" id="9RD-wf-P0E"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xoz-lp-VZc" secondAttribute="leading" id="EIr-Ux-QM0"/>
                             <constraint firstItem="yG7-5U-Hd3" firstAttribute="leading" secondItem="zRU-CG-OhY" secondAttribute="leadingMargin" constant="-20" id="FSK-XO-Rkb"/>
-                            <constraint firstItem="CBn-hS-aSs" firstAttribute="top" secondItem="f1V-1K-aRr" secondAttribute="bottom" constant="8" id="GUd-an-OTa"/>
                             <constraint firstItem="gCQ-id-E6Y" firstAttribute="top" secondItem="i87-3L-ZYH" secondAttribute="bottom" constant="8" id="IIA-j9-1qb"/>
                             <constraint firstItem="i87-3L-ZYH" firstAttribute="top" secondItem="geC-fs-cOP" secondAttribute="bottom" constant="60" id="KyL-gK-ajk"/>
                             <constraint firstItem="geC-fs-cOP" firstAttribute="top" secondItem="GzS-zm-LgP" secondAttribute="bottom" constant="8" id="OtN-ru-YkU"/>
@@ -2657,19 +2649,16 @@
                             <constraint firstItem="xoz-lp-VZc" firstAttribute="leading" secondItem="geC-fs-cOP" secondAttribute="trailing" constant="8" id="bWk-Ub-myB"/>
                             <constraint firstItem="geC-fs-cOP" firstAttribute="leading" secondItem="xoz-lp-VZc" secondAttribute="trailing" constant="8" id="crV-cH-Ih4"/>
                             <constraint firstItem="GzS-zm-LgP" firstAttribute="top" secondItem="T8Z-lD-QRt" secondAttribute="bottom" constant="8" id="dvn-md-1P7"/>
-                            <constraint firstItem="ljN-uN-Pyc" firstAttribute="leading" secondItem="CBn-hS-aSs" secondAttribute="leading" id="fuw-YI-Z8C"/>
                             <constraint firstAttribute="leadingMargin" secondItem="geC-fs-cOP" secondAttribute="leading" id="g4C-Ce-X5x"/>
                             <constraint firstItem="geC-fs-cOP" firstAttribute="leading" secondItem="GzS-zm-LgP" secondAttribute="leading" id="hn8-iJ-Sh3"/>
                             <constraint firstItem="f1V-1K-aRr" firstAttribute="leading" secondItem="gCQ-id-E6Y" secondAttribute="leading" id="iHE-Bp-HXG"/>
                             <constraint firstItem="gCQ-id-E6Y" firstAttribute="leading" secondItem="i87-3L-ZYH" secondAttribute="leading" id="nBU-FB-9so"/>
                             <constraint firstItem="f1V-1K-aRr" firstAttribute="top" secondItem="yG7-5U-Hd3" secondAttribute="bottom" constant="20" id="p1a-1O-0gz"/>
-                            <constraint firstItem="ljN-uN-Pyc" firstAttribute="top" secondItem="CBn-hS-aSs" secondAttribute="bottom" constant="8" id="pGp-a7-MZM"/>
                             <constraint firstItem="vvw-NB-W1n" firstAttribute="leading" secondItem="zRU-CG-OhY" secondAttribute="leadingMargin" constant="-20" id="pgo-1K-PJ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f1V-1K-aRr" secondAttribute="trailing" id="qFt-uP-tJ4"/>
                             <constraint firstAttribute="leadingMargin" secondItem="T8Z-lD-QRt" secondAttribute="leading" id="r7l-cX-rWL"/>
                             <constraint firstItem="i87-3L-ZYH" firstAttribute="leading" secondItem="GzS-zm-LgP" secondAttribute="leading" id="rpN-Ah-gQO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvw-NB-W1n" secondAttribute="trailing" constant="-20" id="w3w-dA-FUs"/>
-                            <constraint firstItem="CBn-hS-aSs" firstAttribute="leading" secondItem="f1V-1K-aRr" secondAttribute="leading" id="we5-kV-XIL"/>
                             <constraint firstItem="WDW-ci-DsX" firstAttribute="leading" secondItem="zRU-CG-OhY" secondAttribute="leadingMargin" constant="-20" id="yHq-N7-7WW"/>
                             <constraint firstItem="xoz-lp-VZc" firstAttribute="centerY" secondItem="geC-fs-cOP" secondAttribute="centerY" id="yZo-5c-Gpj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WDW-ci-DsX" secondAttribute="trailing" constant="-20" id="zUg-HS-wo0"/>
@@ -2685,8 +2674,6 @@
                                 <exclude reference="VXB-TZ-1Ei"/>
                                 <exclude reference="XE8-8Y-rc4"/>
                                 <exclude reference="Tdq-jl-BfQ"/>
-                                <exclude reference="fuw-YI-Z8C"/>
-                                <exclude reference="pGp-a7-MZM"/>
                             </mask>
                         </variation>
                     </view>
@@ -2705,7 +2692,6 @@
                         <outlet property="equipmentMessage2" destination="gCQ-id-E6Y" id="6TX-er-kwO"/>
                         <outlet property="podButton" destination="ljN-uN-Pyc" id="69t-CI-PPZ"/>
                         <outlet property="podMessage1" destination="f1V-1K-aRr" id="hVl-II-oDo"/>
-                        <outlet property="podMessage2" destination="CBn-hS-aSs" id="IUA-CW-NP5"/>
                         <outlet property="shipButton" destination="geC-fs-cOP" id="Esg-UJ-dnK"/>
                         <outlet property="shipMessage1" destination="T8Z-lD-QRt" id="l8g-eg-YeT"/>
                         <outlet property="shipMessage2" destination="GzS-zm-LgP" id="lxp-N1-aIy"/>
@@ -6271,11 +6257,11 @@
                         <viewControllerLayoutGuide type="bottom" id="w0H-uY-Pkl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vdh-Ct-Fej">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-YB-lzH">
-                                <rect key="frame" x="20" y="49" width="560" height="194"/>
+                                <rect key="frame" x="20" y="49" width="560" height="204"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="f11-rb-lPR"/>
@@ -6289,13 +6275,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercenaries for Hire:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXU-9r-gYC">
-                                <rect key="frame" x="20" y="258" width="173" height="21"/>
+                                <rect key="frame" x="20" y="268" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iUH-Vk-L3Z">
-                                <rect key="frame" x="20" y="287" width="560" height="197"/>
+                                <rect key="frame" x="20" y="297" width="560" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="drq-Zr-zqk"/>
@@ -8601,19 +8587,19 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Rcc-24-Noc"/>
-        <segue reference="cgx-NQ-uql"/>
-        <segue reference="c5m-hx-g89"/>
-        <segue reference="1Eh-mE-ldv"/>
-        <segue reference="kdA-Wi-tPd"/>
-        <segue reference="K2U-qg-SzU"/>
-        <segue reference="XhI-dd-ihR"/>
-        <segue reference="Cl3-zi-3cm"/>
-        <segue reference="gLW-Zt-l96"/>
-        <segue reference="QJh-Dr-ysc"/>
+        <segue reference="df9-TI-WZB"/>
         <segue reference="SLK-Ty-5ft"/>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
         <segue reference="REb-7Y-v0a"/>
+        <segue reference="QJh-Dr-ysc"/>
         <segue reference="Zhh-Pf-9hC"/>
+        <segue reference="K2U-qg-SzU"/>
+        <segue reference="XhI-dd-ihR"/>
+        <segue reference="Cl3-zi-3cm"/>
+        <segue reference="gLW-Zt-l96"/>
+        <segue reference="1Eh-mE-ldv"/>
+        <segue reference="c5m-hx-g89"/>
+        <segue reference="kdA-Wi-tPd"/>
     </inferredMetricsTieBreakers>
 </document>
