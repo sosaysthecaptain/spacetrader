@@ -30,6 +30,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var warpButtonLabel: PurpleButtonTurnsGray!
     @IBOutlet weak var untrackButtonLabel: GrayButtonVanishes!
     
+    
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
         updateView()
@@ -120,6 +121,14 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
             untrackButtonLabel.enabled = true
         } else {
             untrackButtonLabel.enabled = false
+        }
+        
+        // shrink text to accomodate small screen
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        if screenSize.width < 350 {
+            targetSystemLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+            
+            //spacerView.bounds = CGRect(x: 0, y: 0, width: 100, height: 3)
         }
     }
     

@@ -95,6 +95,15 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 addTribbleAtRandomPosition()
             }
         }
+        
+        // if small screen, shrink action button text
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        if screenSize.width < 350 {
+            button1Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            button2Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            button3Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            button4Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+        }
     }
     
     // set dark statusBar
