@@ -22,6 +22,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             closeButtonOutlet.enabled = false
         }
         
+        
+        
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         playerShields.text = player.getShieldStrengthString(player.commanderShip)     // DEBUG FIX THIS
@@ -104,6 +106,10 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             button3Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
             button4Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
         }
+        
+        // set font for textBlocks
+        firstTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+        secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
     }
     
     // set dark statusBar
