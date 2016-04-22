@@ -15,12 +15,14 @@ class AboutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
 
         loadWebView()
     }
     
     func loadWebView() {
-        let myURL = NSBundle.mainBundle().URLForResource("AboutCreditsText", withExtension: "html")
+        let myURL = NSBundle.mainBundle().URLForResource("AboutCreditstext", withExtension: "html")
         let requestObj = NSURLRequest(URL: myURL!)
         webView.loadRequest(requestObj)
     }
