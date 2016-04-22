@@ -10,10 +10,19 @@ import UIKit
 
 class AboutVC: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        loadWebView()
+    }
+    
+    func loadWebView() {
+        let myURL = NSBundle.mainBundle().URLForResource("AboutCreditsText", withExtension: "html")
+        let requestObj = NSURLRequest(URL: myURL!)
+        webView.loadRequest(requestObj)
     }
 
 

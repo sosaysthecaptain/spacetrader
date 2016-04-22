@@ -8245,10 +8245,10 @@
             </objects>
             <point key="canvasLocation" x="-712" y="-1290"/>
         </scene>
-        <!--AboutVC-->
+        <!--About Space Trader-->
         <scene sceneID="sGC-gl-G2N">
             <objects>
-                <viewController id="hCQ-9f-5bf" customClass="AboutVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="About Space Trader" id="hCQ-9f-5bf" customClass="AboutVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XqC-XC-AO8"/>
                         <viewControllerLayoutGuide type="bottom" id="cTf-CS-Dcf"/>
@@ -8256,8 +8256,24 @@
                     <view key="view" contentMode="scaleToFill" id="pAc-Eg-ZSw">
                         <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suc-0B-pPr">
+                                <rect key="frame" x="20" y="8" width="560" height="540"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="suc-0B-pPr" firstAttribute="top" secondItem="XqC-XC-AO8" secondAttribute="bottom" constant="8" id="RoA-tM-VWE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="suc-0B-pPr" secondAttribute="leading" id="ozT-Xf-XXw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="suc-0B-pPr" secondAttribute="trailing" id="pfg-D0-Xqx"/>
+                            <constraint firstItem="cTf-CS-Dcf" firstAttribute="top" secondItem="suc-0B-pPr" secondAttribute="bottom" constant="8" id="zKR-Nt-5Q9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="suc-0B-pPr" id="Ai7-6y-Rck"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnY-0e-8tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
