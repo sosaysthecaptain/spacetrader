@@ -77,11 +77,10 @@ class NewGameVC: UIViewController {
             
         } else {
             // 3.5" screen
-            print("running on 3.5 inch screen")
             newGameTrailingConstraint.constant = 36
-            newGameTopConstraint.constant = 45
-            loadFromNewConstraint.constant = 25
-            highFromLoadConstraint.constant = 25
+            newGameTopConstraint.constant = 30
+            loadFromNewConstraint.constant = 20
+            highFromLoadConstraint.constant = 20
             
             newGameButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 24)!
             loadGameButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 24)!
