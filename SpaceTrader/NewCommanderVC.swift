@@ -28,6 +28,21 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    // layout constraints
+    @IBOutlet weak var titleFromTopConstraint: NSLayoutConstraint!          // 20
+    @IBOutlet weak var textBoxFromTopConstraint: NSLayoutConstraint!        // 70
+    @IBOutlet weak var difficultyFromNameConstraint: NSLayoutConstraint!    // 30
+    @IBOutlet weak var skillPointsFromRuleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ruleHeightConstraint: NSLayoutConstraint!            // 45
+    @IBOutlet weak var pilotFromSkillPointsConstraint: NSLayoutConstraint!              // 20
+    @IBOutlet weak var fighterFromPilotConstraint: NSLayoutConstraint!      // 20
+    @IBOutlet weak var traderFromFighterConstraint: NSLayoutConstraint!     // 20
+    @IBOutlet weak var engineerFromTraderConstraint: NSLayoutConstraint!    // 20
+    @IBOutlet weak var okButtonFromBottomConstraint: NSLayoutConstraint!    // 20
+
+    
+    
+    
     
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
@@ -188,6 +203,33 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         engineerStepper.minimumValue = 1
         engineerStepper.maximumValue = 9
         engineerStepper.value = 1
+        
+        // adjust sizes if needed
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        
+        // handle 3.5" screen
+        if screenSize.height < 485 {
+            titleFromTopConstraint.constant = 10
+            textBoxFromTopConstraint.constant = 50
+            difficultyFromNameConstraint.constant = 20
+            ruleHeightConstraint.constant = 25
+            skillPointsFromRuleConstraint.constant = 0
+            pilotFromSkillPointsConstraint.constant = 18
+            fighterFromPilotConstraint.constant = 18
+            traderFromFighterConstraint.constant = 18
+            engineerFromTraderConstraint.constant = 18
+            okButtonFromBottomConstraint.constant = 10
+            
+//            @IBOutlet weak var titleFromTopConstraint: NSLayoutConstraint!          // 20
+//            @IBOutlet weak var textBoxFromTopConstraint: NSLayoutConstraint!        // 70
+//            @IBOutlet weak var difficultyFromNameConstraint: NSLayoutConstraint!    // 30
+//            @IBOutlet weak var ruleHeightConstraint: NSLayoutConstraint!            // 45
+//            @IBOutlet weak var pilotFromSkillPointsConstraint: UIView!              // 20
+//            @IBOutlet weak var fighterFromPilotConstraint: NSLayoutConstraint!      // 20
+//            @IBOutlet weak var traderFromFighterConstraint: NSLayoutConstraint!     // 20
+//            @IBOutlet weak var engineerFromTraderConstraint: NSLayoutConstraint!    // 20
+//            @IBOutlet weak var okButtonFromBottomConstraint: NSLayoutConstraint!    // 20
+        }
     }
     
     func DismissKeyboard(){

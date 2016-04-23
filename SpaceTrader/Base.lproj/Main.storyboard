@@ -5738,6 +5738,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backgroundImage" destination="AI1-3L-nRV" id="9N4-Xq-rYL"/>
+                        <outlet property="highFromLoadConstraint" destination="eyz-Vf-23S" id="3Yj-XP-4me"/>
+                        <outlet property="highScoresButton" destination="ADW-id-YUX" id="bph-zi-E1L"/>
+                        <outlet property="loadFromNewConstraint" destination="SWh-eZ-TcK" id="sbg-We-tDS"/>
+                        <outlet property="loadGameButton" destination="KzR-HZ-SJj" id="WMz-Jf-B4w"/>
+                        <outlet property="newGameButton" destination="De3-C3-Saa" id="TIV-1F-8cT"/>
+                        <outlet property="newGameTopConstraint" destination="byH-82-5LD" id="Ed2-Hm-xZD"/>
+                        <outlet property="newGameTrailingConstraint" destination="XpL-7i-kkx" id="nBD-7P-o98"/>
                         <segue destination="Zyg-E7-QYl" kind="show" identifier="restoreSegue" id="SLK-Ty-5ft"/>
                     </connections>
                 </viewController>
@@ -6078,7 +6085,7 @@
                                             <action selector="engineerStepperChanged:" destination="hAw-Mn-ebQ" eventType="valueChanged" id="Y97-1D-tIo"/>
                                         </connections>
                                     </stepper>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-Xk-ujm" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-Xk-ujm" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="560" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -6188,22 +6195,33 @@
                             <constraint firstItem="kIa-13-foK" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="bottom" constant="40" id="dnB-fQ-EB4"/>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" constant="30" id="gXs-cK-1N9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6n4-ja-ens" secondAttribute="trailing" id="nhx-Ou-pYI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aRJ-Xk-ujm" secondAttribute="trailing" id="rAW-0y-Owh"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="OKButton" destination="FgZ-oF-t9v" id="obM-e8-R3f"/>
                         <outlet property="backgroundImage" destination="Deb-TC-WAi" id="7Uo-yk-No2"/>
+                        <outlet property="difficultyFromNameConstraint" destination="H0d-VS-S8F" id="ost-yg-0aN"/>
                         <outlet property="difficultyLevel" destination="dx6-Zb-GVE" id="Du1-C9-LD9"/>
                         <outlet property="difficultyStepper" destination="EQD-P5-iHd" id="fb7-Gq-NTT"/>
+                        <outlet property="engineerFromTraderConstraint" destination="5TC-gD-icC" id="OSw-gX-Ybh"/>
                         <outlet property="engineerPoints" destination="Twf-A0-k66" id="46f-dx-rze"/>
                         <outlet property="engineerStepper" destination="wT8-kG-dA2" id="6Jh-da-M9C"/>
+                        <outlet property="fighterFromPilotConstraint" destination="TSG-D6-X1M" id="Xcf-HO-4AD"/>
                         <outlet property="fighterPoints" destination="8dD-LI-OzA" id="mX6-lq-OJO"/>
                         <outlet property="fighterStepper" destination="DCG-Uw-M2u" id="2gE-4K-HL0"/>
                         <outlet property="nameField" destination="nnT-55-CPc" id="BWC-AQ-66i"/>
+                        <outlet property="okButtonFromBottomConstraint" destination="ulK-If-nX7" id="YtK-uo-pd9"/>
+                        <outlet property="pilotFromSkillPointsConstraint" destination="HsC-3n-lqh" id="g2F-99-NbD"/>
                         <outlet property="pilotPoints" destination="r6F-NN-TR8" id="hvj-Cd-oLB"/>
                         <outlet property="pilotStepper" destination="JEz-St-m7G" id="kjR-LY-v4N"/>
+                        <outlet property="ruleHeightConstraint" destination="PHC-Ar-AYb" id="4eE-T9-2SP"/>
                         <outlet property="skillPoints" destination="Lbv-5s-w5p" id="Sof-Ml-ALK"/>
+                        <outlet property="skillPointsFromRuleConstraint" destination="NBH-1j-fW3" id="d2L-qf-m7d"/>
+                        <outlet property="textBoxFromTopConstraint" destination="jwR-Mp-Uli" id="svD-Wb-laV"/>
+                        <outlet property="titleFromTopConstraint" destination="8J1-fG-ML2" id="EFs-Tm-asv"/>
+                        <outlet property="traderFromFighterConstraint" destination="B4g-s2-Y6G" id="hmV-BV-Pff"/>
                         <outlet property="traderPoints" destination="e7b-Bv-JM4" id="oUK-Qn-RyX"/>
                         <outlet property="traderStepper" destination="2E7-Px-Vml" id="FSU-Oy-jRM"/>
                         <segue destination="Zyg-E7-QYl" kind="show" identifier="newCommanderToMain" id="64M-bi-8yt"/>
@@ -8427,13 +8445,21 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alwaysIgnoreFromRemindConstraint" destination="lYS-zq-yvN" id="qFt-tT-x8j"/>
+                        <outlet property="fuelTanksFromTopConstraint" destination="hjE-HF-g5Y" id="666-jB-WNd"/>
                         <outlet property="fullTanksOutlet" destination="zYg-mF-RKy" id="1bV-85-EsX"/>
+                        <outlet property="hullFromFuelConstraint" destination="fwy-Bx-X4X" id="Cba-uB-Te6"/>
                         <outlet property="hullRepairOutlet" destination="zap-cm-Xcs" id="nir-Iu-ejo"/>
                         <outlet property="ignorePiratesOutlet" destination="H7n-b6-o1v" id="fKs-JM-xaB"/>
                         <outlet property="ignorePoliceOutlet" destination="ANy-J2-0qQ" id="TlS-Kg-Hs4"/>
                         <outlet property="ignoreTradersOutlet" destination="VvE-z2-W4l" id="JjM-Aa-hHX"/>
+                        <outlet property="newspaperFromHullConstraint" destination="J7L-MF-kmo" id="vqx-Xx-Hdh"/>
                         <outlet property="newspaperOutlet" destination="9Al-pD-SKx" id="TTd-11-4th"/>
+                        <outlet property="piratesFromAlwaysConstraint" destination="u2r-EB-0On" id="kwR-BU-tyM"/>
+                        <outlet property="policeFromPiratesConstraint" destination="Auy-ZT-Y7U" id="SS7-AA-LwF"/>
+                        <outlet property="remindLoansFromNewspaper" destination="zpF-y6-BYl" id="dLq-PP-Lve"/>
                         <outlet property="remindLoansOutlet" destination="Byc-L3-14H" id="dD5-Aq-hqE"/>
+                        <outlet property="tradersFromPoliceConstraint" destination="b9J-9R-GfL" id="xeA-Ai-uLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCO-21-LcE" userLabel="First Responder" sceneMemberID="firstResponder"/>

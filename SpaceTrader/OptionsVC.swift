@@ -18,6 +18,23 @@ class OptionsVC: UIViewController {
     @IBOutlet weak var ignorePoliceOutlet: UISwitch!
     @IBOutlet weak var ignoreTradersOutlet: UISwitch!
     
+    // layout constraints
+    @IBOutlet weak var fuelTanksFromTopConstraint: NSLayoutConstraint!      // 20
+    @IBOutlet weak var hullFromFuelConstraint: NSLayoutConstraint!          // 16
+    @IBOutlet weak var newspaperFromHullConstraint: NSLayoutConstraint!     // 16
+    @IBOutlet weak var remindLoansFromNewspaper: NSLayoutConstraint!        // 50
+    @IBOutlet weak var alwaysIgnoreFromRemindConstraint: NSLayoutConstraint!// 50
+    @IBOutlet weak var piratesFromAlwaysConstraint: NSLayoutConstraint!     // 16
+    @IBOutlet weak var policeFromPiratesConstraint: NSLayoutConstraint!     // 16
+    @IBOutlet weak var tradersFromPoliceConstraint: NSLayoutConstraint!     // 16
+    
+    
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +46,30 @@ class OptionsVC: UIViewController {
         ignorePiratesOutlet.on = player.ignorePirates
         ignorePoliceOutlet.on = player.ignorePolice
         ignoreTradersOutlet.on = player.ignoreTraders
+        
+        // adjust sizes if needed
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        
+        // handle 3.5" screen
+        if screenSize.height < 485 {
+            fuelTanksFromTopConstraint.constant = 15
+            hullFromFuelConstraint.constant = 14
+            newspaperFromHullConstraint.constant = 14
+            remindLoansFromNewspaper.constant = 30
+            alwaysIgnoreFromRemindConstraint.constant = 30
+            piratesFromAlwaysConstraint.constant = 14
+            policeFromPiratesConstraint.constant = 14
+            tradersFromPoliceConstraint.constant = 14
+            
+//            @IBOutlet weak var fuelTanksFromTopConstraint: NSLayoutConstraint!      // 20
+//            @IBOutlet weak var hullFromFuelConstraint: NSLayoutConstraint!          // 16
+//            @IBOutlet weak var newspaperFromHullConstraint: NSLayoutConstraint!     // 16
+//            @IBOutlet weak var remindLoansFromNewspaper: NSLayoutConstraint!        // 50
+//            @IBOutlet weak var alwaysIgnoreFromRemindConstraint: NSLayoutConstraint!// 50
+//            @IBOutlet weak var piratesFromAlwaysConstraint: NSLayoutConstraint!     // 16
+//            @IBOutlet weak var policeFromPiratesConstraint: NSLayoutConstraint!     // 16
+//            @IBOutlet weak var tradersFromPoliceConstraint: NSLayoutConstraint!     // 16
+        }
     }
 
     @IBAction func fuelTanksToggled(sender: AnyObject) {
