@@ -107,9 +107,43 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             button4Text.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
         }
         
-        // set font for textBlocks
-        firstTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
-        secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+        // if 3.5" screen, shrink encounter text
+        if screenSize.height < 485 {
+            firstTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            
+            // shrink constraints between ship info labels
+            infoSeparationConstraint.constant = 5
+            imageToInfoConstraint.constant = 10
+            titleFromTopConstraint.constant = 30
+            badgeFromTopConstraint.constant = 30
+            imageFromTopConstraint.constant = 90
+            
+            closeButtonFromBadgeConstraint.constant = 130       // bury it, won't need it
+//            
+//            @IBOutlet weak var infoSeparationConstraint: NSLayoutConstraint!
+//            @IBOutlet weak var imageToInfoConstraint: NSLayoutConstraint!
+//            @IBOutlet weak var imageFromTopConstraint: NSLayoutConstraint!
+//            @IBOutlet weak var titleFromTopConstraint: NSLayoutConstraint!
+//            @IBOutlet weak var badgeFromTopConstraint: NSLayoutConstraint!
+        }
+        
+        // set font for textBlocks, smaller if 3.5" screen (second half of this is a kludge)
+        if screenSize.height < 485 {
+            firstTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
+            
+            playerShipType.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            playerHull.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            playerShields.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            opponentShipType.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            opponentHull.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            opponentShields.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            firstTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+            secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+        }
+        
     }
     
     // set dark statusBar
@@ -150,6 +184,15 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var closeButtonOutlet: GrayButtonVanishes!
+    
+    // layout constraints
+    @IBOutlet weak var infoSeparationConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageToInfoConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageFromTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleFromTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var badgeFromTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var closeButtonFromBadgeConstraint: NSLayoutConstraint!
+    
     
     
     
