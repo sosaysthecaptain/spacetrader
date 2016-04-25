@@ -68,6 +68,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     //@IBOutlet weak var baysAvailableLabel: UILabel!
     //@IBOutlet weak var cashLabel: UILabel!
     @IBOutlet weak var baysCashBox: BaysCashBoxView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
 
     func sellAll(commodity: TradeItemType) {
@@ -215,6 +217,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         recurringUpdate()
         buyAsOpposedToSell = false    
     }
+    
     
     func recurringUpdate() {
         waterQuantity.setTitle("\(player.commanderShip.getQuantity(.Water))", forState: controlState)
@@ -447,6 +450,10 @@ class SellVC: UIViewController, BuyModalVCDelegate {
 //        galaxy.currentSystem = galaxy.planets[52]
 //        galaxy.currentSystem!.food = 555
 //        print("should say 555 if referential: \(galaxy.planets[52].food)")
+        
+        // return scroll view to top
+        let topScrollPoint = CGPointMake(0.0, -60.0)
+        scrollView.setContentOffset(topScrollPoint, animated: false)
         
         
     }

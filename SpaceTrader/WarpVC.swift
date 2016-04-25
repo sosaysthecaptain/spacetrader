@@ -30,6 +30,9 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var warpButtonLabel: PurpleButtonTurnsGray!
     @IBOutlet weak var untrackButtonLabel: GrayButtonVanishes!
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     // layout constraints
     @IBOutlet weak var ruleViewHeight: NSLayoutConstraint!  // 18-45
     @IBOutlet weak var spacerHeight: NSLayoutConstraint!
@@ -152,6 +155,10 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     override func viewDidAppear(animated: Bool) {
         updateView()
         shortRangeChart.redrawSelf()
+        
+        // return scrollView to top
+        let topScrollPoint = CGPointMake(0.0, -60.0)
+        scrollView.setContentOffset(topScrollPoint, animated: false)
     }
     
     func targetSystemDidChange() {

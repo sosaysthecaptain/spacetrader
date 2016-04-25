@@ -55,6 +55,9 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     //@IBOutlet weak var cashLabel: UILabel!
     @IBOutlet weak var baysCashBox: BaysCashBoxView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     
     @IBOutlet weak var waterMaxButton: PurpleButtonVanishes!
     @IBOutlet weak var fursMaxButton: PurpleButtonVanishes!
@@ -556,6 +559,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         //updateUIInitial()
         updateUI()
         buyAsOpposedToSell = true
+        
+        // return scroll view to top
+        let topScrollPoint = CGPointMake(0.0, -60.0)
+        scrollView.setContentOffset(topScrollPoint, animated: false)
     }
    
     // turns profit opportunity labels purple, losses gray

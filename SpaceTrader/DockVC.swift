@@ -24,6 +24,9 @@ class DockVC: UIViewController {
     
     @IBOutlet weak var baysCashBox: BaysCashBoxView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     override func viewDidLoad() {
         updateUI()
     }
@@ -71,6 +74,10 @@ class DockVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         updateUI()
+        
+        // return scroll view to top
+        let topScrollPoint = CGPointMake(0.0, -60.0)
+        scrollView.setContentOffset(topScrollPoint, animated: false)
     }
 
     @IBAction func buyPod(sender: AnyObject) {

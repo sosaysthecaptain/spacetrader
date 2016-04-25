@@ -32,6 +32,10 @@ class SystemInfoVC: UIViewController {
                 self.presentViewController(vc, animated: false, completion: nil)
             }
         }
+        
+        // return scroll view to top
+        let topScrollPoint = CGPointMake(0.0, -60.0)
+        scrollView.setContentOffset(topScrollPoint, animated: false)
     }
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -58,6 +62,9 @@ class SystemInfoVC: UIViewController {
     //@IBOutlet weak var baysOutlet: BaysCashBox!
     //@IBOutlet weak var cashOutlet: BaysCashBox!
     @IBOutlet weak var baysCashView: BaysCashBoxView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     
     
