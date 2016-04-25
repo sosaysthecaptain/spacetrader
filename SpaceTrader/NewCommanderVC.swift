@@ -45,6 +45,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     
     
+    // status bar hidden
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         textField.resignFirstResponder()
