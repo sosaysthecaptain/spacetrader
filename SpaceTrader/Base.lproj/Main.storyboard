@@ -2722,6 +2722,172 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUb-ol-lae" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="465" width="598" height="86"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkG-S4-Aql" userLabel="containerView">
+                                        <rect key="frame" x="57" y="0.0" width="485" height="251"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Size:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-Pw-A1J" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="dEt-n2-DYT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tech Level:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40y-EF-UzE" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="44" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="kET-Sd-xPE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Government:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9R-1b-EAT" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="68" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="6ya-Mn-gJk"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KDk-fg-zgH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="KDk-fg-zgH"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resource:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-JK-cSc" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="92" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="gZK-N1-CzM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Police:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U5-Zi-hKA" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="116" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="xR3-tZ-bCX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pirates" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdA-X0-lQ0" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="140" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="3iz-n1-By7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVP-dN-vLL" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="164" width="100" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="cWT-Rd-mfR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRG-Mf-HKl" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="20" width="55" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pre-agricultural" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-lG-aPB" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="44" width="107" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monarchy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phk-Lz-YGU" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="68" width="68" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None in particular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DO-vF-wii" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="92" width="122" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Moderate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8r-ka-e9b" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="116" width="66" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv1-Lb-QUL" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="140" width="40" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-HJ-NQf" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="164" width="10" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Target system: Relva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukJ-D9-L3k" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="3" width="153" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qP9-Pw-A1J" firstAttribute="top" secondItem="ukJ-D9-L3k" secondAttribute="bottom" constant="6" id="0au-0C-seV"/>
+                                            <constraint firstItem="UdA-X0-lQ0" firstAttribute="trailing" secondItem="0U5-Zi-hKA" secondAttribute="trailing" id="2eU-6x-ryc"/>
+                                            <constraint firstItem="0U5-Zi-hKA" firstAttribute="trailing" secondItem="dm3-JK-cSc" secondAttribute="trailing" id="829-ZP-Nwr"/>
+                                            <constraint firstItem="tNS-lG-aPB" firstAttribute="leading" secondItem="sRG-Mf-HKl" secondAttribute="leading" id="8mX-vc-QNu"/>
+                                            <constraint firstItem="nv1-Lb-QUL" firstAttribute="leading" secondItem="m8r-ka-e9b" secondAttribute="leading" id="97o-vX-GRg"/>
+                                            <constraint firstItem="m8r-ka-e9b" firstAttribute="baseline" secondItem="0U5-Zi-hKA" secondAttribute="baseline" id="Ahc-7O-C2j"/>
+                                            <constraint firstItem="0U5-Zi-hKA" firstAttribute="top" secondItem="dm3-JK-cSc" secondAttribute="bottom" constant="6" id="Bej-UF-G8g"/>
+                                            <constraint firstItem="6DO-vF-wii" firstAttribute="leading" secondItem="Phk-Lz-YGU" secondAttribute="leading" id="GM3-bI-A9q"/>
+                                            <constraint firstAttribute="height" constant="190" id="Lgg-zT-D2e"/>
+                                            <constraint firstItem="ukJ-D9-L3k" firstAttribute="top" secondItem="xkG-S4-Aql" secondAttribute="top" id="N09-0Q-wDJ"/>
+                                            <constraint firstItem="nv1-Lb-QUL" firstAttribute="baseline" secondItem="UdA-X0-lQ0" secondAttribute="baseline" id="Nne-FO-PGo"/>
+                                            <constraint firstItem="R9R-1b-EAT" firstAttribute="trailing" secondItem="40y-EF-UzE" secondAttribute="trailing" id="OSz-2Q-ZWN"/>
+                                            <constraint firstItem="sRG-Mf-HKl" firstAttribute="baseline" secondItem="qP9-Pw-A1J" secondAttribute="baseline" id="Oje-yS-fXi"/>
+                                            <constraint firstItem="qP9-Pw-A1J" firstAttribute="leading" secondItem="xkG-S4-Aql" secondAttribute="leading" constant="20" id="RiL-O4-GBz"/>
+                                            <constraint firstItem="40y-EF-UzE" firstAttribute="top" secondItem="qP9-Pw-A1J" secondAttribute="bottom" constant="6" id="RoJ-uF-hCu"/>
+                                            <constraint firstItem="m8r-ka-e9b" firstAttribute="leading" secondItem="6DO-vF-wii" secondAttribute="leading" id="UXt-Re-4Ad"/>
+                                            <constraint firstItem="Phk-Lz-YGU" firstAttribute="baseline" secondItem="R9R-1b-EAT" secondAttribute="baseline" id="Za1-qj-ADg"/>
+                                            <constraint firstItem="Phk-Lz-YGU" firstAttribute="leading" secondItem="tNS-lG-aPB" secondAttribute="leading" id="abV-fL-rMl"/>
+                                            <constraint firstItem="R9R-1b-EAT" firstAttribute="top" secondItem="40y-EF-UzE" secondAttribute="bottom" constant="6" id="aqh-iF-6qr"/>
+                                            <constraint firstItem="NVP-dN-vLL" firstAttribute="top" secondItem="UdA-X0-lQ0" secondAttribute="bottom" constant="6" id="bFm-nb-nXx"/>
+                                            <constraint firstItem="UdA-X0-lQ0" firstAttribute="top" secondItem="0U5-Zi-hKA" secondAttribute="bottom" constant="6" id="bZa-TC-u2A"/>
+                                            <constraint firstItem="dm3-JK-cSc" firstAttribute="trailing" secondItem="R9R-1b-EAT" secondAttribute="trailing" id="c5w-Lc-qzz"/>
+                                            <constraint firstItem="6DO-vF-wii" firstAttribute="baseline" secondItem="dm3-JK-cSc" secondAttribute="baseline" id="d8w-AU-V2T"/>
+                                            <constraint firstItem="dm3-JK-cSc" firstAttribute="top" secondItem="R9R-1b-EAT" secondAttribute="bottom" constant="6" id="fxm-e7-4Hx"/>
+                                            <constraint firstItem="sRG-Mf-HKl" firstAttribute="leading" secondItem="qP9-Pw-A1J" secondAttribute="trailing" constant="8" id="mHs-i4-rUW"/>
+                                            <constraint firstItem="NVP-dN-vLL" firstAttribute="trailing" secondItem="UdA-X0-lQ0" secondAttribute="trailing" id="n1B-1t-Kos"/>
+                                            <constraint firstItem="tNS-lG-aPB" firstAttribute="baseline" secondItem="40y-EF-UzE" secondAttribute="baseline" id="nx5-kn-xMp"/>
+                                            <constraint firstItem="ukJ-D9-L3k" firstAttribute="leading" secondItem="xkG-S4-Aql" secondAttribute="leading" constant="14" id="qWJ-4P-W7e"/>
+                                            <constraint firstItem="IFo-HJ-NQf" firstAttribute="baseline" secondItem="NVP-dN-vLL" secondAttribute="baseline" id="vwn-YH-Lr5"/>
+                                            <constraint firstItem="IFo-HJ-NQf" firstAttribute="leading" secondItem="nv1-Lb-QUL" secondAttribute="leading" id="xQ9-zf-yHd"/>
+                                            <constraint firstItem="40y-EF-UzE" firstAttribute="trailing" secondItem="qP9-Pw-A1J" secondAttribute="trailing" id="zbc-Tf-Wth"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xkG-S4-Aql" secondAttribute="bottom" constant="-40" id="CcV-RT-v5D"/>
+                                    <constraint firstItem="xkG-S4-Aql" firstAttribute="top" secondItem="mUb-ol-lae" secondAttribute="top" constant="-64" id="Wyp-Bv-OKJ"/>
+                                    <constraint firstItem="xkG-S4-Aql" firstAttribute="leading" secondItem="mUb-ol-lae" secondAttribute="leading" id="XQl-cn-048"/>
+                                    <constraint firstAttribute="trailing" secondItem="xkG-S4-Aql" secondAttribute="trailing" id="hI0-nN-HOr"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" restorationIdentifier="shortrange" translatesAutoresizingMaskIntoConstraints="NO" id="x85-0a-Xbg" customClass="ShortRangeChartView" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="125" y="44" width="350" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -2730,119 +2896,8 @@
                                     <constraint firstAttribute="width" constant="350" id="dVj-fv-CNp"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Size:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-Pw-A1J" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="336" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="dEt-n2-DYT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tech Level:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40y-EF-UzE" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="360" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="kET-Sd-xPE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Government:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9R-1b-EAT" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="384" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="6ya-Mn-gJk"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KDk-fg-zgH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="KDk-fg-zgH"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resource:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-JK-cSc" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="408" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="gZK-N1-CzM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Police:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U5-Zi-hKA" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="432" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="xR3-tZ-bCX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pirates" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdA-X0-lQ0" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="456" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="3iz-n1-By7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVP-dN-vLL" customClass="SmallLabelGrayRJ" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="480" width="100" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="cWT-Rd-mfR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRG-Mf-HKl" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="336" width="55" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pre-agricultural" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-lG-aPB" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="360" width="107" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monarchy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phk-Lz-YGU" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="384" width="68" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None in particular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DO-vF-wii" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="408" width="122" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Moderate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8r-ka-e9b" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="432" width="66" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv1-Lb-QUL" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="456" width="40" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-HJ-NQf" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="128" y="480" width="10" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQY-fd-ami" customClass="GrayButtonTurnsLighter" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="262" width="129" height="34"/>
+                                <rect key="frame" x="20" y="262" width="129" height="199"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Galactic Chart"/>
                                 <connections>
@@ -2904,12 +2959,6 @@
                                     <action selector="warpButton" destination="7yT-gW-eCt" eventType="touchUpInside" id="F0B-tR-BYx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Target system: Relva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukJ-D9-L3k" customClass="PurpleHeader" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="20" y="312" width="153" height="18"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36l-Ap-LPg" customClass="RuleView" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="244" width="600" height="18"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2926,91 +2975,46 @@
                                     <action selector="untrackPressed:" destination="7yT-gW-eCt" eventType="touchUpInside" id="gXg-kL-CrI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qyf-2u-iyI">
-                                <rect key="frame" x="20" y="291" width="44" height="17"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qyf-2u-iyI">
+                                <rect key="frame" x="20" y="296" width="50" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="EV4-cg-FG9"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X9r-qx-bOt">
-                                <rect key="frame" x="20" y="510" width="44" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="zSY-zS-Z3D"/>
+                                    <constraint firstAttribute="height" constant="4" id="ZWt-8b-04Y"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IFo-HJ-NQf" firstAttribute="baseline" secondItem="NVP-dN-vLL" secondAttribute="baseline" id="1p4-XH-yNn"/>
                             <constraint firstItem="7cQ-Xy-XpP" firstAttribute="top" secondItem="2zk-H6-APA" secondAttribute="bottom" constant="8" id="4Fv-fy-dsP"/>
-                            <constraint firstItem="vzO-Ca-kfX" firstAttribute="top" secondItem="NVP-dN-vLL" secondAttribute="bottom" constant="8" symbolic="YES" id="4t8-Ou-jTC"/>
-                            <constraint firstItem="R9R-1b-EAT" firstAttribute="leading" secondItem="40y-EF-UzE" secondAttribute="leading" id="6cJ-9e-OU4"/>
-                            <constraint firstItem="0U5-Zi-hKA" firstAttribute="top" secondItem="dm3-JK-cSc" secondAttribute="bottom" constant="6" id="7oc-7B-lFc"/>
-                            <constraint firstItem="40y-EF-UzE" firstAttribute="leading" secondItem="qP9-Pw-A1J" secondAttribute="leading" id="86T-Pg-Ub1"/>
+                            <constraint firstItem="mUb-ol-lae" firstAttribute="leading" secondItem="A9H-Ym-cJ0" secondAttribute="leadingMargin" constant="-20" id="51x-ZH-Jgu"/>
                             <constraint firstItem="x85-0a-Xbg" firstAttribute="top" secondItem="6re-LY-gwK" secondAttribute="bottom" id="Abs-tu-5aR"/>
                             <constraint firstItem="36l-Ap-LPg" firstAttribute="leading" secondItem="A9H-Ym-cJ0" secondAttribute="leadingMargin" constant="-20" id="BC6-kP-ioI"/>
-                            <constraint firstItem="6DO-vF-wii" firstAttribute="baseline" secondItem="dm3-JK-cSc" secondAttribute="baseline" id="BHQ-1U-ryG"/>
-                            <constraint firstItem="vzO-Ca-kfX" firstAttribute="top" secondItem="X9r-qx-bOt" secondAttribute="bottom" id="D8J-VM-eHb"/>
-                            <constraint firstItem="tNS-lG-aPB" firstAttribute="leading" secondItem="sRG-Mf-HKl" secondAttribute="leading" id="DTY-8d-mBi"/>
-                            <constraint firstItem="0U5-Zi-hKA" firstAttribute="leading" secondItem="dm3-JK-cSc" secondAttribute="leading" id="F7x-kw-Q0c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2zk-H6-APA" secondAttribute="trailing" id="FgN-CD-IyD"/>
                             <constraint firstItem="2zk-H6-APA" firstAttribute="leading" secondItem="Gaa-VV-r6B" secondAttribute="trailing" constant="8" id="Fyu-tY-0Hm"/>
                             <constraint firstItem="36l-Ap-LPg" firstAttribute="top" secondItem="x85-0a-Xbg" secondAttribute="bottom" id="Gzv-Fq-aI9"/>
-                            <constraint firstItem="qP9-Pw-A1J" firstAttribute="top" secondItem="ukJ-D9-L3k" secondAttribute="bottom" constant="6" id="Ih2-iq-6ic"/>
                             <constraint firstItem="vzO-Ca-kfX" firstAttribute="top" secondItem="u44-xC-fcG" secondAttribute="bottom" constant="15" id="Iws-H2-kYa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7cQ-Xy-XpP" secondAttribute="trailing" id="L8P-MD-5Ec"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AQY-fd-ami" secondAttribute="trailing" id="Llk-VH-yhm"/>
-                            <constraint firstItem="dm3-JK-cSc" firstAttribute="top" secondItem="R9R-1b-EAT" secondAttribute="bottom" constant="6" id="MLO-jj-S7N"/>
-                            <constraint firstItem="sRG-Mf-HKl" firstAttribute="leading" secondItem="A9H-Ym-cJ0" secondAttribute="leadingMargin" constant="108" id="MnR-dd-SFK"/>
-                            <constraint firstItem="Qyf-2u-iyI" firstAttribute="leading" secondItem="ukJ-D9-L3k" secondAttribute="leading" id="NNe-FS-hXB"/>
-                            <constraint firstItem="tNS-lG-aPB" firstAttribute="baseline" secondItem="40y-EF-UzE" secondAttribute="baseline" id="Nsa-LV-LKi"/>
-                            <constraint firstItem="AQY-fd-ami" firstAttribute="leading" secondItem="ukJ-D9-L3k" secondAttribute="leading" id="NyD-u6-QZj"/>
                             <constraint firstItem="Gaa-VV-r6B" firstAttribute="top" secondItem="36l-Ap-LPg" secondAttribute="bottom" id="O02-Fg-3ao"/>
                             <constraint firstAttribute="trailingMargin" secondItem="36l-Ap-LPg" secondAttribute="trailing" constant="-20" id="PJW-xW-uDa"/>
                             <constraint firstItem="2zk-H6-APA" firstAttribute="baseline" secondItem="Gaa-VV-r6B" secondAttribute="baseline" id="R84-WD-iyJ"/>
-                            <constraint firstItem="NVP-dN-vLL" firstAttribute="top" secondItem="UdA-X0-lQ0" secondAttribute="bottom" constant="6" id="R8j-yU-JAY"/>
-                            <constraint firstItem="sRG-Mf-HKl" firstAttribute="baseline" secondItem="qP9-Pw-A1J" secondAttribute="baseline" id="UJG-BO-iE9"/>
-                            <constraint firstItem="AQY-fd-ami" firstAttribute="top" secondItem="ukJ-D9-L3k" secondAttribute="top" id="W9M-iw-yWM"/>
-                            <constraint firstItem="dm3-JK-cSc" firstAttribute="leading" secondItem="R9R-1b-EAT" secondAttribute="leading" id="WpT-R7-ELi"/>
-                            <constraint firstItem="7cQ-Xy-XpP" firstAttribute="top" secondItem="ukJ-D9-L3k" secondAttribute="top" id="X0Y-0d-EGR"/>
-                            <constraint firstItem="X9r-qx-bOt" firstAttribute="leading" secondItem="Qyf-2u-iyI" secondAttribute="leading" id="Ysp-xg-OQC"/>
-                            <constraint firstItem="nv1-Lb-QUL" firstAttribute="leading" secondItem="m8r-ka-e9b" secondAttribute="leading" id="dja-s4-7gt"/>
-                            <constraint firstItem="UdA-X0-lQ0" firstAttribute="leading" secondItem="0U5-Zi-hKA" secondAttribute="leading" id="eeN-n2-sVO"/>
-                            <constraint firstItem="R9R-1b-EAT" firstAttribute="top" secondItem="40y-EF-UzE" secondAttribute="bottom" constant="6" id="efB-I4-hzo"/>
+                            <constraint firstItem="xkG-S4-Aql" firstAttribute="width" secondItem="A9H-Ym-cJ0" secondAttribute="width" id="VTH-xO-kUk"/>
+                            <constraint firstItem="mUb-ol-lae" firstAttribute="top" secondItem="Qyf-2u-iyI" secondAttribute="bottom" id="fsM-ND-kLS"/>
                             <constraint firstItem="Qyf-2u-iyI" firstAttribute="top" secondItem="AQY-fd-ami" secondAttribute="bottom" id="fxx-LT-Llx"/>
                             <constraint firstItem="AQY-fd-ami" firstAttribute="top" secondItem="Gaa-VV-r6B" secondAttribute="top" id="gPg-X4-2Nj"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="ukJ-D9-L3k" secondAttribute="leading" id="hao-Cg-vhS"/>
-                            <constraint firstItem="IFo-HJ-NQf" firstAttribute="leading" secondItem="nv1-Lb-QUL" secondAttribute="leading" id="iQA-T9-MhE"/>
-                            <constraint firstItem="m8r-ka-e9b" firstAttribute="leading" secondItem="6DO-vF-wii" secondAttribute="leading" id="kdd-hY-bD9"/>
-                            <constraint firstItem="Phk-Lz-YGU" firstAttribute="baseline" secondItem="R9R-1b-EAT" secondAttribute="baseline" id="l2P-c4-LVF"/>
-                            <constraint firstItem="AQY-fd-ami" firstAttribute="leading" secondItem="ukJ-D9-L3k" secondAttribute="leading" id="lFu-eA-5io"/>
-                            <constraint firstItem="6DO-vF-wii" firstAttribute="leading" secondItem="Phk-Lz-YGU" secondAttribute="leading" id="mpW-5a-plf"/>
+                            <constraint firstItem="mUb-ol-lae" firstAttribute="top" secondItem="AQY-fd-ami" secondAttribute="bottom" constant="4" id="iDf-LE-cKd"/>
                             <constraint firstItem="Gaa-VV-r6B" firstAttribute="baseline" secondItem="AQY-fd-ami" secondAttribute="baseline" id="ng5-TI-KNC"/>
-                            <constraint firstItem="NVP-dN-vLL" firstAttribute="leading" secondItem="UdA-X0-lQ0" secondAttribute="leading" id="obX-Vh-OdG"/>
-                            <constraint firstItem="qP9-Pw-A1J" firstAttribute="leading" secondItem="ukJ-D9-L3k" secondAttribute="leading" id="ot4-Vi-gpD"/>
-                            <constraint firstItem="UdA-X0-lQ0" firstAttribute="top" secondItem="0U5-Zi-hKA" secondAttribute="bottom" constant="6" id="pqg-Ik-O1N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u44-xC-fcG" secondAttribute="trailing" id="ptN-HV-elT"/>
-                            <constraint firstItem="ukJ-D9-L3k" firstAttribute="top" secondItem="Qyf-2u-iyI" secondAttribute="bottom" id="qz2-AO-xjV"/>
-                            <constraint firstItem="40y-EF-UzE" firstAttribute="top" secondItem="qP9-Pw-A1J" secondAttribute="bottom" constant="6" id="tRf-Zo-gGq"/>
-                            <constraint firstItem="m8r-ka-e9b" firstAttribute="baseline" secondItem="0U5-Zi-hKA" secondAttribute="baseline" id="uJl-1e-xuX"/>
-                            <constraint firstItem="X9r-qx-bOt" firstAttribute="height" secondItem="Qyf-2u-iyI" secondAttribute="height" id="ubc-hr-0Bl"/>
-                            <constraint firstItem="ukJ-D9-L3k" firstAttribute="top" secondItem="AQY-fd-ami" secondAttribute="bottom" constant="5" id="uvu-GV-GxO"/>
+                            <constraint firstItem="vzO-Ca-kfX" firstAttribute="top" secondItem="mUb-ol-lae" secondAttribute="bottom" id="qGg-xz-qge"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mUb-ol-lae" secondAttribute="trailing" constant="-18" id="rgt-7v-Jb1"/>
                             <constraint firstItem="AQY-fd-ami" firstAttribute="leading" secondItem="A9H-Ym-cJ0" secondAttribute="leadingMargin" id="uyZ-0J-e0Y"/>
                             <constraint firstItem="x85-0a-Xbg" firstAttribute="centerX" secondItem="A9H-Ym-cJ0" secondAttribute="centerX" id="vB8-VV-lBh"/>
-                            <constraint firstItem="nv1-Lb-QUL" firstAttribute="baseline" secondItem="UdA-X0-lQ0" secondAttribute="baseline" id="vlb-fh-qab"/>
-                            <constraint firstItem="Phk-Lz-YGU" firstAttribute="leading" secondItem="tNS-lG-aPB" secondAttribute="leading" id="w9W-Z2-a4W"/>
-                            <constraint firstItem="X9r-qx-bOt" firstAttribute="top" secondItem="NVP-dN-vLL" secondAttribute="bottom" id="wiR-wm-laR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Llk-VH-yhm"/>
-                                <exclude reference="NyD-u6-QZj"/>
-                                <exclude reference="W9M-iw-yWM"/>
-                                <exclude reference="lFu-eA-5io"/>
-                                <exclude reference="uvu-GV-GxO"/>
+                                <exclude reference="fsM-ND-kLS"/>
                                 <exclude reference="ng5-TI-KNC"/>
-                                <exclude reference="X0Y-0d-EGR"/>
-                                <exclude reference="4t8-Ou-jTC"/>
                             </mask>
                         </variation>
                     </view>
@@ -3028,8 +3032,10 @@
                         <outlet property="policeLabel" destination="m8r-ka-e9b" id="eMF-ai-kl7"/>
                         <outlet property="resourceLabel" destination="6DO-vF-wii" id="ahL-B2-bp5"/>
                         <outlet property="ruleViewHeight" destination="EpC-4k-tIH" id="lx7-9D-VUn"/>
+                        <outlet property="scrollViewfromGalacticChartConstraint" destination="iDf-LE-cKd" id="4Od-4B-9sd"/>
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="sRG-Mf-HKl" id="VoV-vi-WFW"/>
+                        <outlet property="spacerHeight" destination="ZWt-8b-04Y" id="g9j-Nx-RkL"/>
                         <outlet property="targetSystemLabel" destination="ukJ-D9-L3k" id="mDh-Fh-Pqf"/>
                         <outlet property="techLevelLabel" destination="tNS-lG-aPB" id="jju-o0-GSy"/>
                         <outlet property="untrackButtonLabel" destination="7cQ-Xy-XpP" id="45s-3y-D1p"/>

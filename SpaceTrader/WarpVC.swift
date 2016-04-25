@@ -32,6 +32,10 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     
     // layout constraints
     @IBOutlet weak var ruleViewHeight: NSLayoutConstraint!  // 18-45
+    @IBOutlet weak var spacerHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewfromGalacticChartConstraint: NSLayoutConstraint!
+    
+    
     
     
     @IBAction func cycleBackwards() {
@@ -131,13 +135,18 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         if screenSize.width < 350 {
             targetSystemLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
             
-            //spacerView.bounds = CGRect(x: 0, y: 0, width: 100, height: 3)
         }
         
-        // for larger screens, expand rule
+        // for larger screens, expand rule, make things not cramped
         if screenSize.height > 660 {
             ruleViewHeight.constant = 45
+            spacerHeight.constant = 15
+            scrollViewfromGalacticChartConstraint.constant = 15
         }
+        
+        // bring untrack and warp button labels in front of scrollView
+        self.view.bringSubviewToFront(warpButtonLabel)
+        self.view.bringSubviewToFront(untrackButtonLabel)
     }
     
     override func viewDidAppear(animated: Bool) {
