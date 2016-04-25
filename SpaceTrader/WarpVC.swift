@@ -38,6 +38,8 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var spacerHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollViewfromGalacticChartConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var shortRangeChartHeightConstraint: NSLayoutConstraint!
+    
     
     
     
@@ -145,6 +147,12 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
             ruleViewHeight.constant = 45
             spacerHeight.constant = 15
             scrollViewfromGalacticChartConstraint.constant = 15
+        }
+        
+        // for 4s, adjust things
+        if screenSize.height < 490 {
+            print("displaying short range chart on 3.5 inch screen")
+            shortRangeChartHeightConstraint.constant = 150 // (rather than 200)
         }
         
         // bring untrack and warp button labels in front of scrollView

@@ -3037,6 +3037,7 @@
                         <outlet property="scrollView" destination="mUb-ol-lae" id="370-3m-MHc"/>
                         <outlet property="scrollViewfromGalacticChartConstraint" destination="iDf-LE-cKd" id="4Od-4B-9sd"/>
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
+                        <outlet property="shortRangeChartHeightConstraint" destination="TbO-9g-KqX" id="w6B-NZ-5qu"/>
                         <outlet property="sizeLabel" destination="sRG-Mf-HKl" id="VoV-vi-WFW"/>
                         <outlet property="spacerHeight" destination="ZWt-8b-04Y" id="g9j-Nx-RkL"/>
                         <outlet property="targetSystemLabel" destination="ukJ-D9-L3k" id="mDh-Fh-Pqf"/>
