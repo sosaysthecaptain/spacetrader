@@ -30,6 +30,9 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var warpButtonLabel: PurpleButtonTurnsGray!
     @IBOutlet weak var untrackButtonLabel: GrayButtonVanishes!
     
+    // layout constraints
+    @IBOutlet weak var ruleViewHeight: NSLayoutConstraint!  // 18-45
+    
     
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
@@ -129,6 +132,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
             targetSystemLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
             
             //spacerView.bounds = CGRect(x: 0, y: 0, width: 100, height: 3)
+        }
+        
+        // for larger screens, expand rule
+        if screenSize.height > 660 {
+            ruleViewHeight.constant = 45
         }
     }
     

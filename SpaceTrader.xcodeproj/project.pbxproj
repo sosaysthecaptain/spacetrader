@@ -52,6 +52,7 @@
 		5A85A9DB1C502D50007338BE /* HighScoresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DA1C502D50007338BE /* HighScoresCell.swift */; };
 		5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DC1C505F82007338BE /* OptionsVC.swift */; };
 		5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */; };
+		5A909F4E1CCE6418007BFAA3 /* AboutCreditstext.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A909F4D1CCE6418007BFAA3 /* AboutCreditstext.html */; };
 		5A9818FF1CA9B9B70087450E /* DesignNaSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
 		5A9957E01CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */; };
@@ -157,6 +158,7 @@
 		5A85A9DA1C502D50007338BE /* HighScoresCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresCell.swift; sourceTree = "<group>"; };
 		5A85A9DC1C505F82007338BE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresGameOverVC.swift; sourceTree = "<group>"; };
+		5A909F4D1CCE6418007BFAA3 /* AboutCreditstext.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutCreditstext.html; sourceTree = "<group>"; };
 		5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignNaSVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
 		5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8bitOperatorPlus-Bold.ttf"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		5AD5F88F1B9A122200154B21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A909F4D1CCE6418007BFAA3 /* AboutCreditstext.html */,
 				5A9957DF1CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf */,
 				5AD5F8901B9A122200154B21 /* Info.plist */,
 			);
@@ -488,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A909F4E1CCE6418007BFAA3 /* AboutCreditstext.html in Resources */,
 				5A447B581C99B47E00F0AA3A /* LaunchScreenSplash.storyboard in Resources */,
 				5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */,
 				5A9957E01CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf in Resources */,

@@ -3027,6 +3027,7 @@
                         <outlet property="piratesLabel" destination="nv1-Lb-QUL" id="bJk-Ye-jcn"/>
                         <outlet property="policeLabel" destination="m8r-ka-e9b" id="eMF-ai-kl7"/>
                         <outlet property="resourceLabel" destination="6DO-vF-wii" id="ahL-B2-bp5"/>
+                        <outlet property="ruleViewHeight" destination="EpC-4k-tIH" id="lx7-9D-VUn"/>
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="sRG-Mf-HKl" id="VoV-vi-WFW"/>
                         <outlet property="targetSystemLabel" destination="ukJ-D9-L3k" id="mDh-Fh-Pqf"/>
@@ -6211,11 +6212,11 @@
                         <viewControllerLayoutGuide type="bottom" id="w0H-uY-Pkl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vdh-Ct-Fej">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-YB-lzH">
-                                <rect key="frame" x="20" y="49" width="560" height="194"/>
+                                <rect key="frame" x="20" y="49" width="560" height="204"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="f11-rb-lPR"/>
@@ -6229,13 +6230,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercenaries for Hire:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXU-9r-gYC">
-                                <rect key="frame" x="20" y="258" width="173" height="21"/>
+                                <rect key="frame" x="20" y="268" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iUH-Vk-L3Z">
-                                <rect key="frame" x="20" y="287" width="560" height="197"/>
+                                <rect key="frame" x="20" y="297" width="560" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="drq-Zr-zqk"/>
@@ -8547,17 +8548,17 @@
         <segue reference="SLK-Ty-5ft"/>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
-        <segue reference="QJh-Dr-ysc"/>
-        <segue reference="Zhh-Pf-9hC"/>
         <segue reference="REb-7Y-v0a"/>
-        <segue reference="cgx-NQ-uql"/>
-        <segue reference="c5m-hx-g89"/>
-        <segue reference="1Eh-mE-ldv"/>
-        <segue reference="kdA-Wi-tPd"/>
+        <segue reference="FU7-pK-WDz"/>
+        <segue reference="QJh-Dr-ysc"/>
+        <segue reference="XhI-dd-ihR"/>
         <segue reference="Cl3-zi-3cm"/>
         <segue reference="Rcc-24-Noc"/>
         <segue reference="K2U-qg-SzU"/>
-        <segue reference="XhI-dd-ihR"/>
         <segue reference="gLW-Zt-l96"/>
+        <segue reference="Zhh-Pf-9hC"/>
+        <segue reference="1Eh-mE-ldv"/>
+        <segue reference="c5m-hx-g89"/>
+        <segue reference="kdA-Wi-tPd"/>
     </inferredMetricsTieBreakers>
 </document>
