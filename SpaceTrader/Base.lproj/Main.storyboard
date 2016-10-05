@@ -4622,7 +4622,7 @@
                                 <rect key="frame" x="0.0" y="31" width="592" height="408"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-tK-lfH" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="592" height="408"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="592" height="500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-Un-yUv" customClass="StandardLabelPurple" customModule="SpaceTrader" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="8" width="33" height="18"/>
@@ -6223,11 +6223,11 @@
                         <viewControllerLayoutGuide type="bottom" id="w0H-uY-Pkl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vdh-Ct-Fej">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-YB-lzH">
-                                <rect key="frame" x="20" y="49" width="560" height="194"/>
+                                <rect key="frame" x="20" y="49" width="560" height="204"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="f11-rb-lPR"/>
@@ -6241,13 +6241,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercenaries for Hire:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXU-9r-gYC">
-                                <rect key="frame" x="20" y="258" width="173" height="21"/>
+                                <rect key="frame" x="20" y="268" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iUH-Vk-L3Z">
-                                <rect key="frame" x="20" y="287" width="560" height="197"/>
+                                <rect key="frame" x="20" y="297" width="560" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1s8-qu-jkZ" id="drq-Zr-zqk"/>
@@ -8558,19 +8558,19 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SLK-Ty-5ft"/>
-        <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
-        <segue reference="REb-7Y-v0a"/>
+        <segue reference="ybb-n8-O5E"/>
         <segue reference="QJh-Dr-ysc"/>
         <segue reference="Zhh-Pf-9hC"/>
+        <segue reference="REb-7Y-v0a"/>
+        <segue reference="94b-YL-qQM"/>
+        <segue reference="Cl3-zi-3cm"/>
+        <segue reference="K2U-qg-SzU"/>
         <segue reference="Rcc-24-Noc"/>
-        <segue reference="cgx-NQ-uql"/>
+        <segue reference="XhI-dd-ihR"/>
+        <segue reference="gLW-Zt-l96"/>
         <segue reference="c5m-hx-g89"/>
         <segue reference="1Eh-mE-ldv"/>
         <segue reference="kdA-Wi-tPd"/>
-        <segue reference="XhI-dd-ihR"/>
-        <segue reference="Cl3-zi-3cm"/>
-        <segue reference="K2U-qg-SzU"/>
-        <segue reference="gLW-Zt-l96"/>
     </inferredMetricsTieBreakers>
 </document>

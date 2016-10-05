@@ -202,6 +202,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(sender: AnyObject) {
+        // DEBUG
+        print("BUTTON 1 PRESSED")
+        
         let button1Text = galaxy.currentJourney!.currentEncounter!.button1Text
         if button1Text == "Attack" {
             print("attack pressed")
@@ -215,6 +218,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     }
     
     @IBAction func button2(sender: AnyObject) {
+        // DEBUG
+        print("BUTTON 2 PRESSED")
+        
         let button2Text = galaxy.currentJourney!.currentEncounter!.button2Text
         if button2Text == "Flee" {
             flee()
@@ -230,6 +236,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     }
     
     @IBAction func button3(sender: AnyObject) {
+        // DEBUG
+        print("BUTTON 3 PRESSED")
+        
         let button3Text = galaxy.currentJourney!.currentEncounter!.button3Text
         if button3Text == "Surrender" {
             print("surrender pressed")
@@ -251,6 +260,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     }
     
     @IBAction func button4(sender: AnyObject) {
+        // DEBUG
+        print("BUTTON 4 PRESSED")
+        
         let button4Text = galaxy.currentJourney!.currentEncounter!.button4Text
         if button4Text == "Bribe" {
             print("bribe pressed")

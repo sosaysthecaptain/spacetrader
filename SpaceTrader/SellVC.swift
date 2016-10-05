@@ -194,6 +194,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellNarcotics(sender: AnyObject) {
+        // DEBUG
+        print("sell narcotics pressed")
+        
         if player.commanderShip.getQuantity(TradeItemType.Narcotics) != 0 {
             buySellCommodity = TradeItemType.Narcotics
             //performSegueWithIdentifier("sellModal", sender: sender)
@@ -203,6 +206,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellRobots(sender: AnyObject) {
+        // DEBUG
+        print("sell robots pressed")
+        
         if player.commanderShip.getQuantity(TradeItemType.Robots) != 0 {
             buySellCommodity = TradeItemType.Robots
             //performSegueWithIdentifier("sellModal", sender: sender)
