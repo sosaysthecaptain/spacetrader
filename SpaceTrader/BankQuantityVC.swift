@@ -88,9 +88,9 @@ class BankQuantityVC: UIViewController {
         // format
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let selectedValueFormatted = numberFormatter.string(from: NSNumber(selectedValue))
+        let selectedValueFormatted = numberFormatter.string(from: NSNumber(value: selectedValue))!
         
-        numberLabel.text = "\(selectedValueFormatted!) credits"
+        numberLabel.text = "\(selectedValueFormatted) credits"
         
         // disable get loan button if quantity is zero
         if selectedValue == 0 {

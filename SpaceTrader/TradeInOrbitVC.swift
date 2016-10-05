@@ -112,10 +112,10 @@ class TradeInOrbitVC: UIViewController {
             
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let askPriceFormatted = numberFormatter.string(from: NSNumber(askPrice))
+            let askPriceFormatted = numberFormatter.string(from: NSNumber(value: askPrice))!
             
             titleLabel.text = "Buy \(commodityToTrade.rawValue)"
-            firstTextView.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
+            firstTextView.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted) cr. each."
             secondTextView.text = "The trader has \(player.commanderShip.getQuantity(commodityToTrade)) units for sale."
             thirdTextView.text = "You have money and space for \(max) units."
             fourthTextView.text = "How many do you want to buy?"

@@ -64,15 +64,15 @@ class GameOverVC: UIViewController {
         // number formatter business
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let scoreFormatted = numberFormatter.string(from: NSNumber(score))
+        let scoreFormatted = numberFormatter.string(from: NSNumber(value: score))!
         
         if madeHighScores {
             
             title = "High Score!"
-            message = "You scored \(scoreFormatted!) and made the high score list."
+            message = "You scored \(scoreFormatted) and made the high score list."
         } else {
             title = "Score"
-            message = "You scored \(scoreFormatted!). You did not make the high score list."
+            message = "You scored \(scoreFormatted). You did not make the high score list."
         }
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

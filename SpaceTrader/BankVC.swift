@@ -38,14 +38,14 @@ class BankVC: UIViewController {
         // current debt
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let currentDebtFormatted = numberFormatter.string(from: NSNumber(player.debt))
-        currentDebtLabel.text = "\(currentDebtFormatted!) cr."
+        let currentDebtFormatted = numberFormatter.string(from: NSNumber(value: player.debt))!
+        currentDebtLabel.text = "\(currentDebtFormatted) cr."
         
         // maximum loan--round down to nearest multiple of 100
         var maxLoan = getMaxLoan()
         maxLoan = maxLoan - (maxLoan % 100)
-        let maxLoanFormatted = numberFormatter.string(from: NSNumber(maxLoan))
-        maximumLoanLabel.text = "\(maxLoanFormatted!) cr."
+        let maxLoanFormatted = numberFormatter.string(from: NSNumber(value: maxLoan))!
+        maximumLoanLabel.text = "\(maxLoanFormatted) cr."
         
         
         
@@ -64,14 +64,14 @@ class BankVC: UIViewController {
         }
         
         // insurance numbers
-        let shipValueFormatted = numberFormatter.string(from: NSNumber(player.commanderShip.value))
-        shipValueLabel.text = "\(shipValueFormatted!) cr."
+        let shipValueFormatted = numberFormatter.string(from: NSNumber(value: player.commanderShip.value))!
+        shipValueLabel.text = "\(shipValueFormatted) cr."
         
-        let noClaimFormatted = numberFormatter.string(from: NSNumber(player.noClaim))
-        noClaimDiscountLabel.text = "\(noClaimFormatted!)%"
+        let noClaimFormatted = numberFormatter.string(from: NSNumber(value: player.noClaim))!
+        noClaimDiscountLabel.text = "\(noClaimFormatted)%"
         
-        let insuranceCostFormatted = numberFormatter.string(from: NSNumber(player.insuranceCost))
-        costsLabel.text = "\(insuranceCostFormatted!) cr. daily"
+        let insuranceCostFormatted = numberFormatter.string(from: NSNumber(value: player.insuranceCost))!
+        costsLabel.text = "\(insuranceCostFormatted) cr. daily"
         
         // set buy/stop insurance
         if player.insurance {

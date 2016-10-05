@@ -134,8 +134,8 @@ class ShipDetailVC: UIViewController {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let priceFormatted = numberFormatter.string(from: NSNumber(price))
-        priceLabel.text = "\(priceFormatted!) credits"
+        let priceFormatted = numberFormatter.string(from: NSNumber(value: price))!
+        priceLabel.text = "\(priceFormatted) credits"
         
         let controlState = UIControlState()
         buyButton.setTitle("Buy \(ship)", for: controlState)

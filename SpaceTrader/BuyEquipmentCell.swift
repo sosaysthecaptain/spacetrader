@@ -71,8 +71,8 @@ class BuyEquipmentCell: UITableViewCell {
             let price = prototypeWeapon.price
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let priceFormatted = numberFormatter.string(from: NSNumber(price))
-            equipmentPriceLabel.text = "\(priceFormatted!) credits"
+            let priceFormatted = numberFormatter.string(from: NSNumber(value: price))!
+            equipmentPriceLabel.text = "\(priceFormatted) credits"
         } else if deviceTypeInt == 1 {
             equipmentTitleLabel.text = prototypeShield.name
             imageLabel.image = prototypeShield.image
@@ -80,8 +80,8 @@ class BuyEquipmentCell: UITableViewCell {
             let price = prototypeShield.price
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let priceFormatted = numberFormatter.string(from: NSNumber(price))
-            equipmentPriceLabel.text = "\(priceFormatted!) credits"
+            let priceFormatted = numberFormatter.string(from: NSNumber(value: price))!
+            equipmentPriceLabel.text = "\(priceFormatted) credits"
         } else {
             equipmentTitleLabel.text = prototypeGadget.name
             imageLabel.image = prototypeGadget.image
@@ -89,8 +89,8 @@ class BuyEquipmentCell: UITableViewCell {
             let price = prototypeGadget.price
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let priceFormatted = numberFormatter.string(from: NSNumber(price))
-            equipmentPriceLabel.text = "\(priceFormatted!) credits"
+            let priceFormatted = numberFormatter.string(from: NSNumber(value: price))!
+            equipmentPriceLabel.text = "\(priceFormatted) credits"
         }
         
     }

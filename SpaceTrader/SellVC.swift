@@ -247,29 +247,29 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let waterPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.waterSell))
-        let fursPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.fursSell))
-        let foodPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.foodSell))
-        let orePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.oreSell))
-        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.gamesSell))
-        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.firearmsSell))
-        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.medicineSell))
-        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.machinesSell))
-        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.narcoticsSell))
-        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.robotsSell))
+        let waterPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.waterSell))!
+        let fursPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.fursSell))!
+        let foodPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.foodSell))!
+        let orePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.oreSell))!
+        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.gamesSell))!
+        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.firearmsSell))!
+        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.medicineSell))!
+        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.machinesSell))!
+        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.narcoticsSell))!
+        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.robotsSell))!
 
         
         // display prices with "cr." appended
-        waterPrice.text = "\(waterPriceFormatted!) cr."
-        fursPrice.text = "\(fursPriceFormatted!) cr."
-        foodPrice.text = "\(foodPriceFormatted!) cr."
-        orePrice.text = "\(orePriceFormatted!) cr."
-        gamesPrice.text = "\(gamesPriceFormatted!) cr."
-        firearmsPrice.text = "\(firearmsPriceFormatted!) cr."
-        medicinePrice.text = "\(medicinePriceFormatted!) cr."
-        machinesPrice.text = "\(machinesPriceFormatted!) cr."
-        narcoticsPrice.text = "\(narcoticsPriceFormatted!) cr."
-        robotsPrice.text = "\(robotsPriceFormatted!) cr."
+        waterPrice.text = "\(waterPriceFormatted) cr."
+        fursPrice.text = "\(fursPriceFormatted) cr."
+        foodPrice.text = "\(foodPriceFormatted) cr."
+        orePrice.text = "\(orePriceFormatted) cr."
+        gamesPrice.text = "\(gamesPriceFormatted) cr."
+        firearmsPrice.text = "\(firearmsPriceFormatted) cr."
+        medicinePrice.text = "\(medicinePriceFormatted) cr."
+        machinesPrice.text = "\(machinesPriceFormatted) cr."
+        narcoticsPrice.text = "\(narcoticsPriceFormatted) cr."
+        robotsPrice.text = "\(robotsPriceFormatted) cr."
         
         // make prices smaller if long
         let maxCharactersBeforeShrinkingText = 8

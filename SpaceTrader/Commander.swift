@@ -479,13 +479,14 @@ class Commander: NSObject, NSCoding {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             
-            let PLFormatted = numberFormatter.string(from: PL)
+            let PLFormatted = numberFormatter.string(from: NSNumber(value: PL))!
+            //let valueFormatted = numberFormatter.string(from: NSNumber(value: player.commanderShip.value))!
             
             if PL >= 0 {
-                return "+\(PLFormatted!) cr."
+                return "+\(PLFormatted) cr."
             } else {
-                let absPLFormatted = numberFormatter.string(from: abs(PL))
-                return "-\(absPLFormatted!) cr."
+                let absPLFormatted = numberFormatter.string(from: NSNumber(value: abs(PL)))!
+                return "-\(absPLFormatted) cr."
             }
         } else {
             return "--"

@@ -30,14 +30,14 @@ class HighScoresCell: UITableViewCell {
     func setCell(_ commander: String, days: Int, score: Int, netWorth: Int) {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let daysFormatted = numberFormatter.string(from: NSNumber(days))
-        let netWorthFormatted = numberFormatter.string(from: NSNumber(netWorth))
-        let scoreFormatted = numberFormatter.string(from: NSNumber(score))
+        let daysFormatted = numberFormatter.string(from: NSNumber(value: days))!
+        let netWorthFormatted = numberFormatter.string(from: NSNumber(value: netWorth))!
+        let scoreFormatted = numberFormatter.string(from: NSNumber(value: score))!
         
         nameLabel.text = commander
-        scoreLabel.text = "Score: \(scoreFormatted!)"
-        daysLabel.text = "Days: \(daysFormatted!)"
-        netWorthLabel.text = "Net Worth: \(netWorthFormatted!) cr."
+        scoreLabel.text = "Score: \(scoreFormatted)"
+        daysLabel.text = "Days: \(daysFormatted)"
+        netWorthLabel.text = "Net Worth: \(netWorthFormatted) cr."
         
         
     }

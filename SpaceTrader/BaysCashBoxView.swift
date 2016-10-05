@@ -77,10 +77,10 @@ class BaysCashBoxView: UIView {
         // label text
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
+        let cashFormatted = numberFormatter.string(from: NSNumber(value: player.credits))!
         
         let baysLabelText = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
-        let cashLabelText = "\(cashFormatted!) cr."
+        let cashLabelText = "\(cashFormatted) cr."
         
         // create UILabels
         let baysLabel = UILabel(frame: CGRect(origin: baysLabelLocation, size: CGSize(width: 100, height: 30)))

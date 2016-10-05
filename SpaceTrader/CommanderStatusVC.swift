@@ -49,13 +49,13 @@ class CommanderStatusVC: UIViewController  {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
-        let debtFormatted = numberFormatter.string(from: NSNumber(player.debt))
-        let netWorthFormatted = numberFormatter.string(from: NSNumber(player.netWorth))
+        let cashFormatted = numberFormatter.string(from: NSNumber(value: player.credits))!
+        let debtFormatted = numberFormatter.string(from: NSNumber(value: player.debt))!
+        let netWorthFormatted = numberFormatter.string(from: NSNumber(value: player.netWorth))!
         
-        cashLabel.text = "\(cashFormatted!) cr."
-        debtLabel.text = "\(debtFormatted!) cr."
-        netWorthLabel.text = "\(netWorthFormatted!) cr."
+        cashLabel.text = "\(cashFormatted) cr."
+        debtLabel.text = "\(debtFormatted) cr."
+        netWorthLabel.text = "\(netWorthFormatted) cr."
         
         killsLabel.text = "\(player.kills)"
         reputationLabel.text = "\(getPoliceRecordForInt(player.policeRecord.rawValue))"

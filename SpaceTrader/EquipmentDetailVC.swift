@@ -55,11 +55,11 @@ class EquipmentDetailVC: UIViewController {
                 if player.credits >= chosenItem!.price {
                     let numberFormatter = NumberFormatter()
                     numberFormatter.numberStyle = .decimal
-                    let buyPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.price))
+                    let buyPriceFormatted = numberFormatter.string(from: NSNumber(value: chosenItem!.price))!
                     
                     // ask and do transaction
                     let title = "Buy \(chosenItem!.name)"
-                    let message = "Do you wish to buy this item for \(buyPriceFormatted!) credits?"
+                    let message = "Do you wish to buy this item for \(buyPriceFormatted) credits?"
                     
                     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
@@ -116,10 +116,10 @@ class EquipmentDetailVC: UIViewController {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let buyPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.price))
-        buyPrice.text = "\(buyPriceFormatted!) cr."
-        let sellPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.sellPrice))
-        sellPrice.text = "\(sellPriceFormatted!) cr."
+        let buyPriceFormatted = numberFormatter.string(from: NSNumber(value: chosenItem!.price))!
+        buyPrice.text = "\(buyPriceFormatted) cr."
+        let sellPriceFormatted = numberFormatter.string(from: NSNumber(value: chosenItem!.sellPrice))!
+        sellPrice.text = "\(sellPriceFormatted) cr."
         
         let controlState = UIControlState()
         if buyNotSell! {

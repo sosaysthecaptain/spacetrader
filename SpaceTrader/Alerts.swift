@@ -166,10 +166,8 @@ class Alert {
             self.header = "Loan Notification"
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let debtFormatted = numberFormatter.numberFromString(player.debt)
-            
-            //let debtFormatted = numberFormatter.string(from: NSNumber(player.debt))
-            self.text = "The Bank's Loan Officer reminds you that your debt continues to accrue interest. You currently owe \(debtFormatted!) cr."
+            let debtFormatted = numberFormatter.string(from: NSNumber(value: player.debt))!
+            self.text = "The Bank's Loan Officer reminds you that your debt continues to accrue interest. You currently owe \(debtFormatted) cr."
             self.yesButton = "OK"
             self.noButton = nil
         case .debtTooLargeGrounded:

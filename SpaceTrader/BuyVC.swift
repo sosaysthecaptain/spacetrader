@@ -108,10 +108,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let valueFormatted = numberFormatter.string(from: NSNumber(value))
+        let valueFormatted = numberFormatter.string(from: NSNumber(value: value))!
         
         // append sign and return
-        let string = "\(sign)\(valueFormatted!) cr."
+        let string = "\(sign)\(valueFormatted) cr."
         //print(string)
         return string
     }
@@ -321,29 +321,29 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let waterPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.waterBuy))
-        let fursPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.fursBuy))
-        let foodPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.foodBuy))
-        let orePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.oreBuy))
-        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.gamesBuy))
-        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.firearmsBuy))
-        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.medicineBuy))
-        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.machinesBuy))
-        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.narcoticsBuy))
-        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.robotsBuy))
+        let waterPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.waterBuy))!
+        let fursPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.fursBuy))!
+        let foodPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.foodBuy))!
+        let orePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.oreBuy))!
+        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.gamesBuy))!
+        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.firearmsBuy))!
+        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.medicineBuy))!
+        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.machinesBuy))!
+        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.narcoticsBuy))!
+        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.robotsBuy))!
         
         
         // set prices
-        waterPrice.text = "\(waterPriceFormatted!) cr."
-        fursPrice.text = "\(fursPriceFormatted!) cr."
-        foodPrice.text = "\(foodPriceFormatted!) cr."
-        orePrice.text = "\(orePriceFormatted!) cr."
-        gamesPrice.text = "\(gamesPriceFormatted!) cr."
-        firearmsPrice.text = "\(firearmsPriceFormatted!) cr."
-        medicinePrice.text = "\(medicinePriceFormatted!) cr."
-        machinesPrice.text = "\(machinesPriceFormatted!) cr."
-        narcoticsPrice.text = "\(narcoticsPriceFormatted!) cr."
-        robotsPrice.text = "\(robotsPriceFormatted!) cr."
+        waterPrice.text = "\(waterPriceFormatted) cr."
+        fursPrice.text = "\(fursPriceFormatted) cr."
+        foodPrice.text = "\(foodPriceFormatted) cr."
+        orePrice.text = "\(orePriceFormatted) cr."
+        gamesPrice.text = "\(gamesPriceFormatted) cr."
+        firearmsPrice.text = "\(firearmsPriceFormatted) cr."
+        medicinePrice.text = "\(medicinePriceFormatted) cr."
+        machinesPrice.text = "\(machinesPriceFormatted) cr."
+        narcoticsPrice.text = "\(narcoticsPriceFormatted) cr."
+        robotsPrice.text = "\(robotsPriceFormatted) cr."
         
         
         // set P/L, with formatting info

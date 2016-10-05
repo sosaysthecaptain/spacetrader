@@ -754,11 +754,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
                 // format moneyToTake
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                let moneyToTakeFormatted = numberFormatter.string(from: NSNumber(moneyToTake))
+                let moneyToTakeFormatted = numberFormatter.string(from: NSNumber(value: moneyToTake))!
                 
                 // alert
                 let title = "Pirates Find No Cargo"
-                let message = "The pirates are very angry that they find no cargo on your ship. To stop them from destroying you, you have no choice but to pay them an amount equal to 5% of your current worth—\(moneyToTakeFormatted!) credits."
+                let message = "The pirates are very angry that they find no cargo on your ship. To stop them from destroying you, you have no choice but to pay them an amount equal to 5% of your current worth—\(moneyToTakeFormatted) credits."
                 
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
@@ -1350,11 +1350,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         // format fine
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let fineFormatted = numberFormatter.string(from: NSNumber(fine))
+        let fineFormatted = numberFormatter.string(from: NSNumber(value: fine))!
         
         // launch alert
         let title = "Convicted"
-        let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fineFormatted!) credits."
+        let message = "You are convicted to \(daysInPrison) days in prison and a fine of \(fineFormatted) credits."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {

@@ -126,17 +126,17 @@ class Design2VC: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let shipCostFormatted = numberFormatter.string(from: NSNumber(shipCost))
-        let crowdingPenaltyFormatted = numberFormatter.string(from: NSNumber(crowdingPenalty))
-        let designFeeFormatted = numberFormatter.string(from: NSNumber(designFee))
-        let lessTradeInFormatted = numberFormatter.string(from: NSNumber(lessTradeIn))
-        let totalCostFormatted = numberFormatter.string(from: NSNumber(totalCost))
+        let shipCostFormatted = numberFormatter.string(from: NSNumber(value: shipCost))!
+        let crowdingPenaltyFormatted = numberFormatter.string(from: NSNumber(value: crowdingPenalty))!
+        let designFeeFormatted = numberFormatter.string(from: NSNumber(value: designFee))!
+        let lessTradeInFormatted = numberFormatter.string(from: NSNumber(value: lessTradeIn))!
+        let totalCostFormatted = numberFormatter.string(from: NSNumber(value: totalCost))!
         
-        shipCostLabel.text = "\(shipCostFormatted!) cr."
-        crowdingPenaltyLabel.text = "\(crowdingPenaltyFormatted!) cr."
-        designFeeLabel.text = "\(designFeeFormatted!) cr."
-        lessTradeInLabel.text = "\(lessTradeInFormatted!) cr."
-        totalCostLabel.text = "\(totalCostFormatted!) cr."
+        shipCostLabel.text = "\(shipCostFormatted) cr."
+        crowdingPenaltyLabel.text = "\(crowdingPenaltyFormatted) cr."
+        designFeeLabel.text = "\(designFeeFormatted) cr."
+        lessTradeInLabel.text = "\(lessTradeInFormatted) cr."
+        totalCostLabel.text = "\(totalCostFormatted) cr."
         
         // disable "Construct Ship" if over 100% units used
         if unitsInUse > maxUnits {

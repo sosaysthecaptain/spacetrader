@@ -55,10 +55,10 @@ class Ship2VC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 // format...
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                let valueFormatted = numberFormatter.string(from: NSNumber(player.commanderShip.value))
+                let valueFormatted = numberFormatter.string(from: NSNumber(value: player.commanderShip.value))!
                 
                 // set
-                cell.setLabels("Total Value", valueLabel: "\(valueFormatted!) cr.")
+                cell.setLabels("Total Value", valueLabel: "\(valueFormatted) cr.")
             } else {
                 print("error")
             }

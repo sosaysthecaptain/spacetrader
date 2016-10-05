@@ -58,25 +58,25 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
             // formatting
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
-            let debtFormatted = numberFormatter.string(from: NSNumber(player.debt))
-            let creditLimitFormatted = numberFormatter.string(from: NSNumber(player.creditLimit))
-            let debtRatioFormatted = numberFormatter.string(from: NSNumber(player.debtRatio))
-            let netWorthFormatted = numberFormatter.string(from: NSNumber(player.netWorth))
+            let cashFormatted = numberFormatter.string(from: NSNumber(value: player.credits))!
+            let debtFormatted = numberFormatter.string(from: NSNumber(value: player.debt))!
+            let creditLimitFormatted = numberFormatter.string(from: NSNumber(value: player.creditLimit))!
+            let debtRatioFormatted = numberFormatter.string(from: NSNumber(value: player.debtRatio))!
+            let netWorthFormatted = numberFormatter.string(from: NSNumber(value: player.netWorth))!
             
             // displaying
             
             
             if (indexPath as NSIndexPath).row == 0 {
-                cell.setLabels("Cash", valueLabel: "\(cashFormatted!) cr.")
+                cell.setLabels("Cash", valueLabel: "\(cashFormatted) cr.")
             } else if (indexPath as NSIndexPath).row == 1 {
-                cell.setLabels("Debt", valueLabel: "\(debtFormatted!) cr.")
+                cell.setLabels("Debt", valueLabel: "\(debtFormatted) cr.")
             } else if (indexPath as NSIndexPath).row == 2 {
-                cell.setLabels("Credit Limit", valueLabel: "\(creditLimitFormatted!) cr.")
+                cell.setLabels("Credit Limit", valueLabel: "\(creditLimitFormatted) cr.")
             } else if (indexPath as NSIndexPath).row == 3 {
-                cell.setLabels("Debt Ratio", valueLabel: "\(debtRatioFormatted!)")
+                cell.setLabels("Debt Ratio", valueLabel: "\(debtRatioFormatted)")
             } else if (indexPath as NSIndexPath).row == 4 {
-                cell.setLabels("Net Worth", valueLabel: "\(netWorthFormatted!) cr.")
+                cell.setLabels("Net Worth", valueLabel: "\(netWorthFormatted) cr.")
             } else {
                 print("error")
             }
