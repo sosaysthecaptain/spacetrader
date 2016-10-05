@@ -21,23 +21,24 @@ class LoadGameCellTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setCell(titleLabel: String, netWorth: Int, days: Int) {
+    func setCell(_ titleLabel: String, netWorth: Int, days: Int) {
         self.titleLabel.text = titleLabel
         
         // format and set net worth
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let netWorthFormatted = numberFormatter.stringFromNumber(netWorth)
-        netWorthLabel.text = "Net Worth: \(netWorthFormatted!) credits"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let daysFormatted = numberFormatter.stringFromNumber(days)
-        daysLabel.text = "\(daysFormatted!) days"
+        let netWorthFormatted = numberFormatter.string(from: NSNumber(value: netWorth))!
+        netWorthLabel.text = "Net Worth: \(netWorthFormatted) credits"
+        
+        let daysFormatted = numberFormatter.string(from: NSNumber(value: days))!
+        daysLabel.text = "\(daysFormatted) days"
         
     }
 

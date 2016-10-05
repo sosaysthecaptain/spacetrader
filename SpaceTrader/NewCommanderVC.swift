@@ -46,19 +46,19 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     
     // status bar hidden
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(_ textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         textField.resignFirstResponder()
         return true;
     }
     
     // set dark statusBar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     let totalSkill = 20                             // sums to this
@@ -85,7 +85,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //        }
 //    }
     
-    @IBAction func difficultyStepperChanged(sender: AnyObject) {
+    @IBAction func difficultyStepperChanged(_ sender: AnyObject) {
         switch difficultyStepper.value {
             case 0:
                 difficultyLevel.text = "Beginner"
@@ -103,20 +103,20 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func pilotStepperChanged(sender: AnyObject) {
+    @IBAction func pilotStepperChanged(_ sender: AnyObject) {
         stepperChanged()
     }
     
-    @IBAction func fighterStepperChanged(sender: AnyObject) {
+    @IBAction func fighterStepperChanged(_ sender: AnyObject) {
         stepperChanged()
     }
 
     
-    @IBAction func traderStepperChanged(sender: AnyObject) {
+    @IBAction func traderStepperChanged(_ sender: AnyObject) {
         stepperChanged()
     }
     
-    @IBAction func engineerStepperChanged(sender: AnyObject) {
+    @IBAction func engineerStepperChanged(_ sender: AnyObject) {
         stepperChanged()
     }
     
@@ -160,9 +160,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         // enable/disable "OK" button as appropriate
         // second condition is invisible cheat--leave it blank and get 100k
         if availableSkill == 0 || ((availableSkill == 16) && difficultyStepper.value == 2) {
-            OKButton.enabled = true
+            OKButton.isEnabled = true
         } else {
-            OKButton.enabled = false
+            OKButton.isEnabled = false
         }
         
     }
@@ -170,21 +170,21 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         // set starfield background z index appropriately
-        self.view.sendSubviewToBack(backgroundImage)
+        self.view.sendSubview(toBack: backgroundImage)
         
         nameField.delegate = self
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewCommanderVC.DismissKeyboard))
         view.addGestureRecognizer(tap)
 
         // WIPE EXISTING GAME
         player = Commander(commanderName: "NIL", difficulty: DifficultyType.beginner, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
         
         // fix new commander bug, which crashes app by trying to save after only this much has been loaded
-        player.endGameType = EndGameStatus.Retired      // will be set to GameNotOver when commander properly instantiated
+        player.endGameType = EndGameStatus.retired      // will be set to GameNotOver when commander properly instantiated
         
         galaxy = Galaxy()
         
@@ -210,7 +210,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         engineerStepper.value = 1
         
         // adjust sizes if needed
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         
         // handle 3.5" screen
         if screenSize.height < 485 {
@@ -276,7 +276,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
 
         player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: Int(pilotStepper.value), fighterSkill: Int(fighterStepper.value), traderSkill: Int(traderStepper.value), engineerSkill: Int(engineerStepper.value))
-        player.endGameType = EndGameStatus.GameNotOver
+        player.endGameType = EndGameStatus.gameNotOver
         galaxy.createGalaxy()
         
         // give player a pulse laser
@@ -303,7 +303,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //        
 //        
 //        
-        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
+        let bigShip = SpaceShip(type: ShipType.grasshopper, IFFStatus: IFFStatusType.Player)
         player.commanderShip = bigShip
 
         let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
@@ -334,7 +334,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         
         // segue should probably not be "show". Talk to steph about this.
-        self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
+        self.performSegue(withIdentifier: "newCommanderToMain", sender: nil)
     }
 
 

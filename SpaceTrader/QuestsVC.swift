@@ -18,21 +18,21 @@ class QuestsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         //self.tableView.registerClass(QuestStringCell.self, forCellReuseIdentifier: "customCell")
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
     }
 
     // TABLE VIEW METHODS************************************************************************
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("number of open quests: \(player.specialEvents.quests.count)")
         return player.specialEvents.quests.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("generating cell for quest #\(indexPath.row)")
-        let cell: QuestStringCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as! QuestStringCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("generating cell for quest #\((indexPath as NSIndexPath).row)")
+        let cell: QuestStringCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as! QuestStringCell
 
-        cell.setCell(player.specialEvents.quests[indexPath.row].questString)
+        cell.setCell(player.specialEvents.quests[(indexPath as NSIndexPath).row].questString)
         
         
         return cell
@@ -55,13 +55,13 @@ class QuestStringCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     
-    func setCell(text: String) {
+    func setCell(_ text: String) {
         print("setCell called. Passed text: \(text)")
         textView.text = text
         textView.font = UIFont(name: "AvenirNext-DemiBold", size: 14)

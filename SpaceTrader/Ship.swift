@@ -66,7 +66,7 @@ class SpaceShip: NSObject, NSCoding {
     var totalBays: Int {
         var total = cargoBays
         for item in gadget {
-            if item.type == GadgetType.CargoBays {
+            if item.type == GadgetType.cargoBays {
                 total += 5
             }
         }
@@ -113,7 +113,7 @@ class SpaceShip: NSObject, NSCoding {
         print("opponent engineer skill: \(galaxy.currentJourney?.currentEncounter?.opponent.engineer)")
         
         for item in gadget {
-            if item.type == GadgetType.Cloaking {
+            if item.type == GadgetType.cloaking {
                 // if cloaking device, player is cloaked only if engineer skill > opponent
                 if galaxy.currentJourney?.currentEncounter?.opponent.engineer == nil {
                     return true
@@ -402,8 +402,8 @@ class SpaceShip: NSObject, NSCoding {
 //        }
         
         switch type {
-            case ShipType.Flea:
-                self.type = ShipType.Flea
+            case ShipType.flea:
+                self.type = ShipType.flea
                 self.name = "Flea"
                 self.cargoBays = 10
                 self.weaponSlots = 0
@@ -423,8 +423,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 0
                 self.size = "Tiny"
-            case ShipType.Gnat:
-                self.type = ShipType.Gnat
+            case ShipType.gnat:
+                self.type = ShipType.gnat
                 self.name = "Gnat"
                 self.cargoBays = 15
                 self.weaponSlots = 1
@@ -444,8 +444,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
                 self.size = "Small"
-            case ShipType.Firefly:
-                self.type = ShipType.Firefly
+            case ShipType.firefly:
+                self.type = ShipType.firefly
                 self.name = "Firefly"
                 self.cargoBays = 20
                 self.weaponSlots = 1
@@ -465,8 +465,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
                 self.size = "Small"
-            case ShipType.Mosquito:
-                self.type = ShipType.Mosquito
+            case ShipType.mosquito:
+                self.type = ShipType.mosquito
                 self.name = "Mosquito"
                 self.cargoBays = 15
                 self.weaponSlots = 2
@@ -486,8 +486,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
                 self.size = "Small"
-            case ShipType.Bumblebee:
-                self.type = ShipType.Bumblebee
+            case ShipType.bumblebee:
+                self.type = ShipType.bumblebee
                 self.name = "Bumblebee"
                 self.cargoBays = 25
                 self.weaponSlots = 1
@@ -507,8 +507,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 2
                 self.size = "Medium"
-            case ShipType.Beetle:
-                self.type = ShipType.Beetle
+            case ShipType.beetle:
+                self.type = ShipType.beetle
                 self.name = "Beetle"
                 self.cargoBays = 50
                 self.weaponSlots = 0
@@ -528,8 +528,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 1
                 self.probabilityOfHit = 2
                 self.size = "Medium"
-            case ShipType.Hornet:
-                self.type = ShipType.Hornet
+            case ShipType.hornet:
+                self.type = ShipType.hornet
                 self.name = "Hornet"
                 self.cargoBays = 20
                 self.weaponSlots = 3
@@ -549,8 +549,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 2
                 self.probabilityOfHit = 3
                 self.size = "Large"
-            case ShipType.Grasshopper:
-                self.type = ShipType.Grasshopper
+            case ShipType.grasshopper:
+                self.type = ShipType.grasshopper
                 self.name = "Grasshopper"
                 self.cargoBays = 30
                 self.weaponSlots = 2
@@ -570,8 +570,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 3
                 self.probabilityOfHit = 3
                 self.size = "Large"
-            case ShipType.Termite:
-                self.type = ShipType.Termite
+            case ShipType.termite:
+                self.type = ShipType.termite
                 self.name = "Termite"
                 self.cargoBays = 60
                 self.weaponSlots = 1
@@ -591,8 +591,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 4
                 self.probabilityOfHit = 4
                 self.size = "Huge"
-            case ShipType.Wasp:
-                self.type = ShipType.Wasp
+            case ShipType.wasp:
+                self.type = ShipType.wasp
                 self.name = "Wasp"
                 self.cargoBays = 35
                 self.weaponSlots = 3
@@ -612,9 +612,9 @@ class SpaceShip: NSObject, NSCoding {
                 self.repairCosts = 5
                 self.probabilityOfHit = 4
                 self.size = "Huge"
-            case ShipType.Custom:
+            case ShipType.custom:
                 // THIS DATA LIFTED FROM WASP. FIX.
-                self.type = ShipType.Wasp
+                self.type = ShipType.wasp
                 self.name = "Wasp"
                 self.cargoBays = 35
                 self.weaponSlots = 3
@@ -633,8 +633,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 4
                 self.repairCosts = 5
                 self.probabilityOfHit = 4
-            case ShipType.SpaceMonster:
-                self.type = ShipType.SpaceMonster
+            case ShipType.spaceMonster:
+                self.type = ShipType.spaceMonster
                 self.name = "Space Monster"
                 self.cargoBays = 0
                 self.weaponSlots = 3
@@ -653,8 +653,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 4
-            case ShipType.Dragonfly:
-                self.type = ShipType.Dragonfly
+            case ShipType.dragonfly:
+                self.type = ShipType.dragonfly
                 self.name = "Dragonfly"
                 self.cargoBays = 0
                 self.weaponSlots = 2
@@ -673,8 +673,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
-            case ShipType.Mantis:
-                self.type = ShipType.Mantis
+            case ShipType.mantis:
+                self.type = ShipType.mantis
                 self.name = "Mantis"
                 self.cargoBays = 0
                 self.weaponSlots = 3
@@ -693,8 +693,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 2
-            case ShipType.Scarab:
-                self.type = ShipType.Scarab
+            case ShipType.scarab:
+                self.type = ShipType.scarab
                 self.name = "Scarab"
                 self.cargoBays = 20
                 self.weaponSlots = 2
@@ -713,9 +713,9 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 3
-            case ShipType.Scorpion:
+            case ShipType.scorpion:
                 // THIS DATA LIFTED FROM SCARAB. FIX THIS.
-                self.type = ShipType.Scarab
+                self.type = ShipType.scarab
                 self.name = "Scarab"
                 self.cargoBays = 20
                 self.weaponSlots = 2
@@ -734,8 +734,8 @@ class SpaceShip: NSObject, NSCoding {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 3
-            case ShipType.Bottle:
-                self.type = ShipType.Bottle
+            case ShipType.bottle:
+                self.type = ShipType.bottle
                 self.name = "Bottle"
                 self.cargoBays = 0
                 self.weaponSlots = 0
@@ -768,7 +768,7 @@ class SpaceShip: NSObject, NSCoding {
     // THESE ARE THE ONLY METHODS THAT SHOULD DIRECTLY ADD, REMOVE, OR MEASURE AMOUNT OF CARGO************
     
     // addCargo and removeCargo functions assume quantities have been checked, but return false if not
-    func addCargo(commodity: TradeItemType, quantity: Int, pricePaid: Int) -> Bool {
+    func addCargo(_ commodity: TradeItemType, quantity: Int, pricePaid: Int) -> Bool {
         // fail if not enough space
         if baysAvailable < quantity {
             return false
@@ -797,7 +797,7 @@ class SpaceShip: NSObject, NSCoding {
         return true
     }
     
-    func removeCargo(commodity: TradeItemType, quantity: Int) -> Bool {
+    func removeCargo(_ commodity: TradeItemType, quantity: Int) -> Bool {
         // returns false if not that many on ship
         for item in cargo {
             if item.item == commodity {
@@ -816,7 +816,7 @@ class SpaceShip: NSObject, NSCoding {
         return true
     }
     
-    func getQuantity(commodity: TradeItemType) -> Int {
+    func getQuantity(_ commodity: TradeItemType) -> Int {
         var quantity = 0
         for item in cargo {
             if item.item == commodity {
@@ -826,7 +826,7 @@ class SpaceShip: NSObject, NSCoding {
         return quantity
     }
     
-    func getPricePaid(commodity: TradeItemType) -> Int {
+    func getPricePaid(_ commodity: TradeItemType) -> Int {
         var pricePaid = 0
         for item in cargo {
             if item.item == commodity {
@@ -883,7 +883,7 @@ class SpaceShip: NSObject, NSCoding {
     func getFuelCompactorStatus() -> Bool {
         var status = false
         for item in gadget {
-            if item.type == GadgetType.FuelCompactor {
+            if item.type == GadgetType.fuelCompactor {
                 status = true
             }
         }
@@ -900,7 +900,7 @@ class SpaceShip: NSObject, NSCoding {
         return status
     }
     
-    func getWeaponStatus(type: WeaponType) -> Bool {
+    func getWeaponStatus(_ type: WeaponType) -> Bool {
         for item in weapon {
             if item.type == type {
                 return true
@@ -909,7 +909,7 @@ class SpaceShip: NSObject, NSCoding {
         return false
     }
     
-    func getShieldStatus(type: ShieldType) -> Bool {
+    func getShieldStatus(_ type: ShieldType) -> Bool {
         for item in shield {
             if item.type == type {
                 return true
@@ -918,7 +918,7 @@ class SpaceShip: NSObject, NSCoding {
         return false
     }
     
-    func resetSpecialEquipment(morgansLaser: Bool, fuelCompactor: Bool, lightningShield: Bool) {
+    func resetSpecialEquipment(_ morgansLaser: Bool, fuelCompactor: Bool, lightningShield: Bool) {
         // HANDLE POSSIBILITY OF NOT ALL STUFF BEING TRANSFERRABLE?
 
         if morgansLaser && (weaponSlots >= 1) {
@@ -926,7 +926,7 @@ class SpaceShip: NSObject, NSCoding {
             self.weapon.append(laser)
         }
         if fuelCompactor && (cargoBays >= 1) {
-            let compactor = Gadget(type: GadgetType.FuelCompactor)
+            let compactor = Gadget(type: GadgetType.fuelCompactor)
             self.gadget.append(compactor)
         }
         if lightningShield && (shieldSlots >= 1) {
@@ -935,7 +935,7 @@ class SpaceShip: NSObject, NSCoding {
         }
     }
     
-    func removeCrewMember(id: MercenaryName) -> Bool {
+    func removeCrewMember(_ id: MercenaryName) -> Bool {
         var removeIndex: Int?
         var i = 0
         for member in crew {
@@ -945,19 +945,19 @@ class SpaceShip: NSObject, NSCoding {
             i += 1
         }
         if removeIndex != nil {
-            crew.removeAtIndex(removeIndex!)
+            crew.remove(at: removeIndex!)
             return true
         } else {
             return false
         }
     }
     
-    func removeWeapon(type: WeaponType) -> Bool {
+    func removeWeapon(_ type: WeaponType) -> Bool {
         // removes one of the weapons of specified type
         var index = 0
         for item in weapon {
             if item.type == type {
-                weapon.removeAtIndex(index)
+                weapon.remove(at: index)
                 return true
             }
             index += 1
@@ -965,12 +965,12 @@ class SpaceShip: NSObject, NSCoding {
         return false
     }
     
-    func removeShield(type: ShieldType) -> Bool {
+    func removeShield(_ type: ShieldType) -> Bool {
         // removes shield of specified type
         var index = 0
         for item in shield {
             if item.type == type {
-                shield.removeAtIndex(index)
+                shield.remove(at: index)
                 return true
             }
             index += 1
@@ -980,123 +980,123 @@ class SpaceShip: NSObject, NSCoding {
     
      // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = ShipType(rawValue: decoder.decodeObjectForKey("type") as! Int!)!
-            self.name = decoder.decodeObjectForKey("name") as! String
-            self.cargoBays = decoder.decodeObjectForKey("cargoBays") as! Int
-            self.weaponSlots = decoder.decodeObjectForKey("weaponSlots") as! Int
-            self.shieldSlots = decoder.decodeObjectForKey("shieldSlots") as! Int
-            self.gadgetSlots = decoder.decodeObjectForKey("gadgetSlots") as! Int
-            self.crewQuarters = decoder.decodeObjectForKey("crewQuarters") as! Int
-            self.fuelTanks = decoder.decodeObjectForKey("fuelTanks") as! Int
-            self.size = decoder.decodeObjectForKey("size") as! String
-            self.minTechLevel = TechLevelType(rawValue: decoder.decodeObjectForKey("minTechLevel") as! String!)!
-            self.costOfFuel = decoder.decodeObjectForKey("costOfFuel") as! Int
-            self.price = decoder.decodeObjectForKey("price") as! Int
-            self.bounty = decoder.decodeObjectForKey("bounty") as! Int
-            self.occurance = decoder.decodeObjectForKey("occurance") as! Int
-            self.hullStrength = decoder.decodeObjectForKey("hullStrength") as! Int
-            self.disruptedness = decoder.decodeObjectForKey("disruptedness") as! Int
-            self.police = decoder.decodeObjectForKey("police") as! Int
-            self.pirates = decoder.decodeObjectForKey("pirates") as! Int
-            self.traders = decoder.decodeObjectForKey("traders") as! Int
-            self.repairCosts = decoder.decodeObjectForKey("repairCosts") as! Int
-            self.probabilityOfHit = decoder.decodeObjectForKey("probabilityOfHit") as! Int
+            self.type = ShipType(rawValue: decoder.decodeObject(forKey: "type") as! Int!)!
+            self.name = decoder.decodeObject(forKey: "name") as! String
+            self.cargoBays = decoder.decodeObject(forKey: "cargoBays") as! Int
+            self.weaponSlots = decoder.decodeObject(forKey: "weaponSlots") as! Int
+            self.shieldSlots = decoder.decodeObject(forKey: "shieldSlots") as! Int
+            self.gadgetSlots = decoder.decodeObject(forKey: "gadgetSlots") as! Int
+            self.crewQuarters = decoder.decodeObject(forKey: "crewQuarters") as! Int
+            self.fuelTanks = decoder.decodeObject(forKey: "fuelTanks") as! Int
+            self.size = decoder.decodeObject(forKey: "size") as! String
+            self.minTechLevel = TechLevelType(rawValue: decoder.decodeObject(forKey: "minTechLevel") as! String!)!
+            self.costOfFuel = decoder.decodeObject(forKey: "costOfFuel") as! Int
+            self.price = decoder.decodeObject(forKey: "price") as! Int
+            self.bounty = decoder.decodeObject(forKey: "bounty") as! Int
+            self.occurance = decoder.decodeObject(forKey: "occurance") as! Int
+            self.hullStrength = decoder.decodeObject(forKey: "hullStrength") as! Int
+            self.disruptedness = decoder.decodeObject(forKey: "disruptedness") as! Int
+            self.police = decoder.decodeObject(forKey: "police") as! Int
+            self.pirates = decoder.decodeObject(forKey: "pirates") as! Int
+            self.traders = decoder.decodeObject(forKey: "traders") as! Int
+            self.repairCosts = decoder.decodeObject(forKey: "repairCosts") as! Int
+            self.probabilityOfHit = decoder.decodeObject(forKey: "probabilityOfHit") as! Int
             
-            self.raided = decoder.decodeObjectForKey("raided") as! Bool
+            self.raided = decoder.decodeObject(forKey: "raided") as! Bool
             //self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
-            self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
-            self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObjectForKey("IFFStatus") as! String!)!
+            self.disabled = decoder.decodeObject(forKey: "disabled") as! Bool
+            self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObject(forKey: "IFFStatus") as! String!)!
             
-            self.cargo = decoder.decodeObjectForKey("cargo") as! [TradeItem]
-            self.weapon = decoder.decodeObjectForKey("weapon") as! [Weapon]
-            self.shield = decoder.decodeObjectForKey("shield") as! [Shield]
-            self.gadget = decoder.decodeObjectForKey("gadget") as! [Gadget]
-            self.crew = decoder.decodeObjectForKey("crew") as! [CrewMember]
-            self.fuel = decoder.decodeObjectForKey("fuel") as! Int
-            self.hull = decoder.decodeObjectForKey("hull") as! Int
-            self.tribbles = decoder.decodeObjectForKey("tribbles") as! Int
+            self.cargo = decoder.decodeObject(forKey: "cargo") as! [TradeItem]
+            self.weapon = decoder.decodeObject(forKey: "weapon") as! [Weapon]
+            self.shield = decoder.decodeObject(forKey: "shield") as! [Shield]
+            self.gadget = decoder.decodeObject(forKey: "gadget") as! [Gadget]
+            self.crew = decoder.decodeObject(forKey: "crew") as! [CrewMember]
+            self.fuel = decoder.decodeObject(forKey: "fuel") as! Int
+            self.hull = decoder.decodeObject(forKey: "hull") as! Int
+            self.tribbles = decoder.decodeObject(forKey: "tribbles") as! Int
             
-            self.waterOnBoard = decoder.decodeObjectForKey("waterOnBoard") as! Int
-            self.fursOnBoard = decoder.decodeObjectForKey("fursOnBoard") as! Int
-            self.foodOnBoard = decoder.decodeObjectForKey("foodOnBoard") as! Int
-            self.oreOnBoard = decoder.decodeObjectForKey("oreOnBoard") as! Int
-            self.gamesOnBoard = decoder.decodeObjectForKey("gamesOnBoard") as! Int
-            self.firearmsOnBoard = decoder.decodeObjectForKey("firearmsOnBoard") as! Int
-            self.medicineOnBoard = decoder.decodeObjectForKey("medicineOnBoard") as! Int
-            self.machinesOnBoard = decoder.decodeObjectForKey("machinesOnBoard") as! Int
-            self.narcoticsOnBoard = decoder.decodeObjectForKey("narcoticsOnBoard") as! Int
-            self.robotsOnBoard = decoder.decodeObjectForKey("robotsOnBoard") as! Int
+            self.waterOnBoard = decoder.decodeObject(forKey: "waterOnBoard") as! Int
+            self.fursOnBoard = decoder.decodeObject(forKey: "fursOnBoard") as! Int
+            self.foodOnBoard = decoder.decodeObject(forKey: "foodOnBoard") as! Int
+            self.oreOnBoard = decoder.decodeObject(forKey: "oreOnBoard") as! Int
+            self.gamesOnBoard = decoder.decodeObject(forKey: "gamesOnBoard") as! Int
+            self.firearmsOnBoard = decoder.decodeObject(forKey: "firearmsOnBoard") as! Int
+            self.medicineOnBoard = decoder.decodeObject(forKey: "medicineOnBoard") as! Int
+            self.machinesOnBoard = decoder.decodeObject(forKey: "machinesOnBoard") as! Int
+            self.narcoticsOnBoard = decoder.decodeObject(forKey: "narcoticsOnBoard") as! Int
+            self.robotsOnBoard = decoder.decodeObject(forKey: "robotsOnBoard") as! Int
             
-            self.artifactSpecialCargo = decoder.decodeObjectForKey("artifactSpecialCargo") as! Bool
-            self.experimentSpecialCargo = decoder.decodeObjectForKey("experimentSpecialCargo") as! Bool
-            self.japoriSpecialCargo = decoder.decodeObjectForKey("japoriSpecialCargo") as! Bool
-            self.jarekHagglingComputerSpecialCargo = decoder.decodeObjectForKey("jarekHagglingComputerSpecialCargo") as! Bool
-            self.reactorSpecialCargo = decoder.decodeObjectForKey("reactorSpecialCargo") as! Bool
-            self.sculptureSpecialCargo = decoder.decodeObjectForKey("sculptureSpecialCargo") as! Bool
-            self.reactorFuelSpecialCargo = decoder.decodeObjectForKey("reactorFuelSpecialCargo") as! Bool
-            self.reactorFuelBays = decoder.decodeObjectForKey("reactorFuelBays") as! Double
-            self.upgradedHull = decoder.decodeObjectForKey("upgradedHull") as! Bool
+            self.artifactSpecialCargo = decoder.decodeObject(forKey: "artifactSpecialCargo") as! Bool
+            self.experimentSpecialCargo = decoder.decodeObject(forKey: "experimentSpecialCargo") as! Bool
+            self.japoriSpecialCargo = decoder.decodeObject(forKey: "japoriSpecialCargo") as! Bool
+            self.jarekHagglingComputerSpecialCargo = decoder.decodeObject(forKey: "jarekHagglingComputerSpecialCargo") as! Bool
+            self.reactorSpecialCargo = decoder.decodeObject(forKey: "reactorSpecialCargo") as! Bool
+            self.sculptureSpecialCargo = decoder.decodeObject(forKey: "sculptureSpecialCargo") as! Bool
+            self.reactorFuelSpecialCargo = decoder.decodeObject(forKey: "reactorFuelSpecialCargo") as! Bool
+            self.reactorFuelBays = decoder.decodeObject(forKey: "reactorFuelBays") as! Double
+            self.upgradedHull = decoder.decodeObject(forKey: "upgradedHull") as! Bool
     
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(type.rawValue, forKey: "type")
-            encoder.encodeObject(name, forKey: "name")
-            encoder.encodeObject(cargoBays, forKey: "cargoBays")
-            encoder.encodeObject(weaponSlots, forKey: "weaponSlots")
-            encoder.encodeObject(shieldSlots, forKey: "shieldSlots")
-            encoder.encodeObject(gadgetSlots, forKey: "gadgetSlots")
-            encoder.encodeObject(crewQuarters, forKey: "crewQuarters")
-            encoder.encodeObject(fuelTanks, forKey: "fuelTanks")
-            encoder.encodeObject(size, forKey: "size")
-            encoder.encodeObject(minTechLevel.rawValue, forKey: "minTechLevel")
-            encoder.encodeObject(costOfFuel, forKey: "costOfFuel")
-            encoder.encodeObject(price, forKey: "price")
-            encoder.encodeObject(bounty, forKey: "bounty")
-            encoder.encodeObject(occurance, forKey: "occurance")
-            encoder.encodeObject(hullStrength, forKey: "hullStrength")
-            encoder.encodeObject(disruptedness, forKey: "disruptedness")
-            encoder.encodeObject(police, forKey: "police")
-            encoder.encodeObject(pirates, forKey: "pirates")
-            encoder.encodeObject(traders, forKey: "traders")
-            encoder.encodeObject(repairCosts, forKey: "repairCosts")
-            encoder.encodeObject(probabilityOfHit, forKey: "probabilityOfHit")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(type.rawValue, forKey: "type")
+            encoder.encode(name, forKey: "name")
+            encoder.encode(cargoBays, forKey: "cargoBays")
+            encoder.encode(weaponSlots, forKey: "weaponSlots")
+            encoder.encode(shieldSlots, forKey: "shieldSlots")
+            encoder.encode(gadgetSlots, forKey: "gadgetSlots")
+            encoder.encode(crewQuarters, forKey: "crewQuarters")
+            encoder.encode(fuelTanks, forKey: "fuelTanks")
+            encoder.encode(size, forKey: "size")
+            encoder.encode(minTechLevel.rawValue, forKey: "minTechLevel")
+            encoder.encode(costOfFuel, forKey: "costOfFuel")
+            encoder.encode(price, forKey: "price")
+            encoder.encode(bounty, forKey: "bounty")
+            encoder.encode(occurance, forKey: "occurance")
+            encoder.encode(hullStrength, forKey: "hullStrength")
+            encoder.encode(disruptedness, forKey: "disruptedness")
+            encoder.encode(police, forKey: "police")
+            encoder.encode(pirates, forKey: "pirates")
+            encoder.encode(traders, forKey: "traders")
+            encoder.encode(repairCosts, forKey: "repairCosts")
+            encoder.encode(probabilityOfHit, forKey: "probabilityOfHit")
             
-            encoder.encodeObject(raided, forKey: "raided")
+            encoder.encode(raided, forKey: "raided")
             //encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
-            encoder.encodeObject(disabled, forKey: "disabled")
-            encoder.encodeObject(IFFStatus.rawValue, forKey: "IFFStatus")
+            encoder.encode(disabled, forKey: "disabled")
+            encoder.encode(IFFStatus.rawValue, forKey: "IFFStatus")
             
-            encoder.encodeObject(cargo, forKey: "cargo")
-            encoder.encodeObject(weapon, forKey: "weapon")
-            encoder.encodeObject(shield, forKey: "shield")
-            encoder.encodeObject(gadget, forKey: "gadget")
-            encoder.encodeObject(crew, forKey: "crew")
-            encoder.encodeObject(fuel, forKey: "fuel")
-            encoder.encodeObject(hull, forKey: "hull")
-            encoder.encodeObject(tribbles, forKey: "tribbles")
+            encoder.encode(cargo, forKey: "cargo")
+            encoder.encode(weapon, forKey: "weapon")
+            encoder.encode(shield, forKey: "shield")
+            encoder.encode(gadget, forKey: "gadget")
+            encoder.encode(crew, forKey: "crew")
+            encoder.encode(fuel, forKey: "fuel")
+            encoder.encode(hull, forKey: "hull")
+            encoder.encode(tribbles, forKey: "tribbles")
             
-            encoder.encodeObject(waterOnBoard, forKey: "waterOnBoard")
-            encoder.encodeObject(fursOnBoard, forKey: "fursOnBoard")
-            encoder.encodeObject(foodOnBoard, forKey: "foodOnBoard")
-            encoder.encodeObject(oreOnBoard, forKey: "oreOnBoard")
-            encoder.encodeObject(gamesOnBoard, forKey: "gamesOnBoard")
-            encoder.encodeObject(firearmsOnBoard, forKey: "firearmsOnBoard")
-            encoder.encodeObject(medicineOnBoard, forKey: "medicineOnBoard")
-            encoder.encodeObject(machinesOnBoard, forKey: "machinesOnBoard")
-            encoder.encodeObject(narcoticsOnBoard, forKey: "narcoticsOnBoard")
-            encoder.encodeObject(robotsOnBoard, forKey: "robotsOnBoard")
+            encoder.encode(waterOnBoard, forKey: "waterOnBoard")
+            encoder.encode(fursOnBoard, forKey: "fursOnBoard")
+            encoder.encode(foodOnBoard, forKey: "foodOnBoard")
+            encoder.encode(oreOnBoard, forKey: "oreOnBoard")
+            encoder.encode(gamesOnBoard, forKey: "gamesOnBoard")
+            encoder.encode(firearmsOnBoard, forKey: "firearmsOnBoard")
+            encoder.encode(medicineOnBoard, forKey: "medicineOnBoard")
+            encoder.encode(machinesOnBoard, forKey: "machinesOnBoard")
+            encoder.encode(narcoticsOnBoard, forKey: "narcoticsOnBoard")
+            encoder.encode(robotsOnBoard, forKey: "robotsOnBoard")
             
-            encoder.encodeObject(artifactSpecialCargo, forKey: "artifactSpecialCargo")
-            encoder.encodeObject(experimentSpecialCargo, forKey: "experimentSpecialCargo")
-            encoder.encodeObject(japoriSpecialCargo, forKey: "japoriSpecialCargo")
-            encoder.encodeObject(jarekHagglingComputerSpecialCargo, forKey: "jarekHagglingComputerSpecialCargo")
-            encoder.encodeObject(reactorSpecialCargo, forKey: "reactorSpecialCargo")
-            encoder.encodeObject(sculptureSpecialCargo, forKey: "sculptureSpecialCargo")
-            encoder.encodeObject(reactorFuelSpecialCargo, forKey: "reactorFuelSpecialCargo")
-            encoder.encodeObject(reactorFuelBays, forKey: "reactorFuelBays")
-            encoder.encodeObject(upgradedHull, forKey: "upgradedHull")
+            encoder.encode(artifactSpecialCargo, forKey: "artifactSpecialCargo")
+            encoder.encode(experimentSpecialCargo, forKey: "experimentSpecialCargo")
+            encoder.encode(japoriSpecialCargo, forKey: "japoriSpecialCargo")
+            encoder.encode(jarekHagglingComputerSpecialCargo, forKey: "jarekHagglingComputerSpecialCargo")
+            encoder.encode(reactorSpecialCargo, forKey: "reactorSpecialCargo")
+            encoder.encode(sculptureSpecialCargo, forKey: "sculptureSpecialCargo")
+            encoder.encode(reactorFuelSpecialCargo, forKey: "reactorFuelSpecialCargo")
+            encoder.encode(reactorFuelBays, forKey: "reactorFuelBays")
+            encoder.encode(upgradedHull, forKey: "upgradedHull")
         }
 }
 
@@ -1113,16 +1113,16 @@ class SpecialCargoItem: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.quantity = decoder.decodeObjectForKey("quantity") as! Int
-        self.baysTakenUp = decoder.decodeObjectForKey("baysTakenUp") as! Int
+        self.name = decoder.decodeObject(forKey: "name") as! String
+        self.quantity = decoder.decodeObject(forKey: "quantity") as! Int
+        self.baysTakenUp = decoder.decodeObject(forKey: "baysTakenUp") as! Int
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(name, forKey: "name")
-        encoder.encodeObject(quantity, forKey: "quantity")
-        encoder.encodeObject(baysTakenUp, forKey: "baysTakenUp")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(name, forKey: "name")
+        encoder.encode(quantity, forKey: "quantity")
+        encoder.encode(baysTakenUp, forKey: "baysTakenUp")
     }
 }

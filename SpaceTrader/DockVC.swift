@@ -45,73 +45,73 @@ class DockVC: UIViewController {
         if player.escapePod {
             podMessage1.text = "You have an escape pod installed."
             //podMessage2.text = ""
-            podButton.enabled = false
+            podButton.isEnabled = false
         } else if galaxy.getTechLevelValue(galaxy.currentSystem!.techLevel) <= 2 {
             podMessage1.text = "No escape pods for sale."
             //podMessage2.text = ""
-            podButton.enabled = false
+            podButton.isEnabled = false
         } else if player.credits < 2000 {
             podMessage1.text = "You need at least 2,000 cr. to buy an escape pod."
             //podMessage2.text = ""
-            podButton.enabled = false
+            podButton.isEnabled = false
         } else {
             // if current system is advanced enough to sell escape pods, make available
             podMessage1.text = "You can buy an escape pod for 2,000 cr."
             //podMessage2.text = ""
-            podButton.enabled = true
+            podButton.isEnabled = true
         }
         
         // display "Design Your Own Ship" button only if a shipyard is present
         if galaxy.currentSystem!.shipyard != ShipyardID.NA {
-            designShipButton.enabled = true
+            designShipButton.isEnabled = true
         } else {
-            designShipButton.enabled = false
+            designShipButton.isEnabled = false
         }
         
         // redraw baysCashBox
         baysCashBox.redrawSelf()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         updateUI()
         
         // return scroll view to top
-        let topScrollPoint = CGPointMake(0.0, -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
     }
 
-    @IBAction func buyPod(sender: AnyObject) {
+    @IBAction func buyPod(_ sender: AnyObject) {
         // assumes vetted that player doesn't already have pod, has enough cash
         // launch modal
         let title: String = "Escape Pod"
         let message: String = "Do you want to buy an escape pod for 2,000 credits?"
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // buy pod
             player.credits -= 2000
             player.escapePod = true
             self.updateUI()
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // nothing, just close the modal
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
         
         
     }
     
     // set back button text for child VCs to "Back"
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
     
     // this is for unwind segue, called when construction of designed ship is complete
-    @IBAction func myUnwindAction(segue: UIStoryboardSegue) {}
+    @IBAction func myUnwindAction(_ segue: UIStoryboardSegue) {}
     
 }

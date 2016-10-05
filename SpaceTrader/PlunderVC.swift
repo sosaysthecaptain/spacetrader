@@ -9,14 +9,14 @@
 import UIKit
 
 protocol PlunderDelegate: class {
-    func plunderDidFinish(controller: PlunderVC)
+    func plunderDidFinish(_ controller: PlunderVC)
 }
 
 class PlunderVC: UIViewController, PlunderVCDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         updateUI()
     }
     
@@ -26,8 +26,8 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
 //    }
     
     // set dark statusBar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     
@@ -55,7 +55,7 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
     weak var delegate: PlunderDelegate?
     
     // delegate (JettisonPickerVC) function--this fires when JettisonPickerVC completes
-    func plunderPickerDidFinish(controller: JettisonPickerVC) {
+    func plunderPickerDidFinish(_ controller: JettisonPickerVC) {
         // set plunder or jettison mode correctly, update UI accordingly
         if justFinishedJettisonNotPlunder {
             jettisonMode = true
@@ -77,21 +77,21 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         let controlState = UIControlState()
         // set title to "Plunder Cargo", jettison button text to present
         titleLabel.text = "Plunder Cargo"
-        jettisonButton.enabled = true
-        doneButton.setTitle("Done", forState: controlState)
+        jettisonButton.isEnabled = true
+        doneButton.setTitle("Done", for: controlState)
         //jettisonButton.setTitle("Jettison", forState: controlState)
         
         // set quantities
-        waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", forState: controlState)
-        fursQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Furs))", forState: controlState)
-        foodQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Food))", forState: controlState)
-        oreQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Ore))", forState: controlState)
-        gamesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Games))", forState: controlState)
-        firearmsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Firearms))", forState: controlState)
-        medicineQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Medicine))", forState: controlState)
-        machinesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Machines))", forState: controlState)
-        narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", forState: controlState)
-        robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", forState: controlState)
+        waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", for: controlState)
+        fursQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Furs))", for: controlState)
+        foodQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Food))", for: controlState)
+        oreQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Ore))", for: controlState)
+        gamesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Games))", for: controlState)
+        firearmsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Firearms))", for: controlState)
+        medicineQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Medicine))", for: controlState)
+        machinesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Machines))", for: controlState)
+        narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", for: controlState)
+        robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", for: controlState)
         
         baysDisplay.redrawSelf()
     }
@@ -100,28 +100,28 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         let controlState = UIControlState()
         // set title to "Jettison Cargo", make jettison button vanish
         titleLabel.text = "Jettison Cargo"
-        doneButton.setTitle("Back to Plunder", forState: controlState)
-        jettisonButton.enabled = false
+        doneButton.setTitle("Back to Plunder", for: controlState)
+        jettisonButton.isEnabled = false
         //jettisonButton.setTitle("", forState: controlState)
         
         // set quantities on commander ship
-        waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water))", forState: controlState)
-        fursQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Furs))", forState: controlState)
-        foodQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Food))", forState: controlState)
-        oreQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Ore))", forState: controlState)
-        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Games))", forState: controlState)
-        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Firearms))", forState: controlState)
-        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Medicine))", forState: controlState)
-        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Machines))", forState: controlState)
-        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Narcotics))", forState: controlState)
-        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots))", forState: controlState)
+        waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water))", for: controlState)
+        fursQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Furs))", for: controlState)
+        foodQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Food))", for: controlState)
+        oreQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Ore))", for: controlState)
+        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Games))", for: controlState)
+        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Firearms))", for: controlState)
+        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Medicine))", for: controlState)
+        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Machines))", for: controlState)
+        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Narcotics))", for: controlState)
+        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots))", for: controlState)
         
         
 //        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
 //        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
-    func getMaxQuantity(commodity: TradeItemType) -> Int {
+    func getMaxQuantity(_ commodity: TradeItemType) -> Int {
         // max available to plunder
         
         let quantityOnBoard = galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(commodity)
@@ -130,7 +130,7 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         return min(quantityOnBoard, baysAvailable)
     }
     
-    func plunder(commodity: TradeItemType, amount: Int) -> Bool {
+    func plunder(_ commodity: TradeItemType, amount: Int) -> Bool {
         // make sure space to go through
         if amount > getMaxQuantity(commodity) {
             return false
@@ -145,17 +145,17 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         return true
     }
 
-    @IBAction func doneButton(sender: AnyObject) {
+    @IBAction func doneButton(_ sender: AnyObject) {
         if jettisonMode {
             jettisonMode = false
             updateUI()
         } else {
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
             delegate?.plunderDidFinish(self)
         }
     }
     
-    func plunderOrJettisonAll(commodity: TradeItemType) {
+    func plunderOrJettisonAll(_ commodity: TradeItemType) {
         if jettisonMode {
             let quantity = player.commanderShip.getQuantity(commodity)
             player.commanderShip.removeCargo(commodity, quantity: quantity)
@@ -169,7 +169,7 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
     
     // "Some" button functions
     // ALL OF THESE MUST FIRE ONLY IF THE RELEVANT QUANTITY IS GREATER THAN ZERO
-    @IBAction func waterSome(sender: AnyObject) {
+    @IBAction func waterSome(_ sender: AnyObject) {
         // set buySellCommodity to water
         buySellCommodity = TradeItemType.Water
         
@@ -177,117 +177,117 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         plunderAsOpposedToJettison = !jettisonMode
         
         // fire segue
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func fursSome(sender: AnyObject) {
+    @IBAction func fursSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Furs
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func foodSome(sender: AnyObject) {
+    @IBAction func foodSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Food
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func oreSome(sender: AnyObject) {
+    @IBAction func oreSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Ore
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func gamesSome(sender: AnyObject) {
+    @IBAction func gamesSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Games
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func firearmsSome(sender: AnyObject) {
+    @IBAction func firearmsSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Firearms
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func medicineSome(sender: AnyObject) {
+    @IBAction func medicineSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Medicine
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func machinesSome(sender: AnyObject) {
+    @IBAction func machinesSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Machines
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func narcoticsSome(sender: AnyObject) {
+    @IBAction func narcoticsSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Narcotics
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
-    @IBAction func robotsSome(sender: AnyObject) {
+    @IBAction func robotsSome(_ sender: AnyObject) {
         buySellCommodity = TradeItemType.Robots
         plunderAsOpposedToJettison = !jettisonMode
-        performSegueWithIdentifier("jettisonPicker", sender: sender)
+        performSegue(withIdentifier: "jettisonPicker", sender: sender)
     }
     
     
     
     // "All" button functions
-    @IBAction func waterAll(sender: AnyObject) {
+    @IBAction func waterAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Water)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func fursAll(sender: AnyObject) {
+    @IBAction func fursAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Furs)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func foodAll(sender: AnyObject) {
+    @IBAction func foodAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Food)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func oreAll(sender: AnyObject) {
+    @IBAction func oreAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Ore)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func gamesAll(sender: AnyObject) {
+    @IBAction func gamesAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Games)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func firearmsAll(sender: AnyObject) {
+    @IBAction func firearmsAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Firearms)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func medicineAll(sender: AnyObject) {
+    @IBAction func medicineAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Medicine)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func machinesAll(sender: AnyObject) {
+    @IBAction func machinesAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Machines)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func narcoticsAll(sender: AnyObject) {
+    @IBAction func narcoticsAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Narcotics)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func robotsAll(sender: AnyObject) {
+    @IBAction func robotsAll(_ sender: AnyObject) {
         plunderOrJettisonAll(TradeItemType.Robots)
         baysDisplay.redrawSelf()
     }
     
-    @IBAction func jettisonButton(sender: AnyObject) {
+    @IBAction func jettisonButton(_ sender: AnyObject) {
         if jettisonMode {
             // do nothing
         } else {
@@ -296,11 +296,11 @@ class PlunderVC: UIViewController, PlunderVCDelegate {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // make the delegate work
         if segue.identifier == "jettisonPicker" {
             print("relevant segue firing")
-            let modalVC: JettisonPickerVC = segue.destinationViewController as! JettisonPickerVC
+            let modalVC: JettisonPickerVC = segue.destination as! JettisonPickerVC
             modalVC.delegate = self
         }
     }

@@ -14,7 +14,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     let weaponsArray: [WeaponType] = [WeaponType.pulseLaser, WeaponType.beamLaser, WeaponType.militaryLaser, WeaponType.photonDisruptor]
     let shieldsArray: [ShieldType] = [ShieldType.energyShield, ShieldType.reflectiveShield]
-    let gadgetsArray: [GadgetType] = [GadgetType.CargoBays, GadgetType.AutoRepair, GadgetType.Navigation, GadgetType.Targeting, GadgetType.Cloaking]
+    let gadgetsArray: [GadgetType] = [GadgetType.cargoBays, GadgetType.autoRepair, GadgetType.navigation, GadgetType.targeting, GadgetType.cloaking]
     
     var tableView1TextArray: [String] = []
     var tableView2TextArray: [String] = ["first available item", "second available item", "third available item"]
@@ -35,19 +35,19 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell") 
-        self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
+        self.tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "topCell") 
+        self.tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
         
         refreshView()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         refreshView()
         self.tableView1.reloadData()
         self.tableView2.reloadData()
     }
     
-    @IBAction func SCIndexChanged(sender: AnyObject) {
+    @IBAction func SCIndexChanged(_ sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             print("weapons selected")
@@ -66,8 +66,8 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     func refreshView() {
@@ -204,7 +204,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     
     // TABLE VIEW METHODS************************************************************************
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tableView1 {
             return tableView1TextArray.count
         } else {
@@ -212,43 +212,43 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == tableView1 {
-            let cell: UITableViewCell = self.tableView1.dequeueReusableCellWithIdentifier("topCell")!
-            cell.textLabel?.text = self.tableView1TextArray[indexPath.row]
+            let cell: UITableViewCell = self.tableView1.dequeueReusableCell(withIdentifier: "topCell")!
+            cell.textLabel?.text = self.tableView1TextArray[(indexPath as NSIndexPath).row]
             return cell
         } else {
-            let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
-            cell.textLabel?.text = self.availableItems[indexPath.row].name
+            let cell: UITableViewCell = self.tableView2.dequeueReusableCell(withIdentifier: "bottomCell")!
+            cell.textLabel?.text = self.availableItems[(indexPath as NSIndexPath).row].name
             return cell
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == tableView1 {
             //print("indexPath.row: \(indexPath.row), shipItems.count: \(shipItems.count)")
             for item in shipItems {
                 print("\(item.name)")
             }
             
-            if indexPath.row <= (shipItems.count - 1) {
-                chosenItem = shipItems[indexPath.row]
+            if (indexPath as NSIndexPath).row <= (shipItems.count - 1) {
+                chosenItem = shipItems[(indexPath as NSIndexPath).row]
                 buyNotSell = false
-                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+                performSegue(withIdentifier: "gadgetDetail", sender: chosenItem)
             }
         } else {
-            chosenItem = availableItems[indexPath.row]
+            chosenItem = availableItems[(indexPath as NSIndexPath).row]
             buyNotSell = true
-            performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+            performSegue(withIdentifier: "gadgetDetail", sender: chosenItem)
         }
     }
     
     // SEGUE
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "gadgetDetail") {
-            let vc = (segue.destinationViewController as! EquipmentDetailVC)
+            let vc = (segue.destination as! EquipmentDetailVC)
             vc.chosenItem = chosenItem
             vc.buyNotSell = buyNotSell
         }

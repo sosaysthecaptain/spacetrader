@@ -23,8 +23,8 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell")
-        self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
+        self.tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "topCell")
+        self.tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
         
         updateData()
     }
@@ -137,7 +137,7 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     // TABLE VIEW METHODS*************************************************************************
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tableView1 {
             return tableView1TextArray.count
         } else {
@@ -145,19 +145,19 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == tableView1 {
-            let cell: UITableViewCell = self.tableView1.dequeueReusableCellWithIdentifier("topCell")!
-            cell.textLabel?.text = self.tableView1TextArray[indexPath.row]
+            let cell: UITableViewCell = self.tableView1.dequeueReusableCell(withIdentifier: "topCell")!
+            cell.textLabel?.text = self.tableView1TextArray[(indexPath as NSIndexPath).row]
             
             //set font used in table view cell label
             cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
             
             return cell
         } else {
-            let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
-            cell.textLabel?.text = self.tableView2TextArray[indexPath.row]
+            let cell: UITableViewCell = self.tableView2.dequeueReusableCell(withIdentifier: "bottomCell")!
+            cell.textLabel?.text = self.tableView2TextArray[(indexPath as NSIndexPath).row]
             
             //set font used in table view cell label
             cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
@@ -166,7 +166,7 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == tableView1 {
             //print("indexPath.row: \(indexPath.row), shipItems.count: \(shipItems.count)")
             
@@ -175,6 +175,6 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         // deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -47,11 +47,11 @@ class CommanderStatusVC: UIViewController  {
         traderLabel.text = "\(player.initialTraderSkill) (\(player.traderSkill))"
         engineerLabel.text = "\(player.initialEngineerSkill) (\(player.engineerSkill))"
         
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let cashFormatted = numberFormatter.stringFromNumber(player.credits)
-        let debtFormatted = numberFormatter.stringFromNumber(player.debt)
-        let netWorthFormatted = numberFormatter.stringFromNumber(player.netWorth)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
+        let debtFormatted = numberFormatter.string(from: NSNumber(player.debt))
+        let netWorthFormatted = numberFormatter.string(from: NSNumber(player.netWorth))
         
         cashLabel.text = "\(cashFormatted!) cr."
         debtLabel.text = "\(debtFormatted!) cr."

@@ -67,7 +67,7 @@ class EquipmentListVC: UIViewController {
     
     let weaponsArray: [WeaponType] = [WeaponType.pulseLaser, WeaponType.beamLaser, WeaponType.militaryLaser, WeaponType.photonDisruptor]
     let shieldsArray: [ShieldType] = [ShieldType.energyShield, ShieldType.reflectiveShield]
-    let gadgetsArray: [GadgetType] = [GadgetType.CargoBays, GadgetType.AutoRepair, GadgetType.Navigation, GadgetType.Targeting, GadgetType.Cloaking]
+    let gadgetsArray: [GadgetType] = [GadgetType.cargoBays, GadgetType.autoRepair, GadgetType.navigation, GadgetType.targeting, GadgetType.cloaking]
     
     var availableWeapons: [Weapon] = []
     var availableShields: [Shield] = []
@@ -84,7 +84,7 @@ class EquipmentListVC: UIViewController {
     
     
 
-    @IBAction func indexChanged(sender: AnyObject) {
+    @IBAction func indexChanged(_ sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
                 print("weapons selected")
@@ -106,8 +106,8 @@ class EquipmentListVC: UIViewController {
         }
     }
 
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     func populateLabels() {
@@ -117,26 +117,26 @@ class EquipmentListVC: UIViewController {
             
             let controlState = UIControlState()
             
-            item1.setTitle("", forState: controlState)
-            item2.setTitle("", forState: controlState)
-            item3.setTitle("", forState: controlState)
-            item4.setTitle("", forState: controlState)
-            item5.setTitle("", forState: controlState)
+            item1.setTitle("", for: controlState)
+            item2.setTitle("", for: controlState)
+            item3.setTitle("", for: controlState)
+            item4.setTitle("", for: controlState)
+            item5.setTitle("", for: controlState)
             
             if availableWeapons.count >= 1 {
-                item1.setTitle("\(availableWeapons[0].name)", forState: controlState)
+                item1.setTitle("\(availableWeapons[0].name)", for: controlState)
             }
             if availableWeapons.count >= 2 {
-                item2.setTitle("\(availableWeapons[1].name)", forState: controlState)
+                item2.setTitle("\(availableWeapons[1].name)", for: controlState)
             }
             if availableWeapons.count >= 3 {
-                item3.setTitle("\(availableWeapons[2].name)", forState: controlState)
+                item3.setTitle("\(availableWeapons[2].name)", for: controlState)
             }
             if availableWeapons.count >= 4 {
-                item4.setTitle("\(availableWeapons[3].name)", forState: controlState)
+                item4.setTitle("\(availableWeapons[3].name)", for: controlState)
             }
             if availableWeapons.count >= 5 {
-                item5.setTitle("\(availableWeapons[4].name)", forState: controlState)
+                item5.setTitle("\(availableWeapons[4].name)", for: controlState)
             }
             
         } else if selectorIndex == 1 {
@@ -145,26 +145,26 @@ class EquipmentListVC: UIViewController {
             
             let controlState = UIControlState()
             
-            item1.setTitle("", forState: controlState)
-            item2.setTitle("", forState: controlState)
-            item3.setTitle("", forState: controlState)
-            item4.setTitle("", forState: controlState)
-            item5.setTitle("", forState: controlState)
+            item1.setTitle("", for: controlState)
+            item2.setTitle("", for: controlState)
+            item3.setTitle("", for: controlState)
+            item4.setTitle("", for: controlState)
+            item5.setTitle("", for: controlState)
             
             if availableWeapons.count >= 1 {
-                item1.setTitle("\(availableShields[0].name)", forState: controlState)
+                item1.setTitle("\(availableShields[0].name)", for: controlState)
             }
             if availableWeapons.count >= 2 {
-                item2.setTitle("\(availableShields[1].name)", forState: controlState)
+                item2.setTitle("\(availableShields[1].name)", for: controlState)
             }
             if availableWeapons.count >= 3 {
-                item3.setTitle("\(availableShields[2].name)", forState: controlState)
+                item3.setTitle("\(availableShields[2].name)", for: controlState)
             }
             if availableWeapons.count >= 4 {
-                item4.setTitle("\(availableShields[3].name)", forState: controlState)
+                item4.setTitle("\(availableShields[3].name)", for: controlState)
             }
             if availableWeapons.count >= 5 {
-                item5.setTitle("\(availableShields[4].name)", forState: controlState)
+                item5.setTitle("\(availableShields[4].name)", for: controlState)
             }
             
         } else if selectorIndex == 2 {
@@ -173,26 +173,26 @@ class EquipmentListVC: UIViewController {
             
             let controlState = UIControlState()
             
-            item1.setTitle("", forState: controlState)
-            item2.setTitle("", forState: controlState)
-            item3.setTitle("", forState: controlState)
-            item4.setTitle("", forState: controlState)
-            item5.setTitle("", forState: controlState)
+            item1.setTitle("", for: controlState)
+            item2.setTitle("", for: controlState)
+            item3.setTitle("", for: controlState)
+            item4.setTitle("", for: controlState)
+            item5.setTitle("", for: controlState)
             
             if availableWeapons.count >= 1 {
-                item1.setTitle("\(availableGadgets[0].name)", forState: controlState)
+                item1.setTitle("\(availableGadgets[0].name)", for: controlState)
             }
             if availableWeapons.count >= 2 {
-                item2.setTitle("\(availableGadgets[1].name)", forState: controlState)
+                item2.setTitle("\(availableGadgets[1].name)", for: controlState)
             }
             if availableWeapons.count >= 3 {
-                item3.setTitle("\(availableGadgets[2].name)", forState: controlState)
+                item3.setTitle("\(availableGadgets[2].name)", for: controlState)
             }
             if availableWeapons.count >= 4 {
-                item4.setTitle("\(availableGadgets[3].name)", forState: controlState)
+                item4.setTitle("\(availableGadgets[3].name)", for: controlState)
             }
             if availableWeapons.count >= 5 {
-                item5.setTitle("\(availableGadgets[4].name)", forState: controlState)
+                item5.setTitle("\(availableGadgets[4].name)", for: controlState)
             }
         }
     }
@@ -232,9 +232,9 @@ class EquipmentListVC: UIViewController {
     func populateSlots() {
         // set all titles to empty
         let controlState = UIControlState()
-        slot1.setTitle("Slot 1: <empty>", forState: controlState)
-        slot2.setTitle("Slot 2: <empty>", forState: controlState)
-        slot3.setTitle("Slot 3: <empty>", forState: controlState)
+        slot1.setTitle("Slot 1: <empty>", for: controlState)
+        slot2.setTitle("Slot 2: <empty>", for: controlState)
+        slot3.setTitle("Slot 3: <empty>", for: controlState)
         
         // get correct number of slots
         var numberOfSlots = 0
@@ -252,21 +252,21 @@ class EquipmentListVC: UIViewController {
         // display correct number of slots
         switch numberOfSlots {
         case 0:
-            slot1.enabled = false
-            slot2.enabled = false
-            slot3.enabled = false
+            slot1.isEnabled = false
+            slot2.isEnabled = false
+            slot3.isEnabled = false
         case 1:
-            slot1.enabled = true
-            slot2.enabled = false
-            slot3.enabled = false
+            slot1.isEnabled = true
+            slot2.isEnabled = false
+            slot3.isEnabled = false
         case 2:
-            slot1.enabled = true
-            slot2.enabled = true
-            slot3.enabled = false
+            slot1.isEnabled = true
+            slot2.isEnabled = true
+            slot3.isEnabled = false
         case 3:
-            slot1.enabled = true
-            slot2.enabled = true
-            slot3.enabled = true
+            slot1.isEnabled = true
+            slot2.isEnabled = true
+            slot3.isEnabled = true
         default:
             print("error")
         }
@@ -276,64 +276,64 @@ class EquipmentListVC: UIViewController {
             let controlState = UIControlState()
             
             if player.commanderShip.weapon.count >= 1 {
-                slot1.setTitle("Slot 1: \(player.commanderShip.weapon[0].name)", forState: controlState)
+                slot1.setTitle("Slot 1: \(player.commanderShip.weapon[0].name)", for: controlState)
             }
             if player.commanderShip.weapon.count >= 2 {
-                slot2.setTitle("Slot 2: \(player.commanderShip.weapon[1].name)", forState: controlState)
+                slot2.setTitle("Slot 2: \(player.commanderShip.weapon[1].name)", for: controlState)
             }
             if player.commanderShip.weapon.count >= 3 {
-                slot3.setTitle("Slot 3: \(player.commanderShip.weapon[2].name)", forState: controlState)
+                slot3.setTitle("Slot 3: \(player.commanderShip.weapon[2].name)", for: controlState)
             }
         } else if selectorIndex == 1 {
             let controlState = UIControlState()
             
             if player.commanderShip.shield.count >= 1 {
-                slot1.setTitle("Slot 1: \(player.commanderShip.shield[0].name)", forState: controlState)
+                slot1.setTitle("Slot 1: \(player.commanderShip.shield[0].name)", for: controlState)
             }
             if player.commanderShip.shield.count >= 2 {
-                slot2.setTitle("Slot 2: \(player.commanderShip.shield[1].name)", forState: controlState)
+                slot2.setTitle("Slot 2: \(player.commanderShip.shield[1].name)", for: controlState)
             }
             if player.commanderShip.shield.count >= 3 {
-                slot3.setTitle("Slot 3: \(player.commanderShip.shield[2].name)", forState: controlState)
+                slot3.setTitle("Slot 3: \(player.commanderShip.shield[2].name)", for: controlState)
             }
             
         } else if selectorIndex == 2 {
             let controlState = UIControlState()
             
             if player.commanderShip.gadget.count >= 1 {
-                slot1.setTitle("Slot 1: \(player.commanderShip.gadget[0].name)", forState: controlState)
+                slot1.setTitle("Slot 1: \(player.commanderShip.gadget[0].name)", for: controlState)
             }
             if player.commanderShip.gadget.count >= 2 {
-                slot2.setTitle("Slot 2: \(player.commanderShip.gadget[1].name)", forState: controlState)
+                slot2.setTitle("Slot 2: \(player.commanderShip.gadget[1].name)", for: controlState)
             }
             if player.commanderShip.gadget.count >= 3 {
-                slot3.setTitle("Slot 3: \(player.commanderShip.gadget[2].name)", forState: controlState)
+                slot3.setTitle("Slot 3: \(player.commanderShip.gadget[2].name)", for: controlState)
             }
             
         }
     }
     
-    @IBAction func item1Button(sender: AnyObject) {
-        performSegueWithIdentifier("gadgetDetail", sender: nil)
+    @IBAction func item1Button(_ sender: AnyObject) {
+        performSegue(withIdentifier: "gadgetDetail", sender: nil)
     }
     
-    @IBAction func item2Button(sender: AnyObject) {
-        performSegueWithIdentifier("gadgetDetail", sender: nil)
+    @IBAction func item2Button(_ sender: AnyObject) {
+        performSegue(withIdentifier: "gadgetDetail", sender: nil)
     }
     
-    @IBAction func item3Button(sender: AnyObject) {
-        performSegueWithIdentifier("gadgetDetail", sender: nil)
+    @IBAction func item3Button(_ sender: AnyObject) {
+        performSegue(withIdentifier: "gadgetDetail", sender: nil)
     }
     
-    @IBAction func item4Button(sender: AnyObject) {
-        performSegueWithIdentifier("gadgetDetail", sender: nil)
+    @IBAction func item4Button(_ sender: AnyObject) {
+        performSegue(withIdentifier: "gadgetDetail", sender: nil)
     }
     
-    @IBAction func item5Button(sender: AnyObject) {
-        performSegueWithIdentifier("gadgetDetail", sender: nil)
+    @IBAction func item5Button(_ sender: AnyObject) {
+        performSegue(withIdentifier: "gadgetDetail", sender: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "gadgetDetail") {
             

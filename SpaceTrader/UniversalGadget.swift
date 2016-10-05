@@ -86,15 +86,15 @@ class UniversalGadget: NSObject, NSCoding {
             self.image = gadgetItem!.image
             
             switch gadgetItem!.type {
-                case GadgetType.CargoBays:
+                case GadgetType.cargoBays:
                     blurb = "Extra Cargo bays to store anything your ship can take on as cargo."
-                case GadgetType.AutoRepair:
+                case GadgetType.autoRepair:
                     blurb = "The Auto-Repair system works to reduce the damage your ship sustains in battle, and repairs some damage in between encounters. It also boosts all other engineering functions."
-                case GadgetType.Navigation:
+                case GadgetType.navigation:
                     blurb = "The Navigating System increases the overall Pilot skill of the ship, making it harder to hit in battle, and making it easier to flee an encounter."
-                case GadgetType.Targeting:
+                case GadgetType.targeting:
                     blurb = "The Targeting System increases the overall Fighter skill of the ship, which increases the amount of damage done to an opponent in battle."
-                case GadgetType.Cloaking:
+                case GadgetType.cloaking:
                     blurb = "The Cloaking Device can enable your ship to evade detection by an opponent, but only if the Engineer skill of your ship is greater than that of your opponent. It also makes your ship harder to hit in battle."
                 default:
                     print("error")
@@ -104,34 +104,34 @@ class UniversalGadget: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.typeIndex = decoder.decodeObjectForKey("typeIndex") as! Int
-            self.wType = WeaponType(rawValue: decoder.decodeObjectForKey("wType") as! Int!)!    // optional problem?
-            self.sType = ShieldType(rawValue: decoder.decodeObjectForKey("sType") as! Int!)!
-            self.gType = GadgetType(rawValue: decoder.decodeObjectForKey("gType") as! Int!)!
-            self.weaponItem = decoder.decodeObjectForKey("weaponItem") as! Weapon?
-            self.shieldItem = decoder.decodeObjectForKey("shieldItem") as! Shield?
-            self.gadgetItem = decoder.decodeObjectForKey("gadgetItem") as! Gadget?
+            self.typeIndex = decoder.decodeObject(forKey: "typeIndex") as! Int
+            self.wType = WeaponType(rawValue: decoder.decodeObject(forKey: "wType") as! Int!)!    // optional problem?
+            self.sType = ShieldType(rawValue: decoder.decodeObject(forKey: "sType") as! Int!)!
+            self.gType = GadgetType(rawValue: decoder.decodeObject(forKey: "gType") as! Int!)!
+            self.weaponItem = decoder.decodeObject(forKey: "weaponItem") as! Weapon?
+            self.shieldItem = decoder.decodeObject(forKey: "shieldItem") as! Shield?
+            self.gadgetItem = decoder.decodeObject(forKey: "gadgetItem") as! Gadget?
             
-            self.name = decoder.decodeObjectForKey("name") as! String
-            self.type = decoder.decodeObjectForKey("type") as! String
-            self.price = decoder.decodeObjectForKey("price") as! Int
-            self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
-            self.power = decoder.decodeObjectForKey("power") as! String
-            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
-            self.image = decoder.decodeObjectForKey("image") as! UIImage?
-            self.blurb = decoder.decodeObjectForKey("blurb") as! String
+            self.name = decoder.decodeObject(forKey: "name") as! String
+            self.type = decoder.decodeObject(forKey: "type") as! String
+            self.price = decoder.decodeObject(forKey: "price") as! Int
+            self.sellPrice = decoder.decodeObject(forKey: "sellPrice") as! Int
+            self.power = decoder.decodeObject(forKey: "power") as! String
+            self.techLevel = decoder.decodeObject(forKey: "techLevel") as! TechLevelType
+            self.image = decoder.decodeObject(forKey: "image") as! UIImage?
+            self.blurb = decoder.decodeObject(forKey: "blurb") as! String
     
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(typeIndex, forKey: "typeIndex")
-            encoder.encodeObject(wType?.rawValue, forKey: "wType")
-            encoder.encodeObject(sType?.rawValue, forKey: "sType")
-            encoder.encodeObject(gType?.rawValue, forKey: "gType")
-            encoder.encodeObject(weaponItem, forKey: "weaponItem")
-            encoder.encodeObject(shieldItem, forKey: "shieldItem")
-            encoder.encodeObject(gadgetItem, forKey: "gadgetItem")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(typeIndex, forKey: "typeIndex")
+            encoder.encode(wType?.rawValue, forKey: "wType")
+            encoder.encode(sType?.rawValue, forKey: "sType")
+            encoder.encode(gType?.rawValue, forKey: "gType")
+            encoder.encode(weaponItem, forKey: "weaponItem")
+            encoder.encode(shieldItem, forKey: "shieldItem")
+            encoder.encode(gadgetItem, forKey: "gadgetItem")
         }
     
 }

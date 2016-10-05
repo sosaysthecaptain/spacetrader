@@ -14,7 +14,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var portableSingularityJump: GrayButtonVanishes!
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         targetSystemDidChange()
     }
     
@@ -36,23 +36,23 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
         
         // enable jump button if player has a portable singularity
         if player.portableSingularity {
-            portableSingularityJump.enabled = true
+            portableSingularityJump.isEnabled = true
         } else {
-            portableSingularityJump.enabled = false
+            portableSingularityJump.isEnabled = false
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "singularityWarpSegueNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GalacticChartVC.messageHandler(_:)), name: NSNotification.Name(rawValue: "singularityWarpSegueNotification"), object: nil)
     }
     
-    func messageHandler(notification: NSNotification) {
+    func messageHandler(_ notification: Notification) {
         // force load the VC, to avoid getting tied up in the nav controller
         
-        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("warpViewVC")
-        self.presentViewController(vc, animated: true, completion: nil)
+        let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "warpViewVC")
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func closeButton() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     func targetSystemDidChange() {
@@ -62,32 +62,32 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
         
         // if target system is current system or in range, disable jump if enable
         if galaxy.targetSystemInRange || (galaxy.currentSystem!.name == galaxy.targetSystem!.name) {
-            portableSingularityJump.enabled = false
+            portableSingularityJump.isEnabled = false
         } else {
             // otherwise enable it, but only if the player has a portable singularity
             if player.portableSingularity {
-                portableSingularityJump.enabled = true
+                portableSingularityJump.isEnabled = true
             } else {
-                portableSingularityJump.enabled = false
+                portableSingularityJump.isEnabled = false
             }
         }
     }
     
-    @IBAction func usePortableSinglularity(sender: AnyObject) {
+    @IBAction func usePortableSinglularity(_ sender: AnyObject) {
         let title = "Use Portable Singularity"
         let message = "Are you sure you want to use your portable singularity?"
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
             self.warpByPortableSingularity()
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // nothing, dismiss alert
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func warpByPortableSingularity() {

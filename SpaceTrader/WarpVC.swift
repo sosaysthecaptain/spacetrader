@@ -63,12 +63,12 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
                 let title = "Large Debt"
                 let message = "Your debt is too large. You are not allowed to leave this system until your debt is lowered."
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // do nothing
                 }))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 galaxy.warp()
                 updateView()
@@ -82,7 +82,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         }
     }
     
-    @IBAction func galacticChartButton(sender: AnyObject) {
+    @IBAction func galacticChartButton(_ sender: AnyObject) {
         
     }
 
@@ -92,11 +92,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         
         updateView()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "fireWarpViewSegueNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WarpVC.messageHandler(_:)), name: NSNotification.Name(rawValue: "fireWarpViewSegueNotification"), object: nil)
     }
     
-    func messageHandler(notification: NSNotification) {
-        performSegueWithIdentifier("warpScreenSegue", sender: nil)
+    func messageHandler(_ notification: Notification) {
+        performSegue(withIdentifier: "warpScreenSegue", sender: nil)
     }
     
     func updateView() {
@@ -115,28 +115,28 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         // turn "warp" button into "track" button if system is out of range
         if galaxy.targetSystemInRange {
             let controlState = UIControlState()
-            warpButtonLabel.setTitle("Warp", forState: controlState)
+            warpButtonLabel.setTitle("Warp", for: controlState)
         } else {
             let controlState = UIControlState()
-            warpButtonLabel.setTitle("Track", forState: controlState)
+            warpButtonLabel.setTitle("Track", for: controlState)
         }
         
         // disable "warp" button if targetSystem == currentSystem
         if galaxy.targetSystem!.name == galaxy.currentSystem!.name {
-            warpButtonLabel.enabled = false
+            warpButtonLabel.isEnabled = false
         } else {
-            warpButtonLabel.enabled = true
+            warpButtonLabel.isEnabled = true
         }
         
         // set "Untracked" to enabled only if a system is tracked
         if galaxy.trackedSystem != nil {
-            untrackButtonLabel.enabled = true
+            untrackButtonLabel.isEnabled = true
         } else {
-            untrackButtonLabel.enabled = false
+            untrackButtonLabel.isEnabled = false
         }
         
         // shrink text to accomodate small screen
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         if screenSize.width < 350 {
             targetSystemLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
             
@@ -156,16 +156,16 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         }
         
         // bring untrack and warp button labels in front of scrollView
-        self.view.bringSubviewToFront(warpButtonLabel)
-        self.view.bringSubviewToFront(untrackButtonLabel)
+        self.view.bringSubview(toFront: warpButtonLabel)
+        self.view.bringSubview(toFront: untrackButtonLabel)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         updateView()
         shortRangeChart.redrawSelf()
         
         // return scrollView to top
-        let topScrollPoint = CGPointMake(0.0, -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
     }
     
@@ -173,7 +173,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         updateView()
     }
     
-    @IBAction func untrackPressed(sender: AnyObject) {
+    @IBAction func untrackPressed(_ sender: AnyObject) {
         // set tracked system to nil, update both view and chart
         galaxy.trackedSystem = nil
         updateView()

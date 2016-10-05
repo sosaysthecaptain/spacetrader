@@ -24,7 +24,7 @@ class FuelRepairModalVC: UIViewController {
     @IBOutlet weak var entryField: UITextField!
 
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         entryField.becomeFirstResponder()
         fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
         
@@ -37,7 +37,7 @@ class FuelRepairModalVC: UIViewController {
     }
     
     @IBAction func cancelButton() {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func okButton() {
@@ -48,11 +48,11 @@ class FuelRepairModalVC: UIViewController {
                 let amountOfFuelToBuy: Int = price! / player.commanderShip.costOfFuel
                 player.buyFuel(amountOfFuelToBuy)
                 delegate?.modalDidFinish()
-                self.dismissViewControllerAnimated(false, completion: nil)
+                self.dismiss(animated: false, completion: nil)
             } else {
                 player.buyRepairs(price!)
                 delegate?.modalDidFinish()
-                self.dismissViewControllerAnimated(false, completion: nil)
+                self.dismiss(animated: false, completion: nil)
             }
         }
     }
@@ -61,11 +61,11 @@ class FuelRepairModalVC: UIViewController {
         if fuelAsOpposedToRepair {
             player.buyMaxFuel()
             delegate?.modalDidFinish()
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         } else {
             player.buyMaxRepairs()
             delegate?.modalDidFinish()
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         }
         
         

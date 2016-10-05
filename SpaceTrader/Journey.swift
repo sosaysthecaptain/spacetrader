@@ -64,10 +64,10 @@ class Journey: NSObject, NSCoding {
         
         if !travelBySingularity {
             let passedText = NSString(string: "notification")
-            NSNotificationCenter.defaultCenter().postNotificationName("fireWarpViewSegueNotification", object: passedText)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "fireWarpViewSegueNotification"), object: passedText)
         } else {
             let passedText = NSString(string: "notification")
-            NSNotificationCenter.defaultCenter().postNotificationName("singularityWarpSegueNotification", object: passedText)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "singularityWarpSegueNotification"), object: passedText)
         }
         
         
@@ -91,7 +91,7 @@ class Journey: NSObject, NSCoding {
         var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
         
         // encounters are half as likely if you're in a flea
-        if player.commanderShip.type == ShipType.Flea {
+        if player.commanderShip.type == ShipType.flea {
             encounterTest = encounterTest / 2
         }
         
@@ -599,7 +599,7 @@ class Journey: NSObject, NSCoding {
             // in this case, arrival alert SpecialSpacetimeFabricRip
             let random = rand(100)
             if random > 70 {
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialSpacetimeFabricRip)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialSpacetimeFabricRip)
                 // randomly choose planet
                 let randomPlanetIndex = rand(galaxy.planets.count)
                 galaxy.currentSystem = galaxy.planets[randomPlanetIndex]
@@ -642,7 +642,7 @@ class Journey: NSObject, NSCoding {
         
         // fire segue back to sell (or something else later)
         var passedText = NSString(string: "done")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterModalFireNotification"), object: passedText)
         
         // increment no-claim
         if player.insurance {
@@ -656,16 +656,16 @@ class Journey: NSObject, NSCoding {
         
         // if uneventful trip, fire alert
         if uneventfulTrip {
-            galaxy.alertsToFireOnArrival.append(AlertID.TravelUneventfulTrip)
+            galaxy.alertsToFireOnArrival.append(AlertID.travelUneventfulTrip)
         }
         
         // debt notifications
         if (player.debtRatio > 1.5) && (player.debt > 15000) {
-            galaxy.alertsToFireOnArrival.append(AlertID.DebtTooLargeGrounded)
+            galaxy.alertsToFireOnArrival.append(AlertID.debtTooLargeGrounded)
         } else if (player.debtRatio > 1.25) && (player.debt > 10000) {
-            galaxy.alertsToFireOnArrival.append(AlertID.DebtWarning)
+            galaxy.alertsToFireOnArrival.append(AlertID.debtWarning)
         } else if (player.debt > 0) && (player.days & 3 == 0) && (player.remindLoans) {
-            galaxy.alertsToFireOnArrival.append(AlertID.DebtReminder)
+            galaxy.alertsToFireOnArrival.append(AlertID.debtReminder)
         }
         
         //
@@ -677,7 +677,7 @@ class Journey: NSObject, NSCoding {
                 player.buyMaxFuel()
             } else {
                 // too broke message
-                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFFuel)
+                galaxy.alertsToFireOnArrival.append(AlertID.arrivalIFFuel)
             }
         }
         
@@ -688,7 +688,7 @@ class Journey: NSObject, NSCoding {
                 player.buyMaxRepairs()
             } else {
                 // too broke message
-                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFRepairs)
+                galaxy.alertsToFireOnArrival.append(AlertID.arrivalIFRepairs)
             }
         }
         
@@ -700,7 +700,7 @@ class Journey: NSObject, NSCoding {
                 player.alreadyPaidForNewspaper = true
             } else {
                 // too broke message
-                galaxy.alertsToFireOnArrival.append(AlertID.ArrivalIFNewspaper)
+                galaxy.alertsToFireOnArrival.append(AlertID.arrivalIFNewspaper)
             }
         }
     }
@@ -740,36 +740,36 @@ class Journey: NSObject, NSCoding {
     // NSCODING METHODS
     
     required init(coder decoder: NSCoder) {
-        self.origin = decoder.decodeObjectForKey("origin") as! StarSystem
-        self.destination = decoder.decodeObjectForKey("destination") as! StarSystem
-        self.clicks = decoder.decodeObjectForKey("clicks") as! Int
-        self.pirate = decoder.decodeObjectForKey("pirate") as! Bool
-        self.police = decoder.decodeObjectForKey("police") as! Bool
-        self.trader = decoder.decodeObjectForKey("trader") as! Bool
-        self.mantis = decoder.decodeObjectForKey("mantis") as! Bool
-        self.currentEncounter = decoder.decodeObjectForKey("currentEncounter") as! Encounter?
-        self.localPolitics = decoder.decodeObjectForKey("localPolitics") as! Politics
-        self.strengthPirates = decoder.decodeObjectForKey("strengthPirates") as! Int
-        self.strengthPolice = decoder.decodeObjectForKey("strengthPolice") as! Int
-        self.strengthTraders = decoder.decodeObjectForKey("strengthTraders") as! Int
-        self.uneventfulTrip = decoder.decodeObjectForKey("uneventfulTrip") as! Bool
+        self.origin = decoder.decodeObject(forKey: "origin") as! StarSystem
+        self.destination = decoder.decodeObject(forKey: "destination") as! StarSystem
+        self.clicks = decoder.decodeObject(forKey: "clicks") as! Int
+        self.pirate = decoder.decodeObject(forKey: "pirate") as! Bool
+        self.police = decoder.decodeObject(forKey: "police") as! Bool
+        self.trader = decoder.decodeObject(forKey: "trader") as! Bool
+        self.mantis = decoder.decodeObject(forKey: "mantis") as! Bool
+        self.currentEncounter = decoder.decodeObject(forKey: "currentEncounter") as! Encounter?
+        self.localPolitics = decoder.decodeObject(forKey: "localPolitics") as! Politics
+        self.strengthPirates = decoder.decodeObject(forKey: "strengthPirates") as! Int
+        self.strengthPolice = decoder.decodeObject(forKey: "strengthPolice") as! Int
+        self.strengthTraders = decoder.decodeObject(forKey: "strengthTraders") as! Int
+        self.uneventfulTrip = decoder.decodeObject(forKey: "uneventfulTrip") as! Bool
         
         super.init()
     }
     
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(origin, forKey: "origin")
-        encoder.encodeObject(destination, forKey: "destination")
-        encoder.encodeObject(clicks, forKey: "clicks")
-        encoder.encodeObject(pirate, forKey: "pirate")
-        encoder.encodeObject(police, forKey: "police")
-        encoder.encodeObject(trader, forKey: "trader")
-        encoder.encodeObject(mantis, forKey: "mantis")
-        encoder.encodeObject(currentEncounter, forKey: "currentEncounter")
-        encoder.encodeObject(localPolitics, forKey: "localPolitics")
-        encoder.encodeObject(strengthPirates, forKey: "strengthPirates")
-        encoder.encodeObject(strengthPolice, forKey: "strengthPolice")
-        encoder.encodeObject(strengthTraders, forKey: "strengthTraders")
-        encoder.encodeObject(uneventfulTrip, forKey: "uneventfulTrip")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(origin, forKey: "origin")
+        encoder.encode(destination, forKey: "destination")
+        encoder.encode(clicks, forKey: "clicks")
+        encoder.encode(pirate, forKey: "pirate")
+        encoder.encode(police, forKey: "police")
+        encoder.encode(trader, forKey: "trader")
+        encoder.encode(mantis, forKey: "mantis")
+        encoder.encode(currentEncounter, forKey: "currentEncounter")
+        encoder.encode(localPolitics, forKey: "localPolitics")
+        encoder.encode(strengthPirates, forKey: "strengthPirates")
+        encoder.encode(strengthPolice, forKey: "strengthPolice")
+        encoder.encode(strengthTraders, forKey: "strengthTraders")
+        encoder.encode(uneventfulTrip, forKey: "uneventfulTrip")
     }
 }

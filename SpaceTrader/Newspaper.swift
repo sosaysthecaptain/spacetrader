@@ -44,7 +44,7 @@ class Newspaper: NSObject, NSCoding {
             getCannedHeadline()
             repeat {
                 print("executing")
-                stories.removeAtIndex(stories.count - 1)
+                stories.remove(at: stories.count - 1)
                 getCannedHeadline()
             } while stories[stories.count-1] == stories[stories.count-2]
         }
@@ -68,7 +68,7 @@ class Newspaper: NSObject, NSCoding {
         while drawFrom.count > 0 {
             let index = rand(drawFrom.count)
             output.append(drawFrom[index])
-            drawFrom.removeAtIndex(index)
+            drawFrom.remove(at: index)
         }
         stories = output
     }
@@ -423,13 +423,13 @@ class Newspaper: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.stories = decoder.decodeObjectForKey("stories") as! [String]
+        self.stories = decoder.decodeObject(forKey: "stories") as! [String]
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(stories, forKey: "stories")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(stories, forKey: "stories")
     }
 }
 

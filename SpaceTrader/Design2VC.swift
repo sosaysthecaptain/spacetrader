@@ -123,14 +123,14 @@ class Design2VC: UIViewController {
         percentMaxLabel.text = "\(Int(percentUsed))%"
         
         // set price labels, formatted
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let shipCostFormatted = numberFormatter.stringFromNumber(shipCost)
-        let crowdingPenaltyFormatted = numberFormatter.stringFromNumber(crowdingPenalty)
-        let designFeeFormatted = numberFormatter.stringFromNumber(designFee)
-        let lessTradeInFormatted = numberFormatter.stringFromNumber(lessTradeIn)
-        let totalCostFormatted = numberFormatter.stringFromNumber(totalCost)
+        let shipCostFormatted = numberFormatter.string(from: NSNumber(shipCost))
+        let crowdingPenaltyFormatted = numberFormatter.string(from: NSNumber(crowdingPenalty))
+        let designFeeFormatted = numberFormatter.string(from: NSNumber(designFee))
+        let lessTradeInFormatted = numberFormatter.string(from: NSNumber(lessTradeIn))
+        let totalCostFormatted = numberFormatter.string(from: NSNumber(totalCost))
         
         shipCostLabel.text = "\(shipCostFormatted!) cr."
         crowdingPenaltyLabel.text = "\(crowdingPenaltyFormatted!) cr."
@@ -140,9 +140,9 @@ class Design2VC: UIViewController {
         
         // disable "Construct Ship" if over 100% units used
         if unitsInUse > maxUnits {
-            constructShipOutlet.enabled = false
+            constructShipOutlet.isEnabled = false
         } else {
-            constructShipOutlet.enabled = true
+            constructShipOutlet.isEnabled = true
         }
     }
     
@@ -334,7 +334,7 @@ class Design2VC: UIViewController {
         totalCost = shipCost + crowdingPenalty + designFee + lessTradeIn
     }
     
-    @IBAction func cancelDesignAction(sender: AnyObject) {
+    @IBAction func cancelDesignAction(_ sender: AnyObject) {
         // reset values (probably not necessary)
         player.selectedConstructShipSize = SizeType.Medium
         cargoBaysStepper.value = cargoBaysStepper.minimumValue
@@ -345,83 +345,83 @@ class Design2VC: UIViewController {
         gadgetSlotsStepper.value = gadgetSlotsStepper.minimumValue
         
         // close window, return to shipyard
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // CONSTRUCT SHIP FUNCTIONS
     
     // called on button press. Asks player if he wants to transfer escape pod
-    @IBAction func constructShipAction(sender: AnyObject) {
+    @IBAction func constructShipAction(_ sender: AnyObject) {
         // ask about escape pod
         let title = "Transfer Escape Pod"
         let message = "I'll transfer your escape pod to your new ship for 200 credits."
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Do It!", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Do It!", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // call build ship, with escape pod
             self.constructShipAreYouSure(true)
         }))
-        alertController.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // call build ship with no escape pod
             self.constructShipAreYouSure(false)
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // verifies player wants to proceed. Either tells him he can't afford it, he has too many crew, or calls constructShip()
-    func constructShipAreYouSure(escapePod: Bool) {
+    func constructShipAreYouSure(_ escapePod: Bool) {
         if player.credits < totalCost {
             // tell player he doesn't have enough money
             let title = "Not Enough Money"
             let message = "You don't have enough money to buy this ship."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else if player.commanderShip.crew.count > (Int(crewQuartersStepper.value) + 1) {
             // if not enough crew slots, refuse transaction
             let title = "Too Many Crewmembers"
             let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // ask if he's sure and proceed
             let title = "Buy New Ship"
             let message = "Are you sure you want to trade in your \(player.commanderShip.name) for a new \(player.selectedConstructShipName), and transfer your unique equipment to the new ship?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // call constructShip
                 self.constructShip(escapePod)
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
         
         
     }
     
     // actually constructs ship
-    func constructShip(transferEscapePod: Bool) {
+    func constructShip(_ transferEscapePod: Bool) {
         // charge money
         player.credits -= totalCost
         
         // create new ship
-        let newShip = SpaceShip(type: ShipType.Custom, IFFStatus: IFFStatusType.Player)
+        let newShip = SpaceShip(type: ShipType.custom, IFFStatus: IFFStatusType.Player)
         
         // enter selected values into new ship
         newShip.name = player.selectedConstructShipName
@@ -442,7 +442,7 @@ class Design2VC: UIViewController {
             newShip.weapon.append(Weapon(type: WeaponType.morgansLaser))
         }
         if player.commanderShip.getFuelCompactorStatus() {
-            newShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
+            newShip.gadget.append(Gadget(type: GadgetType.fuelCompactor))
         }
         if player.commanderShip.getLightningShieldStatus() {
             newShip.shield.append(Shield(type: ShieldType.lightningShield))
@@ -472,43 +472,43 @@ class Design2VC: UIViewController {
         let title = "Thank You!"
         let message = "\(shipyardName) thanks you for your business!"
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // done. Close window, returning to shipyard. Use unwind segue
             //self.performSegueWithIdentifier("unwind", sender: nil)
             // TODO: there must be a better way to do this?
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // stepper set functions--not at all interesting
-    @IBAction func cargoBaysStepperSet(sender: AnyObject) {
+    @IBAction func cargoBaysStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func rangeBaysStepperSet(sender: AnyObject) {
+    @IBAction func rangeBaysStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func hullStrengthStepperSet(sender: AnyObject) {
+    @IBAction func hullStrengthStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func weaponSlotStepperSet(sender: AnyObject) {
+    @IBAction func weaponSlotStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func shieldSlotsStepperSet(sender: AnyObject) {
+    @IBAction func shieldSlotsStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func gadgetsSlotStepperSet(sender: AnyObject) {
+    @IBAction func gadgetsSlotStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     
-    @IBAction func crewQuartersStepperSet(sender: AnyObject) {
+    @IBAction func crewQuartersStepperSet(_ sender: AnyObject) {
         updateDisplay()
     }
     

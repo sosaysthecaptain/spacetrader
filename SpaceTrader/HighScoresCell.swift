@@ -21,18 +21,18 @@ class HighScoresCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setCell(commander: String, days: Int, score: Int, netWorth: Int) {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let daysFormatted = numberFormatter.stringFromNumber(days)
-        let netWorthFormatted = numberFormatter.stringFromNumber(netWorth)
-        let scoreFormatted = numberFormatter.stringFromNumber(score)
+    func setCell(_ commander: String, days: Int, score: Int, netWorth: Int) {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let daysFormatted = numberFormatter.string(from: NSNumber(days))
+        let netWorthFormatted = numberFormatter.string(from: NSNumber(netWorth))
+        let scoreFormatted = numberFormatter.string(from: NSNumber(score))
         
         nameLabel.text = commander
         scoreLabel.text = "Score: \(scoreFormatted!)"

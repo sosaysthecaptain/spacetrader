@@ -40,10 +40,10 @@ class SellPickerVC: UIViewController {
         let controlState = UIControlState()
         if sellAsOpposedToDump {
             self.title = "Sell \(commodity.rawValue)"
-            sellButton.setTitle("Sell", forState: controlState)
+            sellButton.setTitle("Sell", for: controlState)
         } else {
             self.title = "Dump \(commodity.rawValue)"
-            sellButton.setTitle("Dump", forState: controlState)
+            sellButton.setTitle("Dump", for: controlState)
         }
         
         
@@ -70,47 +70,47 @@ class SellPickerVC: UIViewController {
         
         // disable sell if quantity is zero
         if slider.value == 0 {
-            sellButton.enabled = false
+            sellButton.isEnabled = false
         } else {
-            sellButton.enabled = true
+            sellButton.isEnabled = true
         }
     }
     
-    @IBAction func sliderMoved(sender: AnyObject) {
+    @IBAction func sliderMoved(_ sender: AnyObject) {
         updateUI()
     }
     
-    @IBAction func sellPressed(sender: AnyObject) {
+    @IBAction func sellPressed(_ sender: AnyObject) {
         
         
         if sellAsOpposedToDump {
             // sell and close
             player.sell(commodity, quantity: Int(slider.value))
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         } else {
             // dump--confirm
             let title = "Dump \(commodity.rawValue)?"
             let message = "Are you sure you want to dump \(Int(slider.value)) bays of \(commodity.rawValue)?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dump", style: UIAlertActionStyle.Destructive ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dump", style: UIAlertActionStyle.destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dump and close
                 player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
                 //self.navigationController?.popToRootViewControllerAnimated(true)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
     
-    @IBAction func cancelPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
 }

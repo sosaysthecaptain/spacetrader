@@ -79,17 +79,17 @@ class DesignVC: UIViewController, UITextFieldDelegate {
     }
     
     // delegate protocol that makes the return button close the keyboard
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    @IBAction func cancelPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -97,7 +97,7 @@ class DesignVC: UIViewController, UITextFieldDelegate {
     
     
     // set back button text for child VCs to "Back"
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed

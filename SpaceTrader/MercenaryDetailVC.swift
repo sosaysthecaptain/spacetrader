@@ -38,30 +38,30 @@ class MercenaryDetailVC: UIViewController {
         
         let controlState = UIControlState()
         if hireNotFire! {
-            hireButtonLabel.setTitle("Hire", forState: controlState)
+            hireButtonLabel.setTitle("Hire", for: controlState)
         } else {
-            hireButtonLabel.setTitle("Fire", forState: controlState)
+            hireButtonLabel.setTitle("Fire", for: controlState)
             // impossible to fire Wild, Jarek, Ziyal
             if selectedMercenary!.ID == MercenaryName.jarek || selectedMercenary!.ID == MercenaryName.wild || selectedMercenary!.ID == MercenaryName.ziyal {
-                hireButtonLabel.enabled = false
+                hireButtonLabel.isEnabled = false
             } else {
-                hireButtonLabel.enabled = true
+                hireButtonLabel.isEnabled = true
             }
         }
     }
     
-    @IBAction func hireFireButton(sender: AnyObject) {
+    @IBAction func hireFireButton(_ sender: AnyObject) {
         if hireNotFire! {
             if (player.commanderShip.crew.count + 1) >= player.commanderShip.crewQuarters {
                 let title = "No Quarters Available"
                 let message = "You do not have quarters available for \(selectedMercenary!.name)."
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // do nothing
                 }))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 hireMercenary()
             }
@@ -69,16 +69,16 @@ class MercenaryDetailVC: UIViewController {
             let title = "Fire Mercenary"
             let message = "Are you sure you want fire \(selectedMercenary!.name)?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 self.fireMercenary()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -94,9 +94,9 @@ class MercenaryDetailVC: UIViewController {
             }
             currentIndex += 1
         }
-        galaxy.currentSystem!.mercenaries.removeAtIndex(indexOfMercenary)
+        galaxy.currentSystem!.mercenaries.remove(at: indexOfMercenary)
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
         //self.performSegueWithIdentifier("unwind", sender: self)
         //performSegueWithIdentifier("finishedMercenaryDetail", sender: nil)
         //dismissViewControllerAnimated(true, completion: nil)
@@ -112,9 +112,9 @@ class MercenaryDetailVC: UIViewController {
             }
             currentIndex += 1
         }
-        player.commanderShip.crew.removeAtIndex(indexOfMercenary)
+        player.commanderShip.crew.remove(at: indexOfMercenary)
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
         //self.performSegueWithIdentifier("unwind", sender: self)
         //performSegueWithIdentifier("finishedMercenaryDetail", sender: nil)
         //dismissViewControllerAnimated(true, completion: nil)

@@ -36,11 +36,11 @@ class NewGameVC: UIViewController {
         }
 
         // send view to background. Not possible to do this in IB
-        self.view.sendSubviewToBack(backgroundImage)
+        self.view.sendSubview(toBack: backgroundImage)
         
         // layout constraints
         // adjust sizes if needed
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         
         if screenSize.height > 730 {
             // 5.5" screen
@@ -89,37 +89,37 @@ class NewGameVC: UIViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if foundGame {
-            performSegueWithIdentifier("restoreSegue", sender: nil)
+            performSegue(withIdentifier: "restoreSegue", sender: nil)
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    @IBAction func newGamePressed(sender: AnyObject) {
-        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
-        self.presentViewController(vc, animated: true, completion: nil)
+    @IBAction func newGamePressed(_ sender: AnyObject) {
+        let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "newCommander")
+        self.present(vc, animated: true, completion: nil)
     }
 
     
     // PERSISTANCE METHODS
     func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         return documentsFolderPath
     }
     
-    func fileInDocumentsDirectory(filename: String) -> String {
+    func fileInDocumentsDirectory(_ filename: String) -> String {
         return documentsDirectory().stringByAppendingPathComponent(filename)
     }
     
     func loadAutosavedGame() -> Bool {
         let path = fileInDocumentsDirectory("autosave.plist")
-        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? AutosavedGame {
+        if let autosaveGame = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AutosavedGame {
 
-            if autosaveGame.savedCommander.endGameType != EndGameStatus.GameNotOver {
+            if autosaveGame.savedCommander.endGameType != EndGameStatus.gameNotOver {
                 return false
             }
             

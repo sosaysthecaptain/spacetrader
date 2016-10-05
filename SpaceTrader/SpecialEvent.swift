@@ -788,7 +788,7 @@ class SpecialEvents: NSObject, NSCoding {
 //        // Do declined quests ever need to go away?
 //    }
     
-    func addQuestString(string: String, ID: QuestID) {
+    func addQuestString(_ string: String, ID: QuestID) {
         // empty string removes this quest
         var found = false
         for quest in quests {
@@ -916,7 +916,7 @@ class SpecialEvents: NSObject, NSCoding {
                 addQuestString("", ID: QuestID.experiment)  // inactivate quest
                 galaxy.spaceTimeMessedUp = true
                 galaxy.setSpecial("Daled", id: SpecialEventID.experimentFailed)
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialExperimentPerformed)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialExperimentPerformed)
             }
         }
         
@@ -925,11 +925,11 @@ class SpecialEvents: NSObject, NSCoding {
             jarekElapsedTime += 1
             
             if jarekElapsedTime == 6 {
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedJarek)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerConcernedJarek)
             }
             
             if jarekElapsedTime == 12 {
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientJarek)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerImpatientJarek)
                 // jarek gets less helpful
                 addQuestString("Jarek is wondering why the journey is taking so long, and is no longer of much help in negotiating trades.", ID: QuestID.jarek)
                 for person in player.commanderShip.crew {
@@ -986,13 +986,13 @@ class SpecialEvents: NSObject, NSCoding {
             
             if reactorElapsedTime == 6 {
                 print("time for ReactorWarningFuel")
-                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningFuel)
+                galaxy.alertsToFireOnArrival.append(AlertID.reactorWarningFuel)
             } else if reactorElapsedTime == 12 {
                 print("ReactorWarningFuelGone")
-                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningFuelGone)
+                galaxy.alertsToFireOnArrival.append(AlertID.reactorWarningFuelGone)
             } else if reactorElapsedTime == 14 {
                 print("ReactorWarningTemp")
-                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningTemp)
+                galaxy.alertsToFireOnArrival.append(AlertID.reactorWarningTemp)
             } else if reactorElapsedTime == 16 {
                 galaxy.meltdownOnArrival = true
             }
@@ -1004,11 +1004,11 @@ class SpecialEvents: NSObject, NSCoding {
             
             if wildElapsedTime == 6 {
                 // mildly annoyed
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedWild)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerConcernedWild)
             }
             if wildElapsedTime == 12 {
                 // annoyed, stops helping
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientWild)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerImpatientWild)
                 
                 for person in player.commanderShip.crew {
                     if person.ID == MercenaryName.wild {
@@ -1026,7 +1026,7 @@ class SpecialEvents: NSObject, NSCoding {
                 addQuestString("", ID: QuestID.wild)
                 player.specialEvents.wildOnBoard = false
                 wildElapsedTime = -1
-                galaxy.alertsToFireOnArrival.append(AlertID.WildLeavesShip)
+                galaxy.alertsToFireOnArrival.append(AlertID.wildLeavesShip)
             }
         }
         
@@ -1035,12 +1035,12 @@ class SpecialEvents: NSObject, NSCoding {
             princessElapsedTime += 1
             
             if princessElapsedTime == 8 {
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientPrincess)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerImpatientPrincess)
                 addQuestString("Return Ziyal to Galvon.", ID: QuestID.princess)
                 
             }
             if princessElapsedTime == 16 {
-                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedPrincess)
+                galaxy.alertsToFireOnArrival.append(AlertID.specialPassengerConcernedPrincess)
                 addQuestString("Return Ziyal to Galvon. She is becoming anxious to arrive at home, and is no longer of any help in engineering functions.", ID: QuestID.princess)
                 // PRINCESS NEEDS TO BE PROPERLY IN CREW
                 for person in player.commanderShip.crew {
@@ -1065,7 +1065,7 @@ class SpecialEvents: NSObject, NSCoding {
                 let oldFood = player.commanderShip.foodOnBoard      // DEBUG ONLY
                 player.commanderShip.tribbles += player.commanderShip.foodOnBoard * 400
                 player.commanderShip.foodOnBoard -= Int(Double(player.commanderShip.foodOnBoard) * 0.3)
-                galaxy.alertsToFireOnArrival.append(AlertID.TribblesAteFood)
+                galaxy.alertsToFireOnArrival.append(AlertID.tribblesAteFood)
                 print("tribbles ate food. Food was \(oldFood), now \(player.commanderShip.foodOnBoard), tribbles now \(player.commanderShip.tribbles).")
             }
             
@@ -1074,7 +1074,7 @@ class SpecialEvents: NSObject, NSCoding {
                 let oldNarc = player.commanderShip.narcoticsOnBoard         // DEBUG ONLY
                 player.commanderShip.tribbles -= player.commanderShip.narcoticsOnBoard * 400
                 player.commanderShip.narcoticsOnBoard -= Int(Double(player.commanderShip.narcoticsOnBoard) * 0.3)
-                galaxy.alertsToFireOnArrival.append(AlertID.TribblesMostDead)
+                galaxy.alertsToFireOnArrival.append(AlertID.tribblesMostDead)
                 print("tribbles ate narcotics. Food was \(oldNarc), now \(player.commanderShip.narcoticsOnBoard), tribbles now \(player.commanderShip.tribbles).")
             }
             
@@ -1088,69 +1088,69 @@ class SpecialEvents: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.special = decoder.decodeObjectForKey("special") as! Bool
-        self.specialEventTitle = decoder.decodeObjectForKey("specialEventTitle") as! String
-        self.specialEventText = decoder.decodeObjectForKey("specialEventText") as! String
-        self.yesDismissButtonText = decoder.decodeObjectForKey("yesDismissButtonText") as! String
-        self.noButtonText = decoder.decodeObjectForKey("noButtonText") as! String
-        self.yesDismissButtonEnabled = decoder.decodeObjectForKey("yesDismissButtonEnabled") as! Bool
-        self.noButtonEnabled = decoder.decodeObjectForKey("noButtonEnabled") as! Bool
+        self.special = decoder.decodeObject(forKey: "special") as! Bool
+        self.specialEventTitle = decoder.decodeObject(forKey: "specialEventTitle") as! String
+        self.specialEventText = decoder.decodeObject(forKey: "specialEventText") as! String
+        self.yesDismissButtonText = decoder.decodeObject(forKey: "yesDismissButtonText") as! String
+        self.noButtonText = decoder.decodeObject(forKey: "noButtonText") as! String
+        self.yesDismissButtonEnabled = decoder.decodeObject(forKey: "yesDismissButtonEnabled") as! Bool
+        self.noButtonEnabled = decoder.decodeObject(forKey: "noButtonEnabled") as! Bool
         
-        self.quests = decoder.decodeObjectForKey("quests") as! [Quest]
+        self.quests = decoder.decodeObject(forKey: "quests") as! [Quest]
         
-        self.artifactOnBoard = decoder.decodeObjectForKey("artifactOnBoard") as! Bool
-        self.wildOnBoard = decoder.decodeObjectForKey("wildOnBoard") as! Bool
-        self.reactorOnBoard = decoder.decodeObjectForKey("reactorOnBoard") as! Bool
-        self.tribblesOnBoard = decoder.decodeObjectForKey("tribblesOnBoard") as! Bool
+        self.artifactOnBoard = decoder.decodeObject(forKey: "artifactOnBoard") as! Bool
+        self.wildOnBoard = decoder.decodeObject(forKey: "wildOnBoard") as! Bool
+        self.reactorOnBoard = decoder.decodeObject(forKey: "reactorOnBoard") as! Bool
+        self.tribblesOnBoard = decoder.decodeObject(forKey: "tribblesOnBoard") as! Bool
         
-        self.experimentCountdown = decoder.decodeObjectForKey("experimentCountdown") as! Int
-        self.jarekElapsedTime = decoder.decodeObjectForKey("jarekElapsedTime") as! Int
-        self.gemulonInvasionCountdown = decoder.decodeObjectForKey("gemulonInvasionCountdown") as! Int
-        self.reactorElapsedTime = decoder.decodeObjectForKey("reactorElapsedTime") as! Int
-        self.wildElapsedTime = decoder.decodeObjectForKey("wildElapsedTime") as! Int
-        self.princessElapsedTime = decoder.decodeObjectForKey("princessElapsedTime") as! Int
-        self.marieCelesteStatus = decoder.decodeObjectForKey("marieCelesteStatus") as! Int
+        self.experimentCountdown = decoder.decodeObject(forKey: "experimentCountdown") as! Int
+        self.jarekElapsedTime = decoder.decodeObject(forKey: "jarekElapsedTime") as! Int
+        self.gemulonInvasionCountdown = decoder.decodeObject(forKey: "gemulonInvasionCountdown") as! Int
+        self.reactorElapsedTime = decoder.decodeObject(forKey: "reactorElapsedTime") as! Int
+        self.wildElapsedTime = decoder.decodeObject(forKey: "wildElapsedTime") as! Int
+        self.princessElapsedTime = decoder.decodeObject(forKey: "princessElapsedTime") as! Int
+        self.marieCelesteStatus = decoder.decodeObject(forKey: "marieCelesteStatus") as! Int
         
-        if let currentSpecialEventIDRaw = decoder.decodeObjectForKey("currentSpecialEventID") as! Int! {
+        if let currentSpecialEventIDRaw = decoder.decodeObject(forKey: "currentSpecialEventID") as! Int! {
             self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw)
         }
         
-        self.captainAhabHappened = decoder.decodeObjectForKey("captainAhabHappened") as! Bool
-        self.captainConradHappened = decoder.decodeObjectForKey("captainConradHappened") as! Bool
-        self.captainHuieHappened = decoder.decodeObjectForKey("captainHuieHappened") as! Bool
+        self.captainAhabHappened = decoder.decodeObject(forKey: "captainAhabHappened") as! Bool
+        self.captainConradHappened = decoder.decodeObject(forKey: "captainConradHappened") as! Bool
+        self.captainHuieHappened = decoder.decodeObject(forKey: "captainHuieHappened") as! Bool
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(special, forKey: "special")
-        encoder.encodeObject(specialEventTitle, forKey: "specialEventTitle")
-        encoder.encodeObject(specialEventText, forKey: "specialEventText")
-        encoder.encodeObject(yesDismissButtonText, forKey: "yesDismissButtonText")
-        encoder.encodeObject(noButtonText, forKey: "noButtonText")
-        encoder.encodeObject(yesDismissButtonEnabled, forKey: "yesDismissButtonEnabled")
-        encoder.encodeObject(noButtonEnabled, forKey: "noButtonEnabled")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(special, forKey: "special")
+        encoder.encode(specialEventTitle, forKey: "specialEventTitle")
+        encoder.encode(specialEventText, forKey: "specialEventText")
+        encoder.encode(yesDismissButtonText, forKey: "yesDismissButtonText")
+        encoder.encode(noButtonText, forKey: "noButtonText")
+        encoder.encode(yesDismissButtonEnabled, forKey: "yesDismissButtonEnabled")
+        encoder.encode(noButtonEnabled, forKey: "noButtonEnabled")
         
-        encoder.encodeObject(quests, forKey: "quests")
+        encoder.encode(quests, forKey: "quests")
         
-        encoder.encodeObject(artifactOnBoard, forKey: "artifactOnBoard")
-        encoder.encodeObject(wildOnBoard, forKey: "wildOnBoard")
-        encoder.encodeObject(reactorOnBoard, forKey: "reactorOnBoard")
-        encoder.encodeObject(tribblesOnBoard, forKey: "tribblesOnBoard")
+        encoder.encode(artifactOnBoard, forKey: "artifactOnBoard")
+        encoder.encode(wildOnBoard, forKey: "wildOnBoard")
+        encoder.encode(reactorOnBoard, forKey: "reactorOnBoard")
+        encoder.encode(tribblesOnBoard, forKey: "tribblesOnBoard")
         
-        encoder.encodeObject(experimentCountdown, forKey: "experimentCountdown")
-        encoder.encodeObject(jarekElapsedTime, forKey: "jarekElapsedTime")
-        encoder.encodeObject(gemulonInvasionCountdown, forKey: "gemulonInvasionCountdown")
-        encoder.encodeObject(reactorElapsedTime, forKey: "reactorElapsedTime")
-        encoder.encodeObject(wildElapsedTime, forKey: "wildElapsedTime")
-        encoder.encodeObject(princessElapsedTime, forKey: "princessElapsedTime")
-        encoder.encodeObject(marieCelesteStatus, forKey: "marieCelesteStatus")
+        encoder.encode(experimentCountdown, forKey: "experimentCountdown")
+        encoder.encode(jarekElapsedTime, forKey: "jarekElapsedTime")
+        encoder.encode(gemulonInvasionCountdown, forKey: "gemulonInvasionCountdown")
+        encoder.encode(reactorElapsedTime, forKey: "reactorElapsedTime")
+        encoder.encode(wildElapsedTime, forKey: "wildElapsedTime")
+        encoder.encode(princessElapsedTime, forKey: "princessElapsedTime")
+        encoder.encode(marieCelesteStatus, forKey: "marieCelesteStatus")
         
-        encoder.encodeObject(currentSpecialEventID?.rawValue, forKey: "currentSpecialEventID")
+        encoder.encode(currentSpecialEventID?.rawValue, forKey: "currentSpecialEventID")
         
-        encoder.encodeObject(captainAhabHappened, forKey: "captainAhabHappened")
-        encoder.encodeObject(captainConradHappened, forKey: "captainConradHappened")
-        encoder.encodeObject(captainHuieHappened, forKey: "captainHuieHappened")
+        encoder.encode(captainAhabHappened, forKey: "captainAhabHappened")
+        encoder.encode(captainConradHappened, forKey: "captainConradHappened")
+        encoder.encode(captainHuieHappened, forKey: "captainHuieHappened")
     }
     
 }
@@ -1239,17 +1239,17 @@ class Quest: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.ID = QuestID(rawValue: decoder.decodeObjectForKey("ID") as! Int!)!
-        self.questString = decoder.decodeObjectForKey("questString") as! String
-        self.completed = decoder.decodeObjectForKey("completed") as! Bool
+        self.ID = QuestID(rawValue: decoder.decodeObject(forKey: "ID") as! Int!)!
+        self.questString = decoder.decodeObject(forKey: "questString") as! String
+        self.completed = decoder.decodeObject(forKey: "completed") as! Bool
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(ID.rawValue, forKey: "ID")
-        encoder.encodeObject(questString, forKey: "questString")
-        encoder.encodeObject(completed, forKey: "completed")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(ID.rawValue, forKey: "ID")
+        encoder.encode(questString, forKey: "questString")
+        encoder.encode(completed, forKey: "completed")
     }
 }
 

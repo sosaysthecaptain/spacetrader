@@ -7,6 +7,17 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class Commander: NSObject, NSCoding {
     var commanderName: String
@@ -148,7 +159,7 @@ class Commander: NSObject, NSCoding {
     var policeKills: Int = 0
     var traderKills: Int = 0
     
-    var endGameType: EndGameStatus = EndGameStatus.GameNotOver
+    var endGameType: EndGameStatus = EndGameStatus.gameNotOver
     
     
     var kills: Int {
@@ -189,7 +200,7 @@ class Commander: NSObject, NSCoding {
         
         self.credits = 1000
         
-        self.commanderShip = SpaceShip(type: ShipType.Gnat, IFFStatus: IFFStatusType.Player)
+        self.commanderShip = SpaceShip(type: ShipType.gnat, IFFStatus: IFFStatusType.Player)
     }
     
     // current prices
@@ -360,12 +371,12 @@ class Commander: NSObject, NSCoding {
     }
     
     func escapedNewFlea() {
-        let newShip = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
+        let newShip = SpaceShip(type: ShipType.flea, IFFStatus: IFFStatusType.Player)
         player.commanderShip = newShip
         player.escapePod = false
     }
     
-    func buyFuel(units: Int) -> Bool {
+    func buyFuel(_ units: Int) -> Bool {
         let cost = units * player.commanderShip.costOfFuel
         if player.credits >= cost {
             player.commanderShip.fuel += units
@@ -389,7 +400,7 @@ class Commander: NSObject, NSCoding {
         return false
     }
     
-    func buyRepairs(price: Int) -> Bool {
+    func buyRepairs(_ price: Int) -> Bool {
         if player.credits >= price {
             let unitsOfRepairs: Int = price / player.commanderShip.repairCosts
             
@@ -453,7 +464,7 @@ class Commander: NSObject, NSCoding {
 //        }
 //    }
     
-    func getPLString(commodity: TradeItemType) -> String {
+    func getPLString(_ commodity: TradeItemType) -> String {
         let pricePaid = player.commanderShip.getPricePaid(commodity)
         var commodityOnBoard = false
         if player.commanderShip.getQuantity(commodity) != 0 {
@@ -465,15 +476,15 @@ class Commander: NSObject, NSCoding {
             let PL = localSellPrice - pricePaid
             
             // TODO: format
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
             
-            let PLFormatted = numberFormatter.stringFromNumber(PL)
+            let PLFormatted = numberFormatter.string(from: PL)
             
             if PL >= 0 {
                 return "+\(PLFormatted!) cr."
             } else {
-                let absPLFormatted = numberFormatter.stringFromNumber(abs(PL))
+                let absPLFormatted = numberFormatter.string(from: abs(PL))
                 return "-\(absPLFormatted!) cr."
             }
         } else {
@@ -496,7 +507,7 @@ class Commander: NSObject, NSCoding {
         }
     }
     
-    func getPoliceRecordString(record: PoliceRecordType) -> String {
+    func getPoliceRecordString(_ record: PoliceRecordType) -> String {
         switch record {
             case .psychopathScore: return "Psyco"
             case .villainScore: return "Villain"
@@ -515,7 +526,7 @@ class Commander: NSObject, NSCoding {
         return getPoliceRecordString(player.policeRecord)
     }
     
-    func getReputationString(reputation: ReputationType) -> String {
+    func getReputationString(_ reputation: ReputationType) -> String {
         switch reputation {
             case .harmlessRep: return "Harmless"
             case .mostlyHarmlessRep: return "Mostly Harmless"
@@ -533,7 +544,7 @@ class Commander: NSObject, NSCoding {
         return getReputationString(player.reputation)
     }
     
-    func getShieldStrengthString(ship: SpaceShip) -> String {
+    func getShieldStrengthString(_ ship: SpaceShip) -> String {
         var shieldMaxTotal: Int = 0
         var shieldActualTotal: Int = 0
         for shield in ship.shield {
@@ -549,7 +560,7 @@ class Commander: NSObject, NSCoding {
         
     }
     
-    func incrementPoliceRecord(increaseAsOpposedToDecrease: Bool) {
+    func incrementPoliceRecord(_ increaseAsOpposedToDecrease: Bool) {
         if increaseAsOpposedToDecrease {
             player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt + 1)!
         } else {
@@ -559,7 +570,7 @@ class Commander: NSObject, NSCoding {
     
     // NEW BUY/SELL FUNCTIONS. ALL BUYING AND SELLING SHOULD USE THESE*********************************
     
-    func buy(commodity: TradeItemType, quantity: Int) -> Bool {
+    func buy(_ commodity: TradeItemType, quantity: Int) -> Bool {
         let unitPrice = galaxy.currentSystem!.getBuyPrice(commodity)
         let buyPrice = quantity * unitPrice
         // see if transaction can go through
@@ -582,7 +593,7 @@ class Commander: NSObject, NSCoding {
         return true
     }
     
-    func sell(commodity: TradeItemType, quantity: Int) -> Bool {
+    func sell(_ commodity: TradeItemType, quantity: Int) -> Bool {
         // see if enough available
         if (player.commanderShip.getQuantity(commodity) < quantity) {
             return false
@@ -598,7 +609,7 @@ class Commander: NSObject, NSCoding {
         return true
     }
     
-    func getMax(commodity: TradeItemType) -> Int {
+    func getMax(_ commodity: TradeItemType) -> Int {
         let credits = player.credits
         let unitCost = galaxy.currentSystem!.getBuyPrice(commodity)
         
@@ -618,94 +629,94 @@ class Commander: NSObject, NSCoding {
     // NSCODING METHODS
     
     required init(coder decoder: NSCoder) {
-        self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
-        self.difficulty = DifficultyType(rawValue: decoder.decodeObjectForKey("difficulty") as! String!)!
-        self.commanderShip = decoder.decodeObjectForKey("commanderShip") as! SpaceShip
-        self.credits = decoder.decodeObjectForKey("credits") as! Int
-        self.debt = decoder.decodeObjectForKey("debt") as! Int
-        self.days = decoder.decodeObjectForKey("days") as! Int
-        self.specialEvents = decoder.decodeObjectForKey("specialEvents") as! SpecialEvents
+        self.commanderName = decoder.decodeObject(forKey: "commanderName") as! String
+        self.difficulty = DifficultyType(rawValue: decoder.decodeObject(forKey: "difficulty") as! String!)!
+        self.commanderShip = decoder.decodeObject(forKey: "commanderShip") as! SpaceShip
+        self.credits = decoder.decodeObject(forKey: "credits") as! Int
+        self.debt = decoder.decodeObject(forKey: "debt") as! Int
+        self.days = decoder.decodeObject(forKey: "days") as! Int
+        self.specialEvents = decoder.decodeObject(forKey: "specialEvents") as! SpecialEvents
         
-        self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
-        self.autoFuel = decoder.decodeObjectForKey("autoFuel") as! Bool
-        self.autoRepair = decoder.decodeObjectForKey("autoRepair") as! Bool
-        self.autoNewspaper = decoder.decodeObjectForKey("autoNewspaper") as! Bool
-        self.ignorePirates = decoder.decodeObjectForKey("ignorePirates") as! Bool
-        self.ignorePolice = decoder.decodeObjectForKey("ignorePolice") as! Bool
-        self.ignoreTraders = decoder.decodeObjectForKey("ignoreTraders") as! Bool
+        self.remindLoans = decoder.decodeObject(forKey: "remindLoans") as! Bool
+        self.autoFuel = decoder.decodeObject(forKey: "autoFuel") as! Bool
+        self.autoRepair = decoder.decodeObject(forKey: "autoRepair") as! Bool
+        self.autoNewspaper = decoder.decodeObject(forKey: "autoNewspaper") as! Bool
+        self.ignorePirates = decoder.decodeObject(forKey: "ignorePirates") as! Bool
+        self.ignorePolice = decoder.decodeObject(forKey: "ignorePolice") as! Bool
+        self.ignoreTraders = decoder.decodeObject(forKey: "ignoreTraders") as! Bool
         
         
-        self.alreadyPaidForNewspaper = decoder.decodeObjectForKey("alreadyPaidForNewspaper") as! Bool
-        self.caughtLittering = decoder.decodeObjectForKey("caughtLittering") as! Bool
-        self.portableSingularity = decoder.decodeObjectForKey("portableSingularity") as! Bool
+        self.alreadyPaidForNewspaper = decoder.decodeObject(forKey: "alreadyPaidForNewspaper") as! Bool
+        self.caughtLittering = decoder.decodeObject(forKey: "caughtLittering") as! Bool
+        self.portableSingularity = decoder.decodeObject(forKey: "portableSingularity") as! Bool
         
-        self.insurance = decoder.decodeObjectForKey("insurance") as! Bool
-        self.noClaim = decoder.decodeObjectForKey("noClaim") as! Int
+        self.insurance = decoder.decodeObject(forKey: "insurance") as! Bool
+        self.noClaim = decoder.decodeObject(forKey: "noClaim") as! Int
         
-        self.initialPilotSkill = decoder.decodeObjectForKey("initialPilotSkill") as! Int
-        self.initialFighterSkill = decoder.decodeObjectForKey("initialFighterSkill") as! Int
-        self.initialTraderSkill = decoder.decodeObjectForKey("initialTraderSkill") as! Int
-        self.initialEngineerSkill = decoder.decodeObjectForKey("initialEngineerSkill") as! Int
+        self.initialPilotSkill = decoder.decodeObject(forKey: "initialPilotSkill") as! Int
+        self.initialFighterSkill = decoder.decodeObject(forKey: "initialFighterSkill") as! Int
+        self.initialTraderSkill = decoder.decodeObject(forKey: "initialTraderSkill") as! Int
+        self.initialEngineerSkill = decoder.decodeObject(forKey: "initialEngineerSkill") as! Int
         
-        self.policeRecord = PoliceRecordType(rawValue: decoder.decodeObjectForKey("policeRecord") as! Int!)!
-        self.reputation = ReputationType(rawValue: decoder.decodeObjectForKey("reputation") as! Int!)!
-        self.escapePod = decoder.decodeObjectForKey("escapePod") as! Bool
+        self.policeRecord = PoliceRecordType(rawValue: decoder.decodeObject(forKey: "policeRecord") as! Int!)!
+        self.reputation = ReputationType(rawValue: decoder.decodeObject(forKey: "reputation") as! Int!)!
+        self.escapePod = decoder.decodeObject(forKey: "escapePod") as! Bool
         
-        self.inspected = decoder.decodeObjectForKey("inspected") as! Bool
-        self.wildStatus = decoder.decodeObjectForKey("wildStatus") as! Bool
+        self.inspected = decoder.decodeObject(forKey: "inspected") as! Bool
+        self.wildStatus = decoder.decodeObject(forKey: "wildStatus") as! Bool
         
-        self.pirateKills = decoder.decodeObjectForKey("pirateKills") as! Int
-        self.policeKills = decoder.decodeObjectForKey("policeKills") as! Int
-        self.traderKills = decoder.decodeObjectForKey("traderKills") as! Int
+        self.pirateKills = decoder.decodeObject(forKey: "pirateKills") as! Int
+        self.policeKills = decoder.decodeObject(forKey: "policeKills") as! Int
+        self.traderKills = decoder.decodeObject(forKey: "traderKills") as! Int
         
-        self.endGameType = EndGameStatus(rawValue: decoder.decodeObjectForKey("endGameType") as! Int!)!
+        self.endGameType = EndGameStatus(rawValue: decoder.decodeObject(forKey: "endGameType") as! Int!)!
         
         super.init()
     }
     
     // NOTE: enums here are encoded as their rawValue. I think this works on the other end?
     
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(commanderName, forKey: "commanderName")
-        encoder.encodeObject(difficulty.rawValue, forKey: "difficulty")         //
-        encoder.encodeObject(commanderShip, forKey: "commanderShip")
-        encoder.encodeObject(credits, forKey: "credits")
-        encoder.encodeObject(debt, forKey: "debt")
-        encoder.encodeObject(days, forKey: "days")
-        encoder.encodeObject(specialEvents, forKey: "specialEvents")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(commanderName, forKey: "commanderName")
+        encoder.encode(difficulty.rawValue, forKey: "difficulty")         //
+        encoder.encode(commanderShip, forKey: "commanderShip")
+        encoder.encode(credits, forKey: "credits")
+        encoder.encode(debt, forKey: "debt")
+        encoder.encode(days, forKey: "days")
+        encoder.encode(specialEvents, forKey: "specialEvents")
         
-        encoder.encodeObject(remindLoans, forKey: "remindLoans")
-        encoder.encodeObject(autoFuel, forKey: "autoFuel")
-        encoder.encodeObject(autoRepair, forKey: "autoRepair")
-        encoder.encodeObject(autoNewspaper, forKey: "autoNewspaper")
-        encoder.encodeObject(ignorePirates, forKey: "ignorePirates")
-        encoder.encodeObject(ignorePolice, forKey: "ignorePolice")
-        encoder.encodeObject(ignoreTraders, forKey: "ignoreTraders")
+        encoder.encode(remindLoans, forKey: "remindLoans")
+        encoder.encode(autoFuel, forKey: "autoFuel")
+        encoder.encode(autoRepair, forKey: "autoRepair")
+        encoder.encode(autoNewspaper, forKey: "autoNewspaper")
+        encoder.encode(ignorePirates, forKey: "ignorePirates")
+        encoder.encode(ignorePolice, forKey: "ignorePolice")
+        encoder.encode(ignoreTraders, forKey: "ignoreTraders")
 
-        encoder.encodeObject(alreadyPaidForNewspaper, forKey: "alreadyPaidForNewspaper")
-        encoder.encodeObject(caughtLittering, forKey: "caughtLittering")
-        encoder.encodeObject(portableSingularity, forKey: "portableSingularity")
+        encoder.encode(alreadyPaidForNewspaper, forKey: "alreadyPaidForNewspaper")
+        encoder.encode(caughtLittering, forKey: "caughtLittering")
+        encoder.encode(portableSingularity, forKey: "portableSingularity")
         
-        encoder.encodeObject(insurance, forKey: "insurance")
-        encoder.encodeObject(noClaim, forKey: "noClaim")
+        encoder.encode(insurance, forKey: "insurance")
+        encoder.encode(noClaim, forKey: "noClaim")
         
-        encoder.encodeObject(initialPilotSkill, forKey: "initialPilotSkill")
-        encoder.encodeObject(initialFighterSkill, forKey: "initialFighterSkill")
-        encoder.encodeObject(initialTraderSkill, forKey: "initialTraderSkill")
-        encoder.encodeObject(initialEngineerSkill, forKey: "initialEngineerSkill")
+        encoder.encode(initialPilotSkill, forKey: "initialPilotSkill")
+        encoder.encode(initialFighterSkill, forKey: "initialFighterSkill")
+        encoder.encode(initialTraderSkill, forKey: "initialTraderSkill")
+        encoder.encode(initialEngineerSkill, forKey: "initialEngineerSkill")
         
-        encoder.encodeObject(policeRecord.rawValue, forKey: "policeRecord")     //
-        encoder.encodeObject(reputation.rawValue, forKey: "reputation")         //
-        encoder.encodeObject(escapePod, forKey: "escapePod")
+        encoder.encode(policeRecord.rawValue, forKey: "policeRecord")     //
+        encoder.encode(reputation.rawValue, forKey: "reputation")         //
+        encoder.encode(escapePod, forKey: "escapePod")
         
-        encoder.encodeObject(inspected, forKey: "inspected")
-        encoder.encodeObject(wildStatus, forKey: "wildStatus")
+        encoder.encode(inspected, forKey: "inspected")
+        encoder.encode(wildStatus, forKey: "wildStatus")
         
-        encoder.encodeObject(pirateKills, forKey: "pirateKills")
-        encoder.encodeObject(policeKills, forKey: "policeKills")
-        encoder.encodeObject(traderKills, forKey: "traderKills")
+        encoder.encode(pirateKills, forKey: "pirateKills")
+        encoder.encode(policeKills, forKey: "policeKills")
+        encoder.encode(traderKills, forKey: "traderKills")
         
-        encoder.encodeObject(endGameType.rawValue, forKey: "endGameType")
+        encoder.encode(endGameType.rawValue, forKey: "endGameType")
     }
     
 // NSCODING METHODS

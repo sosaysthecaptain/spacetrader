@@ -72,7 +72,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     
 
-    func sellAll(commodity: TradeItemType) {
+    func sellAll(_ commodity: TradeItemType) {
         let quantity = player.commanderShip.getQuantity(commodity)
         player.sell(commodity, quantity: quantity)
         recurringUpdate()
@@ -122,97 +122,97 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     // sell buttons--need sender, unfortunately
     
-    @IBAction func sellWater(sender: AnyObject) {
+    @IBAction func sellWater(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Water) != 0 {
             buySellCommodity = TradeItemType.Water
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
     }
     
-    @IBAction func sellFurs(sender: AnyObject) {
+    @IBAction func sellFurs(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Furs) != 0 {
             buySellCommodity = TradeItemType.Furs
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellFood(sender: AnyObject) {
+    @IBAction func sellFood(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Food) != 0 {
             buySellCommodity = TradeItemType.Food
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellOre(sender: AnyObject) {
+    @IBAction func sellOre(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Ore) != 0 {
             buySellCommodity = TradeItemType.Ore
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellGames(sender: AnyObject) {
+    @IBAction func sellGames(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Games) != 0 {
             buySellCommodity = TradeItemType.Games
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellFirearms(sender: AnyObject) {
+    @IBAction func sellFirearms(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Firearms) != 0 {
             buySellCommodity = TradeItemType.Firearms
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
 
-    @IBAction func sellMedicine(sender: AnyObject) {
+    @IBAction func sellMedicine(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Medicine) != 0 {
             buySellCommodity = TradeItemType.Medicine
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
 
-    @IBAction func sellMachines(sender: AnyObject) {
+    @IBAction func sellMachines(_ sender: AnyObject) {
         if player.commanderShip.getQuantity(TradeItemType.Machines) != 0 {
             buySellCommodity = TradeItemType.Machines
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellNarcotics(sender: AnyObject) {
+    @IBAction func sellNarcotics(_ sender: AnyObject) {
         // DEBUG
         print("sell narcotics pressed")
         
         if player.commanderShip.getQuantity(TradeItemType.Narcotics) != 0 {
             buySellCommodity = TradeItemType.Narcotics
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
     
-    @IBAction func sellRobots(sender: AnyObject) {
+    @IBAction func sellRobots(_ sender: AnyObject) {
         // DEBUG
         print("sell robots pressed")
         
         if player.commanderShip.getQuantity(TradeItemType.Robots) != 0 {
             buySellCommodity = TradeItemType.Robots
             //performSegueWithIdentifier("sellModal", sender: sender)
-            performSegueWithIdentifier("sellPicker", sender: sender)
+            performSegue(withIdentifier: "sellPicker", sender: sender)
         }
 
     }
@@ -226,16 +226,16 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     
     func recurringUpdate() {
-        waterQuantity.setTitle("\(player.commanderShip.getQuantity(.Water))", forState: controlState)
-        fursQuantity.setTitle("\(player.commanderShip.getQuantity(.Furs))", forState: controlState)
-        foodQuantity.setTitle("\(player.commanderShip.getQuantity(.Food))", forState: controlState)
-        oreQuantity.setTitle("\(player.commanderShip.getQuantity(.Ore))", forState: controlState)
-        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(.Games))", forState: controlState)
-        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(.Firearms))", forState: controlState)
-        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(.Medicine))", forState: controlState)
-        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(.Machines))", forState: controlState)
-        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(.Narcotics))", forState: controlState)
-        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", forState: controlState)
+        waterQuantity.setTitle("\(player.commanderShip.getQuantity(.Water))", for: controlState)
+        fursQuantity.setTitle("\(player.commanderShip.getQuantity(.Furs))", for: controlState)
+        foodQuantity.setTitle("\(player.commanderShip.getQuantity(.Food))", for: controlState)
+        oreQuantity.setTitle("\(player.commanderShip.getQuantity(.Ore))", for: controlState)
+        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(.Games))", for: controlState)
+        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(.Firearms))", for: controlState)
+        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(.Medicine))", for: controlState)
+        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(.Machines))", for: controlState)
+        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(.Narcotics))", for: controlState)
+        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", for: controlState)
         
         // redraw baysCashBox
         baysCashBox.redrawSelf()
@@ -244,19 +244,19 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     func loadPrices() {
         // format prices
         
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let waterPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.waterSell)
-        let fursPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.fursSell)
-        let foodPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.foodSell)
-        let orePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.oreSell)
-        let gamesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.gamesSell)
-        let firearmsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.firearmsSell)
-        let medicinePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.medicineSell)
-        let machinesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.machinesSell)
-        let narcoticsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.narcoticsSell)
-        let robotsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.robotsSell)
+        let waterPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.waterSell))
+        let fursPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.fursSell))
+        let foodPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.foodSell))
+        let orePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.oreSell))
+        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.gamesSell))
+        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.firearmsSell))
+        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.medicineSell))
+        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.machinesSell))
+        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.narcoticsSell))
+        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.robotsSell))
 
         
         // display prices with "cr." appended
@@ -403,51 +403,51 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         
         // handle dump buttons
         if galaxy.currentSystem!.waterSell == 0 {
-            waterAllLabel.setTitle("Dump", forState: controlState)
+            waterAllLabel.setTitle("Dump", for: controlState)
             waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.fursSell == 0 {
-            fursAllLabel.setTitle("Dump", forState: controlState)
+            fursAllLabel.setTitle("Dump", for: controlState)
             fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.foodSell == 0 {
-            foodAllLabel.setTitle("Dump", forState: controlState)
+            foodAllLabel.setTitle("Dump", for: controlState)
             foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.oreSell == 0 {
-            oreAllLabel.setTitle("Dump", forState: controlState)
+            oreAllLabel.setTitle("Dump", for: controlState)
             oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.gamesSell == 0 {
-            gamesAllLabel.setTitle("Dump", forState: controlState)
+            gamesAllLabel.setTitle("Dump", for: controlState)
             gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.firearmsSell == 0 {
-            firearmsAllLabel.setTitle("Dump", forState: controlState)
+            firearmsAllLabel.setTitle("Dump", for: controlState)
             firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.medicineSell == 0 {
-            medicineAllLabel.setTitle("Dump", forState: controlState)
+            medicineAllLabel.setTitle("Dump", for: controlState)
             medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.machinesSell == 0 {
-            machinesAllLabel.setTitle("Dump", forState: controlState)
+            machinesAllLabel.setTitle("Dump", for: controlState)
             machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.narcoticsSell == 0 {
-            narcoticsAllLabel.setTitle("Dump", forState: controlState)
+            narcoticsAllLabel.setTitle("Dump", for: controlState)
             // SET FONT SIZE
             narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         if galaxy.currentSystem!.robotsSell == 0 {
-            robotsAllLabel.setTitle("Dump", forState: controlState)
+            robotsAllLabel.setTitle("Dump", for: controlState)
             robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
         }
         
     }
     
     // this updates quantities when this page becomes active
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         recurringUpdate()
         buyAsOpposedToSell = false
         loadPrices()
@@ -458,21 +458,21 @@ class SellVC: UIViewController, BuyModalVCDelegate {
 //        print("should say 555 if referential: \(galaxy.planets[52].food)")
         
         // return scroll view to top
-        let topScrollPoint = CGPointMake(0.0, -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
         
         
     }
     
-    func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
+    func buyModalDidFinish(_ controller: BuyModalVC) {                    // DELEGATE FUNCTION
         recurringUpdate()
         loadPrices()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // magic required to make delegate work
         if segue.identifier == "sellModal" {
-            let modalVC: BuyModalVC = segue.destinationViewController as! BuyModalVC
+            let modalVC: BuyModalVC = segue.destination as! BuyModalVC
             modalVC.delegate = self
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PlunderVCDelegate: class {
-    func plunderPickerDidFinish(controller: JettisonPickerVC)
+    func plunderPickerDidFinish(_ controller: JettisonPickerVC)
 }
 
 class JettisonPickerVC: UIViewController {
@@ -39,10 +39,10 @@ class JettisonPickerVC: UIViewController {
         let controlState = UIControlState()
         if plunderAsOpposedToJettison {
             titleLabel.text = "Plunder \(commodity.rawValue)"
-            plunderButtonOutlet.setTitle("Plunder", forState: controlState)
+            plunderButtonOutlet.setTitle("Plunder", for: controlState)
         } else {
             titleLabel.text = "Jettison \(commodity.rawValue)"
-            plunderButtonOutlet.setTitle("Dump", forState: controlState)
+            plunderButtonOutlet.setTitle("Dump", for: controlState)
         }
         
         // set max based on operation
@@ -65,8 +65,8 @@ class JettisonPickerVC: UIViewController {
     }
     
     // set dark statusBar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func updateUI() {
@@ -84,18 +84,18 @@ class JettisonPickerVC: UIViewController {
         
         // disable sell if quantity is zero
         if slider.value == 0 {
-            plunderButtonOutlet.enabled = false
+            plunderButtonOutlet.isEnabled = false
         } else {
-            plunderButtonOutlet.enabled = true
+            plunderButtonOutlet.isEnabled = true
         }
     }
     
-    @IBAction func sliderMoved(sender: AnyObject) {
+    @IBAction func sliderMoved(_ sender: AnyObject) {
         updateUI()
     }
     
     
-    @IBAction func plunderPressed(sender: AnyObject) {
+    @IBAction func plunderPressed(_ sender: AnyObject) {
         if plunderAsOpposedToJettison {
             // add to player's ship
             player.commanderShip.addCargo(commodity, quantity: Int(slider.value), pricePaid: 0)
@@ -110,41 +110,41 @@ class JettisonPickerVC: UIViewController {
             self.delegate?.plunderPickerDidFinish(self)
             
             // close
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         } else {
             // confirm littering
             if !player.hasLitteredThisTrip {
                 let title = "Space Littering"
                 let message = "Dumping cargo in space is considered littering. If the police find your dumped goods and track them to you, this will influence your record. Do you really wish to dump?"
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // dump, set littering flag, send delegate message, close
                     player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
                     player.hasLitteredThisTrip = true
                     justFinishedJettisonNotPlunder = true            // to return to jettison, not plunder
                     self.delegate?.plunderPickerDidFinish(self)
-                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismiss(animated: false, completion: nil)
                 }))
-                alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // close window
-                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismiss(animated: false, completion: nil)
                 }))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 // don't bother if the player's already done it
                 player.commanderShip.removeCargo(self.commodity, quantity: Int(self.slider.value))
                 player.hasLitteredThisTrip = true
                 justFinishedJettisonNotPlunder = true
                 self.delegate?.plunderPickerDidFinish(self)
-                self.dismissViewControllerAnimated(false, completion: nil)
+                self.dismiss(animated: false, completion: nil)
             }
         }
     }
     
-    @IBAction func cancelPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func cancelPressed(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
 }

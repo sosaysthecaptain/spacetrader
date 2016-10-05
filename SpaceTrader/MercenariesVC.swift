@@ -25,28 +25,28 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell")
-        self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
+        self.tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "topCell")
+        self.tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
         initializeArrays()
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         initializeArrays()
         self.tableView1.reloadData()
         self.tableView2.reloadData()
     }
     
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // TABLE VIEW FUNCTIONS****************************************************************************
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == tableView1 {
             return currentCrew.count
@@ -55,18 +55,18 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableView1 {
-            let cell: UITableViewCell = self.tableView1.dequeueReusableCellWithIdentifier("topCell")!
-            cell.textLabel?.text = self.currentCrew[indexPath.row]
+            let cell: UITableViewCell = self.tableView1.dequeueReusableCell(withIdentifier: "topCell")!
+            cell.textLabel?.text = self.currentCrew[(indexPath as NSIndexPath).row]
             
             //set font used in table view cell label
             cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
             
             return cell
         } else {
-            let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
-            cell.textLabel?.text = self.availableMercenaries[indexPath.row]
+            let cell: UITableViewCell = self.tableView2.dequeueReusableCell(withIdentifier: "bottomCell")!
+            cell.textLabel?.text = self.availableMercenaries[(indexPath as NSIndexPath).row]
             
             //set font used in table view cell label
             cell.textLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
@@ -75,23 +75,23 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView == tableView1 {
-            if indexPath.row < player.commanderShip.crew.count {
+            if (indexPath as NSIndexPath).row < player.commanderShip.crew.count {
                 hireNotFire = false
-                selectedMercenary = player.commanderShip.crew[indexPath.row]
-                performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+                selectedMercenary = player.commanderShip.crew[(indexPath as NSIndexPath).row]
+                performSegue(withIdentifier: "mercenaryDetail", sender: selectedMercenary)
             }
             // call segue
         } else {
             hireNotFire = true
-            selectedMercenary = galaxy.currentSystem!.mercenaries[indexPath.row]
-            performSegueWithIdentifier("mercenaryDetail", sender: selectedMercenary)
+            selectedMercenary = galaxy.currentSystem!.mercenaries[(indexPath as NSIndexPath).row]
+            performSegue(withIdentifier: "mercenaryDetail", sender: selectedMercenary)
         }
         
         // deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func initializeArrays() {
@@ -122,10 +122,10 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "mercenaryDetail") {
-            let vc = (segue.destinationViewController as! MercenaryDetailVC)
+            let vc = (segue.destination as! MercenaryDetailVC)
             vc.selectedMercenary = selectedMercenary
             vc.hireNotFire = hireNotFire
         }

@@ -20,24 +20,24 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
         //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
 
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        if indexPath.section == 0 {
-            cell.textLabel?.text = section0[indexPath.row]
-        } else if indexPath.section == 1 {
-            cell.textLabel?.text = section1[indexPath.row]
-        } else if indexPath.section == 2 {
-            cell.textLabel?.text = section2[indexPath.row]
+        if (indexPath as NSIndexPath).section == 0 {
+            cell.textLabel?.text = section0[(indexPath as NSIndexPath).row]
+        } else if (indexPath as NSIndexPath).section == 1 {
+            cell.textLabel?.text = section1[(indexPath as NSIndexPath).row]
+        } else if (indexPath as NSIndexPath).section == 2 {
+            cell.textLabel?.text = section2[(indexPath as NSIndexPath).row]
         } else {
-            cell.textLabel?.text = section3[indexPath.row]
+            cell.textLabel?.text = section3[(indexPath as NSIndexPath).row]
         }
         
         // set font
@@ -46,11 +46,11 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
             return section0.count
@@ -63,73 +63,73 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0 {
-            print("selected: section 0, \(indexPath.row)")
-            switch indexPath.row {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 0 {
+            print("selected: section 0, \((indexPath as NSIndexPath).row)")
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 newGame()
             case 1:
-                performSegueWithIdentifier("loadGameFromMenu", sender: nil)
+                performSegue(withIdentifier: "loadGameFromMenu", sender: nil)
             case 2:
                 print("save game")
-                performSegueWithIdentifier("saveGameSegue", sender: nil)
+                performSegue(withIdentifier: "saveGameSegue", sender: nil)
             case 3:
                 self.retire()
             default:
                 print("error")
             }
-        } else if indexPath.section == 1 {
-            switch indexPath.row {
+        } else if (indexPath as NSIndexPath).section == 1 {
+            switch (indexPath as NSIndexPath).row {
             case 0:
-                performSegueWithIdentifier("commanderStatusSegue", sender: nil)
+                performSegue(withIdentifier: "commanderStatusSegue", sender: nil)
             case 1:
-                performSegueWithIdentifier("shipSegue", sender: nil)
+                performSegue(withIdentifier: "shipSegue", sender: nil)
             case 2:
-                performSegueWithIdentifier("personnelSegue", sender: nil)
+                performSegue(withIdentifier: "personnelSegue", sender: nil)
             case 3:
-                performSegueWithIdentifier("questsSegue", sender: nil)
+                performSegue(withIdentifier: "questsSegue", sender: nil)
             case 4:
-                performSegueWithIdentifier("bankSegue", sender: nil)
+                performSegue(withIdentifier: "bankSegue", sender: nil)
             default: print("error")
             }
-        } else if indexPath.section == 2 {
-            performSegueWithIdentifier("highScoresFromMenu", sender: nil)
-        } else if indexPath.section == 3 {
-            switch indexPath.row {
+        } else if (indexPath as NSIndexPath).section == 2 {
+            performSegue(withIdentifier: "highScoresFromMenu", sender: nil)
+        } else if (indexPath as NSIndexPath).section == 3 {
+            switch (indexPath as NSIndexPath).row {
             case 0:
-                performSegueWithIdentifier("optionsSegue", sender: nil)
+                performSegue(withIdentifier: "optionsSegue", sender: nil)
             case 1:
-                performSegueWithIdentifier("aboutSpaceTraderSegue", sender: nil)
+                performSegue(withIdentifier: "aboutSpaceTraderSegue", sender: nil)
             default: print("error")
             }
             
         }
         
         // handle deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func newGame() {
         let title = "New Game?"
         let message = "Your current game will be lost."
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
-            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
-            self.presentViewController(vc, animated: true, completion: nil)
+            let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "newCommander")
+            self.present(vc, animated: true, completion: nil)
         }))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func retire() {
@@ -138,28 +138,28 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let title = "Retire?"
         let message = "Are you sure you want to retire?"
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        alertController.addAction(UIAlertAction(title: "Retire", style: UIAlertActionStyle.Destructive ,handler: {
+        alertController.addAction(UIAlertAction(title: "Retire", style: UIAlertActionStyle.destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
             // end game
-            player.endGameType = EndGameStatus.Retired
+            player.endGameType = EndGameStatus.retired
             
             // load game over VC
-            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
-            self.presentViewController(vc, animated: true, completion: nil)
+            let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "gameOverVC")
+            self.present(vc, animated: true, completion: nil)
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))
         
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // set back button text for child VCs to "Back"
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Menu"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed

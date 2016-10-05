@@ -13,7 +13,7 @@ class RuleView: UIView {
 // USAGE: create view that goes fully side to side, and is high enough to include margins (35)
 // create all constraints, set its class to this. Will draw rule.
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // calculate endpoints
         let offsetFromLeftEdge: CGFloat = 20
         let rightCoordinate = CGPoint(x: self.bounds.width, y: (self.bounds.height / 2))
@@ -22,8 +22,8 @@ class RuleView: UIView {
         
         // draw line
         let ruleLine = UIBezierPath()
-        ruleLine.moveToPoint(leftCoordinate)
-        ruleLine.addLineToPoint(rightCoordinate)
+        ruleLine.move(to: leftCoordinate)
+        ruleLine.addLine(to: rightCoordinate)
         ruleLine.lineWidth = 0.5
         inactiveGray.setStroke()
         ruleLine.stroke()

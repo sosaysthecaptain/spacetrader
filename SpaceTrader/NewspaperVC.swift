@@ -34,8 +34,8 @@ class NewspaperVC: UIViewController {
         story5TextView.text = galaxy.currentSystem!.newspaper.stories[4]
     }
 
-    @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 

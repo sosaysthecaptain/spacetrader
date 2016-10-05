@@ -15,7 +15,7 @@ class HighScoresVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,19 +34,19 @@ class HighScoresVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     */
 
-    @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
 //        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("NewGameVC")
 //        self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return highScoreArchive.highScores.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: HighScoresCell = self.tableView.dequeueReusableCellWithIdentifier("HighScoreCell")! as! HighScoresCell
-        cell.setCell(highScoreArchive.highScores[indexPath.row].name, days: highScoreArchive.highScores[indexPath.row].days, score: highScoreArchive.highScores[indexPath.row].score, netWorth: highScoreArchive.highScores[indexPath.row].worth)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: HighScoresCell = self.tableView.dequeueReusableCell(withIdentifier: "HighScoreCell")! as! HighScoresCell
+        cell.setCell(highScoreArchive.highScores[(indexPath as NSIndexPath).row].name, days: highScoreArchive.highScores[(indexPath as NSIndexPath).row].days, score: highScoreArchive.highScores[(indexPath as NSIndexPath).row].score, netWorth: highScoreArchive.highScores[(indexPath as NSIndexPath).row].worth)
         
         return cell
     }

@@ -7,9 +7,29 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 protocol BuyModalVCDelegate: class {
-    func buyModalDidFinish(controller: BuyModalVC)
+    func buyModalDidFinish(_ controller: BuyModalVC)
     
 }
 
@@ -118,13 +138,13 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
             
             // set text of buy button
             let controlState = UIControlState()
-            buyButtonForLabel.setTitle("Sell", forState: controlState)
+            buyButtonForLabel.setTitle("Sell", for: controlState)
         }
         
     }
     
     @IBAction func cancel() {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
    
     @IBAction func buy() {
@@ -135,9 +155,9 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
                 if quantity <= max {
                     player.buy(buySellCommodity!, quantity: quantity!)
                     delegate?.buyModalDidFinish(self)
-                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismiss(animated: false, completion: nil)
                 } else {
-                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismiss(animated: false, completion: nil)
                     print("max exceeded; buy failed")
                 }
             }
@@ -146,7 +166,7 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
                 let quantity = Int(quantityField.text!)
                 player.sell(buySellCommodity!, quantity: quantity!)
                 delegate?.buyModalDidFinish(self)
-                self.dismissViewControllerAnimated(false, completion: nil)
+                self.dismiss(animated: false, completion: nil)
             }
         }
         

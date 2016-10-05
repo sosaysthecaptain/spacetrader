@@ -17,65 +17,65 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         // fix bug whereby table view starts halfway down the page
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: CommanderStatusTableViewCell = tableView.dequeueReusableCellWithIdentifier("dataViewCell") as! CommanderStatusTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CommanderStatusTableViewCell = tableView.dequeueReusableCell(withIdentifier: "dataViewCell") as! CommanderStatusTableViewCell
         
         // since this is infomational only, none of these should be selectable
-        cell.userInteractionEnabled = false
+        cell.isUserInteractionEnabled = false
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             // basic info
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.setLabels("Name", valueLabel: "\(player.commanderName)")
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.setLabels("Difficulty", valueLabel: "\(player.difficulty.rawValue)")
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.setLabels("Time", valueLabel: "\(player.days) days")
             } else {
                 print("error")
             }
             //cell.accessoryType = .DisclosureIndicator
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             // skills
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.setLabels("Pilot", valueLabel: "\(player.initialPilotSkill) (\(player.pilotSkill))")
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.setLabels("Fighter", valueLabel: "\(player.initialFighterSkill) (\(player.fighterSkill))")
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.setLabels("Trader", valueLabel: "\(player.initialTraderSkill) (\(player.traderSkill))")
-            } else if indexPath.row == 3 {
+            } else if (indexPath as NSIndexPath).row == 3 {
                 cell.setLabels("Engineer", valueLabel: "\(player.initialEngineerSkill) (\(player.engineerSkill))")
             } else {
                 print("error")
             }
             
-        } else if indexPath.section == 2 {
+        } else if (indexPath as NSIndexPath).section == 2 {
             // finances
             // formatting
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let cashFormatted = numberFormatter.stringFromNumber(player.credits)
-            let debtFormatted = numberFormatter.stringFromNumber(player.debt)
-            let creditLimitFormatted = numberFormatter.stringFromNumber(player.creditLimit)
-            let debtRatioFormatted = numberFormatter.stringFromNumber(player.debtRatio)
-            let netWorthFormatted = numberFormatter.stringFromNumber(player.netWorth)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
+            let debtFormatted = numberFormatter.string(from: NSNumber(player.debt))
+            let creditLimitFormatted = numberFormatter.string(from: NSNumber(player.creditLimit))
+            let debtRatioFormatted = numberFormatter.string(from: NSNumber(player.debtRatio))
+            let netWorthFormatted = numberFormatter.string(from: NSNumber(player.netWorth))
             
             // displaying
             
             
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.setLabels("Cash", valueLabel: "\(cashFormatted!) cr.")
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.setLabels("Debt", valueLabel: "\(debtFormatted!) cr.")
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.setLabels("Credit Limit", valueLabel: "\(creditLimitFormatted!) cr.")
-            } else if indexPath.row == 3 {
+            } else if (indexPath as NSIndexPath).row == 3 {
                 cell.setLabels("Debt Ratio", valueLabel: "\(debtRatioFormatted!)")
-            } else if indexPath.row == 4 {
+            } else if (indexPath as NSIndexPath).row == 4 {
                 cell.setLabels("Net Worth", valueLabel: "\(netWorthFormatted!) cr.")
             } else {
                 print("error")
@@ -83,13 +83,13 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
             
             
             
-        } else if indexPath.section == 3 {
+        } else if (indexPath as NSIndexPath).section == 3 {
             // notoriety
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.setLabels("Kills", valueLabel: "\(player.kills)")
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.setLabels("Reputation", valueLabel: "\(getPoliceRecordForInt(player.policeRecord.rawValue))")
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.setLabels("Police Record", valueLabel: "\(getReputationForInt(player.reputation.rawValue))")
             } else {
                 print("error")
@@ -99,11 +99,11 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
         } else if section == 1 {
@@ -122,7 +122,7 @@ class CommanderStatus2VC: UIViewController, UITableViewDelegate, UITableViewData
 //        print("selected \(indexPath.section), \(indexPath.row)")
 //    }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Basic Info"
         } else if section == 1 {
@@ -143,7 +143,7 @@ class CommanderStatusTableViewCell: UITableViewCell {
     @IBOutlet weak var keyLabel: StandardLabel!
     @IBOutlet weak var valueLabel: LightGrayLabel!
     
-    func setLabels(keyLabel: String, valueLabel: String) {
+    func setLabels(_ keyLabel: String, valueLabel: String) {
         self.keyLabel.text = keyLabel
         self.valueLabel.text = valueLabel
     }

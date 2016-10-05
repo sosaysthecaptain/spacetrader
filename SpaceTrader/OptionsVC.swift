@@ -39,16 +39,16 @@ class OptionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fullTanksOutlet.on = player.autoFuel
-        hullRepairOutlet.on = player.autoRepair
-        newspaperOutlet.on = player.autoNewspaper
-        remindLoansOutlet.on = player.remindLoans
-        ignorePiratesOutlet.on = player.ignorePirates
-        ignorePoliceOutlet.on = player.ignorePolice
-        ignoreTradersOutlet.on = player.ignoreTraders
+        fullTanksOutlet.isOn = player.autoFuel
+        hullRepairOutlet.isOn = player.autoRepair
+        newspaperOutlet.isOn = player.autoNewspaper
+        remindLoansOutlet.isOn = player.remindLoans
+        ignorePiratesOutlet.isOn = player.ignorePirates
+        ignorePoliceOutlet.isOn = player.ignorePolice
+        ignoreTradersOutlet.isOn = player.ignoreTraders
         
         // adjust sizes if needed
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         
         // handle 3.5" screen
         if screenSize.height < 485 {
@@ -72,56 +72,56 @@ class OptionsVC: UIViewController {
         }
     }
 
-    @IBAction func fuelTanksToggled(sender: AnyObject) {
-        if fullTanksOutlet.on {
+    @IBAction func fuelTanksToggled(_ sender: AnyObject) {
+        if fullTanksOutlet.isOn {
             player.autoFuel = true
         } else {
             player.autoFuel = false
         }
     }
     
-    @IBAction func hullRepairToggled(sender: AnyObject) {
-        if hullRepairOutlet.on {
+    @IBAction func hullRepairToggled(_ sender: AnyObject) {
+        if hullRepairOutlet.isOn {
             player.autoRepair = true
         } else {
             player.autoRepair = false
         }
     }
     
-    @IBAction func autoNewspaperToggled(sender: AnyObject) {
-        if newspaperOutlet.on {
+    @IBAction func autoNewspaperToggled(_ sender: AnyObject) {
+        if newspaperOutlet.isOn {
             player.autoNewspaper = true
         } else {
             player.autoNewspaper = false
         }
     }
     
-    @IBAction func remindLoansToggled(sender: AnyObject) {
-        if remindLoansOutlet.on {
+    @IBAction func remindLoansToggled(_ sender: AnyObject) {
+        if remindLoansOutlet.isOn {
             player.remindLoans = true
         } else {
             player.remindLoans = false
         }
     }
 
-    @IBAction func ignorePiratesToggled(sender: AnyObject) {
-        if ignorePiratesOutlet.on {
+    @IBAction func ignorePiratesToggled(_ sender: AnyObject) {
+        if ignorePiratesOutlet.isOn {
             player.ignorePirates = true
         } else {
             player.ignorePirates = false
         }
     }
     
-    @IBAction func ignorePoliceToggled(sender: AnyObject) {
-        if ignorePoliceOutlet.on {
+    @IBAction func ignorePoliceToggled(_ sender: AnyObject) {
+        if ignorePoliceOutlet.isOn {
             player.ignorePolice = true
         } else {
             player.ignorePolice = false
         }
     }
     
-    @IBAction func ignoreTradersToggled(sender: AnyObject) {
-        if ignoreTradersOutlet.on {
+    @IBAction func ignoreTradersToggled(_ sender: AnyObject) {
+        if ignoreTradersOutlet.isOn {
             player.ignoreTraders = true
         } else {
             player.ignoreTraders = false

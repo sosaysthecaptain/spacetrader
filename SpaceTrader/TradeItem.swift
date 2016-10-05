@@ -192,43 +192,43 @@ class TradeItem: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.item = TradeItemType(rawValue: decoder.decodeObjectForKey("item") as! String!)!
-            self.name = decoder.decodeObjectForKey("name") as! String
-            self.techProduction = TechLevelType(rawValue: decoder.decodeObjectForKey("techProduction") as! String!)!
-            self.techUsage = TechLevelType(rawValue: decoder.decodeObjectForKey("techUsage") as! String!)!
-            self.techTopProduction = TechLevelType(rawValue: decoder.decodeObjectForKey("techTopProduction") as! String!)!
-            self.priceLowTech = decoder.decodeObjectForKey("priceLowTech") as! Int
-            self.priceIncrease = decoder.decodeObjectForKey("priceIncrease") as! Int
-            self.variance = decoder.decodeObjectForKey("variance") as! Int
-            self.doublePriceStatus = StatusType(rawValue: decoder.decodeObjectForKey("doublePriceStatus") as! String!)!
-            self.cheapResource = SpecialResourcesType(rawValue: decoder.decodeObjectForKey("cheapResource") as! String!)!
-            self.expensiveResource = SpecialResourcesType(rawValue: decoder.decodeObjectForKey("expensiveResource") as! String!)!
-            self.minTradePrice = decoder.decodeObjectForKey("minTradePrice") as! Int
-            self.maxTradePrice = decoder.decodeObjectForKey("maxTradePrice") as! Int
-            self.roundOff = decoder.decodeObjectForKey("roundOff") as! Int
+            self.item = TradeItemType(rawValue: decoder.decodeObject(forKey: "item") as! String!)!
+            self.name = decoder.decodeObject(forKey: "name") as! String
+            self.techProduction = TechLevelType(rawValue: decoder.decodeObject(forKey: "techProduction") as! String!)!
+            self.techUsage = TechLevelType(rawValue: decoder.decodeObject(forKey: "techUsage") as! String!)!
+            self.techTopProduction = TechLevelType(rawValue: decoder.decodeObject(forKey: "techTopProduction") as! String!)!
+            self.priceLowTech = decoder.decodeObject(forKey: "priceLowTech") as! Int
+            self.priceIncrease = decoder.decodeObject(forKey: "priceIncrease") as! Int
+            self.variance = decoder.decodeObject(forKey: "variance") as! Int
+            self.doublePriceStatus = StatusType(rawValue: decoder.decodeObject(forKey: "doublePriceStatus") as! String!)!
+            self.cheapResource = SpecialResourcesType(rawValue: decoder.decodeObject(forKey: "cheapResource") as! String!)!
+            self.expensiveResource = SpecialResourcesType(rawValue: decoder.decodeObject(forKey: "expensiveResource") as! String!)!
+            self.minTradePrice = decoder.decodeObject(forKey: "minTradePrice") as! Int
+            self.maxTradePrice = decoder.decodeObject(forKey: "maxTradePrice") as! Int
+            self.roundOff = decoder.decodeObject(forKey: "roundOff") as! Int
             
-            self.quantity = decoder.decodeObjectForKey("quantity") as! Int
-            self.pricePaid = decoder.decodeObjectForKey("pricePaid") as! Int
+            self.quantity = decoder.decodeObject(forKey: "quantity") as! Int
+            self.pricePaid = decoder.decodeObject(forKey: "pricePaid") as! Int
             
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(item.rawValue, forKey: "item")
-            encoder.encodeObject(name, forKey: "name")
-            encoder.encodeObject(techProduction.rawValue, forKey: "techProduction")
-            encoder.encodeObject(techUsage.rawValue, forKey: "techUsage")
-            encoder.encodeObject(techTopProduction.rawValue, forKey: "techTopProduction")
-            encoder.encodeObject(priceLowTech, forKey: "priceLowTech")
-            encoder.encodeObject(priceIncrease, forKey: "priceIncrease")
-            encoder.encodeObject(variance, forKey: "variance")
-            encoder.encodeObject(doublePriceStatus.rawValue, forKey: "doublePriceStatus")
-            encoder.encodeObject(cheapResource.rawValue, forKey: "cheapResource")
-            encoder.encodeObject(expensiveResource.rawValue, forKey: "expensiveResource")
-            encoder.encodeObject(minTradePrice, forKey: "minTradePrice")
-            encoder.encodeObject(maxTradePrice, forKey: "maxTradePrice")
-            encoder.encodeObject(roundOff, forKey: "roundOff")
-            encoder.encodeObject(quantity, forKey: "quantity")
-            encoder.encodeObject(pricePaid, forKey: "pricePaid")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(item.rawValue, forKey: "item")
+            encoder.encode(name, forKey: "name")
+            encoder.encode(techProduction.rawValue, forKey: "techProduction")
+            encoder.encode(techUsage.rawValue, forKey: "techUsage")
+            encoder.encode(techTopProduction.rawValue, forKey: "techTopProduction")
+            encoder.encode(priceLowTech, forKey: "priceLowTech")
+            encoder.encode(priceIncrease, forKey: "priceIncrease")
+            encoder.encode(variance, forKey: "variance")
+            encoder.encode(doublePriceStatus.rawValue, forKey: "doublePriceStatus")
+            encoder.encode(cheapResource.rawValue, forKey: "cheapResource")
+            encoder.encode(expensiveResource.rawValue, forKey: "expensiveResource")
+            encoder.encode(minTradePrice, forKey: "minTradePrice")
+            encoder.encode(maxTradePrice, forKey: "maxTradePrice")
+            encoder.encode(roundOff, forKey: "roundOff")
+            encoder.encode(quantity, forKey: "quantity")
+            encoder.encode(pricePaid, forKey: "pricePaid")
         }
 }

@@ -19,20 +19,20 @@ class SearchVC: UIViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()    // keyboard appears on load
     }
 
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField!) -> Bool
     {
         textField.resignFirstResponder()
         // do search, set either target or tracked
-        let enteredString = textField.text!.lowercaseString
+        let enteredString = textField.text!.lowercased()
         for planet in galaxy.planets {
-            if planet.name.lowercaseString == enteredString {
+            if planet.name.lowercased() == enteredString {
                 galaxy.targetSystem = planet
                 if !galaxy.targetSystemInRange {
                     galaxy.setTracked(planet.name)
                 }
             }
         }
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewController(animated: true)
         return true;
     }
 }

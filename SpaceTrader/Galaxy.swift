@@ -166,7 +166,7 @@ class Galaxy: NSObject, NSCoding {
             let count = UInt32(availableNames.count)
             let nameIndex = Int(arc4random_uniform(count))
             let nameString = availableNames[nameIndex]
-            availableNames.removeAtIndex(nameIndex)
+            availableNames.remove(at: nameIndex)
             newStarSystem.name = nameString
             newStarSystem.indexNumber = i
             
@@ -372,7 +372,7 @@ class Galaxy: NSObject, NSCoding {
                 doOverNecessary = false
                 let randomIndex = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithUnassignedWormholes.count)))
                 let destinationIndex = indicesOfPlanetsWithUnassignedWormholes[randomIndex]
-                indicesOfPlanetsWithUnassignedWormholes.removeAtIndex(randomIndex)
+                indicesOfPlanetsWithUnassignedWormholes.remove(at: randomIndex)
                 planet.wormholeDestination = planets[destinationIndex]
                 
                 
@@ -546,14 +546,14 @@ class Galaxy: NSObject, NSCoding {
     
 
     
-    func getDistance(system1: StarSystem, system2: StarSystem) -> Int {
+    func getDistance(_ system1: StarSystem, system2: StarSystem) -> Int {
         let xDistance = abs(system1.xCoord - system2.xCoord)
         let yDistance = abs(system1.yCoord - system2.yCoord)
         let sum: Double = Double((xDistance * xDistance) + (yDistance * yDistance))
         return Int(sqrt(sum))       // might need to round. Not worrying about that now
     }
     
-    func verifyMinDistance(system1: StarSystem, i: Int) -> Bool {
+    func verifyMinDistance(_ system1: StarSystem, i: Int) -> Bool {
         for index in 0..<i {
             if getDistance(system1, system2: planets[index]) < MINDISTANCE {
                 return false
@@ -571,7 +571,7 @@ class Galaxy: NSObject, NSCoding {
 //        return true
 //    }
     
-    func distanceToNearestNeighbor(system: StarSystem) -> Int {
+    func distanceToNearestNeighbor(_ system: StarSystem) -> Int {
         var min: Int = 100
         for planet in planets {
             let distance = getDistance(system, system2: planet)
@@ -605,7 +605,7 @@ class Galaxy: NSObject, NSCoding {
 //        
 //    }
     
-    func reassignRandomCoords(system: StarSystem) {
+    func reassignRandomCoords(_ system: StarSystem) {
         var proximityFlag = false
         while !proximityFlag {
             let wUpper: UInt32 = 148
@@ -618,7 +618,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func reassignRandomCoordsNoCheck(system: StarSystem) {
+    func reassignRandomCoordsNoCheck(_ system: StarSystem) {
         let wUpper: UInt32 = 148
         let wLower: UInt32 = 2
         let hUpper: UInt32 = 108
@@ -627,7 +627,7 @@ class Galaxy: NSObject, NSCoding {
         system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
     }
     
-    func reassignRandomCoords2(system: StarSystem) {
+    func reassignRandomCoords2(_ system: StarSystem) {
         var proximityFlag = false
         var i = 0
         while !proximityFlag {
@@ -641,7 +641,7 @@ class Galaxy: NSObject, NSCoding {
     
 
     
-    func initializeTradeItems(system: StarSystem) {
+    func initializeTradeItems(_ system: StarSystem) {
         var passFlag = false
         let difficulty = getDifficultyValue(player.difficulty)
         let tradeItems: [TradeItem] = [
@@ -752,7 +752,7 @@ class Galaxy: NSObject, NSCoding {
         while chosenSystems.count < 5 {
             let randomIndex = rand(highTechSystems.count)
             chosenSystems.append(highTechSystems[randomIndex])
-            highTechSystems.removeAtIndex(randomIndex)
+            highTechSystems.remove(at: randomIndex)
         }
         
         // assign shipyards to those five, as well as engineer, skill & size specialties
@@ -769,17 +769,17 @@ class Galaxy: NSObject, NSCoding {
             // randomly assign engineer
             let randomEngIndex = rand(engineersPossible.count)
             system.shipyardEngineer = engineersPossible[randomEngIndex]
-            engineersPossible.removeAtIndex(randomEngIndex)
+            engineersPossible.remove(at: randomEngIndex)
             
             // randomly assign skill
             let randomSkillIndex = rand(specialtiesPossible.count)
             system.shipyardSkill = specialtiesPossible[randomSkillIndex]
-            specialtiesPossible.removeAtIndex(randomSkillIndex)
+            specialtiesPossible.remove(at: randomSkillIndex)
             
             // randomly assign shipyardSizeSpecialty
             let randomSizeSpecialtyIndex = rand(sizeSpecialtiesPossible.count)
             system.shipyardSizeSpecialty = sizeSpecialtiesPossible[randomSizeSpecialtyIndex]
-            sizeSpecialtiesPossible.removeAtIndex(randomSizeSpecialtyIndex)
+            sizeSpecialtiesPossible.remove(at: randomSizeSpecialtyIndex)
             
             index += 1
         }
@@ -790,7 +790,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func determinePrices(system: StarSystem) {
+    func determinePrices(_ system: StarSystem) {
         let tradeItems: [TradeItem] = [
             TradeItem(item: .Water, quantity: 1, pricePaid: 1),
             TradeItem(item: .Furs, quantity: 1, pricePaid: 1),
@@ -883,7 +883,7 @@ class Galaxy: NSObject, NSCoding {
         }        
     }
     
-    func standardPrice(good: TradeItemType, systemSize: SizeType, systemTech: TechLevelType, systemGovernment: PoliticsType, systemResources: SpecialResourcesType) -> Int {
+    func standardPrice(_ good: TradeItemType, systemSize: SizeType, systemTech: TechLevelType, systemGovernment: PoliticsType, systemResources: SpecialResourcesType) -> Int {
         
         var price: Int = 0
         let politics = Politics(type: systemGovernment)
@@ -962,7 +962,7 @@ class Galaxy: NSObject, NSCoding {
     }
     
     // this is used in making the galaxy. Sees what planets are within minimum range of a given system
-    func getSystemsInRangeOfPlanet(referencePlanet: StarSystem) -> [StarSystem] {
+    func getSystemsInRangeOfPlanet(_ referencePlanet: StarSystem) -> [StarSystem] {
         var returnArray: [StarSystem] = []
         
         let range = 13                                      // set max allowable distance here
@@ -977,7 +977,7 @@ class Galaxy: NSObject, NSCoding {
         return returnArray
     }
     
-    func getTechLevelValue(level: TechLevelType) -> Int {
+    func getTechLevelValue(_ level: TechLevelType) -> Int {
         switch level {
             case TechLevelType.techLevel0:
                 return 0
@@ -1000,7 +1000,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func getSizeValue(size: SizeType) -> Int {
+    func getSizeValue(_ size: SizeType) -> Int {
         switch size {
             case .Tiny:
                 return 0
@@ -1015,7 +1015,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func getDifficultyValue(difficulty: DifficultyType) -> Int {
+    func getDifficultyValue(_ difficulty: DifficultyType) -> Int {
         switch difficulty {
             case .beginner:
                 return 0
@@ -1030,7 +1030,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func getActivityForInt(activity: Int) -> String {
+    func getActivityForInt(_ activity: Int) -> String {
         var activityString: String = ""
         switch activity {
         case 0:
@@ -1055,7 +1055,7 @@ class Galaxy: NSObject, NSCoding {
         return activityString
     }
     
-    func getShortDescriptorString(system: StarSystem) -> String {
+    func getShortDescriptorString(_ system: StarSystem) -> String {
         let size = system.size.rawValue
         let techLevel = system.techLevel.rawValue
         let politics = system.politics.rawValue
@@ -1262,7 +1262,7 @@ class Galaxy: NSObject, NSCoding {
     
     // puts failing system into galaxy, making sure it is between 5 and 13 parsecs from nearest neighbor
     // WORKS
-    func reinsertSystemDoingAllChecks(system: StarSystem) {
+    func reinsertSystemDoingAllChecks(_ system: StarSystem) {
         var passing = false
         
         while !passing {
@@ -1283,7 +1283,7 @@ class Galaxy: NSObject, NSCoding {
         system.locationChecked = true
     }
     
-    func getDistanceToClosestNeighbor(system: StarSystem) -> Int {
+    func getDistanceToClosestNeighbor(_ system: StarSystem) -> Int {
         var runningMin = 1000
         for planet in planets {
             if (planet.name != system.name) && planet.locationChecked {
@@ -1298,14 +1298,14 @@ class Galaxy: NSObject, NSCoding {
     }
     
     // deals with alphabet issue by shuffling available planets array
-    func shuffleAvailableNames(inputArray: [String]) -> [String] {
+    func shuffleAvailableNames(_ inputArray: [String]) -> [String] {
         var availableNames = inputArray
         var newArray: [String] = []
         
         while availableNames.count > 0 {
             let randomIndex = rand(availableNames.count)
             newArray.append(availableNames[randomIndex])
-            availableNames.removeAtIndex(randomIndex)
+            availableNames.remove(at: randomIndex)
         }
         
         return newArray
@@ -1411,7 +1411,7 @@ class Galaxy: NSObject, NSCoding {
     
     // THIS ONE
     // makes sure planet has continuous jump chain, using flags to save time
-    func makeSureContinuousJumpChain(planetToBeTested: StarSystem) -> Bool {
+    func makeSureContinuousJumpChain(_ planetToBeTested: StarSystem) -> Bool {
         
         // begins with planetToBeTested. Looks until it finds flagged planet. Once this test is run, planetToBeTested will be flagged to help this algorithm next time
         
@@ -1443,7 +1443,7 @@ class Galaxy: NSObject, NSCoding {
     }
     
     // debug method
-    func planetsReachableWithinFurtherTenClicks(testArray: [StarSystem]) -> [StarSystem] {
+    func planetsReachableWithinFurtherTenClicks(_ testArray: [StarSystem]) -> [StarSystem] {
         var foundSystemsNotUnique: [StarSystem] = []
         // for item in testArray, see who is in ten clicks
         for system in testArray {
@@ -1474,7 +1474,7 @@ class Galaxy: NSObject, NSCoding {
     }
     
     // debug method
-    func getUnreachableSystems(reachableArray: [StarSystem]) -> [StarSystem] {
+    func getUnreachableSystems(_ reachableArray: [StarSystem]) -> [StarSystem] {
         // given an array of planets, returns those planets in the galaxy not in that array
         
         // find still unreachable systems
@@ -1496,7 +1496,7 @@ class Galaxy: NSObject, NSCoding {
         return unreachableSystems
     }
     
-    func reassignCoordsOfUnreachableSystems(unreachableSystems: [StarSystem]) {
+    func reassignCoordsOfUnreachableSystems(_ unreachableSystems: [StarSystem]) {
         for system in unreachableSystems {
             // find it in galaxy
             for planet in planets {
@@ -1537,7 +1537,7 @@ class Galaxy: NSObject, NSCoding {
         while mercenariesAvailable.count > 0 {
             let randomIndex = rand(mercenariesAvailable.count)
             let mercenaryID = mercenariesAvailable[randomIndex]
-            mercenariesAvailable.removeAtIndex(randomIndex)
+            mercenariesAvailable.remove(at: randomIndex)
             
             // set skills randomly (costPerDay is automatically calculated)
             let newMercenary = CrewMember(ID: mercenaryID, pilot: rand(10, min: 1), fighter: rand(10, min: 1), trader: rand(10, min: 1), engineer: rand(10, min: 1))
@@ -1556,7 +1556,7 @@ class Galaxy: NSObject, NSCoding {
     // initializeSpecial() ?
         
     
-    func addToSystemCommodities(system: StarSystem, commodity: TradeItemType, amountToAdd: Int) {
+    func addToSystemCommodities(_ system: StarSystem, commodity: TradeItemType, amountToAdd: Int) {
         switch commodity {
             case .Water:
                 system.water += amountToAdd
@@ -1583,7 +1583,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func setCommodityToZeroIfNegative(system: StarSystem, commodity: TradeItemType) {
+    func setCommodityToZeroIfNegative(_ system: StarSystem, commodity: TradeItemType) {
         switch commodity {
             case .Water:
                 if system.water < 0 {
@@ -1630,7 +1630,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func getLocalSellPrice(commodity: TradeItemType) -> Int {
+    func getLocalSellPrice(_ commodity: TradeItemType) -> Int {
         switch commodity {
             case TradeItemType.Water:
                 return galaxy.targetSystem!.waterSell
@@ -1657,7 +1657,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func getAverageSalePrice(commodity: TradeItemType) -> Int {
+    func getAverageSalePrice(_ commodity: TradeItemType) -> Int {
         var runningSum = 0
         var count = 0
         
@@ -1691,7 +1691,7 @@ class Galaxy: NSObject, NSCoding {
         return Int(Double(runningSum) / Double(count))
     }
     
-    func setSpecial(system: String, id: SpecialEventID) {
+    func setSpecial(_ system: String, id: SpecialEventID) {
         print("setSpecial firing: setting \(id)")                                  // DEBUG, REMOVE
         for planet in planets {
             if planet.name == system {
@@ -1700,7 +1700,7 @@ class Galaxy: NSObject, NSCoding {
         }
     }
     
-    func setTracked(system: String) {
+    func setTracked(_ system: String) {
         for planet in planets {
             if planet.name == system {
                 self.trackedSystem = planet
@@ -1844,27 +1844,27 @@ class Galaxy: NSObject, NSCoding {
     // NSCODING METHODS
     
     required init(coder decoder: NSCoder) {
-        self.planets = decoder.decodeObjectForKey("planets") as! [StarSystem]
-        self.systemsInRange = decoder.decodeObjectForKey("systemsInRange") as! [StarSystem]
-        self.currentSystem = decoder.decodeObjectForKey("currentSystem") as! StarSystem?
-        self.targetSystem = decoder.decodeObjectForKey("targetSystem") as! StarSystem?
-        self.targetSystemInRange = decoder.decodeObjectForKey("targetSystemInRange") as! Bool
-        self.trackedSystem = decoder.decodeObjectForKey("trackedSystem") as! StarSystem?
-        self.journeyJustFinished = decoder.decodeObjectForKey("journeyJustFinished") as! Bool
-        self.spaceTimeMessedUp = decoder.decodeObjectForKey("spaceTimeMessedUp") as! Bool
+        self.planets = decoder.decodeObject(forKey: "planets") as! [StarSystem]
+        self.systemsInRange = decoder.decodeObject(forKey: "systemsInRange") as! [StarSystem]
+        self.currentSystem = decoder.decodeObject(forKey: "currentSystem") as! StarSystem?
+        self.targetSystem = decoder.decodeObject(forKey: "targetSystem") as! StarSystem?
+        self.targetSystemInRange = decoder.decodeObject(forKey: "targetSystemInRange") as! Bool
+        self.trackedSystem = decoder.decodeObject(forKey: "trackedSystem") as! StarSystem?
+        self.journeyJustFinished = decoder.decodeObject(forKey: "journeyJustFinished") as! Bool
+        self.spaceTimeMessedUp = decoder.decodeObject(forKey: "spaceTimeMessedUp") as! Bool
 
         super.init()
     }
     
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(planets, forKey: "planets")
-        encoder.encodeObject(systemsInRange, forKey: "systemsInRange")
-        encoder.encodeObject(currentSystem, forKey: "currentSystem")
-        encoder.encodeObject(targetSystem, forKey: "targetSystem")
-        encoder.encodeObject(targetSystemInRange, forKey: "targetSystemInRange")
-        encoder.encodeObject(trackedSystem, forKey: "trackedSystem")
-        encoder.encodeObject(journeyJustFinished, forKey: "journeyJustFinished")
-        encoder.encodeObject(spaceTimeMessedUp, forKey: "spaceTimeMessedUp")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(planets, forKey: "planets")
+        encoder.encode(systemsInRange, forKey: "systemsInRange")
+        encoder.encode(currentSystem, forKey: "currentSystem")
+        encoder.encode(targetSystem, forKey: "targetSystem")
+        encoder.encode(targetSystemInRange, forKey: "targetSystemInRange")
+        encoder.encode(trackedSystem, forKey: "trackedSystem")
+        encoder.encode(journeyJustFinished, forKey: "journeyJustFinished")
+        encoder.encode(spaceTimeMessedUp, forKey: "spaceTimeMessedUp")
     }
     
     

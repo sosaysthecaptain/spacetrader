@@ -18,7 +18,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     let weaponsArray: [WeaponType] = [WeaponType.pulseLaser, WeaponType.beamLaser, WeaponType.militaryLaser, WeaponType.photonDisruptor]
     let shieldsArray: [ShieldType] = [ShieldType.energyShield, ShieldType.reflectiveShield]
-    let gadgetsArray: [GadgetType] = [GadgetType.CargoBays, GadgetType.AutoRepair, GadgetType.Navigation, GadgetType.Targeting, GadgetType.Cloaking]
+    let gadgetsArray: [GadgetType] = [GadgetType.cargoBays, GadgetType.autoRepair, GadgetType.navigation, GadgetType.targeting, GadgetType.cloaking]
     
     var inventoryKeyArray: [String] = []
     var inventoryValueArray: [String] = []
@@ -39,23 +39,23 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.refreshView()
         
         // fix bug whereby table view starts halfway down the page
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
         // send view to background. Not possible to do this in IB
-        self.view.sendSubviewToBack(grayPatchView)
+        self.view.sendSubview(toBack: grayPatchView)
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.refreshView()                  // needed for return from detail view
     }
     
     
-    @IBAction func donePressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func donePressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func segmentedControlChanged(sender: AnyObject) {
+    @IBAction func segmentedControlChanged(_ sender: AnyObject) {
         print("segmented control value: \(segmentedControl.selectedSegmentIndex)")
         selectorIndex = segmentedControl.selectedSegmentIndex
         //self.tableView.reloadData()
@@ -216,33 +216,33 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     // TABLE VIEW METHODS****************************************************************************
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: EquipmentTableViewCell = tableView.dequeueReusableCellWithIdentifier("equipmentPrototypeCell") as! EquipmentTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: EquipmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: "equipmentPrototypeCell") as! EquipmentTableViewCell
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             // inventory
-            if indexPath.row < inventoryKeyArray.count {
-                cell.setLabels(inventoryKeyArray[indexPath.row], valueLabel: inventoryValueArray[indexPath.row])
-                if inventoryDisclosureIndicator[indexPath.row] == true {
-                    cell.accessoryType = .DisclosureIndicator
-                    cell.userInteractionEnabled = true
+            if (indexPath as NSIndexPath).row < inventoryKeyArray.count {
+                cell.setLabels(inventoryKeyArray[(indexPath as NSIndexPath).row], valueLabel: inventoryValueArray[(indexPath as NSIndexPath).row])
+                if inventoryDisclosureIndicator[(indexPath as NSIndexPath).row] == true {
+                    cell.accessoryType = .disclosureIndicator
+                    cell.isUserInteractionEnabled = true
                 } else {
-                    cell.accessoryType = .None
-                    cell.userInteractionEnabled = false
+                    cell.accessoryType = .none
+                    cell.isUserInteractionEnabled = false
                 }
             }
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             // available items
             if availableItems.count == 0 {
                 // set <no available items>
                 cell.setLabels("<none available>", valueLabel: "")
-                cell.accessoryType = .None
-                cell.userInteractionEnabled = false
+                cell.accessoryType = .none
+                cell.isUserInteractionEnabled = false
             } else {
-                if indexPath.row < availableItems.count {
-                    cell.setLabels("\(availableItems[indexPath.row].name)", valueLabel: "")
-                    cell.accessoryType = .DisclosureIndicator
-                    cell.userInteractionEnabled = true
+                if (indexPath as NSIndexPath).row < availableItems.count {
+                    cell.setLabels("\(availableItems[(indexPath as NSIndexPath).row].name)", valueLabel: "")
+                    cell.accessoryType = .disclosureIndicator
+                    cell.isUserInteractionEnabled = true
                 }
             }
             
@@ -251,11 +251,11 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             switch segmentedControl.selectedSegmentIndex {
                 case 0:
@@ -273,31 +273,31 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return 0
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("selected \(indexPath.section), \(indexPath.row)")
+        print("selected \((indexPath as NSIndexPath).section), \((indexPath as NSIndexPath).row)")
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             // inventory item
-            if indexPath.row < (shipItems.count) {          // check that this isn't the cell saying "no item"
-                chosenItem = shipItems[indexPath.row]
+            if (indexPath as NSIndexPath).row < (shipItems.count) {          // check that this isn't the cell saying "no item"
+                chosenItem = shipItems[(indexPath as NSIndexPath).row]
                 buyNotSell = false
-                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+                performSegue(withIdentifier: "gadgetDetail", sender: chosenItem)
             }
         } else {
             // user selected available item
-            if indexPath.row < (availableItems.count) {
-                chosenItem = availableItems[indexPath.row]
+            if (indexPath as NSIndexPath).row < (availableItems.count) {
+                chosenItem = availableItems[(indexPath as NSIndexPath).row]
                 buyNotSell = true
-                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+                performSegue(withIdentifier: "gadgetDetail", sender: chosenItem)
             }
         }
         
         // deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Current Inventory"
         } else if section == 1 {
@@ -311,7 +311,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
     //func getImageForUniversalGadget(universalGadget: Universa)
     
     // sets properties in the destination vc
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // set text of back button
         let backItem = UIBarButtonItem()
@@ -319,7 +319,7 @@ class EquipmentList2VC: UIViewController, UITableViewDelegate, UITableViewDataSo
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
         if(segue.identifier == "gadgetDetail") {
-            let vc = (segue.destinationViewController as! EquipmentDetailVC)
+            let vc = (segue.destination as! EquipmentDetailVC)
             vc.chosenItem = chosenItem
             vc.buyNotSell = buyNotSell
         }
@@ -333,7 +333,7 @@ class EquipmentTableViewCell: UITableViewCell {
     @IBOutlet weak var keyLabel: StandardLabel!
     @IBOutlet weak var valueLabel: LightGrayLabel!
     
-    func setLabels(keyLabel: String, valueLabel: String) {
+    func setLabels(_ keyLabel: String, valueLabel: String) {
         self.keyLabel.text = keyLabel
         self.valueLabel.text = valueLabel
     }

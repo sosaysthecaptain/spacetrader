@@ -11,17 +11,17 @@ import Foundation
 // utilities
 // arc4rand sucks. Let's fix it.
 // rand is inclusive on the lower bound, exclusive on the upper.
-func rand(max: Int) -> Int {
+func rand(_ max: Int) -> Int {
     return Int(arc4random_uniform(UInt32(max)))
 }
 
-func rand(max: Int, min: Int) -> Int {
+func rand(_ max: Int, min: Int) -> Int {
     let maxUInt = UInt32(max)
     let minUInt = UInt32(min)
     return Int(arc4random_uniform(maxUInt - minUInt) + minUInt)
 }
 
-func randDouble(max: Double, min: Double) -> Double {
+func randDouble(_ max: Double, min: Double) -> Double {
     let maxUInt = UInt32(max * 100)
     let minUInt = UInt32(min * 100)
     let resultInt = Int(arc4random_uniform(maxUInt - minUInt) + minUInt)
@@ -29,7 +29,7 @@ func randDouble(max: Double, min: Double) -> Double {
     return (resultDouble / 100)
 }
 
-func getTechLevelInt(techLevel: TechLevelType) -> Int {
+func getTechLevelInt(_ techLevel: TechLevelType) -> Int {
     switch techLevel {
     case .techLevel0:
         return 0
@@ -52,7 +52,7 @@ func getTechLevelInt(techLevel: TechLevelType) -> Int {
     }
 }
 
-func getUniversalGadgetType(device: UniversalGadgetType) -> Int {
+func getUniversalGadgetType(_ device: UniversalGadgetType) -> Int {
     // returns 0 if device is weapon, 1 if shield, 2 if gadget
     switch device {
         case UniversalGadgetType.pulseLaser:

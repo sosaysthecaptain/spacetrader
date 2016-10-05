@@ -37,15 +37,15 @@ class SpecialVC: UIViewController {
             
             // set button texts
             let controlState = UIControlState()
-            dismissButtonOutlet.setTitle(player.specialEvents.yesDismissButtonText, forState: controlState)
-            noButtonOutlet.setTitle(player.specialEvents.noButtonText, forState: controlState)
+            dismissButtonOutlet.setTitle(player.specialEvents.yesDismissButtonText, for: controlState)
+            noButtonOutlet.setTitle(player.specialEvents.noButtonText, for: controlState)
             
-            dismissButtonOutlet.enabled = player.specialEvents.yesDismissButtonEnabled
-            noButtonOutlet.enabled = player.specialEvents.noButtonEnabled
+            dismissButtonOutlet.isEnabled = player.specialEvents.yesDismissButtonEnabled
+            noButtonOutlet.isEnabled = player.specialEvents.noButtonEnabled
         }
     }
 
-    @IBAction func dismissButton(sender: AnyObject) {
+    @IBAction func dismissButton(_ sender: AnyObject) {
         // NEW WAY--entire functionality goes here, no further callback to SpecialEvent
         // TODO
         switch galaxy.currentSystem!.specialEvent! {
@@ -65,10 +65,10 @@ class SpecialVC: UIViewController {
                         }
                     }
                     player.specialEvents.artifactOnBoard = true         // one of these is redundant
-                    generateAlert(Alert(ID: AlertID.ArtifactOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.artifactOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             
@@ -98,10 +98,10 @@ class SpecialVC: UIViewController {
                     // create new special in Japori--medicineDelivery
                     galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
                     player.commanderShip.japoriSpecialCargo = true
-                    generateAlert(Alert(ID: AlertID.AntidoteOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.antidoteOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 
@@ -117,11 +117,11 @@ class SpecialVC: UIViewController {
                     // take him on
                     let jarek = CrewMember(ID: MercenaryName.jarek, pilot: 3, fighter: 1, trader: 10, engineer: 2)
                     player.commanderShip.crew.append(jarek)
-                    generateAlert(Alert(ID: AlertID.JarekOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.jarekOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     // can't take him on
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.princess:
@@ -156,12 +156,12 @@ class SpecialVC: UIViewController {
                     player.commanderShip.reactorFuelBays = 10
 
                     // ReactorOnBoard alert; close on dismiss
-                    generateAlert(Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.reactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                     
                 } else {
                     // if bays not free, don't delete, create alert
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.scarabStolen:
@@ -203,13 +203,13 @@ class SpecialVC: UIViewController {
                 if player.commanderShip.crewSlotsAvailable < 1 {
                     // no quarters
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else if !shipHasBeamLaser {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.WildWontBoardLaser, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.wildWontBoardLaser, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else if player.commanderShip.reactorSpecialCargo {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.WildWontBoardReactor, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.wildWontBoardReactor, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     // wild comes aboard
                     player.specialEvents.wildOnBoard = true
@@ -222,14 +222,14 @@ class SpecialVC: UIViewController {
                     player.commanderShip.crew.append(wild)
                     player.specialEvents.wildOnBoard = true
                     
-                    generateAlert(Alert(ID: AlertID.WildComesAboard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.wildComesAboard, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.merchantPrice:
                 if player.credits < 1000 {
                     // can't do it
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     player.credits -= 1000
                     player.commanderShip.tribbles = 1
@@ -246,7 +246,7 @@ class SpecialVC: UIViewController {
                             
                         }
                     }
-                    generateAlert(Alert(ID: AlertID.TribblesOwn, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.tribblesOwn, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             
@@ -255,10 +255,10 @@ class SpecialVC: UIViewController {
                 if player.credits >= 5000 {
                     player.policeRecord = PoliceRecordType.cleanScore
                     player.credits -= 5000
-                    generateAlert(Alert(ID: AlertID.SpecialCleanRecord, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialCleanRecord, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 
@@ -270,9 +270,9 @@ class SpecialVC: UIViewController {
                 if player.credits >= 3000 {
                     player.credits -= 3000
                     player.specialEvents.increaseRandomSkill()
-                    generateAlert(Alert(ID: AlertID.SpecialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.cargoForSale:
@@ -280,12 +280,12 @@ class SpecialVC: UIViewController {
                     if player.commanderShip.cargoBays >= 3 {
                         player.credits -= 1000
                         player.specialEvents.addRandomCargo()
-                        generateAlert(Alert(ID: AlertID.SpecialSealedCanisters, passedString1: nil, passedString2: nil, passedString3: nil))
+                        generateAlert(Alert(ID: AlertID.specialSealedCanisters, passedString1: nil, passedString2: nil, passedString3: nil))
                     } else {
-                        generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
+                        generateAlert(Alert(ID: AlertID.specialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                     }
                 } else {
-                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 // subsequent
@@ -327,11 +327,11 @@ class SpecialVC: UIViewController {
                     // add shield
                     player.commanderShip.shield.append(Shield(type: ShieldType.lightningShield))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
-                    generateAlert(Alert(ID: AlertID.EquipmentLightningShield, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentLightningShield, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.disasterAverted:
@@ -360,20 +360,20 @@ class SpecialVC: UIViewController {
             case SpecialEventID.fuelCompactor:
                 if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
                     // add gadget
-                    player.commanderShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
+                    player.commanderShip.gadget.append(Gadget(type: GadgetType.fuelCompactor))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
-                    generateAlert(Alert(ID: AlertID.EquipmentFuelCompactor, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentFuelCompactor, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.medicineDelivery:
                 player.commanderShip.japoriSpecialCargo = false     // remove special cargo
                 player.specialEvents.addQuestString("", ID: QuestID.japori)
                 player.specialEvents.increaseRandomSkill()
-                generateAlert(Alert(ID: AlertID.SpecialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
+                generateAlert(Alert(ID: AlertID.specialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.jarekGetsOut:
                 // remove jarek
@@ -383,7 +383,7 @@ class SpecialVC: UIViewController {
                 player.specialEvents.addQuestString("", ID: QuestID.jarek)
                 
                 player.commanderShip.jarekHagglingComputerSpecialCargo = true
-                generateAlert(Alert(ID: AlertID.HagglingComputer, passedString1: nil, passedString2: nil, passedString3: nil))
+                generateAlert(Alert(ID: AlertID.hagglingComputer, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.princessCentauri:
                 player.specialEvents.addQuestString("Follow the Scorpion to Inthara.", ID: QuestID.princess)
@@ -413,9 +413,9 @@ class SpecialVC: UIViewController {
                     // add Ziyal to crew
                     let ziyal = CrewMember(ID: MercenaryName.ziyal, pilot: 4, fighter: 3, trader: 8, engineer: 9)
                     player.commanderShip.crew.append(ziyal)
-                    generateAlert(Alert(ID: AlertID.PrincessComesAboard, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.princessComesAboard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    generateAlert(Alert(ID: AlertID.SpecialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.specialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
             
             case SpecialEventID.princessReturned:
@@ -431,17 +431,17 @@ class SpecialVC: UIViewController {
                     // add disruptor
                     player.commanderShip.weapon.append(Weapon(type: WeaponType.quantumDisruptor))
                     player.specialEvents.addQuestString("", ID: QuestID.princess)
-                    generateAlert(Alert(ID: AlertID.EquipmentQuantumDisruptor, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentQuantumDisruptor, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.retirement:
                 //print("pushed yes on retire screen")
                 player.specialEvents.addQuestString("", ID: QuestID.moon)
                 // end game
-                player.endGameType = EndGameStatus.BoughtMoon
+                player.endGameType = EndGameStatus.boughtMoon
                 gameOver()
                 
             case SpecialEventID.reactorDelivered:
@@ -462,9 +462,9 @@ class SpecialVC: UIViewController {
                     // add laser
                     player.commanderShip.weapon.append(Weapon(type: WeaponType.morgansLaser))
                     player.specialEvents.addQuestString("", ID: QuestID.reactor)
-                    generateAlert(Alert(ID: AlertID.EquipmentMorgansLaser, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentMorgansLaser, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                     galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
                     dontDeleteLocalSpecialEvent = true
                 }
@@ -481,7 +481,7 @@ class SpecialVC: UIViewController {
                 // add special cargo
                 player.commanderShip.upgradedHull = true
                 player.days += 1
-                generateAlert(Alert(ID: AlertID.ShipHullUpgraded, passedString1: nil, passedString2: nil, passedString3: nil))
+                generateAlert(Alert(ID: AlertID.shipHullUpgraded, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.sculptureDelivered:
                 player.commanderShip.sculptureSpecialCargo = false
@@ -493,13 +493,13 @@ class SpecialVC: UIViewController {
             case SpecialEventID.installHiddenCompartments:
                 if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
                     // add gadget
-                    player.commanderShip.gadget.append(Gadget(type: GadgetType.HBays))
+                    player.commanderShip.gadget.append(Gadget(type: GadgetType.hBays))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
-                    generateAlert(Alert(ID: AlertID.EquipmentHiddenCompartments, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentHiddenCompartments, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     galaxy.setSpecial("Endor", id: SpecialEventID.sculpture)
                     dontDeleteLocalSpecialEvent = true
-                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
+                    generateAlert(Alert(ID: AlertID.equipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.monsterKilled:
@@ -516,14 +516,14 @@ class SpecialVC: UIViewController {
                 zeethibal.costPerDay = 0
                 galaxy.currentSystem!.mercenaries.append(zeethibal)
                 // alert: Zeethibal available for hire
-                generateAlert(Alert(ID: AlertID.WildZeethibalAvailable, passedString1: nil, passedString2: nil, passedString3: nil))
+                generateAlert(Alert(ID: AlertID.wildZeethibalAvailable, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.tribbleBuyer:
                 player.specialEvents.addQuestString("", ID: QuestID.tribbles)
                 player.commanderShip.tribbles = 0
                 player.specialEvents.tribblesOnBoard = false
                 player.credits += Int(Double(player.commanderShip.tribbles) * 0.5)
-                generateAlert(Alert(ID: AlertID.TribblesGone, passedString1: nil, passedString2: nil, passedString3: nil))
+                generateAlert(Alert(ID: AlertID.tribblesGone, passedString1: nil, passedString2: nil, passedString3: nil))
             
         }
         // END yesDismiss FUNCTIONALITY*************************************************************
@@ -535,8 +535,8 @@ class SpecialVC: UIViewController {
     }
     
     func closeSpecialVC() {
-        if player.endGameType == EndGameStatus.GameNotOver {
-            self.dismissViewControllerAnimated(true, completion: nil)
+        if player.endGameType == EndGameStatus.gameNotOver {
+            self.dismiss(animated: true, completion: nil)
         }
         
         // spare special event if dontDeleteLocalSpecialEvent flag is true
@@ -553,35 +553,35 @@ class SpecialVC: UIViewController {
         dontDeleteLocalSpecialEvent = false
     }
 
-    @IBAction func noButton(sender: AnyObject) {
+    @IBAction func noButton(_ sender: AnyObject) {
         // for now, I'm going to assume that this will be unnecessary. Maybe I can change the text on it, but I think it will just dismiss the window without taking away the special?
         print("NO BUTTON PRESSED. Should now dismiss and do nothing more.")
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func gameOver() {
         print("this is the gameOver method in special")
         //performSegueWithIdentifier("gameOverFromSpecial", sender: nil)
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
-        self.presentViewController(vc, animated: false, completion: nil)
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "gameOverVC")
+        self.present(vc, animated: false, completion: nil)
         
         // this goes to a blank, test VC
 //        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("testGameOver")
 //        self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    func generateAlert(alert: Alert) {
+    func generateAlert(_ alert: Alert) {
         // this is the new version. It's functionality is completely contained within the VC
         
-        let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // if yes pressed, return true
             self.closeSpecialVC()
         }))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }

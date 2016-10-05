@@ -107,7 +107,7 @@ class SmallLabelGrayRJ: UILabel {
     
     func setup() {
         self.textColor = textGray
-        self.textAlignment = NSTextAlignment.Right
+        self.textAlignment = NSTextAlignment.right
         self.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         
     }

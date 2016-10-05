@@ -27,19 +27,19 @@ class AutosavedGame: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.savedCommander = decoder.decodeObjectForKey("savedCommander") as! Commander
-        self.savedGalaxy = decoder.decodeObjectForKey("savedGalaxy") as! Galaxy
-        self.gameInProgress = decoder.decodeObjectForKey("gameInProgress") as! Bool
+        self.name = decoder.decodeObject(forKey: "name") as! String
+        self.savedCommander = decoder.decodeObject(forKey: "savedCommander") as! Commander
+        self.savedGalaxy = decoder.decodeObject(forKey: "savedGalaxy") as! Galaxy
+        self.gameInProgress = decoder.decodeObject(forKey: "gameInProgress") as! Bool
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(name, forKey: "name")
-        encoder.encodeObject(savedCommander, forKey: "savedCommander")
-        encoder.encodeObject(savedGalaxy, forKey: "savedGalaxy")
-        encoder.encodeObject(gameInProgress, forKey: "gameInProgress")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(name, forKey: "name")
+        encoder.encode(savedCommander, forKey: "savedCommander")
+        encoder.encode(savedGalaxy, forKey: "savedGalaxy")
+        encoder.encode(gameInProgress, forKey: "gameInProgress")
     }
 }
 
@@ -57,17 +57,17 @@ class NamedSavedGame: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.savedCommander = decoder.decodeObjectForKey("savedCommander") as! Commander
-        self.savedGalaxy = decoder.decodeObjectForKey("savedGalaxy") as! Galaxy
+        self.name = decoder.decodeObject(forKey: "name") as! String
+        self.savedCommander = decoder.decodeObject(forKey: "savedCommander") as! Commander
+        self.savedGalaxy = decoder.decodeObject(forKey: "savedGalaxy") as! Galaxy
         
         super.init()
     }
     
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(name, forKey: "name")
-        encoder.encodeObject(savedCommander, forKey: "savedCommander")
-        encoder.encodeObject(savedGalaxy, forKey: "savedGalaxy")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(name, forKey: "name")
+        encoder.encode(savedCommander, forKey: "savedCommander")
+        encoder.encode(savedGalaxy, forKey: "savedGalaxy")
     }
 
 }
@@ -80,12 +80,12 @@ class SavedGameArchive: NSObject, NSCoding {
     }
     
     required init(coder decoder: NSCoder) {
-        self.savedGames = decoder.decodeObjectForKey("savedGames") as! [NamedSavedGame]
+        self.savedGames = decoder.decodeObject(forKey: "savedGames") as! [NamedSavedGame]
         
         super.init()
     }
     
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(savedGames, forKey: "savedGames")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(savedGames, forKey: "savedGames")
     }
 }

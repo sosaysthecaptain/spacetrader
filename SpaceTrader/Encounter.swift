@@ -425,7 +425,7 @@ class Encounter: NSObject, NSCoding {
         }
     }
     
-    func setButtons(buttonSet: String) {
+    func setButtons(_ buttonSet: String) {
         // used for follow up screens, not initially
         // possible strings are: Attack, IgnoreFlee, Surrender, Inspection, PostMarieInspection, MarieCeleste, Trader, AttackNoSurrender
         if buttonSet == "Attack" {
@@ -482,7 +482,7 @@ class Encounter: NSObject, NSCoding {
             passedText = NSString(string: "notification")
         }
 
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterModalFireNotification"), object: passedText)
     }
     
     func attack() -> String {
@@ -507,7 +507,7 @@ class Encounter: NSObject, NSCoding {
             
             // PHOTON DISRUPTOR ACTION GOES HERE************************************************
             if opponent.ship.totalShields == 0 && player.commanderShip.photonDisruptor {
-                if opponent.ship.type != ShipType.Mantis {      // mantises can't be disabled
+                if opponent.ship.type != ShipType.mantis {      // mantises can't be disabled
                     opponent.ship.disabled = true
                 }
                 
@@ -641,7 +641,7 @@ class Encounter: NSObject, NSCoding {
             alertTitle = "Escaped"
             alertText = "You have managed to escape your opponent."
             let stringToPass = NSString(string: "simple")
-            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         } else {
             outcomeOpponentPursues()
         }
@@ -661,7 +661,7 @@ class Encounter: NSObject, NSCoding {
     
     func submit() {
         let stringToPass = NSString(string: "submit")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         
     }
     
@@ -681,7 +681,7 @@ class Encounter: NSObject, NSCoding {
 //        print("yield called")
     }
     
-    func damagePlayer(amountOfDamage: Int) {
+    func damagePlayer(_ amountOfDamage: Int) {
         // assigns damage appropriately to player.
         var remainingDamage = amountOfDamage
         if player.commanderShip.shield.count != 0 {
@@ -714,7 +714,7 @@ class Encounter: NSObject, NSCoding {
         
     }
     
-    func damageOpponent(amountOfDamage: Int) {
+    func damageOpponent(_ amountOfDamage: Int) {
         var remainingDamage = amountOfDamage
         if opponent.ship.shield.count != 0 {
             for shield in opponent.ship.shield {
@@ -786,7 +786,7 @@ class Encounter: NSObject, NSCoding {
         }
         
         let stringToPass = NSString(string: "dismissViewController")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         setEncounterTextAndButtons()
         fireModal()
     }
@@ -805,11 +805,11 @@ class Encounter: NSObject, NSCoding {
     func outcomePlayerDestroyedEscapes() {                  // THIS ISN'T OBSOLETE
         // dismiss encounter without triggering the next
         let stringToPass = NSString(string: "dismiss")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         
         // launch call playerDestroyedEscapes sequence in WarpViewVC
         let string = NSString(string: "playerDestroyedEscapes")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: string)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterModalFireNotification"), object: string)
     }
     
     func outcomePlayerDestroyedKilled() {
@@ -819,7 +819,7 @@ class Encounter: NSObject, NSCoding {
         alertText = "Your ship has been destroyed by your opponent."
         
         let stringToPass = NSString(string: "playerKilled")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
     }
     
     func outcomeOpponentDestroyed() {
@@ -827,12 +827,12 @@ class Encounter: NSObject, NSCoding {
             player.pirateKills += 1
             // pirate ships get their own special function, as there is the possibility of scoop
             let stringToPass = NSString(string: "pirateDestroyed")
-            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
             
         } else if opponent.ship.IFFStatus == IFFStatusType.Trader {
             player.traderKills += 1
             let stringToPass = NSString(string: "pirateDestroyed")
-            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         } else {
             if opponent.ship.IFFStatus == IFFStatusType.Police {
                 player.policeKills += 1
@@ -842,7 +842,7 @@ class Encounter: NSObject, NSCoding {
             alertTitle = "Opponent Destroyed"
             alertText = "Your opponent has been destroyed."
             let stringToPass = NSString(string: "simple")
-            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterNotification"), object: stringToPass)
         }
     }
     
@@ -884,61 +884,61 @@ class Encounter: NSObject, NSCoding {
     
         required init(coder decoder: NSCoder) {
             //self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
-            self.type = decoder.decodeObjectForKey("type") as! EncounterType
-            self.opponent = decoder.decodeObjectForKey("opponent") as! Opponent
-            self.clicks = decoder.decodeObjectForKey("clicks") as! Int
-            self.encounterText1 = decoder.decodeObjectForKey("encounterText1") as! String
-            self.encounterText2 = decoder.decodeObjectForKey("encounterText2") as! String
-            self.button1Text = decoder.decodeObjectForKey("button1Text") as! String
-            self.button2Text = decoder.decodeObjectForKey("button2Text") as! String
-            self.button3Text = decoder.decodeObjectForKey("button3Text") as! String
-            self.button4Text = decoder.decodeObjectForKey("button4Text") as! String
+            self.type = decoder.decodeObject(forKey: "type") as! EncounterType
+            self.opponent = decoder.decodeObject(forKey: "opponent") as! Opponent
+            self.clicks = decoder.decodeObject(forKey: "clicks") as! Int
+            self.encounterText1 = decoder.decodeObject(forKey: "encounterText1") as! String
+            self.encounterText2 = decoder.decodeObject(forKey: "encounterText2") as! String
+            self.button1Text = decoder.decodeObject(forKey: "button1Text") as! String
+            self.button2Text = decoder.decodeObject(forKey: "button2Text") as! String
+            self.button3Text = decoder.decodeObject(forKey: "button3Text") as! String
+            self.button4Text = decoder.decodeObject(forKey: "button4Text") as! String
             
-            self.alertTitle = decoder.decodeObjectForKey("alertTitle") as! String
-            self.alertText = decoder.decodeObjectForKey("alertText") as! String
+            self.alertTitle = decoder.decodeObject(forKey: "alertTitle") as! String
+            self.alertText = decoder.decodeObject(forKey: "alertText") as! String
             
-            self.opponentFleeing = decoder.decodeObjectForKey("opponentFleeing") as! Bool
-            self.playerFleeing = decoder.decodeObjectForKey("playerFleeing") as! Bool
+            self.opponentFleeing = decoder.decodeObject(forKey: "opponentFleeing") as! Bool
+            self.playerFleeing = decoder.decodeObject(forKey: "playerFleeing") as! Bool
             
-            self.pilotSkillOpponent = decoder.decodeObjectForKey("pilotSkillOpponent") as! Int
-            self.fighterSkillOpponent = decoder.decodeObjectForKey("fighterSkillOpponent") as! Int
-            self.traderSkillOpponent = decoder.decodeObjectForKey("traderSkillOpponent") as! Int
-            self.engineerSkillOpponent = decoder.decodeObjectForKey("engineerSkillOpponent") as! Int
+            self.pilotSkillOpponent = decoder.decodeObject(forKey: "pilotSkillOpponent") as! Int
+            self.fighterSkillOpponent = decoder.decodeObject(forKey: "fighterSkillOpponent") as! Int
+            self.traderSkillOpponent = decoder.decodeObject(forKey: "traderSkillOpponent") as! Int
+            self.engineerSkillOpponent = decoder.decodeObject(forKey: "engineerSkillOpponent") as! Int
             
-            self.youHitThem = decoder.decodeObjectForKey("youHitThem") as! Bool
-            self.theyHitYou = decoder.decodeObjectForKey("theyHitYou") as! Bool
+            self.youHitThem = decoder.decodeObject(forKey: "youHitThem") as! Bool
+            self.theyHitYou = decoder.decodeObject(forKey: "theyHitYou") as! Bool
             
-            self.scoopableItem = decoder.decodeObjectForKey("scoopableItem") as! TradeItem?
+            self.scoopableItem = decoder.decodeObject(forKey: "scoopableItem") as! TradeItem?
             
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(type.rawValue, forKey: "type")
-            encoder.encodeObject(opponent, forKey: "opponent")
-            encoder.encodeObject(clicks, forKey: "clicks")
-            encoder.encodeObject(encounterText1, forKey: "encounterText1")
-            encoder.encodeObject(encounterText2, forKey: "encounterText2")
-            encoder.encodeObject(button1Text, forKey: "button1Text")
-            encoder.encodeObject(button2Text, forKey: "button2Text")
-            encoder.encodeObject(button3Text, forKey: "button3Text")
-            encoder.encodeObject(button4Text, forKey: "button4Text")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(type.rawValue, forKey: "type")
+            encoder.encode(opponent, forKey: "opponent")
+            encoder.encode(clicks, forKey: "clicks")
+            encoder.encode(encounterText1, forKey: "encounterText1")
+            encoder.encode(encounterText2, forKey: "encounterText2")
+            encoder.encode(button1Text, forKey: "button1Text")
+            encoder.encode(button2Text, forKey: "button2Text")
+            encoder.encode(button3Text, forKey: "button3Text")
+            encoder.encode(button4Text, forKey: "button4Text")
             
-            encoder.encodeObject(alertTitle, forKey: "alertTitle")
-            encoder.encodeObject(alertText, forKey: "alertText")
+            encoder.encode(alertTitle, forKey: "alertTitle")
+            encoder.encode(alertText, forKey: "alertText")
             
-            encoder.encodeObject(opponentFleeing, forKey: "opponentFleeing")
-            encoder.encodeObject(playerFleeing, forKey: "playerFleeing")
+            encoder.encode(opponentFleeing, forKey: "opponentFleeing")
+            encoder.encode(playerFleeing, forKey: "playerFleeing")
             
-            encoder.encodeObject(pilotSkillOpponent, forKey: "pilotSkillOpponent")
-            encoder.encodeObject(fighterSkillOpponent, forKey: "fighterSkillOpponent")
-            encoder.encodeObject(traderSkillOpponent, forKey: "traderSkillOpponent")
-            encoder.encodeObject(engineerSkillOpponent, forKey: "engineerSkillOpponent")
+            encoder.encode(pilotSkillOpponent, forKey: "pilotSkillOpponent")
+            encoder.encode(fighterSkillOpponent, forKey: "fighterSkillOpponent")
+            encoder.encode(traderSkillOpponent, forKey: "traderSkillOpponent")
+            encoder.encode(engineerSkillOpponent, forKey: "engineerSkillOpponent")
             
-            encoder.encodeObject(youHitThem, forKey: "youHitThem")
-            encoder.encodeObject(theyHitYou, forKey: "theyHitYou")
+            encoder.encode(youHitThem, forKey: "youHitThem")
+            encoder.encode(theyHitYou, forKey: "theyHitYou")
             
-            encoder.encodeObject(scoopableItem, forKey: "scoopableItem")
+            encoder.encode(scoopableItem, forKey: "scoopableItem")
         }
     
 }

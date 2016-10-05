@@ -87,7 +87,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         
         // experiment
-        robotsQty.setTitle("", forState: controlState)
+        robotsQty.setTitle("", for: controlState)
         
 
         //cashLabel.text = "Cash: \(player.credits) cr."
@@ -95,7 +95,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
     }
     
-    func getPPLString(targetSell: Int, currentBuy: Int) -> String {
+    func getPPLString(_ targetSell: Int, currentBuy: Int) -> String {
         let value = targetSell - currentBuy
         var sign: String = ""
         if value > 0 {
@@ -105,10 +105,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
         
         // format value
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let valueFormatted = numberFormatter.stringFromNumber(value)
+        let valueFormatted = numberFormatter.string(from: NSNumber(value))
         
         // append sign and return
         let string = "\(sign)\(valueFormatted!) cr."
@@ -117,73 +117,73 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     }
     
     
-    @IBAction func buyWaterTapped(sender: AnyObject) {
+    @IBAction func buyWaterTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.water != 0 {
             buySellCommodity = TradeItemType.Water
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyFursTapped(sender: AnyObject) {
+    @IBAction func buyFursTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.furs != 0 {
             buySellCommodity = TradeItemType.Furs
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyFoodTapped(sender: AnyObject) {
+    @IBAction func buyFoodTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.food != 0 {
             buySellCommodity = TradeItemType.Food
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyOreTapped(sender: AnyObject) {
+    @IBAction func buyOreTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.ore != 0 {
             buySellCommodity = TradeItemType.Ore
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyGamesTapped(sender: AnyObject) {
+    @IBAction func buyGamesTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.games != 0 {
             buySellCommodity = TradeItemType.Games
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyFirearmsTapped(sender: AnyObject) {
+    @IBAction func buyFirearmsTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.firearms != 0 {
             buySellCommodity = TradeItemType.Firearms
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyMedicineTapped(sender: AnyObject) {
+    @IBAction func buyMedicineTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.medicine != 0 {
             buySellCommodity = TradeItemType.Medicine
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyMachinesTapped(sender: AnyObject) {
+    @IBAction func buyMachinesTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.machines != 0 {
             buySellCommodity = TradeItemType.Machines
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyNarcoticsTapped(sender: AnyObject) {
+    @IBAction func buyNarcoticsTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.narcotics != 0 {
             buySellCommodity = TradeItemType.Narcotics
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
-    @IBAction func buyRobotsTapped(sender: AnyObject) {
+    @IBAction func buyRobotsTapped(_ sender: AnyObject) {
         if galaxy.currentSystem!.robots != 0 {
             buySellCommodity = TradeItemType.Robots
-            performSegueWithIdentifier("buyPicker", sender: sender)
+            performSegue(withIdentifier: "buyPicker", sender: sender)
         }
     }
     
@@ -267,7 +267,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
     }
     
-    @IBAction func systemCycleForward(sender: AnyObject) {
+    @IBAction func systemCycleForward(_ sender: AnyObject) {
         galaxy.cycleForward()
         //updateUIInitial()
         updateUI()
@@ -275,7 +275,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     
-    func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
+    func buyModalDidFinish(_ controller: BuyModalVC) {                    // DELEGATE FUNCTION
         //updateUIInitial()
         updateUI()
     }
@@ -291,20 +291,20 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         let controlState = UIControlState()
         
         // set quantities
-        waterQty.setTitle("\(galaxy.currentSystem!.water)", forState: controlState)
+        waterQty.setTitle("\(galaxy.currentSystem!.water)", for: controlState)
         //waterQty.frame = CGRectMake(0.0,0.0,100,100)
         //self.view.addSubview(waterQty)
         
         
-        fursQty.setTitle("\(galaxy.currentSystem!.furs)", forState: controlState)
-        foodQty.setTitle("\(galaxy.currentSystem!.food)", forState: controlState)
-        oreQty.setTitle("\(galaxy.currentSystem!.ore)", forState: controlState)
-        gamesQty.setTitle("\(galaxy.currentSystem!.games)", forState: controlState)
-        firearmsQty.setTitle("\(galaxy.currentSystem!.firearms)", forState: controlState)
-        medicineQty.setTitle("\(galaxy.currentSystem!.medicine)", forState: controlState)
-        machinesQty.setTitle("\(galaxy.currentSystem!.machines)", forState: controlState)
-        narcoticsQty.setTitle("\(galaxy.currentSystem!.narcotics)", forState: controlState)
-        robotsQty.setTitle("\(galaxy.currentSystem!.robots)", forState: controlState)
+        fursQty.setTitle("\(galaxy.currentSystem!.furs)", for: controlState)
+        foodQty.setTitle("\(galaxy.currentSystem!.food)", for: controlState)
+        oreQty.setTitle("\(galaxy.currentSystem!.ore)", for: controlState)
+        gamesQty.setTitle("\(galaxy.currentSystem!.games)", for: controlState)
+        firearmsQty.setTitle("\(galaxy.currentSystem!.firearms)", for: controlState)
+        medicineQty.setTitle("\(galaxy.currentSystem!.medicine)", for: controlState)
+        machinesQty.setTitle("\(galaxy.currentSystem!.machines)", for: controlState)
+        narcoticsQty.setTitle("\(galaxy.currentSystem!.narcotics)", for: controlState)
+        robotsQty.setTitle("\(galaxy.currentSystem!.robots)", for: controlState)
         
         
         
@@ -318,19 +318,19 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         updateUI2()
         
         // set formatted prices
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let waterPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.waterBuy)
-        let fursPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.fursBuy)
-        let foodPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.foodBuy)
-        let orePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.oreBuy)
-        let gamesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.gamesBuy)
-        let firearmsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.firearmsBuy)
-        let medicinePriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.medicineBuy)
-        let machinesPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.machinesBuy)
-        let narcoticsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.narcoticsBuy)
-        let robotsPriceFormatted = numberFormatter.stringFromNumber(galaxy.currentSystem!.robotsBuy)
+        let waterPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.waterBuy))
+        let fursPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.fursBuy))
+        let foodPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.foodBuy))
+        let orePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.oreBuy))
+        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.gamesBuy))
+        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.firearmsBuy))
+        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.medicineBuy))
+        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.machinesBuy))
+        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.narcoticsBuy))
+        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(galaxy.currentSystem!.robotsBuy))
         
         
         // set prices
@@ -398,8 +398,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         if galaxy.currentSystem!.waterBuy == 0 {
             
             //waterQty.setTitle("", forState: controlState)
-            waterQty.enabled = false
-            waterMaxButton.enabled = false
+            waterQty.isEnabled = false
+            waterMaxButton.isEnabled = false
             waterPrice.text = "not sold"
             waterPrice.textColor = inactiveGray
             waterProjectedPL.text = "--"
@@ -407,72 +407,72 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
         if galaxy.currentSystem!.fursBuy == 0 {
             //fursQty.setTitle("", forState: controlState)
-            fursQty.enabled = false
-            fursMaxButton.enabled = false
+            fursQty.isEnabled = false
+            fursMaxButton.isEnabled = false
             fursPrice.text = "not sold"
             fursPrice.textColor = inactiveGray
             fursProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.foodBuy == 0 {
             //foodQty.setTitle("", forState: controlState)
-            foodQty.enabled = false
-            foodMaxButton.enabled = false
+            foodQty.isEnabled = false
+            foodMaxButton.isEnabled = false
             foodPrice.text = "not sold"
             foodPrice.textColor = inactiveGray
             foodProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.oreBuy == 0 {
             //oreQty.setTitle("", forState: controlState)
-            oreQty.enabled = false
-            oreMaxButton.enabled = false
+            oreQty.isEnabled = false
+            oreMaxButton.isEnabled = false
             orePrice.text = "not sold"
             orePrice.textColor = inactiveGray
             oreProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.gamesBuy == 0 {
             //gamesQty.setTitle("", forState: controlState)
-            gamesQty.enabled = false
-            gamesMaxButton.enabled = false
+            gamesQty.isEnabled = false
+            gamesMaxButton.isEnabled = false
             gamesPrice.text = "not sold"
             gamesPrice.textColor = inactiveGray
             gamesProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.firearmsBuy == 0 {
             //firearmsQty.setTitle("", forState: controlState)
-            firearmsQty.enabled = false
-            firearmsMaxButton.enabled = false
+            firearmsQty.isEnabled = false
+            firearmsMaxButton.isEnabled = false
             firearmsPrice.text = "not sold"
             firearmsPrice.textColor = inactiveGray
             firearmsProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.medicineBuy == 0 {
             //medicineQty.setTitle("", forState: controlState)
-            medicineQty.enabled = false
-            medicineMaxButton.enabled = false
+            medicineQty.isEnabled = false
+            medicineMaxButton.isEnabled = false
             medicinePrice.text = "not sold"
             medicinePrice.textColor = inactiveGray
             medicineProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.machinesBuy == 0 {
             //machinesQty.setTitle("", forState: controlState)
-            machinesQty.enabled = false
-            machinesMaxButton.enabled = false
+            machinesQty.isEnabled = false
+            machinesMaxButton.isEnabled = false
             machinesPrice.text = "not sold"
             machinesPrice.textColor = inactiveGray
             machinesProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.narcoticsBuy == 0 {
             //narcoticsQty.setTitle("", forState: controlState)
-            narcoticsQty.enabled = false
-            narcoticsMaxButton.enabled = false
+            narcoticsQty.isEnabled = false
+            narcoticsMaxButton.isEnabled = false
             narcoticsPrice.text = "not sold"
             narcoticsPrice.textColor = inactiveGray
             narcoticsProjectedPL.text = "--"
         }
         if galaxy.currentSystem!.robotsBuy == 0 {
             //robotsQty.setTitle("", forState: controlState)
-            robotsQty.enabled = false
-            robotsMaxButton.enabled = false
+            robotsQty.isEnabled = false
+            robotsMaxButton.isEnabled = false
             robotsPrice.text = "not sold"
             robotsPrice.textColor = inactiveGray
             robotsProjectedPL.text = "--"
@@ -547,21 +547,21 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // magic required to make delegate work
         if segue.identifier == "buyModal" {
-            let modalVC: BuyModalVC = segue.destinationViewController as! BuyModalVC
+            let modalVC: BuyModalVC = segue.destination as! BuyModalVC
             modalVC.delegate = self
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         //updateUIInitial()
         updateUI()
         buyAsOpposedToSell = true
         
         // return scroll view to top
-        let topScrollPoint = CGPointMake(0.0, -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
     }
    
@@ -623,7 +623,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     }
     
     // returns true if text should be shrunk to fit the P/L column, false otherwise
-    func shouldShrink(text: String) -> Bool {
+    func shouldShrink(_ text: String) -> Bool {
         // true if "not sold"
         if text == "not sold" {
             return true
@@ -638,7 +638,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         return false
     }
     
-    func getPPL(commodity: TradeItemType) -> Int {
+    func getPPL(_ commodity: TradeItemType) -> Int {
         // avoid red "--"
         if galaxy.currentSystem!.getBuyPrice(commodity) == 0 {
             return 0

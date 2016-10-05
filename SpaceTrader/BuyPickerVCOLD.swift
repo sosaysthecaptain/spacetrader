@@ -41,11 +41,11 @@ class BuyPickerVCOLD: UIViewController {
         quantityLabel.text = "\(Int(slider.value)) bays"
     }
     
-    @IBAction func sliderMoved(sender: AnyObject) {
+    @IBAction func sliderMoved(_ sender: AnyObject) {
         updateUI()
     }
     
-    @IBAction func buyPressed(sender: AnyObject) {
+    @IBAction func buyPressed(_ sender: AnyObject) {
     }
     
 

@@ -22,8 +22,8 @@ class AboutVC: UIViewController {
     }
     
     func loadWebView() {
-        let myURL = NSBundle.mainBundle().URLForResource("AboutCreditstext", withExtension: "html")
-        let requestObj = NSURLRequest(URL: myURL!)
+        let myURL = Bundle.main.url(forResource: "AboutCreditstext", withExtension: "html")
+        let requestObj = URLRequest(url: myURL!)
         webView.loadRequest(requestObj)
     }
 

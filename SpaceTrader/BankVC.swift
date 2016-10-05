@@ -30,56 +30,56 @@ class BankVC: UIViewController {
         setData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         setData()
     }
     
     func setData() {
         // current debt
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let currentDebtFormatted = numberFormatter.stringFromNumber(player.debt)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let currentDebtFormatted = numberFormatter.string(from: NSNumber(player.debt))
         currentDebtLabel.text = "\(currentDebtFormatted!) cr."
         
         // maximum loan--round down to nearest multiple of 100
         var maxLoan = getMaxLoan()
         maxLoan = maxLoan - (maxLoan % 100)
-        let maxLoanFormatted = numberFormatter.stringFromNumber(maxLoan)
+        let maxLoanFormatted = numberFormatter.string(from: NSNumber(maxLoan))
         maximumLoanLabel.text = "\(maxLoanFormatted!) cr."
         
         
         
         // disable pay back loan button if no debt
         if player.debt == 0 {
-            payBackLoanLabel.enabled = false
+            payBackLoanLabel.isEnabled = false
         } else {
-            payBackLoanLabel.enabled = true
+            payBackLoanLabel.isEnabled = true
         }
         
         // disable get loan button if no credit available
         if maxLoan == 0 {
-            getLoanLabel.enabled = false
+            getLoanLabel.isEnabled = false
         } else {
-            getLoanLabel.enabled = true
+            getLoanLabel.isEnabled = true
         }
         
         // insurance numbers
-        let shipValueFormatted = numberFormatter.stringFromNumber(player.commanderShip.value)
+        let shipValueFormatted = numberFormatter.string(from: NSNumber(player.commanderShip.value))
         shipValueLabel.text = "\(shipValueFormatted!) cr."
         
-        let noClaimFormatted = numberFormatter.stringFromNumber(player.noClaim)
+        let noClaimFormatted = numberFormatter.string(from: NSNumber(player.noClaim))
         noClaimDiscountLabel.text = "\(noClaimFormatted!)%"
         
-        let insuranceCostFormatted = numberFormatter.stringFromNumber(player.insuranceCost)
+        let insuranceCostFormatted = numberFormatter.string(from: NSNumber(player.insuranceCost))
         costsLabel.text = "\(insuranceCostFormatted!) cr. daily"
         
         // set buy/stop insurance
         if player.insurance {
             let controlState = UIControlState()
-            buyInsuranceOutlet.setTitle("Stop Insurance", forState: controlState)
+            buyInsuranceOutlet.setTitle("Stop Insurance", for: controlState)
         } else {
             let controlState = UIControlState()
-            buyInsuranceOutlet.setTitle("Buy Insurance", forState: controlState)
+            buyInsuranceOutlet.setTitle("Buy Insurance", for: controlState)
         }
     }
     
@@ -106,33 +106,33 @@ class BankVC: UIViewController {
         }
     }
 
-    @IBAction func getLoan(sender: AnyObject) {
+    @IBAction func getLoan(_ sender: AnyObject) {
         getVsPayBack = true
-        performSegueWithIdentifier("bankQuantitySegue", sender: nil)
+        performSegue(withIdentifier: "bankQuantitySegue", sender: nil)
     }
     
-    @IBAction func payBackLoan(sender: AnyObject) {
+    @IBAction func payBackLoan(_ sender: AnyObject) {
         getVsPayBack = false
-        performSegueWithIdentifier("bankQuantitySegue", sender: nil)
+        performSegue(withIdentifier: "bankQuantitySegue", sender: nil)
     }
 
-    @IBAction func buyInsurance(sender: AnyObject) {
+    @IBAction func buyInsurance(_ sender: AnyObject) {
         if player.insurance {
             // stop insurance
             let title = "Stop Insurance"
             let message = "Do you really want to stop your insurance and lose your no-claim?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 player.insurance = false
                 self.setData()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // buy insurance
             if player.escapePod {
@@ -144,24 +144,24 @@ class BankVC: UIViewController {
                 let title = "No Escape Pod"
                 let message = "Insurance isn't useful to you, since you don't have an escape pod."
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // do nothing
                 }))
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
         if(segue.identifier == "bankQuantitySegue") {
             // set up VC, add getVsPayBack to it as Bool?, maxLoan as Int?
             
-            let vc = (segue.destinationViewController as! BankQuantityVC)
+            let vc = (segue.destination as! BankQuantityVC)
             vc.getVsPayBack = getVsPayBack
             vc.maxLoan = getMaxLoan()
             //print("maxLoan: \(vc.maxLoan)")

@@ -21,7 +21,7 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
         //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadGame(game: NamedSavedGame) {
+    func loadGame(_ game: NamedSavedGame) {
         // clear commander, galaxy
         player = Commander(commanderName: "new", difficulty: DifficultyType.beginner, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
         galaxy = Galaxy()
@@ -39,62 +39,62 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         galaxy = game.savedGalaxy
         
         // go to system info
-        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("mainTabBarController")
-        self.presentViewController(vc, animated: true, completion: nil)
+        let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "mainTabBarController")
+        self.present(vc, animated: true, completion: nil)
     }
     
-    func deleteGame(index: Int) {
+    func deleteGame(_ index: Int) {
         print("deleting \(index)")
-        savedGames.removeAtIndex(index)
+        savedGames.remove(at: index)
         tableView.reloadData()
         // not saving archive. That will be done on applicationWillResignActive
     }
     
     // tableView methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedGames.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: LoadGameCellTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("LoadGameCell")! as! LoadGameCellTableViewCell
-        let title = savedGames[indexPath.row].name
-        let netWorth = savedGames[indexPath.row].savedCommander.netWorth
-        let days = savedGames[indexPath.row].savedCommander.days
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: LoadGameCellTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "LoadGameCell")! as! LoadGameCellTableViewCell
+        let title = savedGames[(indexPath as NSIndexPath).row].name
+        let netWorth = savedGames[(indexPath as NSIndexPath).row].savedCommander.netWorth
+        let days = savedGames[(indexPath as NSIndexPath).row].savedCommander.days
         
         cell.setCell(title, netWorth: netWorth, days: days)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // prompt user
         let title = "Load Game?"
         let message = "Your current game will be lost."
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
         }))
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
-            self.loadGame(savedGames[indexPath.row])
+            self.loadGame(savedGames[(indexPath as NSIndexPath).row])
         }))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
         // deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            deleteGame(indexPath.row)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteGame((indexPath as NSIndexPath).row)
         }
     }
     
-    @IBAction func doneButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
 

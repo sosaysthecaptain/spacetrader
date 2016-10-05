@@ -39,23 +39,23 @@ class BankQuantityVC: UIViewController {
         updateData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         updateData()
     }
     
     func updateData() {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let maxLoanFormatted = numberFormatter.stringFromNumber(maxLoan!)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let maxLoanFormatted = numberFormatter.string(from: NSNumber(value: maxLoan!))!
         
-        let debtFormatted = numberFormatter.stringFromNumber(player.debt)
+        let debtFormatted = numberFormatter.string(from: NSNumber(value: player.debt))!
         
         if getVsPayBack! {
-            text1.text = "You can borrow up to \(maxLoanFormatted!) credits."
+            text1.text = "You can borrow up to \(maxLoanFormatted) credits."
             text2.text = "How much do you want to borrow?"
         } else {
-            text1.text = "You have a debt of \(debtFormatted!) credits."
+            text1.text = "You have a debt of \(debtFormatted) credits."
             text2.text = "How much do you want to pay back?"
         }
         
@@ -65,14 +65,14 @@ class BankQuantityVC: UIViewController {
         // set button title
         if getVsPayBack! {
             let controlState = UIControlState()
-            buttonOutlet.setTitle("Get Loan", forState: controlState)
+            buttonOutlet.setTitle("Get Loan", for: controlState)
         } else {
             let controlState = UIControlState()
-            buttonOutlet.setTitle("Pay Back Loan", forState: controlState)
+            buttonOutlet.setTitle("Pay Back Loan", for: controlState)
         }
     }
 
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         if getVsPayBack! {
             selectedValue = sender.value * maxLoanFloat
             selectedValue = round(0.01 * selectedValue) / 0.01      // round to nearest hundred
@@ -86,26 +86,26 @@ class BankQuantityVC: UIViewController {
         
         
         // format
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let selectedValueFormatted = numberFormatter.stringFromNumber(selectedValue)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let selectedValueFormatted = numberFormatter.string(from: NSNumber(selectedValue))
         
         numberLabel.text = "\(selectedValueFormatted!) credits"
         
         // disable get loan button if quantity is zero
         if selectedValue == 0 {
-            buttonOutlet.enabled = false
+            buttonOutlet.isEnabled = false
         } else {
-            buttonOutlet.enabled = true
+            buttonOutlet.isEnabled = true
         }
     }
 
-    @IBAction func getLoan(sender: AnyObject) {
+    @IBAction func getLoan(_ sender: AnyObject) {
         if getVsPayBack! {
             player.credits += selectedValueRounded
             player.debt += selectedValueRounded
             
-            navigationController?.popViewControllerAnimated(true)
+            navigationController?.popViewController(animated: true)
         } else {
             // MUST CHECK IF ENOUGH MONEY FIRST
             // does rounding by hundreds work here?
@@ -113,7 +113,7 @@ class BankQuantityVC: UIViewController {
             player.credits -= selectedValueRounded
             player.debt -= selectedValueRounded
             
-            navigationController?.popViewControllerAnimated(true)
+            navigationController?.popViewController(animated: true)
         }
         
     }

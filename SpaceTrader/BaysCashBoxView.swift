@@ -14,7 +14,7 @@ class BaysCashBoxView: UIView {
     // view should be drawn to edges (not margins), constrained, and should be 45 high. This includes upper margin.
     // hook up, call redrawSelf() to update labels
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // clear everything, so it doesn't just write over previous version
         for view in self.subviews {
             view.removeFromSuperview()
@@ -38,12 +38,12 @@ class BaysCashBoxView: UIView {
         
         // draw bays box
         let baysBoxBorder = UIBezierPath()
-        baysBoxBorder.moveToPoint(baysLeftBottom)
-        baysBoxBorder.addLineToPoint(baysLeftTop)
-        baysBoxBorder.addLineToPoint(baysRightTop)
-        baysBoxBorder.addLineToPoint(baysRightBottom)
-        baysBoxBorder.addLineToPoint(baysLeftBottom)
-        baysBoxBorder.addLineToPoint(baysLeftTop)       // one more to clean up corner
+        baysBoxBorder.move(to: baysLeftBottom)
+        baysBoxBorder.addLine(to: baysLeftTop)
+        baysBoxBorder.addLine(to: baysRightTop)
+        baysBoxBorder.addLine(to: baysRightBottom)
+        baysBoxBorder.addLine(to: baysLeftBottom)
+        baysBoxBorder.addLine(to: baysLeftTop)       // one more to clean up corner
         baysBoxBorder.lineWidth = 1
         textGray.setStroke()
         baysBoxBorder.stroke()
@@ -56,12 +56,12 @@ class BaysCashBoxView: UIView {
         
         // draw cash box
         let cashBoxBorder = UIBezierPath()
-        cashBoxBorder.moveToPoint(cashLeftBottom)
-        cashBoxBorder.addLineToPoint(cashLeftTop)
-        cashBoxBorder.addLineToPoint(cashRightTop)
-        cashBoxBorder.addLineToPoint(cashRightBottom)
-        cashBoxBorder.addLineToPoint(cashLeftBottom)
-        cashBoxBorder.addLineToPoint(cashLeftTop)       // one more to clean up corner
+        cashBoxBorder.move(to: cashLeftBottom)
+        cashBoxBorder.addLine(to: cashLeftTop)
+        cashBoxBorder.addLine(to: cashRightTop)
+        cashBoxBorder.addLine(to: cashRightBottom)
+        cashBoxBorder.addLine(to: cashLeftBottom)
+        cashBoxBorder.addLine(to: cashLeftTop)       // one more to clean up corner
         cashBoxBorder.lineWidth = 1
         textGray.setStroke()
         cashBoxBorder.stroke()
@@ -75,9 +75,9 @@ class BaysCashBoxView: UIView {
         
         
         // label text
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let cashFormatted = numberFormatter.stringFromNumber(player.credits)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let cashFormatted = numberFormatter.string(from: NSNumber(player.credits))
         
         let baysLabelText = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
         let cashLabelText = "\(cashFormatted!) cr."
@@ -86,7 +86,7 @@ class BaysCashBoxView: UIView {
         let baysLabel = UILabel(frame: CGRect(origin: baysLabelLocation, size: CGSize(width: 100, height: 30)))
         baysLabel.text = baysLabelText
         baysLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
-        baysLabel.textAlignment = NSTextAlignment.Center
+        baysLabel.textAlignment = NSTextAlignment.center
         //cashLabel.backgroundColor = UIColor.greenColor()        // testing only
         baysLabel.textColor = textGray
         self.addSubview(baysLabel)
@@ -94,7 +94,7 @@ class BaysCashBoxView: UIView {
         let cashLabel = UILabel(frame: CGRect(origin: cashLabelLocation, size: CGSize(width: 100, height: 30)))
         cashLabel.text = cashLabelText
         cashLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
-        cashLabel.textAlignment = NSTextAlignment.Center
+        cashLabel.textAlignment = NSTextAlignment.center
         cashLabel.textColor = textGray
         self.addSubview(cashLabel)
     }

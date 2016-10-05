@@ -25,7 +25,7 @@ class DesignNaSVC: UIViewController, UITextFieldDelegate {
         updateUI()
         
         // needed to recognize tap that would dismiss keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DesignNaSVC.DismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -36,38 +36,38 @@ class DesignNaSVC: UIViewController, UITextFieldDelegate {
     }
     
     // delegate protocol that makes the return button close the keyboard
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    @IBAction func continueTapped(sender: AnyObject) {
+    @IBAction func continueTapped(_ sender: AnyObject) {
         // verify user entered a name
         if nameTextField.text!.characters.count == 0 {
             // alert, need to specify a name before proceeding
             let title = "Enter a Name"
             let message = "To proceed, please enter a name for your new ship."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // if name entered, set name & go to second page
             player.selectedConstructShipName = nameTextField.text!
-            performSegueWithIdentifier("BYOSsecondPageSegue", sender: nil)
+            performSegue(withIdentifier: "BYOSsecondPageSegue", sender: nil)
         }
     }
     
-    @IBAction func stepperWasPressed(sender: AnyObject) {
+    @IBAction func stepperWasPressed(_ sender: AnyObject) {
         updateUI()
     }
     
-    @IBAction func cancelPressed(sender: AnyObject) {
+    @IBAction func cancelPressed(_ sender: AnyObject) {
         // close window, return to shipyard
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -95,7 +95,7 @@ class DesignNaSVC: UIViewController, UITextFieldDelegate {
     }
     
     // set back button text for child VCs to "Back"
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed

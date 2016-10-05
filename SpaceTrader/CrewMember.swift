@@ -31,25 +31,25 @@ class CrewMember: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.ID = MercenaryName(rawValue: decoder.decodeObjectForKey("ID") as! String!)!
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.pilot = decoder.decodeObjectForKey("pilot") as! Int
-        self.fighter = decoder.decodeObjectForKey("fighter") as! Int
-        self.trader = decoder.decodeObjectForKey("trader") as! Int
-        self.engineer = decoder.decodeObjectForKey("engineer") as! Int
-        self.costPerDay = decoder.decodeObjectForKey("costPerDay") as! Int
+        self.ID = MercenaryName(rawValue: decoder.decodeObject(forKey: "ID") as! String!)!
+        self.name = decoder.decodeObject(forKey: "name") as! String
+        self.pilot = decoder.decodeObject(forKey: "pilot") as! Int
+        self.fighter = decoder.decodeObject(forKey: "fighter") as! Int
+        self.trader = decoder.decodeObject(forKey: "trader") as! Int
+        self.engineer = decoder.decodeObject(forKey: "engineer") as! Int
+        self.costPerDay = decoder.decodeObject(forKey: "costPerDay") as! Int
 
         super.init()
     }
     
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(ID.rawValue, forKey: "ID")
-        encoder.encodeObject(name, forKey: "name")
-        encoder.encodeObject(pilot, forKey: "pilot")
-        encoder.encodeObject(fighter, forKey: "fighter")
-        encoder.encodeObject(trader, forKey: "trader")
-        encoder.encodeObject(engineer, forKey: "engineer")
-        encoder.encodeObject(costPerDay, forKey: "costPerDay")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(ID.rawValue, forKey: "ID")
+        encoder.encode(name, forKey: "name")
+        encoder.encode(pilot, forKey: "pilot")
+        encoder.encode(fighter, forKey: "fighter")
+        encoder.encode(trader, forKey: "trader")
+        encoder.encode(engineer, forKey: "engineer")
+        encoder.encode(costPerDay, forKey: "costPerDay")
     }
 }

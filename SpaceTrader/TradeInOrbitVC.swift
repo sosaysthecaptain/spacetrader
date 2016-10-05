@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TradeInOrbitDelegate: class {
-    func tradeDidFinish(controller: TradeInOrbitVC)
+    func tradeDidFinish(_ controller: TradeInOrbitVC)
 }
 
 class TradeInOrbitVC: UIViewController {
@@ -76,12 +76,12 @@ class TradeInOrbitVC: UIViewController {
             max = min(player.commanderShip.getQuantity(commodityToTrade), maxRoom)
             
             // set labels
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let askPriceFormatted = numberFormatter.stringFromNumber(askPrice)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let askPriceFormatted = numberFormatter.string(from: NSNumber(value: askPrice))!
             
             titleLabel.text = "Sell \(commodityToTrade.rawValue)"
-            firstTextView.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
+            firstTextView.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted) cr. each."
             secondTextView.text = "You have \(player.commanderShip.getQuantity(commodityToTrade)) units in your hold."
             thirdTextView.text = "The trader offers to buy \(max) units."
             fourthTextView.text = "How many do you want to sell?"
@@ -110,9 +110,9 @@ class TradeInOrbitVC: UIViewController {
             let maxRoom = player.commanderShip.baysAvailable
             max = min(maxAfford, maxRoom, tradeOfferAmount)
             
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let askPriceFormatted = numberFormatter.stringFromNumber(askPrice)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let askPriceFormatted = numberFormatter.string(from: NSNumber(askPrice))
             
             titleLabel.text = "Buy \(commodityToTrade.rawValue)"
             firstTextView.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted!) cr. each."
@@ -132,24 +132,24 @@ class TradeInOrbitVC: UIViewController {
         quantityLabel.text = "\(Int(slider.value)) Units"
         
         if Int(slider.value) == 0 {
-            tradeButton.enabled = false
+            tradeButton.isEnabled = false
         } else {
-            tradeButton.enabled = true
+            tradeButton.isEnabled = true
         }
     }
 
-    @IBAction func sliderDidMove(sender: AnyObject) {
+    @IBAction func sliderDidMove(_ sender: AnyObject) {
         updateQuantityLabel()
     }
 
-    @IBAction func cancelTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: {
+    @IBAction func cancelTapped(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: {
             //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
             self.delegate?.tradeDidFinish(self)
         })
     }
     
-    @IBAction func tradeTapped(sender: AnyObject) {
+    @IBAction func tradeTapped(_ sender: AnyObject) {
         // perform trade
         if encounterTypeIsBuy{
             player.commanderShip.removeCargo(commodityToTrade, quantity: Int(slider.value))
@@ -159,18 +159,18 @@ class TradeInOrbitVC: UIViewController {
             let title: String = "Trade Completed"
             let message: String = "Thanks for selling the \(commodityToTrade.rawValue). It's been a pleasure doing business with you."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // end encounter, close VC
                 //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-                self.dismissViewControllerAnimated(false, completion: {
+                self.dismiss(animated: false, completion: {
                         //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
                     // fire delegate method here
                     self.delegate?.tradeDidFinish(self)
                 })
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // sell
             
@@ -181,17 +181,17 @@ class TradeInOrbitVC: UIViewController {
             let title: String = "Trade Completed"
             let message: String = "Thanks for buying the \(commodityToTrade.rawValue). It's been a pleasure doing business with you."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // end encounter, close VC
-                self.dismissViewControllerAnimated(false, completion: {
+                self.dismiss(animated: false, completion: {
                     // fire delegate method here
                     
                     self.delegate?.tradeDidFinish(self)
                 })
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }

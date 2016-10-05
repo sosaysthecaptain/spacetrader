@@ -17,8 +17,8 @@ class GameOverVC: UIViewController {
     
 
     // set dark statusBar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidLoad() {
@@ -38,13 +38,13 @@ class GameOverVC: UIViewController {
         
         // load appropriate graphic
         switch player.endGameType {
-        case EndGameStatus.Killed:
+        case EndGameStatus.killed:
             fullScreenGraphic.image = UIImage(named: "destroyed")
-        case EndGameStatus.Retired:
+        case EndGameStatus.retired:
             fullScreenGraphic.image = UIImage(named: "remote")
-        case EndGameStatus.BoughtMoon:
+        case EndGameStatus.boughtMoon:
             fullScreenGraphic.image = UIImage(named: "retirement")
-        case EndGameStatus.BoughtMoonGirl:
+        case EndGameStatus.boughtMoonGirl:
             fullScreenGraphic.image = UIImage(named: "princess")
         default:
             print("error")
@@ -52,7 +52,7 @@ class GameOverVC: UIViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // wait, display alert
         sleep(1)
         
@@ -62,9 +62,9 @@ class GameOverVC: UIViewController {
         var message = ""
         
         // number formatter business
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let scoreFormatted = numberFormatter.stringFromNumber(score)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let scoreFormatted = numberFormatter.string(from: NSNumber(score))
         
         if madeHighScores {
             
@@ -75,25 +75,25 @@ class GameOverVC: UIViewController {
             message = "You scored \(scoreFormatted!). You did not make the high score list."
         }
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             print("supposed to perform segue to gameOverHighScores now")
-            self.performSegueWithIdentifier("gameOverHighScores", sender: nil)
+            self.performSegue(withIdentifier: "gameOverHighScores", sender: nil)
 //            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoresNavController")
 //            self.presentViewController(vc, animated: false, completion: nil)
             
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // PERSISTANCE METHODS
     func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         return documentsFolderPath
     }
     
-    func fileInDocumentsDirectory(filename: String) -> String {
+    func fileInDocumentsDirectory(_ filename: String) -> String {
         return documentsDirectory().stringByAppendingPathComponent(filename)
     }
     

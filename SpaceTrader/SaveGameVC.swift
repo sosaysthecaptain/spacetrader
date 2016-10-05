@@ -23,20 +23,20 @@ class SaveGameVC: UIViewController, UITextFieldDelegate {
         textField.delegate = self
         
         // initially set save button to inactive, since there can't be any text in the textField yet
-        saveButton.enabled = false
+        saveButton.isEnabled = false
     }
 
     // when textField edited, see if chars, if so enable save button
-    @IBAction func textFieldWasEdited(sender: AnyObject) {
+    @IBAction func textFieldWasEdited(_ sender: AnyObject) {
         if textField.text!.characters.count > 0 {
-            saveButton.enabled = true
+            saveButton.isEnabled = true
         } else {
-            saveButton.enabled = false
+            saveButton.isEnabled = false
         }
     }
     
     // dismiss keyboard on "Done"
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -48,7 +48,7 @@ class SaveGameVC: UIViewController, UITextFieldDelegate {
 //    }
     
     
-    @IBAction func saveButton(sender: AnyObject) {
+    @IBAction func saveButton(_ sender: AnyObject) {
         // make this only work if user has entered something in the text field
         let newSavedGame = NamedSavedGame(name: textField.text!, cdr: player, gxy: galaxy)
         savedGames.append(newSavedGame)
@@ -60,23 +60,23 @@ class SaveGameVC: UIViewController, UITextFieldDelegate {
         let title = "Game Saved"
         let message = "Your game has been saved."
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // go back to menu
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.navigationController?.popToRootViewController(animated: true)
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
     // PERSISTANCE METHODS
     func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         return documentsFolderPath
     }
     
-    func fileInDocumentsDirectory(filename: String) -> String {
+    func fileInDocumentsDirectory(_ filename: String) -> String {
         return documentsDirectory().stringByAppendingPathComponent(filename)
     }
     

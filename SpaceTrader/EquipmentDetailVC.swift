@@ -35,7 +35,7 @@ class EquipmentDetailVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func buySellButton(sender: AnyObject) {
+    @IBAction func buySellButton(_ sender: AnyObject) {
         
         if buyNotSell! {
             if numRelevantSlots == 0 {
@@ -43,48 +43,48 @@ class EquipmentDetailVC: UIViewController {
                 let title = "Not Enough Slots"
                 let message = "You have already filled all of your available slots for this type of item."
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // do nothing
                     
                 }))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 // check money
                 if player.credits >= chosenItem!.price {
-                    let numberFormatter = NSNumberFormatter()
-                    numberFormatter.numberStyle = .DecimalStyle
-                    let buyPriceFormatted = numberFormatter.stringFromNumber(chosenItem!.price)
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .decimal
+                    let buyPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.price))
                     
                     // ask and do transaction
                     let title = "Buy \(chosenItem!.name)"
                     let message = "Do you wish to buy this item for \(buyPriceFormatted!) credits?"
                     
-                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
                         (alert: UIAlertAction!) -> Void in
                         // buy item
                         self.buyItem()
                     }))
-                    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+                    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
                         (alert: UIAlertAction!) -> Void in
                         //do nothing
                     }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    self.present(alertController, animated: true, completion: nil)
 
                 } else {
                     // fail cuz broke
                     let title = "Not Enough Money"
                     let message = "You do not have enough money to buy this item."
                     
-                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                         (alert: UIAlertAction!) -> Void in
                         // do nothing
                         
                     }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
         } else {
@@ -92,16 +92,16 @@ class EquipmentDetailVC: UIViewController {
             let title = "Sell Item"
             let message = "Are you sure you want to sell this item?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 self.sellItem()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -114,18 +114,18 @@ class EquipmentDetailVC: UIViewController {
         powerLabel.text = chosenItem!.power
         blurb.text = chosenItem!.blurb
         
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let buyPriceFormatted = numberFormatter.stringFromNumber(chosenItem!.price)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let buyPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.price))
         buyPrice.text = "\(buyPriceFormatted!) cr."
-        let sellPriceFormatted = numberFormatter.stringFromNumber(chosenItem!.sellPrice)
+        let sellPriceFormatted = numberFormatter.string(from: NSNumber(chosenItem!.sellPrice))
         sellPrice.text = "\(sellPriceFormatted!) cr."
         
         let controlState = UIControlState()
         if buyNotSell! {
-            buyButtonLabel.setTitle("Buy", forState: controlState)
+            buyButtonLabel.setTitle("Buy", for: controlState)
         } else {
-            buyButtonLabel.setTitle("Sell", forState: controlState)
+            buyButtonLabel.setTitle("Sell", for: controlState)
         }
         
         // numRelevantSlots
@@ -155,7 +155,7 @@ class EquipmentDetailVC: UIViewController {
             player.commanderShip.gadget.append(chosenItem!.gadgetItem!)
         }
         
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func sellItem() {
@@ -172,7 +172,7 @@ class EquipmentDetailVC: UIViewController {
                 index += 1
             }
             if removeAtIndex != nil {
-                player.commanderShip.weapon.removeAtIndex(removeAtIndex!)
+                player.commanderShip.weapon.remove(at: removeAtIndex!)
             }
         } else if chosenItem!.typeIndex == 1 {
             var index = 0
@@ -184,7 +184,7 @@ class EquipmentDetailVC: UIViewController {
                 index += 1
             }
             if removeAtIndex != nil {
-                player.commanderShip.shield.removeAtIndex(removeAtIndex!)
+                player.commanderShip.shield.remove(at: removeAtIndex!)
             }
         } else if chosenItem!.typeIndex == 2 {
             var index = 0
@@ -196,10 +196,10 @@ class EquipmentDetailVC: UIViewController {
                 index += 1
             }
             if removeAtIndex != nil {
-                player.commanderShip.gadget.removeAtIndex(removeAtIndex!)
+                player.commanderShip.gadget.remove(at: removeAtIndex!)
             }
         }
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewController(animated: true)
     }
 
 }

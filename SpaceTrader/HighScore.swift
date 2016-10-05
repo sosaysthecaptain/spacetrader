@@ -42,9 +42,9 @@ class HighScore: NSObject, NSCoding {
         
         self.score = 0      // MEANS OF CALCULATING SCORE GOES HERE
         
-        if status == EndGameStatus.Killed {
+        if status == EndGameStatus.killed {
             self.score = Int((0.9 * Double(worth)) / Double(50000)) * difficultyInt
-        } else if status == EndGameStatus.Retired {
+        } else if status == EndGameStatus.retired {
             self.score = Int((0.95 * Double(worth)) / Double(50000)) * difficultyInt
         } else {
             var d = (difficultyInt * 100) - days
@@ -59,23 +59,23 @@ class HighScore: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.status = EndGameStatus(rawValue: decoder.decodeObjectForKey("status") as! Int!)!
-        self.days = decoder.decodeObjectForKey("days") as! Int
-        self.worth = decoder.decodeObjectForKey("worth") as! Int
-        self.difficulty = DifficultyType(rawValue: decoder.decodeObjectForKey("difficulty") as! String!)!
-        self.score = decoder.decodeObjectForKey("score") as! Int
+        self.name = decoder.decodeObject(forKey: "name") as! String
+        self.status = EndGameStatus(rawValue: decoder.decodeObject(forKey: "status") as! Int!)!
+        self.days = decoder.decodeObject(forKey: "days") as! Int
+        self.worth = decoder.decodeObject(forKey: "worth") as! Int
+        self.difficulty = DifficultyType(rawValue: decoder.decodeObject(forKey: "difficulty") as! String!)!
+        self.score = decoder.decodeObject(forKey: "score") as! Int
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(name, forKey: "name")
-        encoder.encodeObject(status.rawValue, forKey: "status")
-        encoder.encodeObject(days, forKey: "days")
-        encoder.encodeObject(worth, forKey: "worth")
-        encoder.encodeObject(difficulty.rawValue, forKey: "difficulty")
-        encoder.encodeObject(score, forKey: "score")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(name, forKey: "name")
+        encoder.encode(status.rawValue, forKey: "status")
+        encoder.encode(days, forKey: "days")
+        encoder.encode(worth, forKey: "worth")
+        encoder.encode(difficulty.rawValue, forKey: "difficulty")
+        encoder.encode(score, forKey: "score")
     }
 }
 
@@ -87,18 +87,18 @@ class HighScoreArchive: NSObject, NSCoding {
     }
     
     func sort() {
-        let newArray = highScores.sort({$0.score > $1.score})       // does this work?
+        let newArray = highScores.sorted(by: {$0.score > $1.score})       // does this work?
         highScores = newArray
         
         // delete everything after top ten
         print("initial count: \(highScores.count)")
         while highScores.count > 10 {
-            highScores.removeAtIndex(highScores.count - 1)
+            highScores.remove(at: highScores.count - 1)
         }
         print("truncated. New count: \(highScores.count)")
     }
     
-    func addScore(score: HighScore) -> Bool {
+    func addScore(_ score: HighScore) -> Bool {
         // adds score, tells user if he made the high scores
         self.highScores.append(score)
         self.sort()
@@ -120,13 +120,13 @@ class HighScoreArchive: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.highScores = decoder.decodeObjectForKey("highScores") as! [HighScore]
+        self.highScores = decoder.decodeObject(forKey: "highScores") as! [HighScore]
 
         super.init()
     }
 
-    func encodeWithCoder(encoder: NSCoder) {
-        encoder.encodeObject(highScores, forKey: "highScores")
+    func encode(with encoder: NSCoder) {
+        encoder.encode(highScores, forKey: "highScores")
     }
     
 }

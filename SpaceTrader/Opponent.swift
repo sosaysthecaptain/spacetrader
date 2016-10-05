@@ -69,7 +69,7 @@ class Opponent: NSObject, NSCoding {
         
         self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: rand(10), fighterSkill: rand(10), traderSkill: rand(10), engineerSkill: rand(10))
 
-        self.ship = SpaceShip(type: ShipType.Gnat, IFFStatus: type)
+        self.ship = SpaceShip(type: ShipType.gnat, IFFStatus: type)
     }
     
     func generateOpponent() {
@@ -79,7 +79,7 @@ class Opponent: NSObject, NSCoding {
         
         // if famous captain, set up with excellent skills, crew, shields, weapon
         if type == IFFStatusType.FamousCaptain {
-            ship = SpaceShip(type: ShipType.Wasp, IFFStatus: IFFStatusType.FamousCaptain)
+            ship = SpaceShip(type: ShipType.wasp, IFFStatus: IFFStatusType.FamousCaptain)
             commander = Commander(commanderName: name, difficulty: DifficultyType.easy, pilotSkill: 9, fighterSkill: 9, traderSkill: 9, engineerSkill: 9)
             
             // max crew
@@ -134,7 +134,7 @@ class Opponent: NSObject, NSCoding {
         // fill cargo bays
         var cargoBays: Int = ship.cargoBays
         for gadget in ship.gadget {
-            if gadget.type == GadgetType.CargoBays {
+            if gadget.type == GadgetType.cargoBays {
                 cargoBays += 5
             }
         }
@@ -283,41 +283,41 @@ class Opponent: NSObject, NSCoding {
         
         // if this is mantis/dragonfly/spaceMonster, etc:
         if type == IFFStatusType.Mantis {
-            ship.type = ShipType.Mantis
+            ship.type = ShipType.mantis
             ship.name = "Mantis"                        // this seems necessary, though a kludge
             // mantises not that strong. No special stuff for them.
         } else if type == IFFStatusType.Dragonfly {
-            ship.type = ShipType.Dragonfly
+            ship.type = ShipType.dragonfly
             ship.name = "Dragonfly"
             loadGoodShields(false)
             loadGoodWeapons(false, number: 1)
             loadGoodCrew(false)
         } else if type == IFFStatusType.Scarab {
-            ship.type = ShipType.Scarab
+            ship.type = ShipType.scarab
             ship.name = "Scarab"
             loadGoodShields(false)
             loadGoodWeapons(false, number: 1)
             loadGoodCrew(false)
         } else if type == IFFStatusType.SpaceMonster {
-            ship.type = ShipType.SpaceMonster
+            ship.type = ShipType.spaceMonster
             ship.name = "Space Monster"
             ship.shield = []                            // space monster doesn't have shields
             loadGoodWeapons(false, number: 1)
             loadGoodCrew(false)
         } else if type == IFFStatusType.Scorpion {
-            ship.type = ShipType.Scorpion
+            ship.type = ShipType.scorpion
             ship.name = "Scorpion"
             loadGoodShields(false)
             loadGoodWeapons(false, number: 1)
             loadGoodCrew(false)
         } else if type == IFFStatusType.FamousCaptain {
-            ship.type = ShipType.Wasp
+            ship.type = ShipType.wasp
             ship.name = "Wasp"
             loadGoodShields(true)
             loadGoodWeapons(true, number: 2)
             loadGoodCrew(true)
         } else if type == IFFStatusType.Bottle {
-            ship.type = ShipType.Bottle
+            ship.type = ShipType.bottle
             ship.name = "Bottle"
             
         }
@@ -332,7 +332,7 @@ class Opponent: NSObject, NSCoding {
     
 
     
-    func loadGoodShields(lightning: Bool) {
+    func loadGoodShields(_ lightning: Bool) {
         var shield = Shield(type: ShieldType.reflectiveShield)
         if lightning {
             shield = Shield(type: ShieldType.lightningShield)
@@ -344,7 +344,7 @@ class Opponent: NSObject, NSCoding {
         }
     }
     
-    func loadGoodWeapons(morgan: Bool, number: Int) {
+    func loadGoodWeapons(_ morgan: Bool, number: Int) {
         var weapon = Weapon(type: WeaponType.militaryLaser)
         if morgan {
             weapon = Weapon(type: WeaponType.morgansLaser)
@@ -356,7 +356,7 @@ class Opponent: NSObject, NSCoding {
         }
     }
     
-    func loadGoodCrew(excellentNotGood: Bool) {
+    func loadGoodCrew(_ excellentNotGood: Bool) {
         var newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 8, fighter: 8, trader: 8, engineer: 8)
         if excellentNotGood {
             newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 10, fighter: 10, trader: 10, engineer: 10)
@@ -366,8 +366,8 @@ class Opponent: NSObject, NSCoding {
     
     
     
-    func pickShipRandomlyBasedOnOccurance(tries: Int) -> ShipType {
-        let ships: [ShipType] = [ShipType.Flea, ShipType.Gnat, ShipType.Firefly, ShipType.Mosquito, ShipType.Bumblebee, ShipType.Beetle, ShipType.Hornet, ShipType.Grasshopper, ShipType.Termite, ShipType.Wasp]
+    func pickShipRandomlyBasedOnOccurance(_ tries: Int) -> ShipType {
+        let ships: [ShipType] = [ShipType.flea, ShipType.gnat, ShipType.firefly, ShipType.mosquito, ShipType.bumblebee, ShipType.beetle, ShipType.hornet, ShipType.grasshopper, ShipType.termite, ShipType.wasp]
         let chancePerShip: [Int] = [2, 28, 20, 20, 15, 3, 6, 2, 2, 2]       // CHANCES SETTABLE HERE
         var resultRandom: [Int] = []
         
@@ -405,8 +405,8 @@ class Opponent: NSObject, NSCoding {
         return ships[runningBestShipIndex]
     }
     
-    func addRandomlyChosenGadget(tries: Int) {
-        let gadgets: [GadgetType] = [GadgetType.CargoBays, GadgetType.AutoRepair, GadgetType.Navigation, GadgetType.Targeting]
+    func addRandomlyChosenGadget(_ tries: Int) {
+        let gadgets: [GadgetType] = [GadgetType.cargoBays, GadgetType.autoRepair, GadgetType.navigation, GadgetType.targeting]
         let chances: [Int] = [35, 20, 20, 20, 5]
         
         var runningBestGadgetIndex: Int = 0
@@ -437,7 +437,7 @@ class Opponent: NSObject, NSCoding {
         ship.gadget.append(newGadget)
     }
     
-    func addRandomlyChosenWeapon(tries: Int) {
+    func addRandomlyChosenWeapon(_ tries: Int) {
         let weapons: [WeaponType] = [WeaponType.pulseLaser, WeaponType.beamLaser, WeaponType.militaryLaser]
         let chances: [Int] = [50, 35, 15]
         
@@ -465,7 +465,7 @@ class Opponent: NSObject, NSCoding {
         ship.weapon.append(newWeapon)
     }
     
-    func addRandomlyChosenShield(tries: Int) {
+    func addRandomlyChosenShield(_ tries: Int) {
         let shields: [ShieldType] = [ShieldType.energyShield, ShieldType.reflectiveShield]
         let chances: [Int] = [70, 30]
         
@@ -630,16 +630,16 @@ class Opponent: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.ship = decoder.decodeObjectForKey("ship") as! SpaceShip
-            self.commander = decoder.decodeObjectForKey("commander") as! Commander
-            self.type = IFFStatusType(rawValue: decoder.decodeObjectForKey("type") as! String!)!
+            self.ship = decoder.decodeObject(forKey: "ship") as! SpaceShip
+            self.commander = decoder.decodeObject(forKey: "commander") as! Commander
+            self.type = IFFStatusType(rawValue: decoder.decodeObject(forKey: "type") as! String!)!
     
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(ship, forKey: "ship")
-            encoder.encodeObject(commander, forKey: "commander")
-            encoder.encodeObject(type.rawValue, forKey: "type")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(ship, forKey: "ship")
+            encoder.encode(commander, forKey: "commander")
+            encoder.encode(type.rawValue, forKey: "type")
         }
 }

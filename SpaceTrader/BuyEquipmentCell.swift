@@ -20,13 +20,13 @@ class BuyEquipmentCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setCell(item: UniversalGadgetType) {
+    func setCell(_ item: UniversalGadgetType) {
         let deviceTypeInt = getUniversalGadgetType(item)
         
         var prototypeWeapon: Weapon!
@@ -50,16 +50,16 @@ class BuyEquipmentCell: UITableViewCell {
                 prototypeShield = Shield(type: ShieldType.reflectiveShield)
             case UniversalGadgetType.lightningShield:
                 prototypeShield = Shield(type: ShieldType.lightningShield)
-            case UniversalGadgetType.CargoBays:
-                prototypeGadget = Gadget(type: GadgetType.CargoBays)
-            case UniversalGadgetType.AutoRepair:
-                prototypeGadget = Gadget(type: GadgetType.AutoRepair)
-            case UniversalGadgetType.Navigation:
-                prototypeGadget = Gadget(type: GadgetType.Navigation)
-            case UniversalGadgetType.Targeting:
-                prototypeGadget = Gadget(type: GadgetType.Targeting)
-            case UniversalGadgetType.Cloaking:
-                prototypeGadget = Gadget(type: GadgetType.Cloaking)
+            case UniversalGadgetType.cargoBays:
+                prototypeGadget = Gadget(type: GadgetType.cargoBays)
+            case UniversalGadgetType.autoRepair:
+                prototypeGadget = Gadget(type: GadgetType.autoRepair)
+            case UniversalGadgetType.navigation:
+                prototypeGadget = Gadget(type: GadgetType.navigation)
+            case UniversalGadgetType.targeting:
+                prototypeGadget = Gadget(type: GadgetType.targeting)
+            case UniversalGadgetType.cloaking:
+                prototypeGadget = Gadget(type: GadgetType.cloaking)
             default:
                 print("not a stock item")
         }
@@ -69,27 +69,27 @@ class BuyEquipmentCell: UITableViewCell {
             imageLabel.image = prototypeWeapon.image
             
             let price = prototypeWeapon.price
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let priceFormatted = numberFormatter.stringFromNumber(price)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let priceFormatted = numberFormatter.string(from: NSNumber(price))
             equipmentPriceLabel.text = "\(priceFormatted!) credits"
         } else if deviceTypeInt == 1 {
             equipmentTitleLabel.text = prototypeShield.name
             imageLabel.image = prototypeShield.image
             
             let price = prototypeShield.price
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let priceFormatted = numberFormatter.stringFromNumber(price)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let priceFormatted = numberFormatter.string(from: NSNumber(price))
             equipmentPriceLabel.text = "\(priceFormatted!) credits"
         } else {
             equipmentTitleLabel.text = prototypeGadget.name
             imageLabel.image = prototypeGadget.image
             
             let price = prototypeGadget.price
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let priceFormatted = numberFormatter.stringFromNumber(price)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let priceFormatted = numberFormatter.string(from: NSNumber(price))
             equipmentPriceLabel.text = "\(priceFormatted!) credits"
         }
         

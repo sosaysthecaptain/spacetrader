@@ -17,47 +17,47 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
     var items: [String] = ["Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"]
-    var ships: [ShipType] = [ShipType.Flea, ShipType.Gnat, ShipType.Firefly, ShipType.Mosquito, ShipType.Bumblebee, ShipType.Beetle, ShipType.Hornet, ShipType.Grasshopper, ShipType.Termite, ShipType.Wasp]
+    var ships: [ShipType] = [ShipType.flea, ShipType.gnat, ShipType.firefly, ShipType.mosquito, ShipType.bumblebee, ShipType.beetle, ShipType.hornet, ShipType.grasshopper, ShipType.termite, ShipType.wasp]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
     }
     
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: BuyShipCell = self.tableView.dequeueReusableCellWithIdentifier("CustomCell")! as! BuyShipCell
-        let ship = self.ships[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: BuyShipCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomCell")! as! BuyShipCell
+        let ship = self.ships[(indexPath as NSIndexPath).row]
         cell.setCell(ship)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("You selected cell #\(indexPath.row)!")
-        chosenShip = items[indexPath.row]
-        chosenShipType = ships[indexPath.row]
+        chosenShip = items[(indexPath as NSIndexPath).row]
+        chosenShipType = ships[(indexPath as NSIndexPath).row]
         //print("You selected \(chosenShip)")
-        performSegueWithIdentifier("shipDetail", sender: chosenShip)
+        performSegue(withIdentifier: "shipDetail", sender: chosenShip)
         
         // deselection
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "shipDetail") {
             
-            let vc = (segue.destinationViewController as! ShipDetailVC)
+            let vc = (segue.destination as! ShipDetailVC)
             vc.ship = chosenShip
             vc.typeOfShip = chosenShipType
         }

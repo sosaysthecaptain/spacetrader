@@ -22,13 +22,13 @@ class BuyShipCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setCell(ship: ShipType) {
+    func setCell(_ ship: ShipType) {
         let shipPrototype = SpaceShip(type: ship, IFFStatus: IFFStatusType.Player)
         
         // set name
@@ -36,25 +36,25 @@ class BuyShipCell: UITableViewCell {
         
         // set image
         switch ship {
-            case ShipType.Flea:
+            case ShipType.flea:
                 shipImage.image = UIImage(named: "ship0")
-            case ShipType.Gnat:
+            case ShipType.gnat:
                 shipImage.image = UIImage(named: "ship1")
-            case ShipType.Firefly:
+            case ShipType.firefly:
                 shipImage.image = UIImage(named: "ship2")
-            case ShipType.Mosquito:
+            case ShipType.mosquito:
                 shipImage.image = UIImage(named: "ship3")
-            case ShipType.Bumblebee:
+            case ShipType.bumblebee:
                 shipImage.image = UIImage(named: "ship4")
-            case ShipType.Beetle:
+            case ShipType.beetle:
                 shipImage.image = UIImage(named: "ship5")
-            case ShipType.Hornet:
+            case ShipType.hornet:
                 shipImage.image = UIImage(named: "ship6")
-            case ShipType.Grasshopper:
+            case ShipType.grasshopper:
                 shipImage.image = UIImage(named: "ship7")
-            case ShipType.Termite:
+            case ShipType.termite:
                 shipImage.image = UIImage(named: "ship8")
-            case ShipType.Wasp:
+            case ShipType.wasp:
                 shipImage.image = UIImage(named: "ship9")
             default:
                 print("error")
@@ -68,10 +68,10 @@ class BuyShipCell: UITableViewCell {
             // set price
             var price = shipPrototype.price
             price -= player.commanderShip.value
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            let priceFormatted = numberFormatter.stringFromNumber(price)
-            priceField.text = "\(priceFormatted!) cr."
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let priceFormatted = numberFormatter.string(from: NSNumber(value: price))!
+            priceField.text = "\(priceFormatted) cr."
         } else {
             priceField.text = "not sold"
             priceField.textColor = inactiveGray

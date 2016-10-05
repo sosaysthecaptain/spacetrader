@@ -46,26 +46,26 @@ class BuyPickerVC: UIViewController {
         
         // disable buy if quantity is zero
         if slider.value == 0 {
-            buyButton.enabled = false
+            buyButton.isEnabled = false
         } else {
-            buyButton.enabled = true
+            buyButton.isEnabled = true
         }
     }
     
-    @IBAction func sliderMoved(sender: AnyObject) {
+    @IBAction func sliderMoved(_ sender: AnyObject) {
         updateUI()
     }
     
-    @IBAction func buyPressed(sender: AnyObject) {
+    @IBAction func buyPressed(_ sender: AnyObject) {
         // submit transaction
         player.buy(commodity, quantity: Int(slider.value))
         
         // close VC
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

@@ -17,7 +17,7 @@ class SystemInfoVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         player.specialEvents.setSpecialEvent()              // experimental, to set second special
         updateUI()
         
@@ -28,13 +28,13 @@ class SystemInfoVC: UIViewController {
             
             if galaxy.meltdownOnArrival {
                 // go to meltdown VC
-                let vc: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("meltdownVC")
-                self.presentViewController(vc, animated: false, completion: nil)
+                let vc: UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "meltdownVC")
+                self.present(vc, animated: false, completion: nil)
             }
         }
         
         // return scroll view to top
-        let topScrollPoint = CGPointMake(0.0, -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
     }
 
@@ -127,33 +127,33 @@ class SystemInfoVC: UIViewController {
         
         // make buttons appear as needed
         if galaxy.currentSystem!.mercenaries.count > 0 {
-            mercenariesButton.enabled = true
+            mercenariesButton.isEnabled = true
         } else {
-            mercenariesButton.enabled = false
+            mercenariesButton.isEnabled = false
         }
         
         if player.specialEvents.special {
-            specialButton.enabled = true
+            specialButton.isEnabled = true
         } else {
-            specialButton.enabled = false
+            specialButton.isEnabled = false
         }
         
         // disable fuel button if none needed
         if player.commanderShip.fuel == player.commanderShip.fuelTanks {
-            fuelButton.enabled = false
+            fuelButton.isEnabled = false
         } else {
-            fuelButton.enabled = true
+            fuelButton.isEnabled = true
         }
         
         // disable repair button if no repairs needed
         if player.commanderShip.hullPercentage == 100 {
-            repairsButton.enabled = false
+            repairsButton.isEnabled = false
         } else {
-            repairsButton.enabled = true
+            repairsButton.isEnabled = true
         }
         
         // shrink news/special/mercenary button text if small screen
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         if screenSize.width < 350 {
             newsButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
             specialButton.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
@@ -161,7 +161,7 @@ class SystemInfoVC: UIViewController {
         }
     }
     
-    @IBAction func maxFuel(sender: AnyObject) {
+    @IBAction func maxFuel(_ sender: AnyObject) {
         // figure out how much it will cost
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let costOfFuel = fuelNeeded * player.commanderShip.costOfFuel
@@ -179,7 +179,7 @@ class SystemInfoVC: UIViewController {
         updateUI()
     }
     
-    @IBAction func maxRepairs(sender: AnyObject) {
+    @IBAction func maxRepairs(_ sender: AnyObject) {
         let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
         let costOfRepairs = repairsNeeded * player.commanderShip.repairCosts
         
@@ -191,7 +191,7 @@ class SystemInfoVC: UIViewController {
         
     }
     
-    @IBAction func buyNewspaper(sender: AnyObject) {
+    @IBAction func buyNewspaper(_ sender: AnyObject) {
         if !player.alreadyPaidForNewspaper {
             var priceOfNewspaper: Int {
                 get {
@@ -202,27 +202,27 @@ class SystemInfoVC: UIViewController {
             let title = "Buy Newspaper?"
             let message = "The local newspaper costs \(priceOfNewspaper) credits. Do you wish to buy a copy?"
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Buy Newspaper", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Buy Newspaper", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 if player.credits > priceOfNewspaper {
                     player.credits -= priceOfNewspaper
                 }
                 galaxy.currentSystem!.newspaper.generatePaper()     // actually generate the day's paper
                 player.alreadyPaidForNewspaper = true
-                self.performSegueWithIdentifier("newspaperModal", sender: nil)
+                self.performSegue(withIdentifier: "newspaperModal", sender: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
-            self.performSegueWithIdentifier("newspaperModal", sender: nil)
+            self.performSegue(withIdentifier: "newspaperModal", sender: nil)
         }
     }
     
-    @IBAction func menuTapped(sender: AnyObject) {
+    @IBAction func menuTapped(_ sender: AnyObject) {
         // PROVISIONAL
         print("OPEN QUESTS:")
         for quest in player.specialEvents.quests {
@@ -235,32 +235,32 @@ class SystemInfoVC: UIViewController {
     func fireNextArrivalAlert() {
         if galaxy.alertsToFireOnArrival.count >= 1 {
             generateAlert(Alert(ID: galaxy.alertsToFireOnArrival[0], passedString1: nil, passedString2: nil, passedString3: nil))
-            galaxy.alertsToFireOnArrival.removeAtIndex(0)
+            galaxy.alertsToFireOnArrival.remove(at: 0)
         }
     }
     
-    func generateAlert(alert: Alert) {
+    func generateAlert(_ alert: Alert) {
         // NOTE: the alerts fired here need to be modified to require no passed strings, getting whatever they need directly
         
-        let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // when OK pressed, call fireNextArrivalAlert. Will end when no more.
             self.fireNextArrivalAlert()
         }))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
         // if alert is reactor meltdown destroy ship!
-        if alert.ID == AlertID.ReactorMeltdown {
+        if alert.ID == AlertID.reactorMeltdown {
             print("SHIP IS DESTROYED")
             if player.escapePod {
                 // escape pod activated
                 
             } else {
                 // game over
-                player.endGameType = EndGameStatus.Killed
+                player.endGameType = EndGameStatus.killed
                 // transition to gameOver VC
             }
         }

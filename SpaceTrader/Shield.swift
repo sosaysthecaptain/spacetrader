@@ -62,29 +62,29 @@ class Shield: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = ShieldType(rawValue: decoder.decodeObjectForKey("type") as! Int!)!
-            self.name = decoder.decodeObjectForKey("name") as! String
-            self.power = decoder.decodeObjectForKey("power") as! Int
-            self.currentStrength = decoder.decodeObjectForKey("currentStrength") as! Int
-            self.price = decoder.decodeObjectForKey("price") as! Int
-            self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
-            self.techLevel = TechLevelType(rawValue: decoder.decodeObjectForKey("techLevel") as! String!)!
-            self.chance = decoder.decodeObjectForKey("chance") as! Int
-            self.image = decoder.decodeObjectForKey("image") as! UIImage
+            self.type = ShieldType(rawValue: decoder.decodeObject(forKey: "type") as! Int!)!
+            self.name = decoder.decodeObject(forKey: "name") as! String
+            self.power = decoder.decodeObject(forKey: "power") as! Int
+            self.currentStrength = decoder.decodeObject(forKey: "currentStrength") as! Int
+            self.price = decoder.decodeObject(forKey: "price") as! Int
+            self.sellPrice = decoder.decodeObject(forKey: "sellPrice") as! Int
+            self.techLevel = TechLevelType(rawValue: decoder.decodeObject(forKey: "techLevel") as! String!)!
+            self.chance = decoder.decodeObject(forKey: "chance") as! Int
+            self.image = decoder.decodeObject(forKey: "image") as! UIImage
     
             super.init()
         }
     
-        func encodeWithCoder(encoder: NSCoder) {
-            encoder.encodeObject(type.rawValue, forKey: "type")
-            encoder.encodeObject(name, forKey: "name")
-            encoder.encodeObject(power, forKey: "power")
-            encoder.encodeObject(currentStrength, forKey: "currentStrength")
-            encoder.encodeObject(price, forKey: "price")
-            encoder.encodeObject(sellPrice, forKey: "sellPrice")
-            encoder.encodeObject(techLevel.rawValue, forKey: "techLevel")
-            encoder.encodeObject(chance, forKey: "chance")
-            encoder.encodeObject(image, forKey: "image")
+        func encode(with encoder: NSCoder) {
+            encoder.encode(type.rawValue, forKey: "type")
+            encoder.encode(name, forKey: "name")
+            encoder.encode(power, forKey: "power")
+            encoder.encode(currentStrength, forKey: "currentStrength")
+            encoder.encode(price, forKey: "price")
+            encoder.encode(sellPrice, forKey: "sellPrice")
+            encoder.encode(techLevel.rawValue, forKey: "techLevel")
+            encoder.encode(chance, forKey: "chance")
+            encoder.encode(image, forKey: "image")
         }
 
 }

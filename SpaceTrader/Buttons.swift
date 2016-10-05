@@ -17,10 +17,10 @@ class CustomButton: UIButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = UIColor.blackColor().CGColor
+        self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black
         
         //self.frame = CGRectMake(100, 100, 200, 40)
         
@@ -30,34 +30,34 @@ class CustomButton: UIButton {
         //self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
         
         // gray out option?
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+        self.setTitleColor(UIColor.white, for: UIControlState.disabled)
         
 
         
     }
     
     // use this instead of extension
-    override var highlighted: Bool {
+    override var isHighlighted: Bool {
         didSet {
             
-            if (highlighted) {
-                self.backgroundColor = UIColor.grayColor()
+            if (isHighlighted) {
+                self.backgroundColor = UIColor.gray
                 //self.tintColor = UIColor.whiteColor()
             }
             else {
-                self.backgroundColor = UIColor.whiteColor()
+                self.backgroundColor = UIColor.white
                 //self.tintColor = UIColor.blackColor()
             }
             
         }
     }
     
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            if (enabled) {
-                self.layer.borderColor = UIColor.blackColor().CGColor
+            if (isEnabled) {
+                self.layer.borderColor = UIColor.black.cgColor
             } else {
-                self.layer.borderColor = UIColor.whiteColor().CGColor
+                self.layer.borderColor = UIColor.white.cgColor
             }
         }
     }
@@ -85,11 +85,11 @@ class SpaceTraderButton: UIButton {
         self.layer.borderWidth = 1
         
         // colors
-        self.layer.borderColor = mainPurple.CGColor                         // set border color
-        self.setTitleColor(mainPurple, forState: UIControlState.Normal)     // set normal text color
-        self.setTitleColor(inactiveGray, forState: UIControlState.Disabled)   // set disabled text color
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()                               // TODO: set
+        self.layer.borderColor = mainPurple.cgColor                         // set border color
+        self.setTitleColor(mainPurple, for: UIControlState())     // set normal text color
+        self.setTitleColor(inactiveGray, for: UIControlState.disabled)   // set disabled text color
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black                               // TODO: set
     }
     
     //    // DOWNSTATE
@@ -118,21 +118,21 @@ class PurpleButtonTurnsGray: SpaceTraderButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = mainPurple.CGColor                         // set border color
-        self.setTitleColor(mainPurple, forState: UIControlState.Normal)     // set normal text color
-        self.setTitleColor(inactiveGray, forState: UIControlState.Disabled)   // set disabled text color
+        self.layer.borderColor = mainPurple.cgColor                         // set border color
+        self.setTitleColor(mainPurple, for: UIControlState())     // set normal text color
+        self.setTitleColor(inactiveGray, for: UIControlState.disabled)   // set disabled text color
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black
     }
     
     // set enabled and disabled colors for border
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            if (enabled) {
-                self.layer.borderColor = mainPurple.CGColor
+            if (isEnabled) {
+                self.layer.borderColor = mainPurple.cgColor
             } else {
-                self.layer.borderColor = inactiveGray.CGColor
+                self.layer.borderColor = inactiveGray.cgColor
             }
         }
     }
@@ -150,22 +150,22 @@ class PurpleButtonVanishes: SpaceTraderButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = mainPurple.CGColor                         // set border color
-        self.setTitleColor(mainPurple, forState: UIControlState.Normal)     // set normal text color
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)   // set disabled text color
+        self.layer.borderColor = mainPurple.cgColor                         // set border color
+        self.setTitleColor(mainPurple, for: UIControlState())     // set normal text color
+        self.setTitleColor(UIColor.white, for: UIControlState.disabled)   // set disabled text color
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black
     }
     
     
     // set enabled and disabled colors for border
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            if (enabled) {
-                self.layer.borderColor = mainPurple.CGColor
+            if (isEnabled) {
+                self.layer.borderColor = mainPurple.cgColor
             } else {
-                self.layer.borderColor = UIColor.whiteColor().CGColor
+                self.layer.borderColor = UIColor.white.cgColor
             }
         }
     }
@@ -177,21 +177,21 @@ class GrayButtonTurnsLighter: SpaceTraderButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = textGray.CGColor                         // set border color
-        self.setTitleColor(textGray, forState: UIControlState.Normal)     // set normal text color
-        self.setTitleColor(inactiveGray, forState: UIControlState.Disabled)   // set disabled text color
+        self.layer.borderColor = textGray.cgColor                         // set border color
+        self.setTitleColor(textGray, for: UIControlState())     // set normal text color
+        self.setTitleColor(inactiveGray, for: UIControlState.disabled)   // set disabled text color
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black
     }
     
     // set enabled and disabled colors for border
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            if (enabled) {
-                self.layer.borderColor = textGray.CGColor
+            if (isEnabled) {
+                self.layer.borderColor = textGray.cgColor
             } else {
-                self.layer.borderColor = inactiveGray.CGColor
+                self.layer.borderColor = inactiveGray.cgColor
             }
         }
     }
@@ -202,21 +202,21 @@ class GrayButtonVanishes: SpaceTraderButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = textGray.CGColor                         // set border color
-        self.setTitleColor(textGray, forState: UIControlState.Normal)     // set normal text color
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)   // set disabled text color
+        self.layer.borderColor = textGray.cgColor                         // set border color
+        self.setTitleColor(textGray, for: UIControlState())     // set normal text color
+        self.setTitleColor(UIColor.white, for: UIControlState.disabled)   // set disabled text color
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
-        self.tintColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor.black
     }
     
     // set enabled and disabled colors for border
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            if (enabled) {
-                self.layer.borderColor = textGray.CGColor
+            if (isEnabled) {
+                self.layer.borderColor = textGray.cgColor
             } else {
-                self.layer.borderColor = UIColor.whiteColor().CGColor
+                self.layer.borderColor = UIColor.white.cgColor
             }
         }
     }
@@ -244,12 +244,12 @@ class BaysCashBox: SpaceTraderButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = 0;
-        self.layer.borderColor = textGray.CGColor                       // set border color
-        self.setTitleColor(textGray, forState: UIControlState.Disabled) // set normal text color
+        self.layer.borderColor = textGray.cgColor                       // set border color
+        self.setTitleColor(textGray, for: UIControlState.disabled) // set normal text color
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        self.enabled = false                                            // these are just disabled buttons
+        self.isEnabled = false                                            // these are just disabled buttons
         
     }
 }

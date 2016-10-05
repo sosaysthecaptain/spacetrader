@@ -43,7 +43,7 @@ class ShipDetailVC: UIViewController {
         // handle player can't afford
     }
     
-    @IBAction func buy(sender: AnyObject) {
+    @IBAction func buy(_ sender: AnyObject) {
         // HANDLE TRIBBLES
         
         // check if enough money & crew slots
@@ -51,40 +51,40 @@ class ShipDetailVC: UIViewController {
             let title = "Not Enough Money"
             let message = "You do not have enough money to buy this ship."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else if player.commanderShip.crew.count > prototypeShip.crewQuarters + 1 {
             
             let title = "Too Many Crewmembers"
             let message = "The new ship you picked doesn't have enough quarters for all of your crewmembers. First you will have to fire one or more of them."
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // do nothing
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // else, proceed, ask about escape pod
             if player.escapePod && (player.credits >= (price + 200)) {
                 let title = "Transfer Escape Pod"
                 let message = "I'll transfer your escape pod to your new ship for 200 credits."
                 
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Do it!", style: UIAlertActionStyle.Default ,handler: {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Do it!", style: UIAlertActionStyle.default ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     // do nothing
                     self.buyNewShip(true)
                 }))
-                alertController.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.Cancel ,handler: {
+                alertController.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.cancel ,handler: {
                     (alert: UIAlertAction!) -> Void in
                     self.buyNewShip(false)
                 }))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 buyNewShip(false)
             }
@@ -98,25 +98,25 @@ class ShipDetailVC: UIViewController {
     func setData() {
         
         switch typeOfShip! {
-            case ShipType.Flea:
+            case ShipType.flea:
                 image.image = UIImage(named: "ship0")
-            case ShipType.Gnat:
+            case ShipType.gnat:
                 image.image = UIImage(named: "ship1")
-            case ShipType.Firefly:
+            case ShipType.firefly:
                 image.image = UIImage(named: "ship2")
-            case ShipType.Mosquito:
+            case ShipType.mosquito:
                 image.image = UIImage(named: "ship3")
-            case ShipType.Bumblebee:
+            case ShipType.bumblebee:
                 image.image = UIImage(named: "ship4")
-            case ShipType.Beetle:
+            case ShipType.beetle:
                 image.image = UIImage(named: "ship5")
-            case ShipType.Hornet:
+            case ShipType.hornet:
                 image.image = UIImage(named: "ship6")
-            case ShipType.Grasshopper:
+            case ShipType.grasshopper:
                 image.image = UIImage(named: "ship7")
-            case ShipType.Termite:
+            case ShipType.termite:
                 image.image = UIImage(named: "ship8")
-            case ShipType.Wasp:
+            case ShipType.wasp:
                 image.image = UIImage(named: "ship9")
             default:
                 print("error")
@@ -132,13 +132,13 @@ class ShipDetailVC: UIViewController {
         gadgetLabel.text = "\(prototypeShip.gadgetSlots)"
         crewLabel.text = "\(prototypeShip.crewQuarters)"
         
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        let priceFormatted = numberFormatter.stringFromNumber(price)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let priceFormatted = numberFormatter.string(from: NSNumber(price))
         priceLabel.text = "\(priceFormatted!) credits"
         
         let controlState = UIControlState()
-        buyButton.setTitle("Buy \(ship)", forState: controlState)
+        buyButton.setTitle("Buy \(ship)", for: controlState)
         
         // disable when not available
         let currentSystemTechLevel = galaxy.currentSystem!.techLevelInt
@@ -146,13 +146,13 @@ class ShipDetailVC: UIViewController {
         
         if currentSystemTechLevel < shipTechLevelInt {
             priceLabel.text = "not sold"
-            buyButton.enabled = false
+            buyButton.isEnabled = false
         }
         
         // handle "got one"
         if typeOfShip == player.commanderShip.type {
             priceLabel.text = "got one"
-            buyButton.enabled = false
+            buyButton.isEnabled = false
         }
         
     }
@@ -164,7 +164,7 @@ class ShipDetailVC: UIViewController {
         price -= player.commanderShip.value
     }
     
-    func buyNewShip(transferEscapePod: Bool) {
+    func buyNewShip(_ transferEscapePod: Bool) {
         // determine if special equipment on board
         var specialEquipment: Bool = false
         let morgansLaser = player.commanderShip.getMorgansLaserStatus()
@@ -182,20 +182,20 @@ class ShipDetailVC: UIViewController {
             message = "Are you sure you want to trade in your \(player.commanderShip.name) for a new \(prototypeShip.name), and transfer your unique equipment to the new ship?"
         }
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // do nothing
             self.completeTransaction(transferEscapePod)
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel ,handler: {
             (alert: UIAlertAction!) -> Void in
             // nothing, dismiss alert
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    func completeTransaction(transferEscapePod: Bool) {
+    func completeTransaction(_ transferEscapePod: Bool) {
         if transferEscapePod {
             player.escapePod = true
         } else {
