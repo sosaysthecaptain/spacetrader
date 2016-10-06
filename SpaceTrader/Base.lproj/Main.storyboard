@@ -3396,7 +3396,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="[second line of text]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-vL-aik">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="[second line of text]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-vL-aik">
+                                <frame key="frameInset" minX="36" minY="470" width="303" height="60"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="l9O-3g-DYg"/>
@@ -3416,12 +3417,14 @@
                                     <constraint firstAttribute="height" constant="19" id="G9e-Yp-I1R"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-Pe-AA3">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-Pe-AA3">
+                                <frame key="frameInset" minX="68" minY="322" width="240" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="CQg-0S-gAu"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="[first line of text]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-8e-nV6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="[first line of text]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-8e-nV6">
+                                <frame key="frameInset" minX="36" minY="400" width="303" height="60"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="mJ2-ZY-VzK"/>
@@ -3479,12 +3482,6 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zog-ap-Mvt" userLabel="Spacer3">
                                 <frame key="frameInset" minX="286" minY="588" width="16" height="17"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-Of-lmo">
-                                <frame key="frameInset" minX="67" minY="490" width="240" height="69.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="qvI-Ld-ynr"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="vUA-WH-RHR" secondAttribute="bottom" constant="50" id="1mW-XK-qG8"/>
@@ -3494,7 +3491,6 @@
                             <constraint firstItem="Zog-ap-Mvt" firstAttribute="width" secondItem="Did-Ca-O6u" secondAttribute="width" id="8P9-zL-2be"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tfX-8e-nV6" secondAttribute="leading" constant="-20" id="8ra-vU-XcF"/>
                             <constraint firstItem="LBF-vL-aik" firstAttribute="top" secondItem="tfX-8e-nV6" secondAttribute="bottom" constant="10" id="9gp-Ry-PSk"/>
-                            <constraint firstItem="aQc-Of-lmo" firstAttribute="top" secondItem="LBF-vL-aik" secondAttribute="bottom" constant="8" symbolic="YES" id="B8i-1E-Xed"/>
                             <constraint firstItem="jNF-SD-sgk" firstAttribute="leading" secondItem="koD-aw-qW2" secondAttribute="leading" id="Bk0-K0-gLQ"/>
                             <constraint firstItem="mDK-7O-uXS" firstAttribute="leading" secondItem="x1c-fA-KQN" secondAttribute="trailing" constant="8" symbolic="YES" id="CWS-kq-9ha"/>
                             <constraint firstAttribute="leadingMargin" secondItem="m1m-MM-iuo" secondAttribute="leading" id="D0Y-wO-scb"/>
@@ -3517,7 +3513,6 @@
                             <constraint firstItem="QJu-98-ds2" firstAttribute="leading" secondItem="Did-Ca-O6u" secondAttribute="trailing" constant="8" symbolic="YES" id="Qy8-GS-MFL"/>
                             <constraint firstItem="koD-aw-qW2" firstAttribute="top" secondItem="DlB-Cz-ljz" secondAttribute="bottom" constant="8" id="Qys-lj-2t8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="akI-hL-wga" secondAttribute="trailing" id="T3R-H3-tYz"/>
-                            <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="aQc-Of-lmo" secondAttribute="bottom" constant="60" id="U46-Qm-XwW"/>
                             <constraint firstItem="oTL-fO-GUv" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="125" id="VaS-t7-F0n"/>
                             <constraint firstItem="HPo-By-NeI" firstAttribute="width" secondItem="akI-hL-wga" secondAttribute="width" id="Vna-d5-iw7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fjd-9H-91m" secondAttribute="trailing" constant="20" id="Xgp-Xb-qc0"/>
@@ -3525,7 +3520,6 @@
                             <constraint firstItem="Did-Ca-O6u" firstAttribute="leading" secondItem="3hT-bZ-Kph" secondAttribute="trailing" constant="8" symbolic="YES" id="afN-mg-GAa"/>
                             <constraint firstItem="tfX-8e-nV6" firstAttribute="top" secondItem="mhO-Pe-AA3" secondAttribute="bottom" constant="8" symbolic="YES" id="buF-Zs-qht"/>
                             <constraint firstItem="mhO-Pe-AA3" firstAttribute="centerX" secondItem="79J-SY-Ayx" secondAttribute="centerX" id="c5o-oW-Y4l"/>
-                            <constraint firstItem="aQc-Of-lmo" firstAttribute="height" secondItem="mhO-Pe-AA3" secondAttribute="height" id="cJl-oK-41w"/>
                             <constraint firstItem="akI-hL-wga" firstAttribute="leading" secondItem="vna-JK-gpb" secondAttribute="trailing" constant="8" id="cbC-OZ-TKP"/>
                             <constraint firstItem="P7x-3d-tPB" firstAttribute="leading" secondItem="PoC-GG-vf1" secondAttribute="leading" id="d1C-c1-M2d"/>
                             <constraint firstItem="m1m-MM-iuo" firstAttribute="width" secondItem="HPo-By-NeI" secondAttribute="width" id="e46-lH-ZDc"/>
@@ -3558,7 +3552,6 @@
                             <constraint firstItem="m1m-MM-iuo" firstAttribute="baseline" secondItem="oTL-fO-GUv" secondAttribute="baseline" id="xgW-Rv-FkI"/>
                             <constraint firstItem="mhO-Pe-AA3" firstAttribute="top" secondItem="ErH-Ka-Fun" secondAttribute="bottom" constant="8" id="yFN-vH-dAG"/>
                             <constraint firstItem="zbD-qK-gGo" firstAttribute="leading" secondItem="F0M-ju-dyA" secondAttribute="leading" id="zMq-z7-Gt3"/>
-                            <constraint firstItem="aQc-Of-lmo" firstAttribute="centerX" secondItem="79J-SY-Ayx" secondAttribute="centerX" id="zV6-m8-T8c"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
