@@ -15,6 +15,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         // send view to background. Not possible to do this in IB
         self.view.sendSubview(toBack: backgroundView)
         
+        // EXPERIMENTAL: sending buttons to front
+        //self.view.sendSubview(toFront: button1Text)
+        
         // disable close button, unless turned on in galaxy
         if galaxy.closeButtonEnabled {
             closeButtonOutlet.isEnabled = true
@@ -199,6 +202,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     // set on top of everything and sent to back programmatically
     // move to edit things underneath
     @IBOutlet weak var backgroundView: UIView!
+    
+    
     
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(_ sender: AnyObject) {
