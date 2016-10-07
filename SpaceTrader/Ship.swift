@@ -983,7 +983,7 @@ class SpaceShip: NSObject, NSCoding {
         required init(coder decoder: NSCoder) {
             self.type = ShipType(rawValue: decoder.decodeInteger(forKey: "type"))!
             self.name = decoder.decodeObject(forKey: "name") as! String
-            self.cargoBays = decoder.decodeInteger(forKey: "cargoBays") as! Int
+            self.cargoBays = decoder.decodeInteger(forKey: "cargoBays")
             self.weaponSlots = decoder.decodeInteger(forKey: "weaponSlots")
             self.shieldSlots = decoder.decodeInteger(forKey: "shieldSlots")
             self.gadgetSlots = decoder.decodeInteger(forKey: "gadgetSlots")
@@ -1003,9 +1003,9 @@ class SpaceShip: NSObject, NSCoding {
             self.repairCosts = decoder.decodeInteger(forKey: "repairCosts")
             self.probabilityOfHit = decoder.decodeInteger(forKey: "probabilityOfHit")
             
-            self.raided = decoder.decodeObject(forKey: "raided") as! Bool
+            self.raided = decoder.decodeBool(forKey: "raided")
             //self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
-            self.disabled = decoder.decodeObject(forKey: "disabled") as! Bool
+            self.disabled = decoder.decodeBool(forKey: "disabled")
             self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObject(forKey: "IFFStatus") as! String!)!
             
             self.cargo = decoder.decodeObject(forKey: "cargo") as! [TradeItem]
@@ -1028,15 +1028,15 @@ class SpaceShip: NSObject, NSCoding {
             self.narcoticsOnBoard = decoder.decodeInteger(forKey: "narcoticsOnBoard")
             self.robotsOnBoard = decoder.decodeInteger(forKey: "robotsOnBoard")
             
-            self.artifactSpecialCargo = decoder.decodeObject(forKey: "artifactSpecialCargo") as! Bool
-            self.experimentSpecialCargo = decoder.decodeObject(forKey: "experimentSpecialCargo") as! Bool
-            self.japoriSpecialCargo = decoder.decodeObject(forKey: "japoriSpecialCargo") as! Bool
-            self.jarekHagglingComputerSpecialCargo = decoder.decodeObject(forKey: "jarekHagglingComputerSpecialCargo") as! Bool
-            self.reactorSpecialCargo = decoder.decodeObject(forKey: "reactorSpecialCargo") as! Bool
-            self.sculptureSpecialCargo = decoder.decodeObject(forKey: "sculptureSpecialCargo") as! Bool
-            self.reactorFuelSpecialCargo = decoder.decodeObject(forKey: "reactorFuelSpecialCargo") as! Bool
+            self.artifactSpecialCargo = decoder.decodeBool(forKey: "artifactSpecialCargo")
+            self.experimentSpecialCargo = decoder.decodeBool(forKey: "experimentSpecialCargo")
+            self.japoriSpecialCargo = decoder.decodeBool(forKey: "japoriSpecialCargo")
+            self.jarekHagglingComputerSpecialCargo = decoder.decodeBool(forKey: "jarekHagglingComputerSpecialCargo")
+            self.reactorSpecialCargo = decoder.decodeBool(forKey: "reactorSpecialCargo")
+            self.sculptureSpecialCargo = decoder.decodeBool(forKey: "sculptureSpecialCargo")
+            self.reactorFuelSpecialCargo = decoder.decodeBool(forKey: "reactorFuelSpecialCargo")
             self.reactorFuelBays = decoder.decodeObject(forKey: "reactorFuelBays") as! Double
-            self.upgradedHull = decoder.decodeObject(forKey: "upgradedHull") as! Bool
+            self.upgradedHull = decoder.decodeBool(forKey: "upgradedHull")
     
             super.init()
         }

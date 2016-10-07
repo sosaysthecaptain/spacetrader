@@ -197,18 +197,18 @@ class TradeItem: NSObject, NSCoding {
             self.techProduction = TechLevelType(rawValue: decoder.decodeObject(forKey: "techProduction") as! String!)!
             self.techUsage = TechLevelType(rawValue: decoder.decodeObject(forKey: "techUsage") as! String!)!
             self.techTopProduction = TechLevelType(rawValue: decoder.decodeObject(forKey: "techTopProduction") as! String!)!
-            self.priceLowTech = decoder.decodeObject(forKey: "priceLowTech") as! Int
-            self.priceIncrease = decoder.decodeObject(forKey: "priceIncrease") as! Int
-            self.variance = decoder.decodeObject(forKey: "variance") as! Int
+            self.priceLowTech = decoder.decodeInteger(forKey: "priceLowTech")
+            self.priceIncrease = decoder.decodeInteger(forKey: "priceIncrease")
+            self.variance = decoder.decodeInteger(forKey: "variance")
             self.doublePriceStatus = StatusType(rawValue: decoder.decodeObject(forKey: "doublePriceStatus") as! String!)!
             self.cheapResource = SpecialResourcesType(rawValue: decoder.decodeObject(forKey: "cheapResource") as! String!)!
             self.expensiveResource = SpecialResourcesType(rawValue: decoder.decodeObject(forKey: "expensiveResource") as! String!)!
-            self.minTradePrice = decoder.decodeObject(forKey: "minTradePrice") as! Int
-            self.maxTradePrice = decoder.decodeObject(forKey: "maxTradePrice") as! Int
-            self.roundOff = decoder.decodeObject(forKey: "roundOff") as! Int
+            self.minTradePrice = decoder.decodeInteger(forKey: "minTradePrice")
+            self.maxTradePrice = decoder.decodeInteger(forKey: "maxTradePrice")
+            self.roundOff = decoder.decodeInteger(forKey: "roundOff")
             
-            self.quantity = decoder.decodeObject(forKey: "quantity") as! Int
-            self.pricePaid = decoder.decodeObject(forKey: "pricePaid") as! Int
+            self.quantity = decoder.decodeInteger(forKey: "quantity")
+            self.pricePaid = decoder.decodeInteger(forKey: "pricePaid")
             
             super.init()
         }
