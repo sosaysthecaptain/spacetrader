@@ -119,6 +119,7 @@ class NewGameVC: UIViewController {
         print("loadAutoavedGame firing")
         
         let path = fileInDocumentsDirectory("autosave.plist")
+
         if let autosaveGame = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AutosavedGame {
             print("autosave.plist found")
 
