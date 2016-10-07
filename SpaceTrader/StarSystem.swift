@@ -390,15 +390,17 @@ class StarSystem: NSObject, NSCoding {
             self.techLevel = TechLevelType(rawValue: decoder.decodeObject(forKey: "techLevel") as! String!)!
             self.politics = PoliticsType(rawValue: decoder.decodeObject(forKey: "politics") as! String!)!
             self.status = StatusType(rawValue: decoder.decodeObject(forKey: "status") as! String!)!
-            self.xCoord = decoder.decodeObject(forKey: "xCoord") as! Int
-            self.yCoord = decoder.decodeObject(forKey: "yCoord") as! Int
+            self.xCoord = decoder.decodeInteger(forKey: "xCoord")
+            self.yCoord = decoder.decodeInteger(forKey: "yCoord")
             self.specialResources = SpecialResourcesType(rawValue: decoder.decodeObject(forKey: "specialResources") as! String!)!
             self.size = SizeType(rawValue: decoder.decodeObject(forKey: "size") as! String!)!
-            self.countdown = decoder.decodeObject(forKey: "countdown") as! Int
-            self.visited = decoder.decodeObject(forKey: "visited") as! Bool
-            self.wormhole = decoder.decodeObject(forKey: "wormhole") as! Bool
+            self.countdown = decoder.decodeInteger(forKey: "countdown")
+            self.visited = decoder.decodeBool(forKey: "visited")
+            self.wormhole = decoder.decodeBool(forKey: "wormhole")
+            
             self.wormholeDestination = decoder.decodeObject(forKey: "wormholeDestination") as! StarSystem?
-            self.indexNumber = decoder.decodeObject(forKey: "indexNumber") as! Int
+            
+            self.indexNumber = decoder.decodeInteger(forKey: "indexNumber")
             self.mercenaries = decoder.decodeObject(forKey: "mercenaries") as! [CrewMember]
             self.newspaper = decoder.decodeObject(forKey: "newspaper") as! Newspaper
             if let newsItemDropBoxRaw = decoder.decodeObject(forKey: "newsItemDropBox") as! Int! {
@@ -421,43 +423,43 @@ class StarSystem: NSObject, NSCoding {
                 self.shipyardSizeSpecialty = SizeType(rawValue: shipyardSizeSpecialtyRaw)!
             }
             
-            self.scarabIsHere = decoder.decodeObject(forKey: "scarabIsHere") as! Bool
-            self.dragonflyIsHere = decoder.decodeObject(forKey: "dragonflyIsHere") as! Bool
-            self.swarmingWithAliens = decoder.decodeObject(forKey: "swarmingWithAliens") as! Bool
-            self.spaceMonsterIsHere = decoder.decodeObject(forKey: "spaceMonsterIsHere") as! Bool
-            self.scorpionIsHere = decoder.decodeObject(forKey: "scorpionIsHere") as! Bool
+            self.scarabIsHere = decoder.decodeBool(forKey: "scarabIsHere")
+            self.dragonflyIsHere = decoder.decodeBool(forKey: "dragonflyIsHere")
+            self.swarmingWithAliens = decoder.decodeBool(forKey: "swarmingWithAliens")
+            self.spaceMonsterIsHere = decoder.decodeBool(forKey: "spaceMonsterIsHere")
+            self.scorpionIsHere = decoder.decodeBool(forKey: "scorpionIsHere")
             
-            self.water = decoder.decodeObject(forKey: "water") as! Int
-            self.furs = decoder.decodeObject(forKey: "furs") as! Int
-            self.food = decoder.decodeObject(forKey: "food") as! Int
-            self.ore = decoder.decodeObject(forKey: "ore") as! Int
-            self.games = decoder.decodeObject(forKey: "games") as! Int
-            self.firearms = decoder.decodeObject(forKey: "firearms") as! Int
-            self.medicine = decoder.decodeObject(forKey: "medicine") as! Int
-            self.machines = decoder.decodeObject(forKey: "machines") as! Int
-            self.narcotics = decoder.decodeObject(forKey: "narcotics") as! Int
-            self.robots = decoder.decodeObject(forKey: "robots") as! Int
+            self.water = decoder.decodeInteger(forKey: "water")
+            self.furs = decoder.decodeInteger(forKey: "furs")
+            self.food = decoder.decodeInteger(forKey: "food")
+            self.ore = decoder.decodeInteger(forKey: "ore")
+            self.games = decoder.decodeInteger(forKey: "games")
+            self.firearms = decoder.decodeInteger(forKey: "firearms")
+            self.medicine = decoder.decodeInteger(forKey: "medicine")
+            self.machines = decoder.decodeInteger(forKey: "machines")
+            self.narcotics = decoder.decodeInteger(forKey: "narcotics")
+            self.robots = decoder.decodeInteger(forKey: "robots")
             
-            self.waterBuy = decoder.decodeObject(forKey: "waterBuy") as! Int
-            self.fursBuy = decoder.decodeObject(forKey: "fursBuy") as! Int
-            self.foodBuy = decoder.decodeObject(forKey: "foodBuy") as! Int
-            self.oreBuy = decoder.decodeObject(forKey: "oreBuy") as! Int
-            self.gamesBuy = decoder.decodeObject(forKey: "gamesBuy") as! Int
-            self.firearmsBuy = decoder.decodeObject(forKey: "firearmsBuy") as! Int
-            self.medicineBuy = decoder.decodeObject(forKey: "medicineBuy") as! Int
-            self.machinesBuy = decoder.decodeObject(forKey: "machinesBuy") as! Int
-            self.narcoticsBuy = decoder.decodeObject(forKey: "narcoticsBuy") as! Int
-            self.robotsBuy = decoder.decodeObject(forKey: "robotsBuy") as! Int
-            self.waterSell = decoder.decodeObject(forKey: "waterSell") as! Int
-            self.fursSell = decoder.decodeObject(forKey: "fursSell") as! Int
-            self.foodSell = decoder.decodeObject(forKey: "foodSell") as! Int
-            self.oreSell = decoder.decodeObject(forKey: "oreSell") as! Int
-            self.gamesSell = decoder.decodeObject(forKey: "gamesSell") as! Int
-            self.firearmsSell = decoder.decodeObject(forKey: "firearmsSell") as! Int
-            self.medicineSell = decoder.decodeObject(forKey: "medicineSell") as! Int
-            self.machinesSell = decoder.decodeObject(forKey: "machinesSell") as! Int
-            self.narcoticsSell = decoder.decodeObject(forKey: "narcoticsSell") as! Int
-            self.robotsSell = decoder.decodeObject(forKey: "robotsSell") as! Int
+            self.waterBuy = decoder.decodeInteger(forKey: "waterBuy")
+            self.fursBuy = decoder.decodeInteger(forKey: "fursBuy")
+            self.foodBuy = decoder.decodeInteger(forKey: "foodBuy")
+            self.oreBuy = decoder.decodeInteger(forKey: "oreBuy")
+            self.gamesBuy = decoder.decodeInteger(forKey: "gamesBuy")
+            self.firearmsBuy = decoder.decodeInteger(forKey: "firearmsBuy")
+            self.medicineBuy = decoder.decodeInteger(forKey: "medicineBuy")
+            self.machinesBuy = decoder.decodeInteger(forKey: "machinesBuy")
+            self.narcoticsBuy = decoder.decodeInteger(forKey: "narcoticsBuy")
+            self.robotsBuy = decoder.decodeInteger(forKey: "robotsBuy")
+            self.waterSell = decoder.decodeInteger(forKey: "waterSell")
+            self.fursSell = decoder.decodeInteger(forKey: "fursSell")
+            self.foodSell = decoder.decodeInteger(forKey: "foodSell")
+            self.oreSell = decoder.decodeInteger(forKey: "oreSell")
+            self.gamesSell = decoder.decodeInteger(forKey: "gamesSell")
+            self.firearmsSell = decoder.decodeInteger(forKey: "firearmsSell")
+            self.medicineSell = decoder.decodeInteger(forKey: "medicineSell")
+            self.machinesSell = decoder.decodeInteger(forKey: "machinesSell")
+            self.narcoticsSell = decoder.decodeInteger(forKey: "narcoticsSell")
+            self.robotsSell = decoder.decodeInteger(forKey: "robotsSell")
     
             super.init()
         }
