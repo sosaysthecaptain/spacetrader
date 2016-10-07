@@ -633,44 +633,44 @@ class Commander: NSObject, NSCoding {
         self.commanderName = decoder.decodeObject(forKey: "commanderName") as! String
         self.difficulty = DifficultyType(rawValue: decoder.decodeObject(forKey: "difficulty") as! String!)!
         self.commanderShip = decoder.decodeObject(forKey: "commanderShip") as! SpaceShip
-        self.credits = decoder.decodeObject(forKey: "credits") as! Int
-        self.debt = decoder.decodeObject(forKey: "debt") as! Int
-        self.days = decoder.decodeObject(forKey: "days") as! Int
+        self.credits = decoder.decodeInteger(forKey: "credits")
+        self.debt = decoder.decodeInteger(forKey: "debt")
+        self.days = decoder.decodeInteger(forKey: "days")
         self.specialEvents = decoder.decodeObject(forKey: "specialEvents") as! SpecialEvents
         
-        self.remindLoans = decoder.decodeObject(forKey: "remindLoans") as! Bool
-        self.autoFuel = decoder.decodeObject(forKey: "autoFuel") as! Bool
-        self.autoRepair = decoder.decodeObject(forKey: "autoRepair") as! Bool
-        self.autoNewspaper = decoder.decodeObject(forKey: "autoNewspaper") as! Bool
-        self.ignorePirates = decoder.decodeObject(forKey: "ignorePirates") as! Bool
-        self.ignorePolice = decoder.decodeObject(forKey: "ignorePolice") as! Bool
-        self.ignoreTraders = decoder.decodeObject(forKey: "ignoreTraders") as! Bool
+        self.remindLoans = decoder.decodeBool(forKey: "remindLoans")
+        self.autoFuel = decoder.decodeBool(forKey: "autoFuel")
+        self.autoRepair = decoder.decodeBool(forKey: "autoRepair")
+        self.autoNewspaper = decoder.decodeBool(forKey: "autoNewspaper")
+        self.ignorePirates = decoder.decodeBool(forKey: "ignorePirates")
+        self.ignorePolice = decoder.decodeBool(forKey: "ignorePolice")
+        self.ignoreTraders = decoder.decodeBool(forKey: "ignoreTraders")
         
         
-        self.alreadyPaidForNewspaper = decoder.decodeObject(forKey: "alreadyPaidForNewspaper") as! Bool
-        self.caughtLittering = decoder.decodeObject(forKey: "caughtLittering") as! Bool
-        self.portableSingularity = decoder.decodeObject(forKey: "portableSingularity") as! Bool
+        self.alreadyPaidForNewspaper = decoder.decodeBool(forKey: "alreadyPaidForNewspaper")
+        self.caughtLittering = decoder.decodeBool(forKey: "caughtLittering")
+        self.portableSingularity = decoder.decodeBool(forKey: "portableSingularity")
         
-        self.insurance = decoder.decodeObject(forKey: "insurance") as! Bool
-        self.noClaim = decoder.decodeObject(forKey: "noClaim") as! Int
+        self.insurance = decoder.decodeBool(forKey: "insurance")
+        self.noClaim = decoder.decodeInteger(forKey: "noClaim")
         
-        self.initialPilotSkill = decoder.decodeObject(forKey: "initialPilotSkill") as! Int
-        self.initialFighterSkill = decoder.decodeObject(forKey: "initialFighterSkill") as! Int
-        self.initialTraderSkill = decoder.decodeObject(forKey: "initialTraderSkill") as! Int
-        self.initialEngineerSkill = decoder.decodeObject(forKey: "initialEngineerSkill") as! Int
+        self.initialPilotSkill = decoder.decodeInteger(forKey: "initialPilotSkill")
+        self.initialFighterSkill = decoder.decodeInteger(forKey: "initialFighterSkill")
+        self.initialTraderSkill = decoder.decodeInteger(forKey: "initialTraderSkill")
+        self.initialEngineerSkill = decoder.decodeInteger(forKey: "initialEngineerSkill")
         
-        self.policeRecord = PoliceRecordType(rawValue: decoder.decodeObject(forKey: "policeRecord") as! Int!)!
-        self.reputation = ReputationType(rawValue: decoder.decodeObject(forKey: "reputation") as! Int!)!
-        self.escapePod = decoder.decodeObject(forKey: "escapePod") as! Bool
+        self.policeRecord = PoliceRecordType(rawValue: decoder.decodeInteger(forKey: "policeRecord"))!
+        self.reputation = ReputationType(rawValue: decoder.decodeInteger(forKey: "reputation"))!
+        self.escapePod = decoder.decodeBool(forKey: "escapePod")
         
-        self.inspected = decoder.decodeObject(forKey: "inspected") as! Bool
-        self.wildStatus = decoder.decodeObject(forKey: "wildStatus") as! Bool
+        self.inspected = decoder.decodeBool(forKey: "inspected")
+        self.wildStatus = decoder.decodeBool(forKey: "wildStatus")
         
-        self.pirateKills = decoder.decodeObject(forKey: "pirateKills") as! Int
-        self.policeKills = decoder.decodeObject(forKey: "policeKills") as! Int
-        self.traderKills = decoder.decodeObject(forKey: "traderKills") as! Int
+        self.pirateKills = decoder.decodeInteger(forKey: "pirateKills")
+        self.policeKills = decoder.decodeInteger(forKey: "policeKills")
+        self.traderKills = decoder.decodeInteger(forKey: "traderKills")
         
-        self.endGameType = EndGameStatus(rawValue: decoder.decodeObject(forKey: "endGameType") as! Int!)!
+        self.endGameType = EndGameStatus(rawValue: decoder.decodeInteger(forKey: "endGameType"))!
         
         super.init()
     }

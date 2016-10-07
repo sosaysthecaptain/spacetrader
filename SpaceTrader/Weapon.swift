@@ -83,14 +83,14 @@ class Weapon: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = WeaponType(rawValue: decoder.decodeObject(forKey: "type") as! Int!)!
+            self.type = WeaponType(rawValue: decoder.decodeInteger(forKey: "type"))!
             self.name = decoder.decodeObject(forKey: "name") as! String
-            self.power = decoder.decodeObject(forKey: "power") as! Int
-            self.disruptivePower = decoder.decodeObject(forKey: "disruptivePower") as! Int
-            self.price = decoder.decodeObject(forKey: "price") as! Int
-            self.sellPrice = decoder.decodeObject(forKey: "sellPrice") as! Int
+            self.power = decoder.decodeInteger(forKey: "power")
+            self.disruptivePower = decoder.decodeInteger(forKey: "disruptivePower")
+            self.price = decoder.decodeInteger(forKey: "price")
+            self.sellPrice = decoder.decodeInteger(forKey: "sellPrice")
             self.techLevel = TechLevelType(rawValue: decoder.decodeObject(forKey: "techLevel") as! String!)!
-            self.chance = decoder.decodeObject(forKey: "chance") as! Int
+            self.chance = decoder.decodeInteger(forKey: "chance")
             self.image = decoder.decodeObject(forKey: "image") as! UIImage
     
             super.init()

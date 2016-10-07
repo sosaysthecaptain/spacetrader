@@ -1035,7 +1035,7 @@ class SpaceShip: NSObject, NSCoding {
             self.reactorSpecialCargo = decoder.decodeBool(forKey: "reactorSpecialCargo")
             self.sculptureSpecialCargo = decoder.decodeBool(forKey: "sculptureSpecialCargo")
             self.reactorFuelSpecialCargo = decoder.decodeBool(forKey: "reactorFuelSpecialCargo")
-            self.reactorFuelBays = decoder.decodeObject(forKey: "reactorFuelBays") as! Double
+            self.reactorFuelBays = decoder.decodeDouble(forKey: "reactorFuelBays")
             self.upgradedHull = decoder.decodeBool(forKey: "upgradedHull")
     
             super.init()

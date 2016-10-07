@@ -1088,36 +1088,36 @@ class SpecialEvents: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.special = decoder.decodeObject(forKey: "special") as! Bool
+        self.special = decoder.decodeBool(forKey: "special")
         self.specialEventTitle = decoder.decodeObject(forKey: "specialEventTitle") as! String
         self.specialEventText = decoder.decodeObject(forKey: "specialEventText") as! String
         self.yesDismissButtonText = decoder.decodeObject(forKey: "yesDismissButtonText") as! String
         self.noButtonText = decoder.decodeObject(forKey: "noButtonText") as! String
-        self.yesDismissButtonEnabled = decoder.decodeObject(forKey: "yesDismissButtonEnabled") as! Bool
-        self.noButtonEnabled = decoder.decodeObject(forKey: "noButtonEnabled") as! Bool
+        self.yesDismissButtonEnabled = decoder.decodeBool(forKey: "yesDismissButtonEnabled")
+        self.noButtonEnabled = decoder.decodeBool(forKey: "noButtonEnabled")
         
         self.quests = decoder.decodeObject(forKey: "quests") as! [Quest]
         
-        self.artifactOnBoard = decoder.decodeObject(forKey: "artifactOnBoard") as! Bool
-        self.wildOnBoard = decoder.decodeObject(forKey: "wildOnBoard") as! Bool
-        self.reactorOnBoard = decoder.decodeObject(forKey: "reactorOnBoard") as! Bool
-        self.tribblesOnBoard = decoder.decodeObject(forKey: "tribblesOnBoard") as! Bool
+        self.artifactOnBoard = decoder.decodeBool(forKey: "artifactOnBoard")
+        self.wildOnBoard = decoder.decodeBool(forKey: "wildOnBoard")
+        self.reactorOnBoard = decoder.decodeBool(forKey: "reactorOnBoard")
+        self.tribblesOnBoard = decoder.decodeBool(forKey: "tribblesOnBoard")
         
-        self.experimentCountdown = decoder.decodeObject(forKey: "experimentCountdown") as! Int
-        self.jarekElapsedTime = decoder.decodeObject(forKey: "jarekElapsedTime") as! Int
-        self.gemulonInvasionCountdown = decoder.decodeObject(forKey: "gemulonInvasionCountdown") as! Int
-        self.reactorElapsedTime = decoder.decodeObject(forKey: "reactorElapsedTime") as! Int
-        self.wildElapsedTime = decoder.decodeObject(forKey: "wildElapsedTime") as! Int
-        self.princessElapsedTime = decoder.decodeObject(forKey: "princessElapsedTime") as! Int
-        self.marieCelesteStatus = decoder.decodeObject(forKey: "marieCelesteStatus") as! Int
+        self.experimentCountdown = decoder.decodeInteger(forKey: "experimentCountdown")
+        self.jarekElapsedTime = decoder.decodeInteger(forKey: "jarekElapsedTime")
+        self.gemulonInvasionCountdown = decoder.decodeInteger(forKey: "gemulonInvasionCountdown")
+        self.reactorElapsedTime = decoder.decodeInteger(forKey: "reactorElapsedTime")
+        self.wildElapsedTime = decoder.decodeInteger(forKey: "wildElapsedTime")
+        self.princessElapsedTime = decoder.decodeInteger(forKey: "princessElapsedTime")
+        self.marieCelesteStatus = decoder.decodeInteger(forKey: "marieCelesteStatus")
         
-        if let currentSpecialEventIDRaw = decoder.decodeObject(forKey: "currentSpecialEventID") as! Int! {
-            self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw)
+        if let currentSpecialEventIDRaw = decoder.decodeObject(forKey: "currentSpecialEventID") {
+            self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw as! Int)
         }
         
-        self.captainAhabHappened = decoder.decodeObject(forKey: "captainAhabHappened") as! Bool
-        self.captainConradHappened = decoder.decodeObject(forKey: "captainConradHappened") as! Bool
-        self.captainHuieHappened = decoder.decodeObject(forKey: "captainHuieHappened") as! Bool
+        self.captainAhabHappened = decoder.decodeBool(forKey: "captainAhabHappened")
+        self.captainConradHappened = decoder.decodeBool(forKey: "captainConradHappened")
+        self.captainHuieHappened = decoder.decodeBool(forKey: "captainHuieHappened")
 
         super.init()
     }
