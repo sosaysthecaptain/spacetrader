@@ -118,25 +118,25 @@ class NewGameVC: UIViewController {
     
     func loadAutosavedGame() -> Bool {
         print("loadAutoavedGame firing")
-        print("this version has been disabled. Returning false.")
-        return false
+//        print("this version has been disabled. Returning false.")
+//        return false
         
-//        let path = fileInDocumentsDirectory("autosave.plist")
-//
-//        if let autosaveGame = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AutosavedGame {
-//            print("autosave.plist found")
-//
-//            if autosaveGame.savedCommander.endGameType != EndGameStatus.gameNotOver {
-//                return false
-//            }
-//            player = autosaveGame.savedCommander
-//            galaxy = autosaveGame.savedGalaxy
-//            
-//            return true
-//        } else {
-//            print("loadAutosavedGame finds no autosave.plist")
-//            return false
-//        }
+        let path = fileInDocumentsDirectory("autosave.plist")
+
+        if let autosaveGame = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AutosavedGame {
+            print("autosave.plist found")
+
+            if autosaveGame.savedCommander.endGameType != EndGameStatus.gameNotOver {
+                return false
+            }
+            player = autosaveGame.savedCommander
+            galaxy = autosaveGame.savedGalaxy
+            
+            return true
+        } else {
+            print("loadAutosavedGame finds no autosave.plist")
+            return false
+        }
     }
     
 }
