@@ -60,11 +60,11 @@ class HighScore: NSObject, NSCoding {
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObject(forKey: "name") as! String
-        self.status = EndGameStatus(rawValue: decoder.decodeObject(forKey: "status") as! Int!)!
-        self.days = decoder.decodeObject(forKey: "days") as! Int
-        self.worth = decoder.decodeObject(forKey: "worth") as! Int
+        self.status = EndGameStatus(rawValue: decoder.decodeInteger(forKey: "status"))!
+        self.days = decoder.decodeInteger(forKey: "days")
+        self.worth = decoder.decodeInteger(forKey: "worth")
         self.difficulty = DifficultyType(rawValue: decoder.decodeObject(forKey: "difficulty") as! String!)!
-        self.score = decoder.decodeObject(forKey: "score") as! Int
+        self.score = decoder.decodeInteger(forKey: "score")
 
         super.init()
     }
@@ -99,6 +99,11 @@ class HighScoreArchive: NSObject, NSCoding {
     }
     
     func addScore(_ score: HighScore) -> Bool {
+        // if score is below 50, don't bother
+        if score.score < 50 {
+            return false
+        }
+        
         // adds score, tells user if he made the high scores
         self.highScores.append(score)
         self.sort()
