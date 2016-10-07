@@ -33,11 +33,11 @@ class CrewMember: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         self.ID = MercenaryName(rawValue: decoder.decodeObject(forKey: "ID") as! String!)!
         self.name = decoder.decodeObject(forKey: "name") as! String
-        self.pilot = decoder.decodeObject(forKey: "pilot") as! Int
-        self.fighter = decoder.decodeObject(forKey: "fighter") as! Int
-        self.trader = decoder.decodeObject(forKey: "trader") as! Int
-        self.engineer = decoder.decodeObject(forKey: "engineer") as! Int
-        self.costPerDay = decoder.decodeObject(forKey: "costPerDay") as! Int
+        self.pilot = decoder.decodeInteger(forKey: "pilot")
+        self.fighter = decoder.decodeInteger(forKey: "fighter")
+        self.trader = decoder.decodeInteger(forKey: "trader")
+        self.engineer = decoder.decodeInteger(forKey: "engineer")
+        self.costPerDay = decoder.decodeInteger(forKey: "costPerDay")
 
         super.init()
     }

@@ -30,7 +30,7 @@ class AutosavedGame: NSObject, NSCoding {
         self.name = decoder.decodeObject(forKey: "name") as! String
         self.savedCommander = decoder.decodeObject(forKey: "savedCommander") as! Commander
         self.savedGalaxy = decoder.decodeObject(forKey: "savedGalaxy") as! Galaxy
-        self.gameInProgress = decoder.decodeObject(forKey: "gameInProgress") as! Bool
+        self.gameInProgress = decoder.decodeBool(forKey: "gameInProgress")
 
         super.init()
     }

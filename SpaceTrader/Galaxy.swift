@@ -1848,10 +1848,10 @@ class Galaxy: NSObject, NSCoding {
         self.systemsInRange = decoder.decodeObject(forKey: "systemsInRange") as! [StarSystem]
         self.currentSystem = decoder.decodeObject(forKey: "currentSystem") as! StarSystem?
         self.targetSystem = decoder.decodeObject(forKey: "targetSystem") as! StarSystem?
-        self.targetSystemInRange = decoder.decodeObject(forKey: "targetSystemInRange") as! Bool
+        self.targetSystemInRange = decoder.decodeBool(forKey: "targetSystemInRange")
         self.trackedSystem = decoder.decodeObject(forKey: "trackedSystem") as! StarSystem?
-        self.journeyJustFinished = decoder.decodeObject(forKey: "journeyJustFinished") as! Bool
-        self.spaceTimeMessedUp = decoder.decodeObject(forKey: "spaceTimeMessedUp") as! Bool
+        self.journeyJustFinished = decoder.decodeBool(forKey: "journeyJustFinished")
+        self.spaceTimeMessedUp = decoder.decodeBool(forKey: "spaceTimeMessedUp")
 
         super.init()
     }
