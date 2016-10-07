@@ -979,6 +979,7 @@ class SpaceShip: NSObject, NSCoding {
     }
     
      // NSCODING METHODS
+    // first one decodes, second one encodes
         required init(coder decoder: NSCoder) {
             self.type = ShipType(rawValue: decoder.decodeObject(forKey: "type") as! Int!)!
             self.name = decoder.decodeObject(forKey: "name") as! String

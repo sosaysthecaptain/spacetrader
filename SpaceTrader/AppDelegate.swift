@@ -101,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let autosaveGame = AutosavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
 
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
+        print("GAME AUTOSAVED. PATH: \(path)")  // this works. Game is saving without incident
     }
     
     

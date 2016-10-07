@@ -116,18 +116,21 @@ class NewGameVC: UIViewController {
     }
     
     func loadAutosavedGame() -> Bool {
+        print("loadAutoavedGame firing")
+        
         let path = fileInDocumentsDirectory("autosave.plist")
         if let autosaveGame = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AutosavedGame {
+            print("autosave.plist found")
 
             if autosaveGame.savedCommander.endGameType != EndGameStatus.gameNotOver {
                 return false
             }
-            
             player = autosaveGame.savedCommander
             galaxy = autosaveGame.savedGalaxy
             
             return true
         } else {
+            print("loadAutosavedGame finds no autosave.plist")
             return false
         }
     }
