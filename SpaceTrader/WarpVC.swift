@@ -44,15 +44,35 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     
     
     @IBAction func cycleBackwards() {
+        if galaxy.systemsInRange.count < 2 {
+            fuelAlert()
+        }
+        
         galaxy.cycleBackward()
         updateView()
         shortRangeChart.redrawSelf()
     }
     
     @IBAction func cycleForwards() {
+        if galaxy.systemsInRange.count < 2 {
+            fuelAlert()
+        }
+        
         galaxy.cycleForward()
         updateView()
         shortRangeChart.redrawSelf()
+    }
+    
+    func fuelAlert() {
+        let title = "Fuel Needed"
+        let message = "You do not have enough fuel to reach any other system."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // do nothing
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func warpButton() {

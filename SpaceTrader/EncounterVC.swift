@@ -337,6 +337,16 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         }
     }
     
+    func hapticFeedback() {
+        // this only works on iPhone 7 and up
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        } else {
+            // no iOS 10, no haptics
+        }
+    }
+    
     // END UTILITIES******************************************************************************
     // BUTTON ACTIONS*****************************************************************************
     func attack() {
@@ -1040,6 +1050,10 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             galaxy.currentJourney!.currentEncounter!.encounterText2 = "The trader ship attacks."
         }
         
+        // haptic response to let user know that action registered
+        hapticFeedback()
+        
+        
         redrawViewController()
     }
     
@@ -1184,6 +1198,10 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         } else {
             reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
         }
+        
+        // haptic feedback
+        hapticFeedback()
+        
         galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent is fleeing."
         
