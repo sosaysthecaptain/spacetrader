@@ -1120,8 +1120,8 @@ class SpecialCargoItem: NSObject, NSCoding {
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObject(forKey: "name") as! String
-        self.quantity = decoder.decodeObject(forKey: "quantity") as! Int
-        self.baysTakenUp = decoder.decodeObject(forKey: "baysTakenUp") as! Int
+        self.quantity = decoder.decodeInteger(forKey: "quantity")
+        self.baysTakenUp = decoder.decodeInteger(forKey: "baysTakenUp")
 
         super.init()
     }

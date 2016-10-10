@@ -105,17 +105,17 @@ class UniversalGadget: NSObject, NSCoding {
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
             self.typeIndex = decoder.decodeObject(forKey: "typeIndex") as! Int
-            self.wType = WeaponType(rawValue: decoder.decodeObject(forKey: "wType") as! Int!)!    // optional problem?
-            self.sType = ShieldType(rawValue: decoder.decodeObject(forKey: "sType") as! Int!)!
-            self.gType = GadgetType(rawValue: decoder.decodeObject(forKey: "gType") as! Int!)!
+            self.wType = WeaponType(rawValue: decoder.decodeInteger(forKey: "wType"))!    // optional problem?
+            self.sType = ShieldType(rawValue: decoder.decodeInteger(forKey: "sType"))!
+            self.gType = GadgetType(rawValue: decoder.decodeInteger(forKey: "gType"))!
             self.weaponItem = decoder.decodeObject(forKey: "weaponItem") as! Weapon?
             self.shieldItem = decoder.decodeObject(forKey: "shieldItem") as! Shield?
             self.gadgetItem = decoder.decodeObject(forKey: "gadgetItem") as! Gadget?
             
             self.name = decoder.decodeObject(forKey: "name") as! String
             self.type = decoder.decodeObject(forKey: "type") as! String
-            self.price = decoder.decodeObject(forKey: "price") as! Int
-            self.sellPrice = decoder.decodeObject(forKey: "sellPrice") as! Int
+            self.price = decoder.decodeInteger(forKey: "price")
+            self.sellPrice = decoder.decodeInteger(forKey: "sellPrice")
             self.power = decoder.decodeObject(forKey: "power") as! String
             self.techLevel = decoder.decodeObject(forKey: "techLevel") as! TechLevelType
             self.image = decoder.decodeObject(forKey: "image") as! UIImage?

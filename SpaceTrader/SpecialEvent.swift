@@ -1239,9 +1239,9 @@ class Quest: NSObject, NSCoding {
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
-        self.ID = QuestID(rawValue: decoder.decodeObject(forKey: "ID") as! Int!)!
+        self.ID = QuestID(rawValue: decoder.decodeInteger(forKey: "ID"))!
         self.questString = decoder.decodeObject(forKey: "questString") as! String
-        self.completed = decoder.decodeObject(forKey: "completed") as! Bool
+        self.completed = decoder.decodeBool(forKey: "completed")
 
         super.init()
     }

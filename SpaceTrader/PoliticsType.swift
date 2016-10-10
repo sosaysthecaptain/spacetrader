@@ -237,15 +237,15 @@ class Politics: NSObject, NSCoding {
         required init(coder decoder: NSCoder) {
             self.type = PoliticsType(rawValue: decoder.decodeObject(forKey: "type") as! String!)!
             self.name = decoder.decodeObject(forKey: "name") as! String
-            self.reactionIllegal = decoder.decodeObject(forKey: "reactionIllegal") as! Int
-            self.activityPolice = decoder.decodeObject(forKey: "activityPolice") as! Int
-            self.activityPirates = decoder.decodeObject(forKey: "activityPirates") as! Int
-            self.activityTraders = decoder.decodeObject(forKey: "activityTraders") as! Int
+            self.reactionIllegal = decoder.decodeInteger(forKey: "reactionIllegal")
+            self.activityPolice = decoder.decodeInteger(forKey: "activityPolice")
+            self.activityPirates = decoder.decodeInteger(forKey: "activityPirates")
+            self.activityTraders = decoder.decodeInteger(forKey: "activityTraders")
             self.minTech = TechLevelType(rawValue: decoder.decodeObject(forKey: "minTech") as! String!)!
             self.maxTech = TechLevelType(rawValue: decoder.decodeObject(forKey: "maxTech") as! String!)!
-            self.bribeLevel = decoder.decodeObject(forKey: "bribeLevel") as! Int
-            self.drugsOk = decoder.decodeObject(forKey: "drugsOk") as! Bool
-            self.firearmsOk = decoder.decodeObject(forKey: "firearmsOk") as! Bool
+            self.bribeLevel = decoder.decodeInteger(forKey: "bribeLevel")
+            self.drugsOk = decoder.decodeBool(forKey: "drugsOk")
+            self.firearmsOk = decoder.decodeBool(forKey: "firearmsOk")
             self.wanted = TradeItemType(rawValue: decoder.decodeObject(forKey: "wanted") as! String!)!
     
             super.init()

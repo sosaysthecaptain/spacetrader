@@ -742,17 +742,17 @@ class Journey: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         self.origin = decoder.decodeObject(forKey: "origin") as! StarSystem
         self.destination = decoder.decodeObject(forKey: "destination") as! StarSystem
-        self.clicks = decoder.decodeObject(forKey: "clicks") as! Int
-        self.pirate = decoder.decodeObject(forKey: "pirate") as! Bool
-        self.police = decoder.decodeObject(forKey: "police") as! Bool
-        self.trader = decoder.decodeObject(forKey: "trader") as! Bool
-        self.mantis = decoder.decodeObject(forKey: "mantis") as! Bool
+        self.clicks = decoder.decodeInteger(forKey: "clicks")
+        self.pirate = decoder.decodeBool(forKey: "pirate")
+        self.police = decoder.decodeBool(forKey: "police")
+        self.trader = decoder.decodeBool(forKey: "trader")
+        self.mantis = decoder.decodeBool(forKey: "mantis")
         self.currentEncounter = decoder.decodeObject(forKey: "currentEncounter") as! Encounter?
         self.localPolitics = decoder.decodeObject(forKey: "localPolitics") as! Politics
-        self.strengthPirates = decoder.decodeObject(forKey: "strengthPirates") as! Int
-        self.strengthPolice = decoder.decodeObject(forKey: "strengthPolice") as! Int
-        self.strengthTraders = decoder.decodeObject(forKey: "strengthTraders") as! Int
-        self.uneventfulTrip = decoder.decodeObject(forKey: "uneventfulTrip") as! Bool
+        self.strengthPirates = decoder.decodeInteger(forKey: "strengthPirates")
+        self.strengthPolice = decoder.decodeInteger(forKey: "strengthPolice")
+        self.strengthTraders = decoder.decodeInteger(forKey: "strengthTraders")
+        self.uneventfulTrip = decoder.decodeBool(forKey: "uneventfulTrip")
         
         super.init()
     }
