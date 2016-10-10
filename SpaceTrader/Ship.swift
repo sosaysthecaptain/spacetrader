@@ -356,7 +356,13 @@ class SpaceShip: NSObject, NSCoding {
     var baysAvailable: Int {
         get {
 //            print("cargo bays: \(cargoBays), totalCargo: \(totalCargo), special: \(baysTakenUpBySpecialCargo)")
-            return cargoBays - totalCargo - baysTakenUpBySpecialCargo
+            var totalBays = cargoBays - totalCargo - baysTakenUpBySpecialCargo
+            for gadget in gadget {
+                if gadget.type == GadgetType.cargoBays {
+                    totalBays += 5
+                }
+            }
+            return totalBays
         }
     }
     
