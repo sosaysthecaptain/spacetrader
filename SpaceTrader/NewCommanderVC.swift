@@ -303,19 +303,19 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //        
 //        
 //        
-        let bigShip = SpaceShip(type: ShipType.grasshopper, IFFStatus: IFFStatusType.Player)
-        player.commanderShip = bigShip
-
-        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
-        reflectiveShield.currentStrength = reflectiveShield.power // / 2
-        player.commanderShip.shield.append(reflectiveShield)
-        
-        player.commanderShip.hull = 132
-        
-        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        let beamLaser = Weapon(type: WeaponType.beamLaser)
-        player.commanderShip.weapon.append(photonDisruptor)
-        player.commanderShip.weapon.append(beamLaser)
+//        let bigShip = SpaceShip(type: ShipType.grasshopper, IFFStatus: IFFStatusType.Player)
+//        player.commanderShip = bigShip
+//
+//        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
+//        reflectiveShield.currentStrength = reflectiveShield.power // / 2
+//        player.commanderShip.shield.append(reflectiveShield)
+//        
+//        player.commanderShip.hull = 132
+//        
+//        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+//        let beamLaser = Weapon(type: WeaponType.beamLaser)
+//        player.commanderShip.weapon.append(photonDisruptor)
+//        player.commanderShip.weapon.append(beamLaser)
 
 //        let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
 //        player.commanderShip.crew.append(zeethibal)
@@ -323,7 +323,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.policeRecord = PoliceRecordType.heroScore
         
         
-        player.credits = 23932     // for testing, give player money
+        //player.credits = 23932     // for testing, give player money
         
         // testing tribbles
         //player.commanderShip.tribbles = 104000
