@@ -886,7 +886,7 @@ class Encounter: NSObject, NSCoding {
             //self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
             self.type = decoder.decodeObject(forKey: "type") as! EncounterType
             self.opponent = decoder.decodeObject(forKey: "opponent") as! Opponent
-            self.clicks = decoder.decodeObject(forKey: "clicks") as! Int
+            self.clicks = decoder.decodeInteger(forKey: "clicks")
             self.encounterText1 = decoder.decodeObject(forKey: "encounterText1") as! String
             self.encounterText2 = decoder.decodeObject(forKey: "encounterText2") as! String
             self.button1Text = decoder.decodeObject(forKey: "button1Text") as! String
@@ -897,16 +897,16 @@ class Encounter: NSObject, NSCoding {
             self.alertTitle = decoder.decodeObject(forKey: "alertTitle") as! String
             self.alertText = decoder.decodeObject(forKey: "alertText") as! String
             
-            self.opponentFleeing = decoder.decodeObject(forKey: "opponentFleeing") as! Bool
-            self.playerFleeing = decoder.decodeObject(forKey: "playerFleeing") as! Bool
+            self.opponentFleeing = decoder.decodeBool(forKey: "opponentFleeing")
+            self.playerFleeing = decoder.decodeBool(forKey: "playerFleeing")
             
-            self.pilotSkillOpponent = decoder.decodeObject(forKey: "pilotSkillOpponent") as! Int
-            self.fighterSkillOpponent = decoder.decodeObject(forKey: "fighterSkillOpponent") as! Int
-            self.traderSkillOpponent = decoder.decodeObject(forKey: "traderSkillOpponent") as! Int
-            self.engineerSkillOpponent = decoder.decodeObject(forKey: "engineerSkillOpponent") as! Int
+            self.pilotSkillOpponent = decoder.decodeInteger(forKey: "pilotSkillOpponent")
+            self.fighterSkillOpponent = decoder.decodeInteger(forKey: "fighterSkillOpponent")
+            self.traderSkillOpponent = decoder.decodeInteger(forKey: "traderSkillOpponent")
+            self.engineerSkillOpponent = decoder.decodeInteger(forKey: "engineerSkillOpponent")
             
-            self.youHitThem = decoder.decodeObject(forKey: "youHitThem") as! Bool
-            self.theyHitYou = decoder.decodeObject(forKey: "theyHitYou") as! Bool
+            self.youHitThem = decoder.decodeBool(forKey: "youHitThem")
+            self.theyHitYou = decoder.decodeBool(forKey: "theyHitYou")
             
             self.scoopableItem = decoder.decodeObject(forKey: "scoopableItem") as! TradeItem?
             
