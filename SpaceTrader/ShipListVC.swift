@@ -31,10 +31,12 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell: BuyShipCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomCell")! as! BuyShipCell
         let ship = self.ships[(indexPath as NSIndexPath).row]
         cell.setCell(ship)
