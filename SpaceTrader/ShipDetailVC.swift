@@ -138,7 +138,7 @@ class ShipDetailVC: UIViewController {
         priceLabel.text = "\(priceFormatted) credits"
         
         let controlState = UIControlState()
-        buyButton.setTitle("Buy \(ship)", for: controlState)
+        buyButton.setTitle("Buy \(ship!)", for: controlState)
         
         // disable when not available
         let currentSystemTechLevel = galaxy.currentSystem!.techLevelInt
