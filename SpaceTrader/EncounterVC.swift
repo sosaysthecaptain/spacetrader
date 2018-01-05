@@ -337,15 +337,15 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         }
     }
     
-    func hapticFeedback() {
-        // this only works on iPhone 7 and up
-        if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
-        } else {
-            // no iOS 10, no haptics
-        }
-    }
+//    func hapticFeedback() {
+//        // this only works on iPhone 7 and up
+//        if #available(iOS 10.0, *) {
+//            let generator = UIImpactFeedbackGenerator(style: .medium)
+//            generator.impactOccurred()
+//        } else {
+//            // no iOS 10, no haptics
+//        }
+//    }
     
     // END UTILITIES******************************************************************************
     // BUTTON ACTIONS*****************************************************************************
@@ -1051,7 +1051,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         }
         
         // haptic response to let user know that action registered
-        hapticFeedback()
+        //hapticFeedback()
         
         
         redrawViewController()
@@ -1200,7 +1200,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         }
         
         // haptic feedback
-        hapticFeedback()
+        //hapticFeedback()
         
         galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent is fleeing."
