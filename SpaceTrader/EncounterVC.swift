@@ -284,7 +284,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     }
     // END BUTTON FUNCTIONS***********************************************************************
     // UTILITIES**********************************************************************************
-    func messageHandler(_ notification: Notification) {      // I THINK THIS IS (MOSTLY) DELETABLE
+    @objc func messageHandler(_ notification: Notification) {      // I THINK THIS IS (MOSTLY) DELETABLE
         //let receivedMessage: String = notification.object! as! String
         
 //        if receivedMessage == "playerKilled" {

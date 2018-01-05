@@ -30,7 +30,7 @@ class DesignNaSVC: UIViewController, UITextFieldDelegate {
     }
     
     // called by tap gesture recognizer, dismisses keyboard
-    func DismissKeyboard(){
+    @objc func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }

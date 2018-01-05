@@ -60,7 +60,7 @@ class EncounterVCOld: UIViewController {
     @IBOutlet weak var button3Text: UIButton!
     @IBOutlet weak var button4Text: UIButton!
     
-    func messageHandler(_ notification: Notification) {
+    @objc func messageHandler(_ notification: Notification) {
         let receivedMessage: String = notification.object! as! String
         
         if receivedMessage == "playerKilled" {

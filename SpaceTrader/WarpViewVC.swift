@@ -24,7 +24,7 @@ class WarpViewVC: UIViewController {
     
     // FIRE ALERT MODALS
     // (maybe this should only fire the first? Let additional ones be sequential?)
-    func messageHandler(_ notification: Notification) {
+    @objc func messageHandler(_ notification: Notification) {
         let receivedMessage: String = notification.object! as! String
         
         if receivedMessage == "main" {

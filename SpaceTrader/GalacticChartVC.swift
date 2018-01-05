@@ -44,7 +44,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(GalacticChartVC.messageHandler(_:)), name: NSNotification.Name(rawValue: "singularityWarpSegueNotification"), object: nil)
     }
     
-    func messageHandler(_ notification: Notification) {
+    @objc func messageHandler(_ notification: Notification) {
         // force load the VC, to avoid getting tied up in the nav controller
         
         let vc : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "warpViewVC")

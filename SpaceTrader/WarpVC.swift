@@ -115,7 +115,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(WarpVC.messageHandler(_:)), name: NSNotification.Name(rawValue: "fireWarpViewSegueNotification"), object: nil)
     }
     
-    func messageHandler(_ notification: Notification) {
+    @objc func messageHandler(_ notification: Notification) {
         performSegue(withIdentifier: "warpScreenSegue", sender: nil)
     }
     
