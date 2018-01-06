@@ -514,34 +514,34 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         highlightProfitOpportunities()
         
         // shrink P/L label if too long
-        if waterProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if waterProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             waterProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if fursProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if fursProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             fursProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if foodProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if foodProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             foodProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if oreProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if oreProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             oreProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if gamesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if gamesProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             gamesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if firearmsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if firearmsProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             firearmsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if medicineProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if medicineProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             medicineProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if machinesProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if machinesProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             machinesProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if narcoticsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if narcoticsProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             narcoticsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if robotsProjectedPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if robotsProjectedPL.text!.count > maxCharactersBeforeShrinkingText {
             robotsProjectedPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
     }
@@ -630,7 +630,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
         
         // true if over limit
-        if text.characters.count > maxCharactersBeforeShrinkingText {
+        if text.count > maxCharactersBeforeShrinkingText {
             return true
         }
         
