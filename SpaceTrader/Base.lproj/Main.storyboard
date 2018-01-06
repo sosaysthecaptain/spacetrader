@@ -937,7 +937,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="NW6-lb-RlH" secondAttribute="trailing" constant="-15" id="cr1-6Y-2OO"/>
                             <constraint firstItem="qmX-6H-c6j" firstAttribute="width" secondItem="bRe-UA-BOv" secondAttribute="width" id="ndy-t5-OfS"/>
                             <constraint firstItem="RZp-lg-84V" firstAttribute="leading" secondItem="bRe-UA-BOv" secondAttribute="leadingMargin" constant="-20" id="nqV-5r-7bD"/>
-                            <constraint firstItem="9JT-E7-S4R" firstAttribute="top" secondItem="NW6-lb-RlH" secondAttribute="bottom" constant="101" id="qXf-dx-Rdu"/>
+                            <constraint firstItem="9JT-E7-S4R" firstAttribute="top" secondItem="NW6-lb-RlH" secondAttribute="bottom" constant="120" id="qXf-dx-Rdu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buy Cargo" id="frR-GY-IBc">
@@ -8524,7 +8524,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
-        <segue reference="df9-TI-WZB"/>
+        <segue reference="NpZ-6P-UU1"/>
         <segue reference="LdK-j7-SWM"/>
         <segue reference="gLW-Zt-l96"/>
         <segue reference="Cl3-zi-3cm"/>
