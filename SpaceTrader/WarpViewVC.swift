@@ -31,6 +31,7 @@ class WarpViewVC: UIViewController {
             performSegue(withIdentifier: "encounterModal", sender: nil)
         } else if receivedMessage == "done" {
 //            print("firing return segue")
+            print("this is when we occasionally hang")
             performSegue(withIdentifier: "returnToTabBar", sender: nil)
         } else if receivedMessage == "playerDestroyedEscapes" {
             playerDestroyedEscapesSequence()

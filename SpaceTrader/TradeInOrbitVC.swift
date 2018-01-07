@@ -59,6 +59,9 @@ class TradeInOrbitVC: UIViewController {
             
             // figure out how much of it trader is offering to buy
             tradeOfferAmount = Int(Double(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargoBays) * 0.75)
+            if tradeOfferAmount == 0 {
+                tradeOfferAmount = 4
+            }
             
             // generate ask price
             let localBuyPrice = galaxy.currentSystem!.getBuyPrice(commodityToTrade)
@@ -94,6 +97,9 @@ class TradeInOrbitVC: UIViewController {
             
             // calculate tradeOfferAmount
             tradeOfferAmount = Int(Double(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargoBays) * 0.75)
+            if tradeOfferAmount == 0 {
+                tradeOfferAmount = 4
+            }
             
             // generate ask price
             let localBuyPrice = galaxy.currentSystem!.getBuyPrice(commodityToTrade)

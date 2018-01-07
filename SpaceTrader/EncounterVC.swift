@@ -147,6 +147,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             secondTextBlock.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
         }
         
+        
     }
     
     // set dark statusBar
@@ -1053,7 +1054,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         // haptic response to let user know that action registered
         //hapticFeedback()
         
-        
+        print("flash now?")
         redrawViewController()
     }
     
