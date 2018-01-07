@@ -561,7 +561,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         buyAsOpposedToSell = true
         
         // return scroll view to top
-        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
+        let topScrollPoint = CGPoint(x: 0.0, y: -60.0)            // DOES GETTING RID OF THIS FIX IT?
+        //let topScrollPoint = CGPoint(x: 0.0, y: 0.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
     }
    
