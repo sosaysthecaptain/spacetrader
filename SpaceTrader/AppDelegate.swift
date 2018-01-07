@@ -91,17 +91,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveState() {
         // will need to make sure game is currently active
         
-        print("saved games to be saved:")
-        for game in savedGames {
-            print(game.name)
-        }
+//        print("saved games to be saved:")
+//        for game in savedGames {
+//            print(game.name)
+//        }
         
         let path = fileInDocumentsDirectory("autosave.plist")
         //let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress, savedGames: savedGames)
         let autosaveGame = AutosavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
 
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
-        print("GAME AUTOSAVED. PATH: \(path)")  // this works. Game is saving without incident
+        //print("GAME AUTOSAVED. PATH: \(path)")  // this works. Game is saving without incident
     }
     
     
@@ -115,10 +115,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             savedGames = savedGameArchive.savedGames
             
-            print("saved games recovered from archive:")
-            for game in savedGames {
-                print(game.name)
-            }
+            //print("saved games recovered from archive:")
+//            for game in savedGames {
+//                print(game.name)
+//            }
         }
         
     }
@@ -136,10 +136,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             highScoreArchive = highScoreArchiveTemp
             
-            print("high scores recovered from archive:")
-            for score in highScoreArchive.highScores {
-                print("name: \(score.name), score: \(score.score)")
-            }
+//            print("high scores recovered from archive:")
+//            for score in highScoreArchive.highScores {
+//                print("name: \(score.name), score: \(score.score)")
+//            }
         }
     }
 }
