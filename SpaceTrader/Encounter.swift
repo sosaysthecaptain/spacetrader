@@ -529,13 +529,13 @@ class Encounter: NSObject, NSCoding {
             
             if rand(fighterSkillOpponent) + player.commanderShip.probabilityOfHit > rand(player.pilotSkill) + playerFleeingMarksmanshipPenalty {
                 theyHitYou = true
-                print("OPPONENT HITS PLAYER")                                       // REMOVE
+//                print("OPPONENT HITS PLAYER")                                       // REMOVE
                 
                 // player is hit. Determine damage
-                print("OPPONENT SHIP TOTAL WEAPONS: \(opponent.ship.totalWeapons)") // REMOVE
+//                print("OPPONENT SHIP TOTAL WEAPONS: \(opponent.ship.totalWeapons)") // REMOVE
                 let damageToPlayer = rand((opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
                 damagePlayer(damageToPlayer)
-                print("DAMAGE TO PLAYER: \(damageToPlayer)")                        // REMOVE
+//                print("DAMAGE TO PLAYER: \(damageToPlayer)")                        // REMOVE
             } else {
                 theyHitYou = false
             }

@@ -208,14 +208,14 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(_ sender: AnyObject) {
         // DEBUG
-        print("BUTTON 1 PRESSED")
+//        print("BUTTON 1 PRESSED")
         
         let button1Text = galaxy.currentJourney!.currentEncounter!.button1Text
         if button1Text == "Attack" {
-            print("attack pressed")
+//            print("attack pressed")
             attack()
         } else if button1Text == "Board" {
-            print("board pressed")
+//            print("board pressed")
             board()
         } else if button1Text == "Pick It Up" {
             pickUp()
@@ -224,7 +224,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     @IBAction func button2(_ sender: AnyObject) {
         // DEBUG
-        print("BUTTON 2 PRESSED")
+//        print("BUTTON 2 PRESSED")
         
         let button2Text = galaxy.currentJourney!.currentEncounter!.button2Text
         if button2Text == "Flee" {
@@ -242,20 +242,20 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     @IBAction func button3(_ sender: AnyObject) {
         // DEBUG
-        print("BUTTON 3 PRESSED")
+//        print("BUTTON 3 PRESSED")
         
         let button3Text = galaxy.currentJourney!.currentEncounter!.button3Text
         if button3Text == "Surrender" {
-            print("surrender pressed")
+//            print("surrender pressed")
             surrender()
         } else if button3Text == "Submit" {
-            print("submit pressed")
+//            print("submit pressed")
             submit()
         } else if button3Text == "Yield" {
-            print("yield pressed")
+//            print("yield pressed")
             yield()
         } else if button3Text == "Trade" {
-            print("trade pressed")
+//            print("trade pressed")
             trade()
         } else if button3Text == "Accept" {
                 accept()
@@ -266,11 +266,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     @IBAction func button4(_ sender: AnyObject) {
         // DEBUG
-        print("BUTTON 4 PRESSED")
+//        print("BUTTON 4 PRESSED")
         
         let button4Text = galaxy.currentJourney!.currentEncounter!.button4Text
         if button4Text == "Bribe" {
-            print("bribe pressed")
+//            print("bribe pressed")
             bribe()
         } else if button4Text == "" {
             // do nothing
@@ -862,7 +862,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             }))
             self.present(alertController, animated: true, completion: nil)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
-            print("YOU HAVE SURRENDERED TO THE POLICE")
+//            print("YOU HAVE SURRENDERED TO THE POLICE")
             arrest()
         }
     }
@@ -870,7 +870,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     func submit() {
         // see if you have anything to worry about
         let contraband = getContrabandStatus()
-        print("contraband status: \(contraband)")
+//        print("contraband status: \(contraband)")
         
         // if not, apologise
         if !contraband {
@@ -1163,7 +1163,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.default ,handler: {
             (alert: UIAlertAction!) -> Void in
             if player.commanderShip.baysAvailable == 0 {
-                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
+//                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
                 galaxy.currentJourney!.currentEncounter!.scoopableItem = item
             }
             
@@ -1283,9 +1283,9 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     func outcomePlayerDestroyedKilled() {
         player.endGameType = EndGameStatus.killed
-        print("end game status: \(player.endGameType)")
+//        print("end game status: \(player.endGameType)")
         
-        print("running new player destroyed killed function")
+//        print("running new player destroyed killed function")
         
         let title = "You Lose"
         let message = "Your ship has been destroyed by your opponent."
@@ -1336,7 +1336,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     func trialAndPunishment() {
         // calculate policeRecordScore
         let policeRecordScore = player.policeRecordInt * 5     // makes more sense this way? Test.
-        print("policeRecordScore: \(policeRecordScore)")
+//        print("policeRecordScore: \(policeRecordScore)")
         
         // calculate daysInPrison and fine
         var fine = (1 + (((player.netWorth * (min(80, policeRecordScore)) / 100 / 500)) * 500))
@@ -1345,7 +1345,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         if player.specialEvents.wildOnBoard {
             fine = Int(Double(fine) * 1.05)
         }
-        print("fine: \(fine) credits")
+//        print("fine: \(fine) credits")
         
         // calculate jail time
         let daysInPrison = max(30, policeRecordScore)
@@ -1635,7 +1635,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
     
     func drinkTonic() {
         if galaxy.currentJourney!.currentEncounter!.type == EncounterType.bottleGoodEncounter {
-            print("drinking good tonic. Display alert, increase random skill")
+//            print("drinking good tonic. Display alert, increase random skill")
             self.increaseRandomSkill()
             
             let title = "Tonic Consumed"
@@ -1651,7 +1651,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             self.present(alertController, animated: true, completion: nil)
             
         } else {
-            print("drinking old tonic. Display alert, mess up skills")
+//            print("drinking old tonic. Display alert, mess up skills")
             self.messUpSkills()
             
             let title = "Tonic Consumed"
@@ -2384,7 +2384,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             }
         }
         
-        print("DEBUG: opponent IFFStatus: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus)")
+//        print("DEBUG: opponent IFFStatus: \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus)")
         
         badge.image = image
     }

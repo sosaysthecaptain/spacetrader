@@ -1700,10 +1700,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beetle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-Bt-nvC" customClass="StandardLabel" customModule="SpaceTrader" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="11" width="62" height="21"/>
+                                                    <rect key="frame" x="107" y="11" width="150" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Ab0-SW-JQf"/>
-                                                        <constraint firstAttribute="width" constant="62" id="gEl-em-0RG"/>
+                                                        <constraint firstAttribute="width" constant="150" id="gEl-em-0RG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -76,7 +76,7 @@ class Journey: NSObject, NSCoding {
     }
     
     func resumeJourney() {
-        print("resumeJourney called")
+//        print("resumeJourney called")
         // this fires when an encounter is done. No need to check if open encounter.
         if clicks > 0 {
             executeClick()
@@ -145,7 +145,7 @@ class Journey: NSObject, NSCoding {
         // encounter with stolen scarab?
         if galaxy.targetSystem!.scarabIsHere {
             if clicks == 2 {
-                print("SCARAB IS HERE. Time for encounter, at 2 clicks")
+//                print("SCARAB IS HERE. Time for encounter, at 2 clicks")
                 encounterThisClick = true
                 scarab = true
             }
@@ -154,7 +154,7 @@ class Journey: NSObject, NSCoding {
         // encounter with scorpion at qonos?
         if galaxy.targetSystem!.scorpionIsHere {
             if clicks == 2 {
-                print("SCORPION IS HERE. Time for encounter, at 2 clicks")
+//                print("SCORPION IS HERE. Time for encounter, at 2 clicks")
                 encounterThisClick = true
                 scorpion = true
             }
@@ -163,7 +163,7 @@ class Journey: NSObject, NSCoding {
         // encounter with stolen dragonfly?
         if galaxy.targetSystem!.dragonflyIsHere {
             if clicks == 2 {
-                print("DRAGONFLY IS HERE. Time for encounter, at 2 clicks")
+//                print("DRAGONFLY IS HERE. Time for encounter, at 2 clicks")
                 encounterThisClick = true
                 dragonfly = true
             }
@@ -173,7 +173,7 @@ class Journey: NSObject, NSCoding {
         if galaxy.targetSystem!.swarmingWithAliens {
             let random = rand(10)
             if random > 3 {
-                print("TIME FOR MANTIS ENCOUNTER")
+//                print("TIME FOR MANTIS ENCOUNTER")
                 mantis = true
                 encounterThisClick = true
             }
@@ -200,7 +200,7 @@ class Journey: NSObject, NSCoding {
         
         // ELSE, check if it is time for an encounter
         if !dragonfly && !scorpion && !scarab && !spaceMonster && !mantis && !encounterThisClick {
-            print("at \(clicks) clicks, eligible for an encounter")
+//            print("at \(clicks) clicks, eligible for an encounter")
             // determine if there will be an encounter, and with whom
             if (encounterTest < strengthPirates) && !player.commanderShip.raided {
                 pirate = true
@@ -217,7 +217,7 @@ class Journey: NSObject, NSCoding {
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                     // mantis
-                    print("TIME FOR MANTIS ENCOUNTER")
+//                    print("TIME FOR MANTIS ENCOUNTER")
                     mantis = true
                     encounterThisClick = true
                 }
@@ -227,10 +227,10 @@ class Journey: NSObject, NSCoding {
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
         
-        print("NEW ENCOUNTER****************************************************************")
-        print("creating encounter. Type: \(encounterType). Pirate? \(pirate), Police? \(police), Trader? \(trader)")
-        print("mantis? \(mantis)")
-        print("encounterThisClick? \(encounterThisClick)")
+//        print("NEW ENCOUNTER****************************************************************")
+//        print("creating encounter. Type: \(encounterType). Pirate? \(pirate), Police? \(police), Trader? \(trader)")
+//        print("mantis? \(mantis)")
+//        print("encounterThisClick? \(encounterThisClick)")
         
         if pirate {
             encounterType = EncounterType.pirateAttack      // default
@@ -269,7 +269,7 @@ class Journey: NSObject, NSCoding {
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
             if player.commanderShip.cloaked {
-                print("police are ignoring you because you're cloaked")
+//                print("police are ignoring you because you're cloaked")
                 encounterType = EncounterType.policeIgnore
             } else if player.policeRecord.rawValue < 4 {
                 //                print("you are a criminal. Entering that clause...")
@@ -285,7 +285,7 @@ class Journey: NSObject, NSCoding {
                     //                    print("you are moderately scary, but dice roll determined they will attack you anyway")
                     encounterType = EncounterType.policeAttack
                 } else if player.commanderShip.cloaked {
-                    print("you are a criminal, but cloaked. Police ignoring.")
+//                    print("you are a criminal, but cloaked. Police ignoring.")
                     encounterType = EncounterType.policeIgnore
                 } else {
                     //                    print("you are a scary criminal. Police fleeing")
@@ -343,7 +343,7 @@ class Journey: NSObject, NSCoding {
                 if player.ignorePolice {
                     encounterType = EncounterType.nullEncounter
                     encounterThisClick = false
-                    print("player opted out of police ignore encounter")
+//                    print("player opted out of police ignore encounter")
                 }
             }
             
@@ -351,7 +351,7 @@ class Journey: NSObject, NSCoding {
                 if player.ignorePirates {
                     encounterType = EncounterType.nullEncounter
                     encounterThisClick = false
-                    print("player opted out of pirate ignore encounter")
+//                    print("player opted out of pirate ignore encounter")
                 }
             }
             
@@ -359,7 +359,7 @@ class Journey: NSObject, NSCoding {
                 if player.ignoreTraders {
                     encounterType = EncounterType.nullEncounter
                     encounterThisClick = false
-                    print("player opted out of trader ignore encounter")
+//                    print("player opted out of trader ignore encounter")
                 }
             }
             
@@ -420,12 +420,12 @@ class Journey: NSObject, NSCoding {
                 let baysFull = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
                 
                 // if player has more bays full than not, will be traderBuy. Else, traderSell
-                print("baysFull: \(baysFull), baysAvailable: \(player.commanderShip.baysAvailable)")
+//                print("baysFull: \(baysFull), baysAvailable: \(player.commanderShip.baysAvailable)")
                 if baysFull > player.commanderShip.baysAvailable {
-                    print("player has more bays full, encounter will be traderBuy")
+//                    print("player has more bays full, encounter will be traderBuy")
                     encounterType = EncounterType.traderBuy
                 } else {
-                    print("player has more bays empty, encounter will be traderSell")
+//                    print("player has more bays empty, encounter will be traderSell")
                     encounterType = EncounterType.traderSell
                 }
             }
@@ -452,11 +452,11 @@ class Journey: NSObject, NSCoding {
             currentEncounter!.beginEncounter()
             
         } else if mantis {                          // && !encounterThisClick
-            print("MANTIS ENCOUNTER...")            // WE SEEM TO NEVER BE MAKING IT HERE
+//            print("MANTIS ENCOUNTER...")            // WE SEEM TO NEVER BE MAKING IT HERE
             encounterThisClick = true
-            print("set encounterThisClick to true")
+//            print("set encounterThisClick to true")
             currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
-            print("about to begin mantisAttack encounter...passing control to Encounter")
+//            print("about to begin mantisAttack encounter...passing control to Encounter")
             currentEncounter!.beginEncounter()
         } else if dragonfly && !encounterThisClick {
             encounterThisClick = true
@@ -480,17 +480,17 @@ class Journey: NSObject, NSCoding {
         // (it asks if !veryRareEncounter to handle postMarieCelesteEncounter scenario)
         if !pirate && !police && !trader && !mantis && !veryRareEncounter {
             if (player.days > 10) && (arc4random_uniform(1000) < 5) || veryRareEventOverride {
-                print("VERY RARE ENCOUNTER")
+//                print("VERY RARE ENCOUNTER")
                 // not setting veryRareEncounter flag to true, since marie celeste can still opt out
                 let random = rand(5)
                 if random < 2 {
                     // marie celeste, if it hasn't already happened
-                    print("MARIE CELESTE TIME")
-                    print("marieCelesteStatus: \(player.specialEvents.marieCelesteStatus)")
+//                    print("MARIE CELESTE TIME")
+//                    print("marieCelesteStatus: \(player.specialEvents.marieCelesteStatus)")
                     if player.specialEvents.marieCelesteStatus == 0 {
                         veryRareEncounter = true
                         encounterThisClick = true
-                        print("marie celeste: inside if condition, event should fire now")
+//                        print("marie celeste: inside if condition, event should fire now")
                         player.specialEvents.marieCelesteStatus = 1     // set status to 1, to prompt police inspection
                         currentEncounter = Encounter(type: EncounterType.marieCelesteEncounter, clicks: clicks)
                         currentEncounter!.beginEncounter()
@@ -533,13 +533,13 @@ class Journey: NSObject, NSCoding {
                 } else if random == 3 {
                     veryRareEncounter = true
                     encounterThisClick = true
-                    print("bottleOld @ \(clicks) clicks")
+//                    print("bottleOld @ \(clicks) clicks")
                     currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
                     currentEncounter!.beginEncounter()
                 } else if random == 4 {
                     veryRareEncounter = true
                     encounterThisClick = true
-                    print("bottleGood @ \(clicks) clicks")
+//                    print("bottleGood @ \(clicks) clicks")
                     currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
                     currentEncounter!.beginEncounter()
                 }
@@ -611,9 +611,13 @@ class Journey: NSObject, NSCoding {
         }
         
         galaxy.currentSystem!.visited = true
+        print("calling getSystemsInRange()")
         galaxy.getSystemsInRange()
+        print("calling updateGalaxy()")
         galaxy.updateGalaxy()          // increments days and runs shuffleStatus
+        print("calling updateQuantities()")
         galaxy.updateQuantities()      // reset quantities with time
+        print("done with function calls")
         
         var travelByWormhole = false
         if oldSystem!.wormhole {

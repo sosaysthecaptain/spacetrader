@@ -30,7 +30,7 @@ class WarpViewVC: UIViewController {
         if receivedMessage == "main" {
             performSegue(withIdentifier: "encounterModal", sender: nil)
         } else if receivedMessage == "done" {
-            print("firing return segue")
+//            print("firing return segue")
             performSegue(withIdentifier: "returnToTabBar", sender: nil)
         } else if receivedMessage == "playerDestroyedEscapes" {
             playerDestroyedEscapesSequence()
@@ -96,7 +96,7 @@ class WarpViewVC: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
         
-        print("is the player's ship now a flea? It should be. Player ship:\(player.commanderShip.name)")
+//        print("is the player's ship now a flea? It should be. Player ship:\(player.commanderShip.name)")
     }
 
 }
