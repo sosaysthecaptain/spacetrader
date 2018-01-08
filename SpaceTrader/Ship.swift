@@ -867,8 +867,12 @@ class SpaceShip: NSObject, NSCoding {
         
         for commodity in commodities {
             let quantity = player.commanderShip.getQuantity(commodity)
-            let salePrice = galaxy.currentSystem!.getSellPrice(commodity)
-            let totalSalePrice = salePrice * quantity
+            let salePrice = galaxy.currentSystem?.getSellPrice(commodity)
+            var totalSalePrice = 0
+            if salePrice != nil {
+                totalSalePrice = salePrice! * quantity
+            }
+            
             total += totalSalePrice
         }
         
