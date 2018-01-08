@@ -3251,12 +3251,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZgY-13-3fg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZgY-13-3fg" firstAttribute="top" secondItem="ZxR-W7-pGg" secondAttribute="bottom" constant="-20" id="0Df-7u-HrF"/>
+                            <constraint firstItem="lKv-pM-DN6" firstAttribute="top" secondItem="ZgY-13-3fg" secondAttribute="bottom" constant="-40" id="34n-ll-qXF"/>
                             <constraint firstItem="ZgY-13-3fg" firstAttribute="leading" secondItem="3pg-x6-nEy" secondAttribute="leadingMargin" constant="-20" id="cbz-cy-9jm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZgY-13-3fg" secondAttribute="trailing" constant="-20" id="soM-Jn-DyI"/>
                         </constraints>
@@ -3269,7 +3270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2d-8K-FmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2285" y="1860"/>
+            <point key="canvasLocation" x="2284" y="1859.8200899550227"/>
         </scene>
         <!--EncounterVC-->
         <scene sceneID="VX2-xJ-PLV">
@@ -4455,7 +4456,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TqF-Qh-sdn" firstAttribute="top" secondItem="gwo-r9-VRo" secondAttribute="bottom" constant="-20" id="K6z-s9-msS"/>
                             <constraint firstItem="TqF-Qh-sdn" firstAttribute="leading" secondItem="pnu-IU-BFt" secondAttribute="leadingMargin" constant="-20" id="Mz5-sa-C6b"/>
@@ -8525,7 +8526,7 @@
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
         <segue reference="FU7-pK-WDz"/>
-        <segue reference="64M-bi-8yt"/>
+        <segue reference="LdK-j7-SWM"/>
         <segue reference="gLW-Zt-l96"/>
         <segue reference="Cl3-zi-3cm"/>
         <segue reference="XhI-dd-ihR"/>

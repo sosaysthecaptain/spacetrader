@@ -107,6 +107,10 @@ class GameOverVC: UIViewController {
         let autosaveGame = AutosavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
         
         

@@ -44,16 +44,21 @@ class HighScore: NSObject, NSCoding {
         print("calculating score. worth = \(worth), difficultyInt = \(difficultyInt), days = \(days)")
         
         if status == EndGameStatus.killed {
-            self.score = Int((0.9 * Double(worth)) / Double(50000)) * difficultyInt
+            //self.score = Int((0.9 * Double(worth) / Double(50000) * Double(difficultyInt))
+            self.score = Int(((0.9 * Float(worth)) / 500) * Float(difficultyInt))
+            print("killed. Score set to \(self.score)")
         } else if status == EndGameStatus.retired {
-            self.score = Int((0.95 * Double(worth)) / Double(50000)) * difficultyInt
+            //self.score = Int((0.95 * Double(worth) / Double(50000) * Double(difficultyInt))
+            self.score = Int(((0.95 * Float(worth)) / 500) * Float(difficultyInt))
+            print("retired. Score set to \(self.score)")
         } else {
+            print("neither killed nor retired. Score set to \(self.score)")
             var d = (difficultyInt * 100) - days
             if d < 0 {
                 d = 0
             }
-                    
-            self.score = Int(difficultyInt * ((worth + (d * 1000)) / 1000))
+            
+            self.score = Int(difficultyInt * ((worth + (d * 1000)) / 10))
         }
         print("score assigned to \(self.score)")
         
@@ -101,8 +106,8 @@ class HighScoreArchive: NSObject, NSCoding {
     }
     
     func addScore(_ score: HighScore) -> Bool {
-        // if score is below 50, don't bother
-        if score.score < 50 {
+        // if score is below 100, don't bother
+        if score.score < 100 {
             return false
         }
         
