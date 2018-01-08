@@ -41,18 +41,15 @@ class HighScore: NSObject, NSCoding {
         }
         
         self.score = 0      // MEANS OF CALCULATING SCORE GOES HERE
-        print("calculating score. worth = \(worth), difficultyInt = \(difficultyInt), days = \(days)")
+        //print("calculating score. worth = \(worth), difficultyInt = \(difficultyInt), days = \(days)")
         
         if status == EndGameStatus.killed {
             //self.score = Int((0.9 * Double(worth) / Double(50000) * Double(difficultyInt))
             self.score = Int(((0.9 * Float(worth)) / 500) * Float(difficultyInt))
-            print("killed. Score set to \(self.score)")
         } else if status == EndGameStatus.retired {
             //self.score = Int((0.95 * Double(worth) / Double(50000) * Double(difficultyInt))
             self.score = Int(((0.95 * Float(worth)) / 500) * Float(difficultyInt))
-            print("retired. Score set to \(self.score)")
         } else {
-            print("neither killed nor retired. Score set to \(self.score)")
             var d = (difficultyInt * 100) - days
             if d < 0 {
                 d = 0
@@ -60,7 +57,12 @@ class HighScore: NSObject, NSCoding {
             
             self.score = Int(difficultyInt * ((worth + (d * 1000)) / 10))
         }
-        print("score assigned to \(self.score)")
+        
+        // avoid giving credit for dying immediately
+        if self.score < 75 {
+            self.score = 0
+        }
+        //print("score assigned to \(self.score)")
         
     }
     
