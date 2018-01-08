@@ -5529,7 +5529,7 @@
                         <viewControllerLayoutGuide type="top" id="RCC-fQ-i1A"/>
                         <viewControllerLayoutGuide type="bottom" id="aXU-n8-00D"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="klY-Wj-IEr">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="klY-Wj-IEr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -5563,26 +5563,26 @@
                                     <segue destination="7LO-KN-Rs8" kind="show" id="pZh-7V-Edf"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="splashBird" translatesAutoresizingMaskIntoConstraints="NO" id="AI1-3L-nRV">
-                                <rect key="frame" x="0.0" y="0.0" width="206" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashBird" translatesAutoresizingMaskIntoConstraints="NO" id="AI1-3L-nRV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="De3-C3-Saa" firstAttribute="top" secondItem="AI1-3L-nRV" secondAttribute="bottom" constant="-300" id="494-mC-y9A"/>
-                            <constraint firstItem="AI1-3L-nRV" firstAttribute="top" secondItem="RCC-fQ-i1A" secondAttribute="bottom" id="6hC-eV-234"/>
+                            <constraint firstItem="AI1-3L-nRV" firstAttribute="top" secondItem="RCC-fQ-i1A" secondAttribute="bottom" id="8hx-57-INH"/>
+                            <constraint firstItem="AI1-3L-nRV" firstAttribute="leading" secondItem="klY-Wj-IEr" secondAttribute="leading" id="Atg-PG-UvY"/>
                             <constraint firstItem="ADW-id-YUX" firstAttribute="centerX" secondItem="AI1-3L-nRV" secondAttribute="centerX" id="C3X-b8-C66"/>
                             <constraint firstItem="KzR-HZ-SJj" firstAttribute="centerX" secondItem="AI1-3L-nRV" secondAttribute="centerX" id="GNW-mp-dvU"/>
                             <constraint firstItem="De3-C3-Saa" firstAttribute="top" secondItem="AI1-3L-nRV" secondAttribute="bottom" constant="-300" id="Qz5-LC-8ro"/>
                             <constraint firstItem="KzR-HZ-SJj" firstAttribute="top" secondItem="De3-C3-Saa" secondAttribute="bottom" constant="25" id="SWh-eZ-TcK"/>
+                            <constraint firstAttribute="trailing" secondItem="AI1-3L-nRV" secondAttribute="trailing" id="Spp-v8-uCb"/>
                             <constraint firstItem="KzR-HZ-SJj" firstAttribute="leading" secondItem="De3-C3-Saa" secondAttribute="leading" id="Txu-ff-RRN"/>
                             <constraint firstItem="De3-C3-Saa" firstAttribute="centerX" secondItem="AI1-3L-nRV" secondAttribute="centerX" id="URe-qw-SHd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AI1-3L-nRV" secondAttribute="trailing" constant="-20" id="WmO-gh-p7e"/>
-                            <constraint firstItem="AI1-3L-nRV" firstAttribute="leading" secondItem="klY-Wj-IEr" secondAttribute="leadingMargin" constant="-20" id="Www-OI-5FH"/>
-                            <constraint firstItem="aXU-n8-00D" firstAttribute="top" secondItem="AI1-3L-nRV" secondAttribute="bottom" id="Wxr-Ld-HqZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="De3-C3-Saa" secondAttribute="trailing" constant="40" id="XpL-7i-kkx"/>
                             <constraint firstItem="De3-C3-Saa" firstAttribute="top" secondItem="RCC-fQ-i1A" secondAttribute="bottom" constant="60" id="byH-82-5LD"/>
                             <constraint firstItem="ADW-id-YUX" firstAttribute="top" secondItem="KzR-HZ-SJj" secondAttribute="bottom" constant="25" id="eyz-Vf-23S"/>
+                            <constraint firstItem="aXU-n8-00D" firstAttribute="top" secondItem="AI1-3L-nRV" secondAttribute="bottom" id="iKe-a2-Sh6"/>
                             <constraint firstItem="ADW-id-YUX" firstAttribute="leading" secondItem="KzR-HZ-SJj" secondAttribute="leading" id="lQZ-ha-oxu"/>
                         </constraints>
                         <variation key="default">
@@ -5612,7 +5612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCo-yz-j83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1475" y="168"/>
+            <point key="canvasLocation" x="-1476" y="167.76611694152925"/>
         </scene>
         <!--HighScores-->
         <scene sceneID="xOj-pL-nVU">
@@ -6046,7 +6046,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="starfieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Deb-TC-WAi">
-                                <rect key="frame" x="0.0" y="0.0" width="12" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="12" height="438"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6057,6 +6057,7 @@
                             <constraint firstItem="Deb-TC-WAi" firstAttribute="leading" secondItem="MPx-w0-eiq" secondAttribute="leadingMargin" constant="-20" id="UiH-iR-KCo"/>
                             <constraint firstItem="kIa-13-foK" firstAttribute="top" secondItem="6n4-ja-ens" secondAttribute="bottom" constant="40" id="dnB-fQ-EB4"/>
                             <constraint firstItem="6n4-ja-ens" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" constant="30" id="gXs-cK-1N9"/>
+                            <constraint firstItem="kIa-13-foK" firstAttribute="top" secondItem="Deb-TC-WAi" secondAttribute="bottom" constant="-20" id="iyA-j4-dNj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6n4-ja-ens" secondAttribute="trailing" id="nhx-Ou-pYI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aRJ-Xk-ujm" secondAttribute="trailing" id="rAW-0y-Owh"/>
                         </constraints>
@@ -6092,7 +6093,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0j-ed-caq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="168"/>
+            <point key="canvasLocation" x="3092" y="167.76611694152925"/>
         </scene>
         <!--Personnel-->
         <scene sceneID="JKP-Jm-hbS">

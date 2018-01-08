@@ -41,6 +41,7 @@ class HighScore: NSObject, NSCoding {
         }
         
         self.score = 0      // MEANS OF CALCULATING SCORE GOES HERE
+        print("calculating score. worth = \(worth), difficultyInt = \(difficultyInt), days = \(days)")
         
         if status == EndGameStatus.killed {
             self.score = Int((0.9 * Double(worth)) / Double(50000)) * difficultyInt
@@ -54,6 +55,7 @@ class HighScore: NSObject, NSCoding {
                     
             self.score = Int(difficultyInt * ((worth + (d * 1000)) / 1000))
         }
+        print("score assigned to \(self.score)")
         
     }
     
