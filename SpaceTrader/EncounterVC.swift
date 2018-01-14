@@ -1326,6 +1326,15 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) ship attacks."
         
         redrawViewController()
+        
+        // EXPERIMENTAL
+        let title: String = "The Fight Continues!"
+        let message: String = "Your opponent is still in pursuit."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        // do nothing, dismiss modal
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // jail functions. All used, sequentially, each calling the next and firing alert if necessary.
