@@ -1332,7 +1332,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         let message: String = "Your opponent is still in pursuit."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         // do nothing, dismiss modal
         self.present(alertController, animated: true, completion: nil)
     }

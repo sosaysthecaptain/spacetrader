@@ -146,6 +146,10 @@ class TradeInOrbitVC: UIViewController {
             tradeButton.isEnabled = true
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     @IBAction func sliderDidMove(_ sender: AnyObject) {
         updateQuantityLabel()
