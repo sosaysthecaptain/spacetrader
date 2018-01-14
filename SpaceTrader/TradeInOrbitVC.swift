@@ -86,8 +86,8 @@ class TradeInOrbitVC: UIViewController {
             titleLabel.text = "Sell \(commodityToTrade.rawValue)"
             firstTextView.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted) cr. each."
             secondTextView.text = "You have \(player.commanderShip.getQuantity(commodityToTrade)) units in your hold."
-            thirdTextView.text = "The trader offers to buy \(max) units."
-            fourthTextView.text = "How many do you want to sell?"
+            thirdTextView.text = "The trader offers to buy \(max) units. How many do you want to sell?"
+            fourthTextView.text = "You paid \(player.commanderShip.getPricePaid(commodityToTrade)) per unit."
         } else {
             // SELL
             // arbitrarily choose commodity
@@ -109,7 +109,7 @@ class TradeInOrbitVC: UIViewController {
                 askPrice = galaxy.getAverageSalePrice(commodityToTrade)
             }
             
-            print("local buy price is \(localBuyPrice), asking \(askPrice)")            // DEBUG
+            //print("local buy price is \(localBuyPrice), asking \(askPrice)")            // DEBUG
             
             // calculate max
             let maxAfford = player.credits / askPrice
@@ -120,11 +120,14 @@ class TradeInOrbitVC: UIViewController {
             numberFormatter.numberStyle = .decimal
             let askPriceFormatted = numberFormatter.string(from: NSNumber(value: askPrice))!
             
+            //let yourProfit = galaxy. - askPriceFormatted
+            // LOOKING AT TARGETSYSTEM--REASSIGNMENT HAS NOT YET OCCURED
+            
             titleLabel.text = "Buy \(commodityToTrade.rawValue)"
             firstTextView.text = "The trader wants to sell \(commodityToTrade.rawValue) at \(askPriceFormatted) cr. each."
-            secondTextView.text = "The trader has \(player.commanderShip.getQuantity(commodityToTrade)) units for sale."
-            thirdTextView.text = "You have money and space for \(max) units."
-            fourthTextView.text = "How many do you want to buy?"
+            secondTextView.text = "The trader has \(tradeOfferAmount) units for sale."
+            thirdTextView.text = "You have money and space for \(max) units. How many do you want to buy?"
+            fourthTextView.text = "The sell price at your destination is \(galaxy.targetSystem!.getSellPrice(commodityToTrade))."
         }
         
         // update slider stuff
