@@ -542,6 +542,14 @@ class Galaxy: NSObject, NSCoding {
             reinsertSystemDoingAllChecks(planet)
         }
         //print("second pass: unreachable planets: \(getUnreachablePlanetsCount())")
+        
+        initializeSpecials()
+        // DEBUG SPECIAL
+//        print("Specials:")
+//        for system in self.planets {
+//            print("planet name: " + system.name + " Special: ")
+//            print(system.specialEvent as Any)
+//        }
     }
     
 
@@ -1839,6 +1847,33 @@ class Galaxy: NSObject, NSCoding {
         }
         print("e by singularity disallowed.")
         return false
+    }
+    
+    // added Jan 2018, no idea what happened to the original implementation of this functionality
+    func initializeSpecials() {
+        var specialsToBeAssigned: [SpecialEventID] = [SpecialEventID.alienArtifact, SpecialEventID.dragonfly, SpecialEventID.dangerousExperiment, SpecialEventID.gemulonInvasion, SpecialEventID.japoriDisease, SpecialEventID.ambassadorJarek, SpecialEventID.princess, SpecialEventID.moonForSale, SpecialEventID.morgansReactor, SpecialEventID.scarabStolen, SpecialEventID.sculpture, SpecialEventID.spaceMonster, SpecialEventID.wild, SpecialEventID.merchantPrice, SpecialEventID.eraseRecord, SpecialEventID.skillIncrease, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale]
+        
+//        let planetsThatMustNotHaveSpecials: [StarSystemID] = [StarSystemID.baratas, StarSystemID.melina, StarSystemID.regulas, StarSystemID.zalkon, StarSystemID.daled, StarSystemID.gemulon, StarSystemID.japori, StarSystemID.devidia, StarSystemID.centauri, StarSystemID.utopia, StarSystemID.nix, StarSystemID.endor, StarSystemID.acamar, StarSystemID.kravat]
+        
+        var planetsThatMayHaveSpecials: [String] = ["Adhan", "Aldea", "Andevian", "Balosnee",  "Brax", "Bretel", "Calondia", "Campor", "Capelle", "Carzon", "Castor", "Cestus", "Cheron", "Courtney", "Damast", "Davlos", "Deneb", "Deneva", "Draylon", "Drema", "Esmee", "Exo", "Ferris", "Festen", "Fourmi", "Frolix", "Guinifer", "Hades", "Hamlet", "Helena", "Hulst", "Iodine", "Iralius", "Janus", "Jarada", "Jason", "Kaylon", "Khefka", "Kira", "Klaatu", "Klaestron", "Korma", "Krios", "Laertes", "Largo", "Lave", "Ligon", "Lowry", "Magrat", "Malcoria", "Mentar", "Merik", "Mintaka", "Montor", "Mordan", "Myrthe", "Nelvana", "Nyle", "Odet", "Og", "Omega", "Omphalos", "Orias", "Othello", "Parade", "Penthara", "Picard", "Pollux", "Quator", "Rakhar", "Ran", "Relva", "Rhymus", "Rochani", "Rubicum", "Rutia", "Sarpeidon", "Sefalla", "Seltrice", "Sigma", "Sol", "Somari", "Stakoron", "Styris", "Talani", "Tamus", "Tantalos", "Tanuga", "Tarchannen", "Terosa", "Thera", "Titan", "Torin", "Triacus", "Turkana", "Tyrus", "Umberlee", "Vadera", "Varga", "Vandor", "Ventax", "Xenon", "Xerxes", "Yew", "Yojimbo", "Zuul"]
+        
+        // shuffle arrays, using brilliant extension found on stackOverflow
+        specialsToBeAssigned.shuffle()
+        planetsThatMayHaveSpecials.shuffle()
+        
+        // assignment
+        var specialIndex = 0
+        for quest in specialsToBeAssigned {
+            // pick planet
+            let planetNameToAssign = planetsThatMayHaveSpecials[specialIndex]
+            specialIndex += 1
+            
+            // dig planet with that name out of the array, assign its specialEvent
+            if let index = self.planets.index(where: { $0.name == planetNameToAssign }) {
+                self.planets[index].specialEvent = quest
+                //print("Assigned special \(quest as Any) to \(self.planets[index].name)")
+            }
+        }
     }
     
     // NSCODING METHODS

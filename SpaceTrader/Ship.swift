@@ -1005,6 +1005,10 @@ class SpaceShip: NSObject, NSCoding {
             self.bounty = decoder.decodeInteger(forKey: "bounty")
             self.occurance = decoder.decodeInteger(forKey: "occurance")
             self.hullStrength = decoder.decodeInteger(forKey: "hullStrength")
+            if self.hullStrength < 5 {
+                self.hullStrength = 5
+            }
+            
             self.disruptedness = decoder.decodeInteger(forKey: "disruptedness")
             self.police = decoder.decodeInteger(forKey: "police")
             self.pirates = decoder.decodeInteger(forKey: "pirates")
