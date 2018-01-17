@@ -110,7 +110,7 @@ class SpaceShip: NSObject, NSCoding {
     
     var cloakingDevice: Bool {
         
-        print("opponent engineer skill: \(galaxy.currentJourney?.currentEncounter?.opponent.engineer)")
+        //print("opponent engineer skill: \(galaxy.currentJourney?.currentEncounter?.opponent.engineer)")
         
         for item in gadget {
             if item.type == GadgetType.cloaking {

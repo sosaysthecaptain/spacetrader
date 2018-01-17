@@ -28,10 +28,17 @@ class WarpViewVC: UIViewController {
         let receivedMessage: String = notification.object! as! String
         
         if receivedMessage == "main" {
-            performSegue(withIdentifier: "encounterModal", sender: nil)
+            print("FIRING ENCOUNTER MODAL")
+            
+            // BEGIN POTENTIAL TROUBLE
+//            let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "encounterModal")
+//            UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
+            // END TROUBLE. PUT THE NEXT THING BACK.
+            
+            performSegue(withIdentifier: "encounterModal", sender: nil)   // COMMENTED OUT FOR DEBUG
         } else if receivedMessage == "done" {
 //            print("firing return segue")
-            print("this is when we occasionally hang")
+            //print("this is when we occasionally hang")
             performSegue(withIdentifier: "returnToTabBar", sender: nil)
         } else if receivedMessage == "playerDestroyedEscapes" {
             playerDestroyedEscapesSequence()

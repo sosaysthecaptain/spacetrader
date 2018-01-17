@@ -46,7 +46,7 @@ class ShortRangeChartView: UIView {
             pointsPerParsec = 4.3
         }
         
-        print("short range chart display height: \(self.bounds.height) points")
+        //print("short range chart display height: \(self.bounds.height) points")
         
         // draw range circle
         let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)

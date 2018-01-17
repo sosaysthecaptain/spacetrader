@@ -482,6 +482,7 @@ class Encounter: NSObject, NSCoding {
             passedText = NSString(string: "notification")
         }
 
+        print("FIREMODAL CALLING NOTIFICATIONCENTER NOW")
         NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterModalFireNotification"), object: passedText)
     }
     
