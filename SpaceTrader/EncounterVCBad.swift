@@ -275,7 +275,11 @@ class EncounterVCOld: UIViewController {
             (alert: UIAlertAction!) -> Void in
             // dismiss and resume, for now
             print("you picked it up")
-            player.commanderShip.cargo.append(item)
+            //player.commanderShip.cargo.append(item)
+            // CORRECTED VERSION
+            print("SCOOP (ENCOUNTERVCOLD) RUNNING. ABOUT TO ADD CARGO BY CORRECTED METHOD")
+            player.commanderShip.addCargo(item.item, quantity: 1, pricePaid: 0)
+            
             self.dismiss(animated: false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))

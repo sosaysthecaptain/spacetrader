@@ -30,12 +30,14 @@ class WarpViewVC: UIViewController {
         if receivedMessage == "main" {
             print("FIRING ENCOUNTER MODAL")
             
+            
             // BEGIN POTENTIAL TROUBLE
-//            let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "encounterModal")
-//            UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
+            //let vc:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "encounterModal") as UIViewController
+
+            //UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
             // END TROUBLE. PUT THE NEXT THING BACK.
             
-            performSegue(withIdentifier: "encounterModal", sender: nil)   // COMMENTED OUT FOR DEBUG
+            performSegue(withIdentifier: "encounterModal", sender: nil)
         } else if receivedMessage == "done" {
 //            print("firing return segue")
             //print("this is when we occasionally hang")

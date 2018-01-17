@@ -316,10 +316,10 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //
 //        player.commanderShip.hull = 132
 //        
-        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        let beamLaser = Weapon(type: WeaponType.beamLaser)
-        player.commanderShip.weapon.append(photonDisruptor)
-        player.commanderShip.weapon.append(beamLaser)
+        //let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
+        //player.commanderShip.weapon.append(photonDisruptor)
+        player.commanderShip.weapon.append(militaryLaser)
 
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
         player.commanderShip.crew.append(zeethibal)

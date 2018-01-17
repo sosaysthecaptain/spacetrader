@@ -3272,10 +3272,10 @@
             </objects>
             <point key="canvasLocation" x="2284" y="1859.8200899550227"/>
         </scene>
-        <!--EncounterVC-->
+        <!--EncounterVCTitle-->
         <scene sceneID="VX2-xJ-PLV">
             <objects>
-                <viewController storyboardIdentifier="encounterModal" modalPresentationStyle="overCurrentContext" id="Z73-QX-bwt" customClass="EncounterVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="encounterModal" title="EncounterVCTitle" modalPresentationStyle="overCurrentContext" id="Z73-QX-bwt" customClass="EncounterVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8wb-cF-FJj"/>
                         <viewControllerLayoutGuide type="bottom" id="Iod-j8-EQc"/>

@@ -1170,7 +1170,7 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             
             // dismiss and resume, for now
 //            print("you picked it up")
-            player.commanderShip.cargo.append(item)
+            player.commanderShip.addCargo(item.item, quantity: 1, pricePaid: 0)
             self.dismiss(animated: false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
