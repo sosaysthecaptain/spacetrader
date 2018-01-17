@@ -22,7 +22,16 @@ class SpecialEvents: NSObject, NSCoding {
     var noButtonEnabled = false
     
     // quest strings. One for each quest. addQuestString function takes string and QuestID, appends if it's the first one, replaces if not. Use "" for string to delete quest upon completion.
-    var quests: [Quest] = []
+    var quests: [Quest] = [] {
+        didSet {
+            for quest in quests {
+                if quest.questString == "" {
+                    let i = quests.index(of: quest)
+                    quests.remove(at: i!)
+                }
+            }
+        }
+    }
     
     // state variables (e.g. wildOnBoard, artifactOnBoard), counters (e.g. gemulonInvasionCountdown, experimentCountdown)
     var artifactOnBoard = false
@@ -31,7 +40,7 @@ class SpecialEvents: NSObject, NSCoding {
     var tribblesOnBoard = false
     var marieCelesteStatus = 0 {     // 0 = not happened yet, 1 = not yet apprehended, 2 = over
         didSet {
-            print("marieCelesteStatus changed. Now \(marieCelesteStatus)")
+            //print("marieCelesteStatus changed. Now \(marieCelesteStatus)")
         }
     }
     

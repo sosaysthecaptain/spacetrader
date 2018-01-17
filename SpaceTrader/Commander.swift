@@ -38,7 +38,15 @@ class Commander: NSObject, NSCoding {
     var alreadyPaidForNewspaper = false
     var hasLitteredThisTrip = false
     var caughtLittering = false
-    var portableSingularity = false                  // TESTING ONLY, RESET TO FALSE
+    var permanentPortableSingularity = false                            // FOR TESTING
+    var portableSingularity = false {
+        didSet {                                                        // implementation of permanent
+            if permanentPortableSingularity {
+                portableSingularity = true
+            }
+        }
+    }
+    
     
     var insurance = false
     var noClaim = 0
