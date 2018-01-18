@@ -664,23 +664,41 @@ class Journey: NSObject, NSCoding {
         // other misc notifications
         // tribbles
         if player.commanderShip.tribbles > 0 {
-            var tribbleAlert = false
-            // food
-            if ((player.commanderShip.foodOnBoard > 0) && (player.commanderShip.tribbles > 100)) {
-                tribbleAlert = true
-                player.commanderShip.tribbles += player.commanderShip.foodOnBoard * 400
-                player.commanderShip.foodOnBoard = Int(Double(player.commanderShip.foodOnBoard) * 0.25)
-                galaxy.alertsToFireOnArrival.append(AlertID.tribblesAteFood)
-            }
+            let tribbles = player.commanderShip.tribbles
+            let food = player.commanderShip.getQuantity(TradeItemType.Food)
+            let narcotics = player.commanderShip.getQuantity(TradeItemType.Narcotics)
             
+            var tribbleAlert = false
+            
+            // food
+            if food > 0 {
+                if tribbles > 100 {
+                    tribbleAlert = true
+                    if food > 5 {
+                        var quantityToRemove = food
+                        player.commanderShip.tribbles += 400 * quantityToRemove
+                        quantityToRemove = Int(Double(quantityToRemove) * 0.8)
+                        player.commanderShip.removeCargo(TradeItemType.Food, quantity: quantityToRemove)
+                    } else {
+                        player.commanderShip.removeCargo(TradeItemType.Food, quantity: 5)
+                    }
+                    galaxy.alertsToFireOnArrival.append(AlertID.tribblesAteFood)
+                }
+            }
             
             // narcotics
-            if ((player.commanderShip.narcoticsOnBoard > 0) && (player.commanderShip.tribbles > 100)) {
-                tribbleAlert = true
-                player.commanderShip.narcoticsOnBoard = 0
-                galaxy.alertsToFireOnArrival.append(AlertID.tribblesMostDead)
+            if tribbles > 100 {
+                if narcotics > 2 {
+                    tribbleAlert = true
+                    
+                    var quantity = narcotics
+                    quantity = quantity/2
+                    player.commanderShip.removeCargo(TradeItemType.Narcotics, quantity: quantity)
+                    
+                    player.commanderShip.tribbles = Int(Double(tribbles) * 0.8)
+                    galaxy.alertsToFireOnArrival.append(AlertID.tribblesMostDead)
+                }
             }
-            
             
             // reactor
             if player.commanderShip.reactorSpecialCargo {
@@ -701,7 +719,7 @@ class Journey: NSObject, NSCoding {
             if tribbleAlert == false {
                 if player.commanderShip.tribbles < 100 {
                     let rand = drand48() * 100
-                    if rand > 60 {
+                    if rand > 50 {
                         galaxy.alertsToFireOnArrival.append(AlertID.tribblesSqueek)
                     }
                 } else if player.commanderShip.tribbles > 1000 {
