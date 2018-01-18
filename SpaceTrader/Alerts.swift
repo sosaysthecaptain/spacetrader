@@ -33,7 +33,7 @@ class Alert {
             self.noButton = nil
         case .antidoteDestroyed:
             self.header = "Antidote Destroyed"
-            self.text = "The antidote for the Japori system has been destroyed with your ship. You should return to ^1 and get some more."
+            self.text = "The antidote for the Japori system has been destroyed with your ship. You should return to Nix and get some more."
             self.yesButton = "OK"
             self.noButton = nil
         case .antidoteTaken:

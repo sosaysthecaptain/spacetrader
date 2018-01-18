@@ -85,6 +85,27 @@ class WarpViewVC: UIViewController {
     }
     
     func fleaBuilt() {
+        // this would be an excellent place to handle all the arrival alerts that might need to happen
+        // tribbles
+        if player.commanderShip.tribbles > 0 {
+            player.commanderShip.tribbles = 0
+    
+            galaxy.alertsToFireOnArrival.append(AlertID.tribblesKilled)
+        }
+        
+        // japori special cargo
+        if player.commanderShip.japoriSpecialCargo {
+            player.commanderShip.japoriSpecialCargo = false
+            galaxy.setSpecial("Nix", id: SpecialEventID.japoriDisease)
+            galaxy.alertsToFireOnArrival.append(AlertID.antidoteDestroyed)
+        }
+        
+        // artifact
+        if player.commanderShip.artifactSpecialCargo {
+            player.commanderShip.artifactSpecialCargo = false
+            galaxy.alertsToFireOnArrival.append(AlertID.artifactLost)
+        }
+        
         // give player a flea with no cargo
         if player.credits > 500 {
             player.credits -= 500
@@ -106,7 +127,6 @@ class WarpViewVC: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
         
-//        print("is the player's ship now a flea? It should be. Player ship:\(player.commanderShip.name)")
     }
 
 }

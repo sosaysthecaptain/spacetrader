@@ -443,7 +443,17 @@ class SpecialVC: UIViewController {
                 //print("pushed yes on retire screen")
                 player.specialEvents.addQuestString("", ID: QuestID.moon)
                 // end game
-                player.endGameType = EndGameStatus.boughtMoon
+                var ziyal = false
+                for crewMember in player.commanderShip.crew {
+                    if crewMember.name == "Ziyal" {
+                        ziyal = true
+                    }
+                }
+                if ziyal {
+                    player.endGameType = EndGameStatus.boughtMoonGirl
+                } else {
+                    player.endGameType = EndGameStatus.boughtMoon
+                }
                 gameOver()
                 
             case SpecialEventID.reactorDelivered:
