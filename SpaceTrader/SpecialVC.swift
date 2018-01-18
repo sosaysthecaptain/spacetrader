@@ -511,6 +511,7 @@ class SpecialVC: UIViewController {
                 player.specialEvents.addQuestString("", ID: QuestID.wild)
                 player.specialEvents.wildOnBoard = false
                 player.commanderShip.removeCrewMember(MercenaryName.wild)
+                player.specialEvents.wildElapsedTime = -1
                 
                 let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
                 zeethibal.costPerDay = 0

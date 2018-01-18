@@ -48,12 +48,36 @@ class SpecialEvents: NSObject, NSCoding {
     var captainConradHappened = false
     var captainHuieHappened = false
     
-    var experimentCountdown = -1
-    var jarekElapsedTime = -1
-    var gemulonInvasionCountdown = -1
-    var reactorElapsedTime = -1
-    var wildElapsedTime = -1
-    var princessElapsedTime = -1
+    var experimentCountdown = -1 {
+        didSet {
+            print("**experimentCountdown = \(experimentCountdown)")
+        }
+    }
+    var jarekElapsedTime = -1 {
+        didSet {
+            print("**jarekElapsedTime = \(jarekElapsedTime)")
+        }
+    }
+    var gemulonInvasionCountdown = -1 {
+        didSet {
+            print("**gemulonInvasionCountdown = \(gemulonInvasionCountdown)")
+        }
+    }
+    var reactorElapsedTime = -1 {
+        didSet {
+            print("**reactorElapsedTime = \(reactorElapsedTime)")
+        }
+    }
+    var wildElapsedTime = -1 {
+        didSet {
+            print("**wildElapsedTime = \(wildElapsedTime)")
+        }
+    }
+    var princessElapsedTime = -1 {
+        didSet {
+            print("**princessElapsedTime = \(princessElapsedTime)")
+        }
+    }
     
     
     // internal

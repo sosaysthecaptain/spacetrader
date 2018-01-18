@@ -1114,6 +1114,9 @@ class Galaxy: NSObject, NSCoding {
             let newDebt: Double = Double(player.debt) * 1.02
             player.debt = Int(newDebt)
         }
+        
+        // if player rich enough, add utopia moon special
+        
     }
     
     func shuffleStatus() {
@@ -1851,7 +1854,7 @@ class Galaxy: NSObject, NSCoding {
     
     // added Jan 2018, no idea what happened to the original implementation of this functionality
     func initializeSpecials() {
-        var specialsToBeAssigned: [SpecialEventID] = [SpecialEventID.alienArtifact, SpecialEventID.dragonfly, SpecialEventID.dangerousExperiment, SpecialEventID.gemulonInvasion, SpecialEventID.japoriDisease, SpecialEventID.ambassadorJarek, SpecialEventID.princess, SpecialEventID.moonForSale, SpecialEventID.morgansReactor, SpecialEventID.scarabStolen, SpecialEventID.sculpture, SpecialEventID.spaceMonster, SpecialEventID.wild, SpecialEventID.merchantPrice, SpecialEventID.eraseRecord, SpecialEventID.skillIncrease, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale]
+        var specialsToBeAssigned: [SpecialEventID] = [SpecialEventID.alienArtifact, SpecialEventID.dragonfly, SpecialEventID.dangerousExperiment, SpecialEventID.gemulonInvasion, SpecialEventID.japoriDisease, SpecialEventID.ambassadorJarek, SpecialEventID.princess, SpecialEventID.morgansReactor, SpecialEventID.scarabStolen, SpecialEventID.sculpture, SpecialEventID.spaceMonster, SpecialEventID.wild, SpecialEventID.merchantPrice, SpecialEventID.eraseRecord, SpecialEventID.skillIncrease, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale]
         
 //        let planetsThatMustNotHaveSpecials: [StarSystemID] = [StarSystemID.baratas, StarSystemID.melina, StarSystemID.regulas, StarSystemID.zalkon, StarSystemID.daled, StarSystemID.gemulon, StarSystemID.japori, StarSystemID.devidia, StarSystemID.centauri, StarSystemID.utopia, StarSystemID.nix, StarSystemID.endor, StarSystemID.acamar, StarSystemID.kravat]
         

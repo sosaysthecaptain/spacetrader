@@ -571,9 +571,13 @@ class Commander: NSObject, NSCoding {
     
     func incrementPoliceRecord(_ increaseAsOpposedToDecrease: Bool) {
         if increaseAsOpposedToDecrease {
-            player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt + 1)!
+            if player.policeRecord.rawValue < 8 {
+                player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt + 1)!
+            }
         } else {
-            player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt - 1)!
+            if player.policeRecord.rawValue > 0 {
+                player.policeRecord = PoliceRecordType(rawValue: self.policeRecordInt - 1)!
+            }
         }
     }
     

@@ -300,8 +300,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         
-//        player.escapePod = true
-//        
+        player.escapePod = true
+//
 //        
 //        
         let bigShip = SpaceShip(type: ShipType.grasshopper, IFFStatus: IFFStatusType.Player)
@@ -314,11 +314,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         reflectiveShield.currentStrength = reflectiveShield.power // / 2
         player.commanderShip.shield.append(reflectiveShield)
 //
-//        player.commanderShip.hull = 132
+        player.commanderShip.hull = 132
 //        
-        //let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         let militaryLaser = Weapon(type: WeaponType.militaryLaser)
-        //player.commanderShip.weapon.append(photonDisruptor)
+        player.commanderShip.weapon.append(photonDisruptor)
         player.commanderShip.weapon.append(militaryLaser)
 
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
