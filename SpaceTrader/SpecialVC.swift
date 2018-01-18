@@ -75,7 +75,7 @@ class SpecialVC: UIViewController {
                 
             case SpecialEventID.dragonfly:
                 player.specialEvents.addQuestString("Follow the Dragonfly to Baratas.", ID: QuestID.dragonfly)
-                galaxy.setSpecial("Baratas", id: SpecialEventID.dragonflyMelina)
+                galaxy.setSpecial("Baratas", id: SpecialEventID.dragonflyBaratas)
                 closeSpecialVC()
                 
             case SpecialEventID.dangerousExperiment:

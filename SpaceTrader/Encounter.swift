@@ -102,6 +102,9 @@ class Encounter: NSObject, NSCoding {
         if opponent.ship.type == ShipType.scarab {
             pilotSkillOpponent = 7
             fighterSkillOpponent = 7
+        } else if opponent.ship.type == ShipType.dragonfly {
+            pilotSkillOpponent = 7
+            fighterSkillOpponent = 7
         }
     }
     
