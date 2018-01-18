@@ -296,7 +296,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        //galaxy.currentSystem!.specialEvent = SpecialEventID.spaceMonster
+        galaxy.currentSystem!.specialEvent = SpecialEventID.morgansReactor
 
 
         
@@ -346,9 +346,6 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // testing tribbles
         player.commanderShip.tribbles = 1000
-        
-        player.commanderShip.reactorSpecialCargo = true
-        player.specialEvents.reactorElapsedTime = 5
 
         
         // END TESTING STUFF ********************************************************************

@@ -702,12 +702,13 @@ class Journey: NSObject, NSCoding {
             
             // reactor
             if player.commanderShip.reactorSpecialCargo {
+                print("PLAYER HAS REACTOR. Elapsed time: \(player.specialEvents.reactorElapsedTime)")
                 if player.specialEvents.reactorElapsedTime == 10 {
                     tribbleAlert = true
                     galaxy.alertsToFireOnArrival.append(AlertID.tribblesHalfDied)
                     player.commanderShip.tribbles = player.commanderShip.tribbles / 2
                 }
-                if player.specialEvents.reactorElapsedTime == 12 {
+                if player.specialEvents.reactorElapsedTime == 13 {
                     tribbleAlert = true
                     galaxy.alertsToFireOnArrival.append(AlertID.tribblesAllDied)
                     player.commanderShip.tribbles = 0

@@ -920,7 +920,7 @@ class Alert {
             self.noButton = nil
         case .tribblesInspector:
             self.header = "Spaceport Inspector"
-            self.text = "Our scan reports you have \(self.passedString1) tribbles on board your ship. Tribbles are pests worse than locusts! You are running the risk of getting a hefty fine!"
+            self.text = "Our scan reports you have \(player.commanderShip.tribbles) tribbles on board your ship. Tribbles are pests worse than locusts! You are running the risk of getting a hefty fine!"
             self.yesButton = "OK"
             self.noButton = nil
         case .tribblesSqueek:
