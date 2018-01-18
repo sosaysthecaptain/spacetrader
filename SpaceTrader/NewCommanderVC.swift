@@ -296,7 +296,25 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        galaxy.currentSystem!.specialEvent = SpecialEventID.dragonfly
+        //galaxy.currentSystem!.specialEvent = SpecialEventID.dragonfly
+        
+        // assign a particular special to a particular planet
+        
+        // scorpion at qonos
+        for system in galaxy.planets {
+            if system.name == "Qonos" {
+                system.specialEvent = SpecialEventID.princessQonos
+                system.scorpionIsHere = true
+            }
+        }
+        
+        // dragonfly at zalkon
+//        for system in galaxy.planets {
+//            if system.name == "Zalkon" {
+//                //system.specialEvent = SpecialEventID.scarabIsDestroyed
+//                system.dragonflyIsHere = true
+//            }
+//        }
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         

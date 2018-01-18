@@ -1091,11 +1091,13 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             // modal?
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Mantis {
             // call special function
+            print("MANTIS ENCOUNTER")
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scorpion {
             // YOU KILLED THE PRINCESS, YOU BASTARD!    --alert here, telling player he is a bastard?
             player.specialEvents.addQuestString("", ID: QuestID.princess)
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.Scarab {
             // call special function
+            print("SCARAB ENCOUNTER")
             player.specialEvents.scarabDestroyed()
         } else if galaxy.currentJourney!.currentEncounter!.opponent.type == IFFStatusType.SpaceMonster {
             player.specialEvents.spaceMonsterKilled()
