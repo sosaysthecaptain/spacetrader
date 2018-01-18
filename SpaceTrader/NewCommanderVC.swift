@@ -298,11 +298,12 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         //galaxy.currentSystem!.specialEvent = SpecialEventID.dragonfly
         
-        // assign a particular special to a particular planet
         
+        // assign a particular special to a particular planet
         // scorpion at qonos
         for system in galaxy.planets {
             if system.name == "Qonos" {
+                print("SCORPION ATTACK: found qonos, assigning scorpionIsHere = true")
                 system.specialEvent = SpecialEventID.princessQonos
                 system.scorpionIsHere = true
             }
@@ -322,7 +323,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //
 //        
 //        
-        let bigShip = SpaceShip(type: ShipType.grasshopper, IFFStatus: IFFStatusType.Player)
+        let bigShip = SpaceShip(type: ShipType.wasp, IFFStatus: IFFStatusType.Player)
         player.commanderShip = bigShip
         
         player.portableSingularity = true
@@ -331,13 +332,15 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
         reflectiveShield.currentStrength = reflectiveShield.power // / 2
         player.commanderShip.shield.append(reflectiveShield)
+        player.commanderShip.shield.append(reflectiveShield)
 //
-        player.commanderShip.hull = 132
+        //player.commanderShip.hull = 132
 //        
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         let militaryLaser = Weapon(type: WeaponType.militaryLaser)
         player.commanderShip.weapon.append(photonDisruptor)
-        player.commanderShip.weapon.append(militaryLaser)
+        player.commanderShip.weapon.append(photonDisruptor)
+        //player.commanderShip.weapon.append(militaryLaser)
 
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
         player.commanderShip.crew.append(zeethibal)

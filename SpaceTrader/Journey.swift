@@ -154,7 +154,7 @@ class Journey: NSObject, NSCoding {
         // encounter with scorpion at qonos?
         if galaxy.targetSystem!.scorpionIsHere {
             if clicks == 2 {
-//                print("SCORPION IS HERE. Time for encounter, at 2 clicks")
+                print("SCORPION ATTACK: scorpion is here")
                 encounterThisClick = true
                 scorpion = true
             }
@@ -263,6 +263,8 @@ class Journey: NSObject, NSCoding {
             }
             
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
+            
+            print("beginning pirate encounter")
             currentEncounter!.beginEncounter()
         } else if police {
             //            print("default police interaction is ignore")
@@ -386,6 +388,7 @@ class Journey: NSObject, NSCoding {
             
             encounterThisClick = true
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
+            print("beginning police encounter")
             currentEncounter!.beginEncounter()
         //} else if trader && !encounterThisClick {
         } else if trader {
@@ -405,7 +408,7 @@ class Journey: NSObject, NSCoding {
                 encounterType = EncounterType.traderFlee
             } else {
                 // eligible for trade encounter. Determine whether trade in orbit at all
-                if rand(100) > 50 {                                 // SET CHANCE OF TRADE IN ORBIT HERE
+                if rand(100) > 65 {                                 // SET CHANCE OF TRADE IN ORBIT HERE
                     //print("trade in orbit!")
                     tradeInOrbit = true
                 } else {
@@ -449,28 +452,25 @@ class Journey: NSObject, NSCoding {
             
             // type determined, instantiate encounter
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
-            currentEncounter!.beginEncounter()
             
-        } else if mantis {                          // && !encounterThisClick
-//            print("MANTIS ENCOUNTER...")            // WE SEEM TO NEVER BE MAKING IT HERE
-            encounterThisClick = true
-//            print("set encounterThisClick to true")
-            currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
-//            print("about to begin mantisAttack encounter...passing control to Encounter")
             currentEncounter!.beginEncounter()
-        } else if dragonfly && !encounterThisClick {
-            encounterThisClick = true
-            currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
-            currentEncounter!.beginEncounter()
-        } else if scorpion && !encounterThisClick {
+        } else if scorpion {
             encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.scorpionAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if spaceMonster && !encounterThisClick {
+        } else if mantis {
+            encounterThisClick = true
+            currentEncounter = Encounter(type: EncounterType.mantisAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
+        } else if dragonfly {
+            encounterThisClick = true
+            currentEncounter = Encounter(type: EncounterType.dragonflyAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
+        } else if spaceMonster {
             encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.spaceMonsterAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if scarab && !encounterThisClick {
+        } else if scarab {
             encounterThisClick = true
             currentEncounter = Encounter(type: EncounterType.scarabAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
@@ -535,12 +535,10 @@ class Journey: NSObject, NSCoding {
                     encounterThisClick = true
 //                    print("bottleOld @ \(clicks) clicks")
                     currentEncounter = Encounter(type: EncounterType.bottleOldEncounter, clicks: clicks)
-                    currentEncounter!.beginEncounter()
-                } else if random == 4 {
-                    veryRareEncounter = true
-                    encounterThisClick = true
-//                    print("bottleGood @ \(clicks) clicks")
-                    currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
+                    let random2 = rand(10)
+                    if random2 < 5 {
+                        currentEncounter = Encounter(type: EncounterType.bottleGoodEncounter, clicks: clicks)
+                    }
                     currentEncounter!.beginEncounter()
                 }
                 

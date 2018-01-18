@@ -723,7 +723,7 @@ class SpaceShip: NSObject, NSCoding {
                 self.type = ShipType.scarab
                 self.name = "Scarab"
                 self.cargoBays = 20
-                self.weaponSlots = 2
+                self.weaponSlots = 1
                 self.shieldSlots = 0
                 self.gadgetSlots = 0
                 self.crewQuarters = 2

@@ -404,7 +404,7 @@ class SpecialVC: UIViewController {
                 
             case SpecialEventID.princessRescued:
                 player.specialEvents.addQuestString("Give the Princess a ride home.", ID: QuestID.princess)
-                galaxy.setSpecial("Qonos", id: SpecialEventID.princessQonos)
+                galaxy.setSpecial("Qonos", id: SpecialEventID.princessReturned)
                 dontDeleteLocalSpecialEvent = true
                 closeSpecialVC()
         

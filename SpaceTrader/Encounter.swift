@@ -106,6 +106,23 @@ class Encounter: NSObject, NSCoding {
             concludeEncounter()
         }
         
+        print("***MATCH REPORT***")
+        print("OPPONENT:")
+        print("  opponent pilot: \(pilotSkillOpponent)")
+        print("  opponent fighter: \(fighterSkillOpponent)")
+        print("  opponent totalShield: \(opponent.ship.totalShields)")
+        print("  opponent hull: \(opponent.ship.hull)")
+        print("  opponent weapon array: \(opponent.ship.weapon)")
+        print("  opponent total weapons: \(opponent.ship.totalWeapons)")
+        print("PLAYER:")
+        print("  player pilot: \(player.pilotSkill)")
+        print("  player fighter: \(player.fighterSkill)")
+        print("  player totalShield: \(player.commanderShip.totalShields)")
+        print("  player hull: \(player.commanderShip.hull)")
+        print("  player weapon array: \(player.commanderShip.weapon)")
+        print("  player total weapons: \(player.commanderShip.totalWeapons)")
+        
+        
         setEncounterTextAndButtons()
         fireModal()
     }
@@ -482,7 +499,7 @@ class Encounter: NSObject, NSCoding {
             passedText = NSString(string: "notification")
         }
 
-        print("FIREMODAL CALLING NOTIFICATIONCENTER NOW")
+        //print("FIREMODAL CALLING NOTIFICATIONCENTER NOW")
         NotificationCenter.default.post(name: Notification.Name(rawValue: "encounterModalFireNotification"), object: passedText)
     }
     

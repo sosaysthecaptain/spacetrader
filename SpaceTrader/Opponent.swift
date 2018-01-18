@@ -345,9 +345,9 @@ class Opponent: NSObject, NSCoding {
     }
     
     func loadGoodWeapons(_ morgan: Bool, number: Int) {
-        var weapon = Weapon(type: WeaponType.militaryLaser)
+        var weapon = Weapon(type: WeaponType.beamLaser)
         if morgan {
-            weapon = Weapon(type: WeaponType.morgansLaser)
+            weapon = Weapon(type: WeaponType.militaryLaser)
         }
         
         let totalWeapons = min(number, ship.weaponSlots)
@@ -357,7 +357,7 @@ class Opponent: NSObject, NSCoding {
     }
     
     func loadGoodCrew(_ excellentNotGood: Bool) {
-        var newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 8, fighter: 8, trader: 8, engineer: 8)
+        var newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 7, fighter: 7, trader: 7, engineer: 7)
         if excellentNotGood {
             newCrewMember = CrewMember(ID: MercenaryName.alyssa, pilot: 10, fighter: 10, trader: 10, engineer: 10)
         }
