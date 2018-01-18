@@ -296,8 +296,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        galaxy.currentSystem!.specialEvent = SpecialEventID.princess
-        
+        galaxy.currentSystem!.specialEvent = SpecialEventID.princessInthara
+
         
         // dragonfly at zalkon
 //        for system in galaxy.planets {
