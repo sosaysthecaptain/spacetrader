@@ -1271,8 +1271,8 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
                 (alert: UIAlertAction!) -> Void in
-                // dismiss and set special: princessQonos assigned to Qonos
-                galaxy.targetSystem!.specialEvent = SpecialEventID.princessQonos
+                // dismiss and set special: princessRescued assigned to Qonos
+                galaxy.targetSystem!.specialEvent = SpecialEventID.princessRescued
                 //player.specialEvents.scorpionDisabled()
                 self.dismissViewController()
                 galaxy.currentJourney!.currentEncounter!.concludeEncounter()

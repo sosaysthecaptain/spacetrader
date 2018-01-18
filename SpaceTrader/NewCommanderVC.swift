@@ -296,18 +296,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        //galaxy.currentSystem!.specialEvent = SpecialEventID.dragonfly
+        galaxy.currentSystem!.specialEvent = SpecialEventID.princess
         
-        
-        // assign a particular special to a particular planet
-        // scorpion at qonos
-        for system in galaxy.planets {
-            if system.name == "Qonos" {
-                print("SCORPION ATTACK: found qonos, assigning scorpionIsHere = true")
-                system.specialEvent = SpecialEventID.princessQonos
-                system.scorpionIsHere = true
-            }
-        }
         
         // dragonfly at zalkon
 //        for system in galaxy.planets {

@@ -71,7 +71,7 @@ class Galaxy: NSObject, NSCoding {
         print("availableNames: \(availableNames)")
         
         var i: Int = 0
-        while i < 120 {
+        while i < 123 {
             let newStarSystem = StarSystem(name: "NOT SET YET", techLevel: TechLevelType.techLevel0, politics: PoliticsType.anarchy, status: StatusType.none, xCoord: 0, yCoord: 0, specialResources: SpecialResourcesType.none, size: SizeType.Tiny)
             
 
