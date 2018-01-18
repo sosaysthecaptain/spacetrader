@@ -661,6 +661,58 @@ class Journey: NSObject, NSCoding {
             galaxy.alertsToFireOnArrival.append(AlertID.travelUneventfulTrip)
         }
         
+        // other misc notifications
+        // tribbles
+        if player.commanderShip.tribbles > 0 {
+            var tribbleAlert = false
+            // food
+            if ((player.commanderShip.foodOnBoard > 0) && (player.commanderShip.tribbles > 100)) {
+                tribbleAlert = true
+                player.commanderShip.tribbles += player.commanderShip.foodOnBoard * 400
+                player.commanderShip.foodOnBoard = Int(Double(player.commanderShip.foodOnBoard) * 0.25)
+                galaxy.alertsToFireOnArrival.append(AlertID.tribblesAteFood)
+            }
+            
+            
+            // narcotics
+            if ((player.commanderShip.narcoticsOnBoard > 0) && (player.commanderShip.tribbles > 100)) {
+                tribbleAlert = true
+                player.commanderShip.narcoticsOnBoard = 0
+                galaxy.alertsToFireOnArrival.append(AlertID.tribblesMostDead)
+            }
+            
+            
+            // reactor
+            if player.commanderShip.reactorSpecialCargo {
+                if player.specialEvents.reactorElapsedTime == 10 {
+                    tribbleAlert = true
+                    galaxy.alertsToFireOnArrival.append(AlertID.tribblesHalfDied)
+                    player.commanderShip.tribbles = player.commanderShip.tribbles / 2
+                }
+                if player.specialEvents.reactorElapsedTime == 12 {
+                    tribbleAlert = true
+                    galaxy.alertsToFireOnArrival.append(AlertID.tribblesAllDied)
+                    player.commanderShip.tribbles = 0
+                }
+            
+            }
+            
+            // default
+            if tribbleAlert == false {
+                if player.commanderShip.tribbles < 100 {
+                    let rand = drand48() * 100
+                    if rand > 60 {
+                        galaxy.alertsToFireOnArrival.append(AlertID.tribblesSqueek)
+                    }
+                } else if player.commanderShip.tribbles > 1000 {
+                    let rand = drand48() * 100
+                    if rand > 70 {
+                        galaxy.alertsToFireOnArrival.append(AlertID.tribblesInspector)
+                    }
+                }
+            }
+        }
+        
         // debt notifications
         if (player.debtRatio > 1.5) && (player.debt > 15000) {
             galaxy.alertsToFireOnArrival.append(AlertID.debtTooLargeGrounded)
