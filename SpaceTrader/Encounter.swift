@@ -105,21 +105,19 @@ class Encounter: NSObject, NSCoding {
         if type == EncounterType.nullEncounter {
             concludeEncounter()
         }
-        
+        print(" ")
         print("***MATCH REPORT***")
-        print("OPPONENT:")
+        print("OPPONENT: \(opponent.ship.name)")
         print("  opponent pilot: \(pilotSkillOpponent)")
         print("  opponent fighter: \(fighterSkillOpponent)")
         print("  opponent totalShield: \(opponent.ship.totalShields)")
         print("  opponent hull: \(opponent.ship.hull)")
-        print("  opponent weapon array: \(opponent.ship.weapon)")
         print("  opponent total weapons: \(opponent.ship.totalWeapons)")
         print("PLAYER:")
         print("  player pilot: \(player.pilotSkill)")
         print("  player fighter: \(player.fighterSkill)")
         print("  player totalShield: \(player.commanderShip.totalShields)")
         print("  player hull: \(player.commanderShip.hull)")
-        print("  player weapon array: \(player.commanderShip.weapon)")
         print("  player total weapons: \(player.commanderShip.totalWeapons)")
         
         

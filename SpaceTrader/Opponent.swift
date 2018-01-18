@@ -339,21 +339,41 @@ class Opponent: NSObject, NSCoding {
         }
         shield.currentStrength = shield.power
         
-        for _ in 0...ship.shieldSlots {
+        for _ in 0..<ship.shieldSlots {
             ship.shield.append(shield)
         }
+        
+        print(" ")
+        print("LOAD GOOD SHIELDS REPORT:")
+        print("  shield slots: \(ship.shieldSlots)")
+        print("  shields: ")
+        for shield in ship.shield {
+            print("    \(shield.name), \(shield.power)")
+        }
+        print("  totalShields: \(ship.totalShields)")
+        print(" ")
     }
     
     func loadGoodWeapons(_ morgan: Bool, number: Int) {
-        var weapon = Weapon(type: WeaponType.beamLaser)
+        var weapon = Weapon(type: WeaponType.militaryLaser)
         if morgan {
-            weapon = Weapon(type: WeaponType.militaryLaser)
+            weapon = Weapon(type: WeaponType.morgansLaser)
         }
         
         let totalWeapons = min(number, ship.weaponSlots)
-        for _ in 0...totalWeapons {
+        for _ in 0..<totalWeapons {
             ship.weapon.append(weapon)
         }
+        
+        print(" ")
+        print("LOAD GOOD WEAPONS REPORT:")
+        print("  weapon slots: \(ship.weaponSlots)")
+        print("  weapons: ")
+        for weapon in ship.weapon {
+            print("    \(weapon.name), \(weapon.power)")
+        }
+        print("  totalWeapons: \(ship.totalWeapons)")
+        print(" ")
     }
     
     func loadGoodCrew(_ excellentNotGood: Bool) {
