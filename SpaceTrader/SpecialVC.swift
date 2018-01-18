@@ -127,6 +127,7 @@ class SpecialVC: UIViewController {
             case SpecialEventID.princess:
                 player.specialEvents.addQuestString("Follow the Scorpion to Centauri.", ID: QuestID.princess)
                 galaxy.setSpecial("Centauri", id: SpecialEventID.princessCentauri)
+                closeSpecialVC()
                 
             case SpecialEventID.moonForSale:
                 if player.credits >= 500000 {
