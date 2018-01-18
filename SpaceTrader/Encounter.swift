@@ -97,6 +97,12 @@ class Encounter: NSObject, NSCoding {
                 engineerSkillOpponent = crewMember.engineer
             }
         }
+        
+        // kludge override
+        if opponent.ship.type == ShipType.scarab {
+            pilotSkillOpponent = 7
+            fighterSkillOpponent = 7
+        }
     }
     
     func beginEncounter() {
@@ -113,6 +119,7 @@ class Encounter: NSObject, NSCoding {
         print("  opponent totalShield: \(opponent.ship.totalShields)")
         print("  opponent hull: \(opponent.ship.hull)")
         print("  opponent total weapons: \(opponent.ship.totalWeapons)")
+
         print("PLAYER:")
         print("  player pilot: \(player.pilotSkill)")
         print("  player fighter: \(player.fighterSkill)")
@@ -745,7 +752,7 @@ class Encounter: NSObject, NSCoding {
             remainingDamage = amountOfDamage
         }
         
-        // scarab's hull is only damaged by pulse laser. Adjust remainingDamage accordingly.
+        // scarab's hull is only damaged by laser. Adjust remainingDamage accordingly.
         if opponent.type == IFFStatusType.Scarab {
             // if player has pulse laser
             var pulseLaserCount = 0
@@ -754,6 +761,7 @@ class Encounter: NSObject, NSCoding {
                     pulseLaserCount += 1
                 }
             }
+
             
             // do max 12 damage
             remainingDamage = (12 * pulseLaserCount)
@@ -761,7 +769,10 @@ class Encounter: NSObject, NSCoding {
         }
         
         // damage opponent's hull
-        opponent.ship.hull -= remainingDamage
+        if opponent.ship.totalShields == 0 {
+            opponent.ship.hull -= remainingDamage
+        }
+        
     }
     
     // OUTCOME FUNCTIONS

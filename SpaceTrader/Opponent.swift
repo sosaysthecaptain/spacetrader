@@ -295,7 +295,11 @@ class Opponent: NSObject, NSCoding {
         } else if type == IFFStatusType.Scarab {
             ship.type = ShipType.scarab
             ship.name = "Scarab"
-            loadGoodShields(false)
+            //loadGoodShields(false)
+            
+            let scarabShield = Shield(type: ShieldType.energyShield)
+            scarabShield.currentStrength = scarabShield.power
+            ship.shield = [scarabShield]
             loadGoodWeapons(false, number: 1)
             loadGoodCrew(false)
         } else if type == IFFStatusType.SpaceMonster {
@@ -338,10 +342,13 @@ class Opponent: NSObject, NSCoding {
             shield = Shield(type: ShieldType.lightningShield)
         }
         shield.currentStrength = shield.power
+        ship.shield.append(shield)                  // kludge, cuz this was going crazy
         
-        for _ in 0..<ship.shieldSlots {
-            ship.shield.append(shield)
-        }
+//        print("DEBUG LOADGOODSHIELDS. sh")
+//        for _ in 0..<ship.shieldSlots {
+//            print("  loading shield")
+//            ship.shield.append(shield)
+//        }
         
         print(" ")
         print("LOAD GOOD SHIELDS REPORT:")

@@ -296,7 +296,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        galaxy.currentSystem!.specialEvent = SpecialEventID.princessInthara
+        //galaxy.currentSystem!.specialEvent = SpecialEventID.scarabStolen
+        galaxy.currentSystem!.scarabIsHere = true
 
         
         // dragonfly at zalkon
@@ -328,8 +329,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
 //        
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         let militaryLaser = Weapon(type: WeaponType.militaryLaser)
-        player.commanderShip.weapon.append(photonDisruptor)
-        player.commanderShip.weapon.append(photonDisruptor)
+        let laser = Weapon(type: WeaponType.pulseLaser)
+        player.commanderShip.weapon.append(laser)
+        player.commanderShip.weapon.append(laser)
+        player.commanderShip.weapon.append(laser)
+        //player.commanderShip.weapon.append(photonDisruptor)
         //player.commanderShip.weapon.append(militaryLaser)
 
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
