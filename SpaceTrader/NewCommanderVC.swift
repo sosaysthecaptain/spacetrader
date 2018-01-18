@@ -296,7 +296,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        galaxy.currentSystem!.specialEvent = SpecialEventID.ambassadorJarek
+        galaxy.currentSystem!.specialEvent = SpecialEventID.morgansReactor
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         

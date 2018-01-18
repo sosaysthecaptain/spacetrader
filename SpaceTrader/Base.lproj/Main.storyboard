@@ -4059,7 +4059,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-0D-bb1" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="55.5" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="56" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="xOU-Ut-cON"/>
                                                         </constraints>
@@ -4071,7 +4071,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtY-13-nVV" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="92" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="92.5" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="2Jq-Gf-iSL"/>
                                                         </constraints>
@@ -4083,7 +4083,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mm-42-r5j" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="128.5" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="129" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="QfD-yi-kfs"/>
                                                         </constraints>
@@ -4095,7 +4095,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5P-JU-69L" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="165" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="165.5" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="PxD-KO-qP6"/>
                                                         </constraints>
@@ -4107,7 +4107,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faS-jk-6bl" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="201.5" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="202" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="Bx3-et-j5E"/>
                                                         </constraints>
@@ -4119,7 +4119,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-lO-7yU" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="238" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="238.5" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="0cX-Xp-hwq"/>
                                                         </constraints>
@@ -4131,7 +4131,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYk-aX-xQf" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="274.5" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="275" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="4QA-20-JVi"/>
                                                         </constraints>
@@ -4143,7 +4143,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBw-Pe-h52" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="311" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="311.5" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="jts-Au-EfN"/>
                                                         </constraints>
@@ -4155,7 +4155,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KuY-U0-yj7" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="347.5" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="348" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="Jh6-4e-ogk"/>
                                                         </constraints>
@@ -4167,7 +4167,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEf-Dm-BNP" customClass="PurpleButtonVanishes" customModule="SpaceTrader" customModuleProvider="target">
-                                                        <rect key="frame" x="169.5" y="19" width="39" height="28"/>
+                                                        <rect key="frame" x="169.5" y="19.5" width="39" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="lEg-nm-6Gs"/>
                                                         </constraints>
@@ -8003,19 +8003,7 @@
                     <view key="view" contentMode="scaleToFill" id="tUP-He-YNX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MELTDOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68D-pv-rlZ">
-                                <rect key="frame" x="20" y="20" width="95" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="68D-pv-rlZ" firstAttribute="top" secondItem="SjE-OJ-Te7" secondAttribute="bottom" id="KOY-wF-7ml"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="68D-pv-rlZ" secondAttribute="leading" id="Z0C-2a-N3b"/>
-                        </constraints>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <segue destination="Zyg-E7-QYl" kind="show" identifier="systemInfoFromMeltdown" animates="NO" id="HOC-30-z82"/>
@@ -8526,7 +8514,7 @@
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
         <segue reference="NpZ-6P-UU1"/>
-        <segue reference="LdK-j7-SWM"/>
+        <segue reference="HOC-30-z82"/>
         <segue reference="gLW-Zt-l96"/>
         <segue reference="Cl3-zi-3cm"/>
         <segue reference="XhI-dd-ihR"/>

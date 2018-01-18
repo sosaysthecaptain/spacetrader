@@ -27,6 +27,11 @@ class SystemInfoVC: UIViewController {
             fireNextArrivalAlert()
             
             if galaxy.meltdownOnArrival {
+                // turn this off so it won't happen again
+                galaxy.meltdownOnArrival = false
+                player.specialEvents.reactorElapsedTime = -1
+                player.specialEvents.addQuestString("", ID: QuestID.reactor)
+                
                 // go to meltdown VC
                 let vc: UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "meltdownVC")
                 self.present(vc, animated: false, completion: nil)
