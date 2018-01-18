@@ -23,6 +23,18 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         self.edgesForExtendedLayout = UIRectEdge()
+        
+        if player.commanderShip.tribbles > 0 {
+            let title = "You've Got Tribbles"
+            var message = "Hm. I see you got a tribble infestation on your current ship. I'm sorry, but that severely reduces the trade-in price."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // do nothing
+            }))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func done(_ sender: AnyObject) {

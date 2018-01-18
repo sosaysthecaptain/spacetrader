@@ -5,12 +5,11 @@
 //  Created by Marc Auger on 11/23/15.
 //  Copyright © 2015 Marc Auger. All rights reserved.
 //
-
 import UIKit
 
 
 class ShipDetailVC: UIViewController {
-
+    
     var ship: String!
     var typeOfShip: ShipType!
     var prototypeShip: SpaceShip!
@@ -88,7 +87,7 @@ class ShipDetailVC: UIViewController {
             } else {
                 buyNewShip(false)
             }
-
+            
         }
         
         // alert asking of user wants to buy
@@ -98,28 +97,28 @@ class ShipDetailVC: UIViewController {
     func setData() {
         
         switch typeOfShip! {
-            case ShipType.flea:
-                image.image = UIImage(named: "ship0")
-            case ShipType.gnat:
-                image.image = UIImage(named: "ship1")
-            case ShipType.firefly:
-                image.image = UIImage(named: "ship2")
-            case ShipType.mosquito:
-                image.image = UIImage(named: "ship3")
-            case ShipType.bumblebee:
-                image.image = UIImage(named: "ship4")
-            case ShipType.beetle:
-                image.image = UIImage(named: "ship5")
-            case ShipType.hornet:
-                image.image = UIImage(named: "ship6")
-            case ShipType.grasshopper:
-                image.image = UIImage(named: "ship7")
-            case ShipType.termite:
-                image.image = UIImage(named: "ship8")
-            case ShipType.wasp:
-                image.image = UIImage(named: "ship9")
-            default:
-                print("error")
+        case ShipType.flea:
+            image.image = UIImage(named: "ship0")
+        case ShipType.gnat:
+            image.image = UIImage(named: "ship1")
+        case ShipType.firefly:
+            image.image = UIImage(named: "ship2")
+        case ShipType.mosquito:
+            image.image = UIImage(named: "ship3")
+        case ShipType.bumblebee:
+            image.image = UIImage(named: "ship4")
+        case ShipType.beetle:
+            image.image = UIImage(named: "ship5")
+        case ShipType.hornet:
+            image.image = UIImage(named: "ship6")
+        case ShipType.grasshopper:
+            image.image = UIImage(named: "ship7")
+        case ShipType.termite:
+            image.image = UIImage(named: "ship8")
+        case ShipType.wasp:
+            image.image = UIImage(named: "ship9")
+        default:
+            print("error")
         }
         
         nameLabel.text = prototypeShip.name
@@ -162,6 +161,9 @@ class ShipDetailVC: UIViewController {
         
         price = prototypeShip.price
         price -= player.commanderShip.value
+        if player.commanderShip.tribbles > 0 {
+            price += Int(Double(player.commanderShip.value) * 0.5)
+        }
     }
     
     func buyNewShip(_ transferEscapePod: Bool) {
@@ -202,6 +204,8 @@ class ShipDetailVC: UIViewController {
             player.escapePod = false
         }
         
+        player.commanderShip.tribbles = 0
+        
         // transfer crew
         for crewMember in player.commanderShip.crew {
             if prototypeShip.crewQuarters >= prototypeShip.crew.count {
@@ -224,5 +228,5 @@ class ShipDetailVC: UIViewController {
         
         setData()
     }
-
+    
 }
