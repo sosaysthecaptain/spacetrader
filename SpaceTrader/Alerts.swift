@@ -863,6 +863,11 @@ class Alert {
             self.text = "After a few hours of training with a top expert, you feel your abilities have improved significantly."
             self.yesButton = "OK"
             self.noButton = nil
+        case .tooPoorToBuyMoon:
+            self.header = "Not Enough Cash"
+            self.text = "You don't have enough money to buy the moon."
+            self.yesButton = "OK"
+            self.noButton = nil
         case .travelArrival:
             self.header = "Arrival"
             self.text = "You arrive at your destination."
@@ -1155,6 +1160,7 @@ enum AlertID: Int {
     case specialSkillIncrease
     case specialSpacetimeFabricRip
     case specialTrainingCompleted
+    case tooPoorToBuyMoon
     case travelArrival
     case travelUneventfulTrip
     case tribblesAllDied

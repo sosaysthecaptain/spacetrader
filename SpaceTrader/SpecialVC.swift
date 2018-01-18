@@ -136,6 +136,7 @@ class SpecialVC: UIViewController {
                     galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
                 } else {
                     // too poor message                                         ALERT
+                    generateAlert(Alert(ID: AlertID.tooPoorToBuyMoon, passedString1: nil, passedString2: nil, passedString3: nil))
                     // put back special
                     galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.moonForSale)
                     dontDeleteLocalSpecialEvent = true
