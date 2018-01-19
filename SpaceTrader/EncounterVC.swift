@@ -2332,12 +2332,12 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
             if state == "h" {
                 image = UIImage(named: "bottle")!
             } else if state == "d" {
-                image = UIImage(named: "bottled")!
+                image = UIImage(named: "bottle")!
             } else if state == "s" {
-                //image = UIImage(named: "ship0s")
+                image = UIImage(named: "bottle")!
             } else {
                 // state == "sd"
-                //image = UIImage(named: "ship0sd")
+                image = UIImage(named: "bottle")!
             }
         } else {
             print("error")

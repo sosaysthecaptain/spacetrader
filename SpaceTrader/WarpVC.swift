@@ -180,10 +180,17 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         self.view.bringSubview(toFront: untrackButtonLabel)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        if galaxy.justArrived {
+//            galaxy.justArrived = false
+//            self.tabBarController?.selectedIndex = 0
+//        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if galaxy.justArrived {
             galaxy.justArrived = false
-            self.tabBarController?.selectedIndex = 0                // EXPERIMENT
+            self.tabBarController?.selectedIndex = 0
         }
         
         updateView()

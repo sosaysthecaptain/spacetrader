@@ -54,20 +54,8 @@ class WarpViewVC: UIViewController {
     }
     
     func doneDismissSystemInfo() {
-        galaxy.justArrived = true                       // WarpVC uses this to switch to systemInfoVC
+        galaxy.justArrived = true      // WarpVC uses this to switch to systemInfoVC
         self.dismiss(animated: false, completion: nil)
-        
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let tabBarController = storyBoard.instantiat {
-//            tabBarController.selectedIndex = 1
-//        }
-//        tabBarController?.selectedIndex = 1
-        
-        //let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "mainTabBarController")
-        
-//
-//        self.present(tabBarVC, animated: true, completion: nil)
     }
     
     func playerDestroyedEscapesSequence() {
