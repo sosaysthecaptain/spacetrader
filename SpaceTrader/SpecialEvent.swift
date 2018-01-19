@@ -139,8 +139,8 @@ class SpecialEvents: NSObject, NSCoding {
                 specialEventTitle = "Ambassador Jarek"
                 specialEventText = "A recent change in the political climate of this solar system has forced Ambassador Jarek to flee back to his home system, Devidia. Would you be willing to give him a lift?"
                 yesDismissButtonText = "OK"
-                //noButtonText = ""
-                noButtonEnabled = false
+                noButtonText = "Cancel"
+                noButtonEnabled = true
                 
             case SpecialEventID.princess:
                 specialEventTitle = "Kidnapped"
