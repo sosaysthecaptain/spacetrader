@@ -54,12 +54,12 @@ class WarpViewVC: UIViewController {
     }
     
     func doneDismissSystemInfo() {
-        //self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "mainTabBarController")
-
-        self.present(tabBarVC, animated: true, completion: nil)
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "mainTabBarController")
+//
+//        self.present(tabBarVC, animated: true, completion: nil)
     }
     
     func playerDestroyedEscapesSequence() {
