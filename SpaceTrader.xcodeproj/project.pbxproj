@@ -18,7 +18,6 @@
 		5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078ABE1BB1CBD20005155D /* SellVC.swift */; };
 		5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078AC01BB33C100005155D /* BuyModalVC.swift */; };
 		5A0AA1931CA3223800687592 /* TradeInOrbitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AA1921CA3223800687592 /* TradeInOrbitVC.swift */; };
-		5A12C7522011B5ED00E6C059 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A12C7512011B5ED00E6C059 /* Images.xcassets */; };
 		5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */; };
 		5A1DBBC71C0E3509009E8D0C /* UniversalGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */; };
 		5A24376C1C9329130004D6CE /* BaysCashBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */; };
@@ -52,6 +51,7 @@
 		5A85A9DB1C502D50007338BE /* HighScoresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DA1C502D50007338BE /* HighScoresCell.swift */; };
 		5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DC1C505F82007338BE /* OptionsVC.swift */; };
 		5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */; };
+		5A8FFF102012552000101C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8FFF0F2012552000101C44 /* Images.xcassets */; };
 		5A909F4E1CCE6418007BFAA3 /* AboutCreditstext.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A909F4D1CCE6418007BFAA3 /* AboutCreditstext.html */; };
 		5A9818FF1CA9B9B70087450E /* DesignNaSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
@@ -124,7 +124,6 @@
 		5A078ABE1BB1CBD20005155D /* SellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		5A078AC01BB33C100005155D /* BuyModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyModalVC.swift; sourceTree = "<group>"; };
 		5A0AA1921CA3223800687592 /* TradeInOrbitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeInOrbitVC.swift; sourceTree = "<group>"; };
-		5A12C7512011B5ED00E6C059 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../Desktop/Images.xcassets; sourceTree = "<group>"; };
 		5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListDualTableVC.swift; sourceTree = "<group>"; };
 		5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalGadget.swift; sourceTree = "<group>"; };
 		5A24376B1C9329130004D6CE /* BaysCashBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaysCashBoxView.swift; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		5A85A9DA1C502D50007338BE /* HighScoresCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresCell.swift; sourceTree = "<group>"; };
 		5A85A9DC1C505F82007338BE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresGameOverVC.swift; sourceTree = "<group>"; };
+		5A8FFF0F2012552000101C44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		5A909F4D1CCE6418007BFAA3 /* AboutCreditstext.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutCreditstext.html; sourceTree = "<group>"; };
 		5A9818FE1CA9B9B70087450E /* DesignNaSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignNaSVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 				5AD5F8911B9A122200154B21 /* AppDelegate.swift */,
 				5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */,
 				5AD5F8931B9A122200154B21 /* ViewController.swift */,
-				5A12C7512011B5ED00E6C059 /* Images.xcassets */,
 				5AD5F8951B9A122200154B21 /* Main.storyboard */,
+				5A8FFF0F2012552000101C44 /* Images.xcassets */,
 				5A447B571C99B47E00F0AA3A /* LaunchScreenSplash.storyboard */,
 				5AD5F88F1B9A122200154B21 /* Supporting Files */,
 				5AF1CA2B1BA365DC00643C5F /* ViewControllers */,
@@ -494,7 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A909F4E1CCE6418007BFAA3 /* AboutCreditstext.html in Resources */,
-				5A12C7522011B5ED00E6C059 /* Images.xcassets in Resources */,
+				5A8FFF102012552000101C44 /* Images.xcassets in Resources */,
 				5A447B581C99B47E00F0AA3A /* LaunchScreenSplash.storyboard in Resources */,
 				5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */,
 				5A9957E01CAD836000ED3C3E /* 8bitOperatorPlus-Bold.ttf in Resources */,
