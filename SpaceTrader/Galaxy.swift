@@ -52,6 +52,8 @@ class Galaxy: NSObject, NSCoding {
     
     let closeButtonEnabled = false               // turn this on manually to enable skipping encounters
     
+    var justArrived = false     // used to reset tab bar controller upon arrival
+    
     override init() {
         // deliberately empty
     }

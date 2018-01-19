@@ -181,6 +181,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if galaxy.justArrived {
+            galaxy.justArrived = false
+            self.tabBarController?.selectedIndex = 0                // EXPERIMENT
+        }
+        
         updateView()
         shortRangeChart.redrawSelf()
         
