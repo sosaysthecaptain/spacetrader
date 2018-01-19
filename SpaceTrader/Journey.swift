@@ -114,7 +114,7 @@ class Journey: NSObject, NSCoding {
         // if reactor is on board, do damage--MAYBE MOVE THIS TO ONCE PER WARP?
         if player.commanderShip.reactorSpecialCargo {
             // assigns damage appropriately to player.
-            let amountOfDamage = 1
+            let amountOfDamage = 3
             var remainingDamage = amountOfDamage
             if player.commanderShip.shield.count != 0 {
                 var i = 0

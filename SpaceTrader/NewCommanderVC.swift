@@ -296,7 +296,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         }
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
-        galaxy.currentSystem!.specialEvent = SpecialEventID.morgansReactor
+        galaxy.currentSystem!.specialEvent = SpecialEventID.princessQonos
+        galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
 
 
         
@@ -342,10 +343,10 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         player.policeRecord = PoliceRecordType.heroScore
         
         
-        player.credits = 100000     // for testing, give player money
+        player.credits = 500000     // for testing, give player money
         
         // testing tribbles
-        player.commanderShip.tribbles = 1000
+        //player.commanderShip.tribbles = 1000
 
         
         // END TESTING STUFF ********************************************************************

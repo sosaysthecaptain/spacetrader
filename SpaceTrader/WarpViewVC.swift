@@ -29,22 +29,37 @@ class WarpViewVC: UIViewController {
         
         if receivedMessage == "main" {
             print("FIRING ENCOUNTER MODAL")
+            presentEncounterVC()
             
-            
-            // BEGIN POTENTIAL TROUBLE
-            //let vc:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "encounterModal") as UIViewController
-
-            //UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
-            // END TROUBLE. PUT THE NEXT THING BACK.
-            
-            performSegue(withIdentifier: "encounterModal", sender: nil)
+            //performSegue(withIdentifier: "encounterModal", sender: nil)     // WHAT IF THIS LINE IS THE SOURCE OF ALL OUR PROBLEMS?
         } else if receivedMessage == "done" {
 //            print("firing return segue")
             //print("this is when we occasionally hang")
-            performSegue(withIdentifier: "returnToTabBar", sender: nil)
+            //performSegue(withIdentifier: "returnToTabBar", sender: nil) // OR MAYBE IT'S THIS!!!
+            //self.dismiss(animated: true, completion: nil)
+            doneDismissSystemInfo()
         } else if receivedMessage == "playerDestroyedEscapes" {
             playerDestroyedEscapesSequence()
         }
+    }
+    
+    // outsourced the problem functionality to here
+    // if we can make this present on top of whatever's currently on top of the stack, that might solve it
+    func presentEncounterVC() {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let encounterViewController = storyBoard.instantiateViewController(withIdentifier: "encounterModal")
+        
+        self.present(encounterViewController, animated: true, completion: nil)
+    }
+    
+    func doneDismissSystemInfo() {
+        //self.dismiss(animated: false, completion: nil)
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "mainTabBarController")
+
+        self.present(tabBarVC, animated: true, completion: nil)
     }
     
     func playerDestroyedEscapesSequence() {
