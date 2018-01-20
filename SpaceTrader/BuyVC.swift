@@ -419,6 +419,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             waterPrice.textColor = inactiveGray
             waterProjectedPL.text = "--"
             
+        } else {
+            waterQty.isEnabled = true
+            waterMaxButton.isEnabled = true
+            waterPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.fursBuy == 0 {
             //fursQty.setTitle("", forState: controlState)
@@ -427,6 +431,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             fursPrice.text = "not sold"
             fursPrice.textColor = inactiveGray
             fursProjectedPL.text = "--"
+        } else {
+            fursQty.isEnabled = true
+            fursMaxButton.isEnabled = true
+            fursPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.foodBuy == 0 {
             //foodQty.setTitle("", forState: controlState)
@@ -435,6 +443,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             foodPrice.text = "not sold"
             foodPrice.textColor = inactiveGray
             foodProjectedPL.text = "--"
+        } else {
+            fursQty.isEnabled = true
+            fursMaxButton.isEnabled = true
+            fursPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.oreBuy == 0 {
             //oreQty.setTitle("", forState: controlState)
@@ -443,6 +455,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             orePrice.text = "not sold"
             orePrice.textColor = inactiveGray
             oreProjectedPL.text = "--"
+        } else {
+            oreQty.isEnabled = true
+            oreMaxButton.isEnabled = true
+            orePrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.gamesBuy == 0 {
             //gamesQty.setTitle("", forState: controlState)
@@ -451,6 +467,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             gamesPrice.text = "not sold"
             gamesPrice.textColor = inactiveGray
             gamesProjectedPL.text = "--"
+        } else {
+            gamesQty.isEnabled = true
+            gamesMaxButton.isEnabled = true
+            gamesPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.firearmsBuy == 0 {
             //firearmsQty.setTitle("", forState: controlState)
@@ -459,6 +479,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             firearmsPrice.text = "not sold"
             firearmsPrice.textColor = inactiveGray
             firearmsProjectedPL.text = "--"
+        } else {
+            firearmsQty.isEnabled = true
+            firearmsMaxButton.isEnabled = true
+            firearmsPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.medicineBuy == 0 {
             //medicineQty.setTitle("", forState: controlState)
@@ -467,6 +491,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             medicinePrice.text = "not sold"
             medicinePrice.textColor = inactiveGray
             medicineProjectedPL.text = "--"
+        } else {
+            medicineQty.isEnabled = true
+            medicineMaxButton.isEnabled = true
+            medicinePrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.machinesBuy == 0 {
             //machinesQty.setTitle("", forState: controlState)
@@ -475,6 +503,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             machinesPrice.text = "not sold"
             machinesPrice.textColor = inactiveGray
             machinesProjectedPL.text = "--"
+        } else {
+            machinesQty.isEnabled = true
+            machinesMaxButton.isEnabled = true
+            machinesPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.narcoticsBuy == 0 {
             //narcoticsQty.setTitle("", forState: controlState)
@@ -483,6 +515,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             narcoticsPrice.text = "not sold"
             narcoticsPrice.textColor = inactiveGray
             narcoticsProjectedPL.text = "--"
+        } else {
+            narcoticsQty.isEnabled = true
+            narcoticsMaxButton.isEnabled = true
+            narcoticsPrice.textColor = UIColor.black
         }
         if galaxy.currentSystem!.robotsBuy == 0 {
             //robotsQty.setTitle("", forState: controlState)
@@ -491,6 +527,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             robotsPrice.text = "not sold"
             robotsPrice.textColor = inactiveGray
             robotsProjectedPL.text = "--"
+        } else {
+            robotsQty.isEnabled = true
+            robotsMaxButton.isEnabled = true
+            robotsPrice.textColor = UIColor.black
         }
         
         // shrink price string if too long

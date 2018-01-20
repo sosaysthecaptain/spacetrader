@@ -419,6 +419,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if waterPriceFormatted == "0" {
             waterAllLabel.setTitle("Dump", for: controlState)
             waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            waterPrice.text = "no trade"
+            waterPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            waterPrice.textColor = inactiveGray
         } else {
             waterAllLabel.setTitle("All", for: controlState)
             waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -426,6 +429,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if fursPriceFormatted == "0" {
             fursAllLabel.setTitle("Dump", for: controlState)
             fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            fursPrice.text = "no trade"
+            fursPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            fursPrice.textColor = inactiveGray
         } else {
             fursAllLabel.setTitle("All", for: controlState)
             fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -433,6 +439,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if foodPriceFormatted == "0" {
             foodAllLabel.setTitle("Dump", for: controlState)
             foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            foodPrice.text = "no trade"
+            foodPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            foodPrice.textColor = inactiveGray
         } else {
             foodAllLabel.setTitle("All", for: controlState)
             foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -440,6 +449,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if orePriceFormatted == "0" {
             oreAllLabel.setTitle("Dump", for: controlState)
             oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            orePrice.text = "no trade"
+            orePrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            orePrice.textColor = inactiveGray
         } else {
             oreAllLabel.setTitle("All", for: controlState)
             oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -447,20 +459,31 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if gamesPriceFormatted == "0" {
             gamesAllLabel.setTitle("Dump", for: controlState)
             gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            gamesPrice.text = "no trade"
+            gamesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            gamesPrice.textColor = inactiveGray
         } else {
             gamesAllLabel.setTitle("All", for: controlState)
             gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
         if firearmsPriceFormatted == "0" {
+            print("DEBUG: firearms price is zero")
             firearmsAllLabel.setTitle("Dump", for: controlState)
             firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            firearmsPrice.text = "no trade"
+            firearmsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            firearmsPrice.textColor = inactiveGray
         } else {
+            print("DEBUG: firearms price is NOT zero")
             firearmsAllLabel.setTitle("All", for: controlState)
             firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
         if medicinePriceFormatted == "0" {
             medicineAllLabel.setTitle("Dump", for: controlState)
             medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            medicinePrice.text = "no trade"
+            medicinePrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            medicinePrice.textColor = inactiveGray
         } else {
             medicineAllLabel.setTitle("All", for: controlState)
             medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -468,6 +491,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if machinesPriceFormatted == "0" {
             machinesAllLabel.setTitle("Dump", for: controlState)
             machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            machinesPrice.text = "no trade"
+            machinesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            machinesPrice.textColor = inactiveGray
         } else {
             machinesAllLabel.setTitle("All", for: controlState)
             machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -475,6 +501,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if narcoticsPriceFormatted == "0" {
             narcoticsAllLabel.setTitle("Dump", for: controlState)
             narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            narcoticsPrice.text = "no trade"
+            narcoticsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            narcoticsPrice.textColor = inactiveGray
         } else {
             narcoticsAllLabel.setTitle("All", for: controlState)
             narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
@@ -482,6 +511,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         if robotsPriceFormatted == "0" {
             robotsAllLabel.setTitle("Dump", for: controlState)
             robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+            robotsPrice.text = "no trade"
+            robotsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
+            robotsPrice.textColor = inactiveGray
         } else {
             robotsAllLabel.setTitle("All", for: controlState)
             robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
