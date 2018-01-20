@@ -5282,7 +5282,7 @@
                         <outlet property="baysCashBox" destination="B5n-Mt-9sN" id="CKf-gH-ut4"/>
                         <outlet property="firearmsAllLabel" destination="AdQ-26-p9V" id="x9A-ID-e95"/>
                         <outlet property="firearmsPL" destination="jM8-ER-HmM" id="MQd-bW-M5W"/>
-                        <outlet property="firearmsPrice" destination="ASe-sV-exr" id="p1d-ur-Q0R"/>
+                        <outlet property="firearmsPrice" destination="czS-4E-ZtA" id="73M-lw-scp"/>
                         <outlet property="firearmsQuantity" destination="0Ss-fc-Sjr" id="V9n-cz-Pwz"/>
                         <outlet property="foodAllLabel" destination="KDc-1r-eoz" id="Enc-8m-xoh"/>
                         <outlet property="foodPL" destination="rYE-Ah-jQT" id="du2-Jx-1WU"/>
@@ -5302,7 +5302,7 @@
                         <outlet property="machinesQuantity" destination="pvV-be-fck" id="kVK-ZI-Ghi"/>
                         <outlet property="medicineAllLabel" destination="hu5-jw-Vca" id="0NO-Tp-MTi"/>
                         <outlet property="medicinePL" destination="kru-ae-D7a" id="Y0J-bY-ZgQ"/>
-                        <outlet property="medicinePrice" destination="ASe-sV-exr" id="LeN-KG-uTp"/>
+                        <outlet property="medicinePrice" destination="ASe-sV-exr" id="tj9-mD-Nm1"/>
                         <outlet property="medicineQuantity" destination="c3R-1f-ItY" id="Obg-vz-9fE"/>
                         <outlet property="narcoticsAllLabel" destination="ibB-8L-tXU" id="DcM-uu-fs1"/>
                         <outlet property="narcoticsPL" destination="NQw-Na-zZm" id="ZmE-Xx-DGW"/>
@@ -8511,7 +8511,6 @@
         <image name="warpPurple" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="haF-gO-4Eg"/>
         <segue reference="ybb-n8-O5E"/>
         <segue reference="pZh-7V-Edf"/>
         <segue reference="94b-YL-qQM"/>
