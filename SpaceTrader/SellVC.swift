@@ -464,6 +464,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         print("sellVC viewWillAppear")
         readoutPrices()
         
+        //loadPrices()        // trying this before recurringUpdate
         recurringUpdate()
         buyAsOpposedToSell = false
         loadPrices()
@@ -477,7 +478,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         let topScrollPoint = CGPoint(x: 0.0, y: -60.0)
         scrollView.setContentOffset(topScrollPoint, animated: false)
         
-        
+        self.viewDidLoad()
     }
     
     func buyModalDidFinish(_ controller: BuyModalVC) {                    // DELEGATE FUNCTION
