@@ -53,6 +53,10 @@ class Galaxy: NSObject, NSCoding {
     let closeButtonEnabled = false               // turn this on manually to enable skipping encounters
     
     var justArrived = false     // used to reset tab bar controller upon arrival
+    var justArrivedSystem = false
+    var justArrivedSell = false
+    var justArrivedBuy = false
+    var justArrivedShipyard = false
     
     override init() {
         // deliberately empty
@@ -1856,7 +1860,9 @@ class Galaxy: NSObject, NSCoding {
     
     // added Jan 2018, no idea what happened to the original implementation of this functionality
     func initializeSpecials() {
-        var specialsToBeAssigned: [SpecialEventID] = [SpecialEventID.alienArtifact, SpecialEventID.dragonfly, SpecialEventID.dangerousExperiment, SpecialEventID.gemulonInvasion, SpecialEventID.japoriDisease, SpecialEventID.ambassadorJarek, SpecialEventID.princess, SpecialEventID.morgansReactor, SpecialEventID.scarabStolen, SpecialEventID.sculpture, SpecialEventID.spaceMonster, SpecialEventID.wild, SpecialEventID.merchantPrice, SpecialEventID.eraseRecord, SpecialEventID.skillIncrease, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale]
+        var specialsToBeAssigned: [SpecialEventID] = [SpecialEventID.eraseRecord, SpecialEventID.skillIncrease, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.cargoForSale, SpecialEventID.moonForSale, SpecialEventID.moonForSale]
+        
+        var sometimesSpecials: [SpecialEventID] = [SpecialEventID.alienArtifact, SpecialEventID.dragonfly, SpecialEventID.dangerousExperiment, SpecialEventID.gemulonInvasion, SpecialEventID.japoriDisease, SpecialEventID.ambassadorJarek, SpecialEventID.princess, SpecialEventID.morgansReactor, SpecialEventID.scarabStolen, SpecialEventID.sculpture, SpecialEventID.spaceMonster, SpecialEventID.wild, SpecialEventID.merchantPrice]
         
 //        let planetsThatMustNotHaveSpecials: [StarSystemID] = [StarSystemID.baratas, StarSystemID.melina, StarSystemID.regulas, StarSystemID.zalkon, StarSystemID.daled, StarSystemID.gemulon, StarSystemID.japori, StarSystemID.devidia, StarSystemID.centauri, StarSystemID.utopia, StarSystemID.nix, StarSystemID.endor, StarSystemID.acamar, StarSystemID.kravat]
         
@@ -1864,7 +1870,18 @@ class Galaxy: NSObject, NSCoding {
         
         // shuffle arrays, using brilliant extension found on stackOverflow
         specialsToBeAssigned.shuffle()
+        sometimesSpecials.shuffle()
         planetsThatMayHaveSpecials.shuffle()
+        
+        // choose about half the sometimes specials
+        //var totalToInclude = sometimesSpecials.count
+        //totalToInclude = totalToInclude / 2
+        let totalSpecialsToInclude = 6
+        
+        for index in 0...totalSpecialsToInclude {
+            specialsToBeAssigned.append(sometimesSpecials[index])
+            print("** adding special: \(sometimesSpecials[index])")
+        }
         
         // assignment
         var specialIndex = 0

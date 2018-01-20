@@ -76,7 +76,18 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     override func viewDidLoad() {
-//        print("viewDidLoad firing")
+        print("buyVC viewDidLoad")
+        print("  waterBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Water))")
+        print("  fursBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Furs))")
+        print("  foodBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Food))")
+        print("  oreBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Ore))")
+        print("  gamesBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Games))")
+        print("  firearmsBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Firearms))")
+        print("  medicineBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Medicine))")
+        print("  machinesBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Machines))")
+        print("  narcoticsBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Narcotics))")
+        print("  robotsBuy: \(galaxy.currentSystem!.getBuyPrice(TradeItemType.Robots))")
+        
         super.viewDidLoad()
         
         let controlState = UIControlState()
@@ -557,7 +568,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        print("viewWillAppear firing")
+        print("buyVC viewWillAppear")
         
         //updateUIInitial()
         updateUI()

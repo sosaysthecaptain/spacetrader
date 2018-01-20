@@ -132,8 +132,8 @@ class SpecialEvents: NSObject, NSCoding {
                 specialEventTitle = "Japori Disease"
                 specialEventText = "A strange disease has invaded the Japori system. We would like you to deliver these ten canisters of special antidote to Japori. Note that, if you accept, ten of your cargo bays will remain in use on your way to Japori. Do you accept this mission?"
                 yesDismissButtonText = "OK"
-                //noButtonText = ""
-                noButtonEnabled = false
+                noButtonText = "No"
+                noButtonEnabled = true
 
             case SpecialEventID.ambassadorJarek:
                 specialEventTitle = "Ambassador Jarek"

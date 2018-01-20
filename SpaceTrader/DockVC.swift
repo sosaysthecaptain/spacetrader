@@ -28,6 +28,7 @@ class DockVC: UIViewController {
     
     
     override func viewDidLoad() {
+        print("DockVC viewDidLoad")
         updateUI()
     }
     

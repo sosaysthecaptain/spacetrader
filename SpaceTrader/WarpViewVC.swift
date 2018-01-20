@@ -55,6 +55,11 @@ class WarpViewVC: UIViewController {
     
     func doneDismissSystemInfo() {
         galaxy.justArrived = true      // WarpVC uses this to switch to systemInfoVC
+        galaxy.justArrivedSystem = true
+        galaxy.justArrivedSell = true
+        galaxy.justArrivedBuy = true
+        galaxy.justArrivedShipyard = true
+        
         self.dismiss(animated: false, completion: nil)
     }
     
