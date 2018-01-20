@@ -260,16 +260,16 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let waterPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.waterSell))!
-        let fursPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.fursSell))!
-        let foodPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.foodSell))!
-        let orePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.oreSell))!
-        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.gamesSell))!
-        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.firearmsSell))!
-        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.medicineSell))!
-        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.machinesSell))!
-        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.narcoticsSell))!
-        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.robotsSell))!
+        let waterPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Water)))!
+        let fursPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Furs)))!
+        let foodPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Food)))!
+        let orePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Ore)))!
+        let gamesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Games)))!
+        let firearmsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Firearms)))!
+        let medicinePriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Medicine)))!
+        let machinesPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Machines)))!
+        let narcoticsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Narcotics)))!
+        let robotsPriceFormatted = numberFormatter.string(from: NSNumber(value: galaxy.currentSystem!.getSellPrice(TradeItemType.Robots)))!
 
         
         // display prices with "cr." appended
@@ -288,34 +288,34 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         let maxCharactersBeforeShrinkingText = 8
         let textSizeToShrinkTo: CGFloat = 13
         
-        if waterPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if waterPrice.text!.count > maxCharactersBeforeShrinkingText {
             waterPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if fursPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if fursPrice.text!.count > maxCharactersBeforeShrinkingText {
             fursPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if foodPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if foodPrice.text!.count > maxCharactersBeforeShrinkingText {
             foodPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if orePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if orePrice.text!.count > maxCharactersBeforeShrinkingText {
             orePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if gamesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if gamesPrice.text!.count > maxCharactersBeforeShrinkingText {
             gamesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if firearmsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if firearmsPrice.text!.count > maxCharactersBeforeShrinkingText {
             firearmsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if medicinePrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if medicinePrice.text!.count > maxCharactersBeforeShrinkingText {
             medicinePrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if machinesPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if machinesPrice.text!.count > maxCharactersBeforeShrinkingText {
             machinesPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if narcoticsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if narcoticsPrice.text!.count > maxCharactersBeforeShrinkingText {
             narcoticsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if robotsPrice.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if robotsPrice.text!.count > maxCharactersBeforeShrinkingText {
             robotsPrice.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
         
@@ -383,78 +383,108 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         }
         
         // make PL string smaller if long
-        if waterPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if waterPL.text!.count > maxCharactersBeforeShrinkingText {
             waterPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if fursPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if fursPL.text!.count > maxCharactersBeforeShrinkingText {
             fursPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if foodPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if foodPL.text!.count > maxCharactersBeforeShrinkingText {
             foodPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if orePL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if orePL.text!.count > maxCharactersBeforeShrinkingText {
             orePL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if gamesPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if gamesPL.text!.count > maxCharactersBeforeShrinkingText {
             gamesPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if firearmsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if firearmsPL.text!.count > maxCharactersBeforeShrinkingText {
             firearmsPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if medicinePL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if medicinePL.text!.count > maxCharactersBeforeShrinkingText {
             medicinePL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if machinesPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if machinesPL.text!.count > maxCharactersBeforeShrinkingText {
             machinesPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if narcoticsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if narcoticsPL.text!.count > maxCharactersBeforeShrinkingText {
             narcoticsPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
-        if robotsPL.text!.characters.count > maxCharactersBeforeShrinkingText {
+        if robotsPL.text!.count > maxCharactersBeforeShrinkingText {
             robotsPL.font = UIFont(name: "AvenirNext-DemiBold", size: textSizeToShrinkTo)
         }
         
         // handle dump buttons
-        if galaxy.currentSystem!.waterSell == 0 {
+        //print("DUMP DEBUG: narcoticsPriceFormatted: \(narcoticsPriceFormatted)")
+        if waterPriceFormatted == "0" {
             waterAllLabel.setTitle("Dump", for: controlState)
             waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            waterAllLabel.setTitle("All", for: controlState)
+            waterAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.fursSell == 0 {
+        if fursPriceFormatted == "0" {
             fursAllLabel.setTitle("Dump", for: controlState)
             fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            fursAllLabel.setTitle("All", for: controlState)
+            fursAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.foodSell == 0 {
+        if foodPriceFormatted == "0" {
             foodAllLabel.setTitle("Dump", for: controlState)
             foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            foodAllLabel.setTitle("All", for: controlState)
+            foodAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.oreSell == 0 {
+        if orePriceFormatted == "0" {
             oreAllLabel.setTitle("Dump", for: controlState)
             oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            oreAllLabel.setTitle("All", for: controlState)
+            oreAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.gamesSell == 0 {
+        if gamesPriceFormatted == "0" {
             gamesAllLabel.setTitle("Dump", for: controlState)
             gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            gamesAllLabel.setTitle("All", for: controlState)
+            gamesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.firearmsSell == 0 {
+        if firearmsPriceFormatted == "0" {
             firearmsAllLabel.setTitle("Dump", for: controlState)
             firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            firearmsAllLabel.setTitle("All", for: controlState)
+            firearmsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.medicineSell == 0 {
+        if medicinePriceFormatted == "0" {
             medicineAllLabel.setTitle("Dump", for: controlState)
             medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            medicineAllLabel.setTitle("All", for: controlState)
+            medicineAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.machinesSell == 0 {
+        if machinesPriceFormatted == "0" {
             machinesAllLabel.setTitle("Dump", for: controlState)
             machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            machinesAllLabel.setTitle("All", for: controlState)
+            machinesAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.narcoticsSell == 0 {
+        if narcoticsPriceFormatted == "0" {
             narcoticsAllLabel.setTitle("Dump", for: controlState)
-            // SET FONT SIZE
             narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            narcoticsAllLabel.setTitle("All", for: controlState)
+            narcoticsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
-        if galaxy.currentSystem!.robotsSell == 0 {
+        if robotsPriceFormatted == "0" {
             robotsAllLabel.setTitle("Dump", for: controlState)
             robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+        } else {
+            robotsAllLabel.setTitle("All", for: controlState)
+            robotsAllLabel.titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         }
         
     }
