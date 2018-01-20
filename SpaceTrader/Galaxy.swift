@@ -1880,7 +1880,6 @@ class Galaxy: NSObject, NSCoding {
         
         for index in 0...totalSpecialsToInclude {
             specialsToBeAssigned.append(sometimesSpecials[index])
-            print("** adding special: \(sometimesSpecials[index])")
         }
         
         // assignment

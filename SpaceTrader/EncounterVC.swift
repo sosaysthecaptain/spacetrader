@@ -36,7 +36,11 @@ class EncounterVC: UIViewController, PlunderDelegate, TradeInOrbitDelegate {
         
         // if encounterText1 not otherwise set, display first context information. Else, display it
         if galaxy.currentJourney!.currentEncounter!.encounterText1 == "" {
-            firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
+            if galaxy.currentJourney!.clicks == 0 {
+                firstTextBlock.text = "At \(galaxy.currentJourney!.clicks + 1) click from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
+            } else {
+                firstTextBlock.text = "At \(galaxy.currentJourney!.clicks + 1) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
+            }
         } else {
             firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
         }

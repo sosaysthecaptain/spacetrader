@@ -218,7 +218,13 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     override func viewDidLoad() {
-        print("SellVC viewDidLoad")
+        loadPrices()
+        recurringUpdate()
+        buyAsOpposedToSell = false    
+    }
+    
+    func readoutPrices() {              // debug
+        print("SellVC price readout")
         print("  waterSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Water))")
         print("  fursSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Furs))")
         print("  foodSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Food))")
@@ -229,10 +235,6 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         print("  machinesSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Machines))")
         print("  narcoticsSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Narcotics))")
         print("  robotsSell: \(galaxy.currentSystem!.getSellPrice(TradeItemType.Robots))")
-        
-        loadPrices()
-        recurringUpdate()
-        buyAsOpposedToSell = false    
     }
     
     
@@ -460,6 +462,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     // this updates quantities when this page becomes active
     override func viewWillAppear(_ animated: Bool) {
         print("sellVC viewWillAppear")
+        readoutPrices()
         
         recurringUpdate()
         buyAsOpposedToSell = false
