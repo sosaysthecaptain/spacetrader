@@ -87,7 +87,7 @@ class TradeInOrbitVC: UIViewController {
             firstTextView.text = "The trader wants to buy \(commodityToTrade.rawValue) at \(askPriceFormatted) cr. each."
             secondTextView.text = "You have \(player.commanderShip.getQuantity(commodityToTrade)) units in your hold."
             thirdTextView.text = "The trader offers to buy \(max) units. How many do you want to sell?"
-            fourthTextView.text = "You paid \(player.commanderShip.getPricePaid(commodityToTrade)) per unit."
+            fourthTextView.text = "You paid \(player.commanderShip.getPricePaid(commodityToTrade)) per unit, and the sell price at your destination is \(galaxy.targetSystem!.getSellPrice(commodityToTrade))."
         } else {
             // SELL
             // arbitrarily choose commodity
@@ -128,6 +128,11 @@ class TradeInOrbitVC: UIViewController {
             secondTextView.text = "The trader has \(tradeOfferAmount) units for sale."
             thirdTextView.text = "You have money and space for \(max) units. How many do you want to buy?"
             fourthTextView.text = "The sell price at your destination is \(galaxy.targetSystem!.getSellPrice(commodityToTrade))."
+            
+            // handle case of not traded at destination
+            if galaxy.targetSystem!.getSellPrice(commodityToTrade) == 0 {
+                fourthTextView.text = "\(commodityToTrade) is not traded in at your destination."
+            }
         }
         
         // update slider stuff
