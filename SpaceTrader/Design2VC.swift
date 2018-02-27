@@ -92,6 +92,11 @@ class Design2VC: UIViewController {
                 maxUnits = 250
         }
         
+        // handle size specialty. If selected size is specialty, player gets 20 more units to work with
+        if player.selectedConstructShipSize == galaxy.currentSystem!.shipyardSizeSpecialty {
+            maxUnits += 20
+        }
+        
         // set defaults, load display
         self.setMaxMinDefault()
         self.updateDisplay()
@@ -285,11 +290,6 @@ class Design2VC: UIViewController {
                 unitsInUse -= 40
             default:
                 print("error")
-        }
-        
-        // handle size specialty. If selected size is specialty, player gets 20 more units to work with
-        if player.selectedConstructShipSize == galaxy.currentSystem!.shipyardSizeSpecialty {
-            maxUnits += 20
         }
     }
     
